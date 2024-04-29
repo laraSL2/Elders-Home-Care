@@ -1,11 +1,14 @@
 import os
+import json
 import google.generativeai as genai
 from langchain_google_genai import ChatGoogleGenerativeAI
 from google.generativeai.types import HarmCategory, HarmBlockThreshold
 
 class GeminiInitializer:
-    def __init__(self):
-        self.api_key = "AIzaSyB3QX46EFHbg_qL5P2QOmxZQMR5_OSCMEI"
+    def __init__(self, config_path="config.json"):
+        with open(config_path) as f:
+            config = json.load(f)
+        self.api_key = config["gemini-api-key"]
         os.environ['GOOGLE_API_KEY'] = self.api_key
         genai.configure(api_key = os.environ['GOOGLE_API_KEY'])
 

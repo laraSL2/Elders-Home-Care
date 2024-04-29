@@ -2,12 +2,15 @@
 
 from neo4j import GraphDatabase
 import pandas as pd
+import json
 
 class GraphInitializer:
-  def __init__(self):
-    self.connectionUrl = "neo4j+ssc://8203059b.databases.neo4j.io" #"neo4j+s://9a0aaec6.databases.neo4j.io"
-    self.username = "neo4j"
-    self.password = "PlKRCMFTwa4SEaHZ6H7CvtDTg7_M2n34wcbahFEWPXc"
+  def __init__(self, config_path="config.json"):
+    with open(config_path) as f:
+      config = json.load(f)
+    self.connectionUrl = config["neo4j-url"]
+    self.username = config["neo4j-user"]
+    self.password = config["neo4j-password"]
     self.driver = GraphDatabase.driver(self.connectionUrl, auth=(self.username, self.password))
     self.driver.verify_connectivity()
 
