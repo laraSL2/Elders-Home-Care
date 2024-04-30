@@ -12,8 +12,17 @@ from reportlab.lib.units import inch
 from reportlab.lib.pagesizes import letter
 from io import BytesIO
 
+
+### temperory expert
+from rag_expert.generate_expert_suggestions import get_llm_and_retriever,generate_suggestions
+
+if "mv_retriever" not in st.session_state and "expert_llm" not in st.session_state:
+    st.session_state.mv_retriever,st.session_state.expert_llm = get_llm_and_retriever()
+####
+
 my_gemini = GeminiInitializer()
 my_graph = GraphInitializer()
+
 
 if "button_clicked" not in st.session_state:
     st.session_state.button_clicked = False
@@ -230,7 +239,9 @@ elif selected == "Care Plan Generation":
     if generation_button and elder_id:
         # my_gemini = GeminiInitializer()
         # my_graph = GraphInitializer()
-        care_plan = generate_plan(elder_id, GeminiInitializer=my_gemini, GraphInitializer=my_graph)
+        care_plan = generate_plan(elder_id, GeminiInitializer=my_gemini, GraphInitializer=my_graph,
+                                  expert_llm=st.session_state.expert_llm,
+                                  retriever = st.session_state.mv_retriever)
         st.session_state.care_plan = care_plan  
     elif not elder_id and generation_button:
         st.warning("Please fill in the elder ID to generate the care plan.")

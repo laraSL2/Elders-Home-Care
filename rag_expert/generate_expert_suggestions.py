@@ -75,7 +75,7 @@ def retrieve_documents(user_query,retriever):
         # retrieved_docs = vdb.similarity_search_with_score(user_query, k=3,)
         
     bm25_retriever = BM25Retriever.from_documents(retrieved_docs)
-    bm25_retriever.k =  4 # Retrieve top 2 results
+    bm25_retriever.k =  6 # Retrieve top 2 results
     bm25_retrieved_docs = bm25_retriever.invoke(user_query)
     similar_docs = bm25_retrieved_docs
     document_text = [doc.page_content for doc in similar_docs]
@@ -90,10 +90,9 @@ You should organize your response in a professional, objective tone. Provide you
 process to explain how you reasoned to provide the response.
 
 Steps:
-1. Read and understand the query and sources thoroughly.
-2. Use all sources provided in the document to think about how to provide the correct medical treatments to perform by the caregiver.
-3. If the sources in the document are overlapping or have duplicate details, select sources which
-are most detailed and comprehensive.
+1. Read and understand the query and information in documents thoroughly.
+2. Use all information provided in the document to think about how to provide the correct medical treatments to perform by the caregiver. Here please consider the proper medical treatments which the elder might like to do using the provided query.
+3. If the information in the document are overlapping or have duplicate details, select information which are most detailed and comprehensive.
 4. Remember to provide both treatments methods what we should do and what we should not do.
 
 Now it's your turn!
@@ -102,7 +101,7 @@ Now it's your turn!
 </DOCUMENT>
 <INSTRUCTIONS>
 Your response should include a 2-step cohesive answer with following keys:
-1. "Thought" key: Explain how you would use the sources in the document to partially or
+1. "Thought" key: Explain how you would use the information in the document to partially or
 completely answer the query.
 2. "Technical Document":
 - Present each treatment method accurately without adding new information.
