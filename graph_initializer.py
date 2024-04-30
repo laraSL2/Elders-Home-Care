@@ -13,6 +13,7 @@ class GraphInitializer:
     self.password = config["neo4j-password"]
     self.driver = GraphDatabase.driver(self.connectionUrl, auth=(self.username, self.password))
     self.driver.verify_connectivity()
+    print("Initializing the graph")
 
   def run_query(self, query, params={}):
       with self.driver.session() as session:

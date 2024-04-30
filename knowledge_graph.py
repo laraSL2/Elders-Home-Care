@@ -4,6 +4,7 @@ import json
 import datetime
 import random
 from prompts import Prompts
+from graph_initializer import GraphInitializer
 
 def clean_text(text):
     return re.sub(r'[^\x00-\x7F]+',' ', text)
@@ -260,3 +261,14 @@ def add_patient(gemini, graph, elderid, care_note_mode=False, care_note="", data
     # except Exception as e:
     #     print(f"    Processing Failed with exception {e}")
     #     return False
+
+def get_max_patient_id(graph):
+    query = "MATCH (e:Elder) RETURN max(toInteger(substring(e.id, 1))) AS max_id"
+    result = graph.run_query(query)
+    return result['max_id'][0]
+
+def get_next_patient_id(graph):
+    max_id = get_max_patient_id(graph)
+    if max_id is None:
+        return ""
+    return "e"+str(max_id + 1).zfill(4)
