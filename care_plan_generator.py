@@ -170,7 +170,10 @@ def read_graph(elderID: str, GraphInitializer = GraphInitializer())->tuple[graph
 
 def generate_plan(elderID:str, GeminiInitializer = GeminiInitializer(), GraphInitializer = GeminiInitializer())->str:
     elderID = elderID.lower()
-    Nodes, Relationships = read_graph(elderID, GraphInitializer=GraphInitializer)
+    try:
+        Nodes, Relationships = read_graph(elderID, GraphInitializer=GraphInitializer)
+    except:
+        return "Can Not retrieve Information from the Knowledge Graph. Please update the the transmission capacity."
     elder_node = [node for node in Nodes if list(node.labels)[0]=='Elder']
     if len(elder_node) == 0:
         return "Elder ID not found in the Knowledge Graph"

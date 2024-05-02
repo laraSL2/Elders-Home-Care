@@ -4,7 +4,6 @@ import json
 import datetime
 import random
 from prompts import Prompts
-from graph_initializer import GraphInitializer
 
 def clean_text(text):
     return re.sub(r'[^\x00-\x7F]+',' ', text)
