@@ -1,0 +1,67 @@
+Mr. Christopher Miller,81,Male,AB+,Hypertension,Amber Gonzalez,Ortega and Sons,Lipitor,Inconclusive,Basic Information of the Elder admitted to the Care Home:
+  Name: Mr. Christopher Miller
+  Age: 81
+  Gender: Male
+  Weight: 75 kg
+  Height: 1.75 m
+  BMI: 24.5
+  Blood Type: AB+
+  DOB: 1942-03-15
+  Language Understanding: Conversational Proficiency
+  Marital Status: Widowed
+  Address: 123 Main Street, Anytown, CA 91234
+
+Details of the Guardian:
+  Name: Mrs. Sarah Miller
+  Contact Details: (555) 123-4567
+
+Medical History of the Elder:
+  Disease: Hypertension
+  Previous Consultant: Amber Gonzalez
+  Specialization of the Previous Consultant: Cardiology
+  Previous Care Home: Ortega and Sons
+  Contact details of the Previous care home: (555) 987-6543
+  Medication Recommended by previous Consultant: Lipitor
+  Test Results Recorded: Inconclusive
+  Drug: Lipitor
+  Dosage: 10 mg
+  Frequency: Once daily
+  Procedure: Take orally with food
+  Symptoms: High blood pressure, dizziness, fatigue
+  Past Diseases: None
+  Past Surgeries: None
+  Disease: Hypertension
+  Level of severity: Moderate
+  Identified date/time of the disease: 2010-01-01
+  Description of the disease: A condition in which blood pressure is abnormally high
+
+Medical Status:
+  Monitoring Plan: Blood pressure monitoring
+  Property needs to be monitored: Blood pressure
+  How often it needs to be monitored: Twice daily
+  Start date and time: 2023-03-01
+  End date and time: 2023-03-31
+  Observation: Blood pressure reading of 140/90 mmHg
+  Description for the observation: Blood pressure is slightly elevated
+  Date of obseravation: 2023-03-01
+  Time of observation: 10:00 AM
+  Doctor schedules: Dr. Smith
+  Appointment with the doctor: Dr. Smith
+  Venue of the appointment: Anytown Medical Center
+  Date for the appointment: 2023-03-15
+  Time for the appointment: 2:00 PM
+  Prerequisites for the appointment: None
+
+Social History of the Elder:
+  Living Situation: Mr. Miller lives alone in a small apartment. He is able to care for himself with some assistance from his daughter.
+  Occupation: Retired engineer
+
+Functional Status of the Elder:
+  Activities of Daily Living: Bathing: can manage independently, Dressing: can manage independently, Eating: can manage independently, Toileting: can manage independently, Transferring: can manage independently, Continence: can manage independently
+  Instrumental Activities of Daily Living: Phone: can manage independently, Managing finances: needs assistance, Meal preparation: needs assistance, Housework: needs assistance, Transportation: needs assistance, Medication management: can manage independently
+  Cognitive Assessments: Thinking: good, Reasoning: good, Remembering: good, Imagining: good, Learning words: good, Using language: good
+  Hobbies: Playing Bingo, Reading
+
+Food Preferences of the Elder:
+  Allergies: None
+  Preferences: Low-sodium foods, fruits, vegetables

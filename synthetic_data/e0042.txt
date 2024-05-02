@@ -1,0 +1,67 @@
+Mrs. Caroline Farrell,23,Female,O-,Hypertension,William Miller,Rose Inc,Paracetamol,Inconclusive,Basic Information of the Elder admitted to the Care Home:
+  Name: Mrs. Caroline Farrell
+  Age: 23
+  Gender: Female
+  Weight: 65 kg
+  Height: 1.65 m
+  BMI: 23.9
+  Blood Type: O-
+  DOB: 1999-05-12
+  Language Understanding: Conversational Proficiency
+  Marital Status: Single
+  Address: 123 Main Street, Anytown, CA 91234
+
+Details of the Guardian:
+  Name: Mr. John Farrell
+  Contact Details: (555) 123-4567
+
+Medical History of the Elder:
+  Disease: Hypertension
+  Previous Consultant: William Miller
+  Specialization of the Previous Consultant: Cardiology
+  Previous Care Home: Rose Inc
+  Contact details of the Previous care home: (555) 234-5678
+  Medication Recommended by previous Consultant: Paracetamol
+  Test Results Recorded: Inconclusive
+  Drug: Paracetamol
+  Dosage: 500 mg
+  Frequency: Every 6 hours
+  Procedure: Take orally with water
+  Symptoms: High blood pressure, headaches, dizziness
+  Past Diseases: None
+  Past Surgeries: None
+  Disease: Hypertension
+  Level of severity: Mild
+  Identified date/time of the disease: 2023-03-01
+  Description of the disease: High blood pressure is a condition in which the blood pressure in the arteries is elevated. It is a major risk factor for heart disease, stroke, and kidney disease.
+
+Medical Status:
+  Monitoring Plan: Blood pressure monitoring
+  Property needs to be monitored: Blood pressure
+  How often it needs to be monitored: Every day
+  Start date and time: 2023-03-02
+  End date and time: 2023-03-31
+  Observation: Blood pressure is stable.
+  Description for the observation: Blood pressure is 120/80 mmHg.
+  Date of obseravation: 2023-03-03
+  Time of observation: 10:00 AM
+  Doctor schedules: Dr. Smith
+  Appointment with the doctor: Dr. Smith
+  Venue of the appointment: Anytown Medical Center
+  Date for the appointment: 2023-03-10
+  Time for the appointment: 2:00 PM
+  Prerequisites for the appointment: None
+
+Social History of the Elder:
+  Living Situation: Lives alone in a small apartment.
+  Occupation: Unemployed
+
+Functional Status of the Elder:
+  Activities of Daily Living: Bathing: can manage independently, Dressing: can manage independently, Eating: can manage independently, Toileting: can manage independently, Transferring: can manage independently, Continence: can manage independently
+  Instrumental Activities of Daily Living: Phone: can manage independently, Managing finances: needs assistance, Meal preparation: needs assistance, Housework: needs assistance, Transportation: needs assistance, Medication management: can manage independently
+  Cognitive Assessments: Thinking: good, Reasoning: good, Remembering: good, Imagining: good, Learning words: good, Using language: good
+  Hobbies: Playing Bingo, Reading
+
+Food Preferences of the Elder:
+  Allergies: None
+  Preferences: Fruits, vegetables, lean protein

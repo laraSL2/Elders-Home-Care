@@ -1,0 +1,67 @@
+Desiree Williams MD,66,Male,O+,Obesity,Megan Sanders,Pugh-Rogers,Aspirin,Inconclusive,Basic Information of the Elder admitted to the Care Home:
+  Name: Desiree Williams MD
+  Age: 66
+  Gender: Male
+  Weight: 85 kg
+  Height: 1.75 m
+  BMI: 27.7
+  Blood Type: O+
+  DOB: 1957-03-12
+  Language Understanding: Conversational Proficiency
+  Marital Status: Widowed
+  Address: 123 Main Street, Anytown, CA 91234
+
+Details of the Guardian:
+  Name: Megan Sanders
+  Contact Details: 555-123-4567
+
+Medical History of the Elder:
+  Disease: Obesity
+  Previous Consultant: Dr. Smith
+  Specialization of the Previous Consultant: Internal Medicine
+  Previous Care Home: Pugh-Rogers
+  Contact details of the Previous care home: 555-234-5678
+  Medication Recommended by previous Consultant: Aspirin
+  Test Results Recorded: Inconclusive
+  Drug: Aspirin
+  Dosage: 325 mg
+  Frequency: Once a day
+  Procedure: Take orally with water
+  Symptoms: Fatigue, shortness of breath, difficulty sleeping
+  Past Diseases: Hypertension
+  Past Surgeries: None
+  Disease: Hypertension
+  Level of severity: Moderate
+  Identified date/time of the disease: 2015-01-01
+  Description of the disease: High blood pressure
+
+Medical Status:
+  Monitoring Plan: Blood pressure monitoring
+  Property needs to be monitored: Blood pressure
+  How often it needs to be monitored: Twice a day
+  Start date and time: 2023-03-01
+  End date and time: 2023-03-31
+  Observation: Blood pressure reading: 140/90 mmHg
+  Description for the observation: Blood pressure is slightly elevated
+  Date of obseravation: 2023-03-01
+  Time of observation: 10:00 AM
+  Doctor schedules: Dr. Jones
+  Appointment with the doctor: Dr. Jones
+  Venue of the appointment: Anytown Medical Center
+  Date for the appointment: 2023-03-15
+  Time for the appointment: 10:00 AM
+  Prerequisites for the appointment: None
+
+Social History of the Elder:
+  Living Situation: Lives alone in a small apartment
+  Occupation: Retired teacher
+
+Functional Status of the Elder:
+  Activities of Daily Living: Bathing: can manage independently, Dressing: can manage independently, Eating: can manage independently, Toileting: can manage independently, Transferring: can manage independently, Continence: can manage independently
+  Instrumental Activities of Daily Living: Phone: can manage independently, Managing finances: can manage independently, Meal preparation: needs assistance, Housework: needs assistance, Transportation: needs assistance, Medication management: can manage independently
+  Cognitive Assessments: Thinking: good, Reasoning: good, Remembering: good, Imagining: good, Learning words: good, Using language: good
+  Hobbies: Reading, Playing Bingo
+
+Food Preferences of the Elder:
+  Allergies: None
+  Preferences: Fruits, vegetables, lean protein

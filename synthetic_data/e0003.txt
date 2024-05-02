@@ -1,0 +1,39 @@
+Basic Information of the Elder admitted to the Care Home:
+  Name: Glen Brown
+  Age: 64
+  Gender: Male
+  Blood Type: AB-
+  DOB: 1959-01-01
+  Language Understanding: Conversational Proficiency
+  Marital Status: Married
+  Address: 123 Main Street, Anytown, CA 91234
+
+Details of the Guardian:
+  Name: Mary Brown
+  Contact Details: (555) 123-4567
+
+Medical History of the Elder:
+  Disease: Hypertension
+  Previous Consultant: Francisco Cortez
+  Specialization of the Previous Consultant: Cardiology
+  Previous Care Home: Warner and Sons
+  Medication Recommended by previous Consultant: Ibuprofen
+  Test Results Recorded: Inconclusive
+  Drug: Lisinopril
+  Dosage: 10 mg daily
+  Procedure: Take orally once a day
+
+Social History of the Elder:
+  Living Situation: Lives with spouse in a single-family home.
+  Occupation: Retired engineer
+
+Functional Status of the Elder:
+  Activities of Daily Living: Bathing - can manage independently, Dressing - can manage independently, Eating - can manage independently
+  Instrumental Activities of Daily Living: Phone - can manage independently, Managing finances - can manage independently, Meal preparation - needs assistance
+  Cognitive Assessments: Thinking - good, Reasoning - good, Remembering - good
+  Hobbies: Playing Bingo,
+Reading
+
+Food Preferences of the Elder:
+  Allergies: None
+  Preferences: Low-sodium diet, fruits, vegetables

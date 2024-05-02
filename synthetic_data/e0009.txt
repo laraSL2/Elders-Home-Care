@@ -1,0 +1,67 @@
+Ronnie Hughes,56,Female,A-,Cancer,Nicole Mcclain,Hawkins Ltd,Penicillin,Abnormal,Basic Information of the Elder admitted to the Care Home:
+  Name: Ronnie Hughes
+  Age: 56
+  Gender: Female
+  Weight: 65 kg
+  Height: 1.6 m
+  BMI: 25.3
+  Blood Type: A-
+  DOB: 1967-03-12
+  Language Understanding: Conversational Proficiency
+  Marital Status: Divorced
+  Address: 123 Main Street, Anytown, CA 91234
+
+Details of the Guardian:
+  Name: John Smith
+  Contact Details: 555-123-4567
+
+Medical History of the Elder:
+  Disease: Cancer
+  Previous Consultant: Nicole Mcclain
+  Specialization of the Previous Consultant: Oncology
+  Previous Care Home: Hawkins Ltd
+  Contact details of the Previous care home: 555-234-5678
+  Medication Recommended by previous Consultant: Penicillin
+  Test Results Recorded: Abnormal
+  Drug: Penicillin
+  Dosage: 500 mg
+  Frequency: Twice a day
+  Procedure: Oral administration
+  Symptoms: Fatigue, weight loss, pain
+  Past Diseases: None
+  Past Surgeries: None
+  Disease: Cancer
+  Level of severity: Moderate
+  Identified date/time of the disease: 2023-01-01
+  Description of the disease: Ronnie Hughes was diagnosed with cancer in 2023. The cancer is in its early stages and is being treated with chemotherapy.
+
+Medical Status:
+  Monitoring Plan: Blood pressure monitoring
+  Property needs to be monitored: Blood pressure
+  How often it needs to be monitored: Once a day
+  Start date and time: 2023-03-01
+  End date and time: 2023-06-01
+  Observation: Ronnie Hughes' blood pressure is stable.
+  Description for the observation: Ronnie Hughes' blood pressure has been monitored daily since 2023-03-01. Her blood pressure has remained within normal limits.
+  Date of obseravation: 2023-05-01
+  Time of observation: 10:00 AM
+  Doctor schedules:
+    - doctor_name: Dr. Smith
+    - hospital_name: Anytown Hospital
+    - appoinment_date: 2023-06-01
+    - appointment_time: 10:00 AM
+    - prerequisites_for_appointement: None
+
+Social History of the Elder:
+  Living Situation: Ronnie Hughes lives alone in a small apartment. She is able to care for herself with some assistance from her friends and family.
+  Occupation: Ronnie Hughes is a retired nurse.
+
+Functional Status of the Elder:
+  Activities of Daily Living: Ronnie Hughes can manage most activities of daily living independently, but she needs assistance with bathing and dressing.
+  Instrumental Activities of Daily Living: Ronnie Hughes can manage most instrumental activities of daily living independently, but she needs assistance with managing her finances and transportation.
+  Cognitive Assessments: Ronnie Hughes has no cognitive impairments.
+  Hobbies: Ronnie Hughes enjoys reading and spending time with her friends and family.
+
+Food Preferences of the Elder:
+  Allergies: None
+  Preferences: Ronnie Hughes enjoys eating healthy foods, such as fruits, vegetables, and whole grains. She also enjoys occasional treats, such as chocolate and ice cream.

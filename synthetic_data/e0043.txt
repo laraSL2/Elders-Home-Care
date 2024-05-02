@@ -1,0 +1,67 @@
+Christina Williams,85,Female,A+,Diabetes,Laura Roberts,Malone, Thompson and Mejia,Aspirin,Inconclusive,Basic Information of the Elder admitted to the Care Home:
+  Name: Christina Williams
+  Age: 85
+  Gender: Female
+  Weight: 65 kg
+  Height: 1.6 m
+  BMI: 25.3
+  Blood Type: A+
+  DOB: 1938-05-12
+  Language Understanding: Conversational Proficiency
+  Marital Status: Widowed
+  Address: 123 Main Street, Anytown, CA 91234
+
+Details of the Guardian:
+  Name: Laura Roberts
+  Contact Details: (555) 123-4567
+
+Medical History of the Elder:
+  Disease: Diabetes
+  Previous Consultant: Thompson and Mejia
+  Specialization of the Previous Consultant: Endocrinology
+  Previous Care Home: Malone
+  Contact details of the Previous care home: (555) 234-5678
+  Medication Recommended by previous Consultant: Aspirin
+  Test Results Recorded: Inconclusive
+  Drug: Metformin
+  Dosage: 500 mg
+  Frequency: Twice a day
+  Procedure: Oral administration
+  Symptoms: Increased thirst, frequent urination, fatigue
+  Past Diseases: Hypertension
+  Past Surgeries: None
+  Disease: Diabetes
+  Level of severity: Moderate
+  Identified date/time of the disease: 2010-01-01
+  Description of the disease: Christina has been diagnosed with type 2 diabetes. She is currently managing her condition with medication and lifestyle changes.
+
+Medical Status:
+  Monitoring Plan: Blood glucose monitoring
+  Property needs to be monitored: Blood glucose levels
+  How often it needs to be monitored: Daily
+  Start date and time: 2023-03-01
+  End date and time: N/A
+  Observation: Stable blood glucose levels
+  Description for the observation: Christina's blood glucose levels have been stable since she started taking Metformin.
+  Date of obseravation: 2023-03-15
+  Time of observation: 10:00 AM
+  Doctor schedules:
+    - doctor_name: Dr. Smith
+    - hospital_name: Anytown Hospital
+    - appoinment_date: 2023-04-01
+    - appointment_time: 10:00 AM
+    - prerequisites_for_appointement: None
+
+Social History of the Elder:
+  Living Situation: Christina lives alone in her own home. She has a home health aide who comes in a few times a week to help her with activities of daily living.
+  Occupation: Retired school teacher
+
+Functional Status of the Elder:
+  Activities of Daily Living: Bathing: can manage independently, Dressing: can manage independently, Eating: can manage independently, Toileting: can manage independently, Transferring: can manage independently, Continence: can manage independently
+  Instrumental Activities of Daily Living: Phone: can manage independently, Managing finances: needs assistance, Meal preparation: needs assistance, Housework: needs assistance, Transportation: needs assistance, Medication management: can manage independently
+  Cognitive Assessments: Thinking: good, Reasoning: good, Remembering: good, Imagining: good, Learning words: good, Using language: good
+  Hobbies: Reading, Playing Bingo
+
+Food Preferences of the Elder:
+  Allergies: None
+  Preferences: Fruits, vegetables, whole grains

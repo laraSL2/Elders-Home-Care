@@ -1,0 +1,63 @@
+Ryan Hayes,33,Male,A+,Diabetes,Kristin Dunn,Smith, Edwards and Obrien,Aspirin,Abnormal,Basic Information of the Elder admitted to the Care Home:
+  Name: Ryan Hayes
+  Age: 33
+  Gender: Male
+  Weight: 75 kg
+  Height: 1.75 m
+  BMI: 24.5
+  Blood Type: A+
+  DOB: 1989-05-12
+  Language Understanding: Conversational Proficiency
+  Marital Status: Single
+  Address: 123 Main Street, Anytown, CA 91234
+
+Details of the Guardian:
+  Name: Kristin Dunn
+  Contact Details: 555-123-4567
+
+Medical History of the Elder:
+  Disease: Diabetes
+  Previous Consultant: Dr. Smith
+  Specialization of the Previous Consultant: Endocrinology
+  Previous Care Home: Edwards and Obrien
+  Contact details of the Previous care home: 555-234-5678
+  Medication Recommended by previous Consultant: Aspirin
+  Test Results Recorded: Abnormal
+  Drug: Metformin
+  Dosage: 500 mg
+  Frequency: Twice a day
+  Procedure: Oral administration
+  Symptoms: Increased thirst, frequent urination, fatigue
+  Past Diseases: None
+  Past Surgeries: None
+  Disease: Diabetes
+  Level of severity: Moderate
+  Identified date/time of the disease: 2021-01-01
+  Description of the disease: Diabetes is a chronic metabolic disorder characterized by elevated blood sugar levels.
+
+Medical Status:
+  Monitoring Plan: Blood glucose monitoring
+  Property needs to be monitored: Blood sugar levels
+  How often it needs to be monitored: Daily
+  Start date and time: 2023-03-01
+  End date and time: N/A
+  Observation: Blood sugar level: 120 mg/dL
+  Description for the observation: Blood sugar level is within normal range.
+  Date of obseravation: 2023-03-02
+  Time of observation: 10:00 AM
+  Doctor schedules: Dr. Jones, Anytown Medical Center, 2023-03-15, 10:00 AM, Bring blood sugar log
+  Prerequisites for the appointment: N/A
+
+Social History of the Elder:
+  Living Situation: Ryan lives alone in a small apartment. He is able to care for himself independently.
+  Occupation: Ryan is a software engineer.
+
+Functional Status of the Elder:
+  Activities of Daily Living: Bathing: can manage independently, Dressing: can manage independently, Eating: can manage independently, Toileting: can manage independently, Transferring: can manage independently, Continence: can manage independently
+  Instrumental Activities of Daily Living: Phone: can manage independently, Managing finances: can manage independently, Meal preparation: can manage independently, Housework: can manage independently, Transportation: can manage independently, Medication management: can manage independently
+  Cognitive Assessments: Thinking: good, Reasoning: good, Remembering: good, Imagining: good, Learning words: good, Using language: good
+  Hobbies: Playing Bingo, Reading
+
+Food Preferences of the Elder:
+  Allergies: None
+  Preferences: Healthy foods, such as fruits, vegetables, and whole grains

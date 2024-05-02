@@ -1,0 +1,68 @@
+Miguel Baker,23,Male,O-,Arthritis,Mark Hill,Ramirez Inc,Penicillin,Inconclusive
+,Basic Information of the Elder admitted to the Care Home:
+  Name: Miguel Baker
+  Age: 23
+  Gender: Male
+  Weight: 75 kg
+  Height: 1.75 m
+  BMI: 24.5
+  Blood Type: O-
+  DOB: 1999-05-12
+  Language Understanding: Conversational Proficiency
+  Marital Status: Single
+  Address: 123 Main Street, Anytown, CA 91234
+
+Details of the Guardian:
+  Name: Maria Baker
+  Contact Details: (555) 123-4567
+
+Medical History of the Elder:
+  Disease: Arthritis
+  Previous Consultant: Mark Hill
+  Specialization of the Previous Consultant: Rheumatologist
+  Previous Care Home: Ramirez Inc
+  Contact details of the Previous care home: (555) 234-5678
+  Medication Recommended by previous Consultant: Penicillin
+  Test Results Recorded: Inconclusive
+  Drug: Penicillin
+  Dosage: 500 mg
+  Frequency: Twice a day
+  Procedure: Oral administration
+  Symptoms: Joint pain, swelling, and stiffness
+  Past Diseases: None
+  Past Surgeries: None
+  Disease: Arthritis
+  Level of severity: Mild
+  Identified date/time of the disease: 2023-01-01
+  Description of the disease: Miguel has been diagnosed with arthritis, a condition that causes inflammation of the joints. He experiences joint pain, swelling, and stiffness, which can make it difficult for him to perform everyday activities.
+
+Medical Status:
+  Monitoring Plan: Monitor joint pain and swelling
+  Property needs to be monitored: Pain level and swelling
+  How often it needs to be monitored: Daily
+  Start date and time: 2023-02-01
+  End date and time: 2023-03-01
+  Observation: Miguel's joint pain and swelling have remained stable over the past week. He is able to perform most activities of daily living without assistance.
+  Description for the observation: Miguel's pain level is currently at a 3 out of 10 on the pain scale. His swelling has also decreased slightly.
+  Date of obseravation: 2023-02-08
+  Time of observation: 10:00 AM
+  Doctor schedules:
+    - Appointment with the doctor: Dr. Smith
+    - Venue of the appointment: Anytown Medical Center
+    - Date for the appointment: 2023-03-01
+    - Time for the appointment: 10:00 AM
+    - Prerequisites for the appointment: None
+
+Social History of the Elder:
+  Living Situation: Miguel lives with his mother in a small apartment. He is able to care for himself independently.
+  Occupation: Miguel is a student at Anytown Community College. He is studying to become a nurse.
+
+Functional Status of the Elder:
+  Activities of Daily Living: Miguel can manage all activities of daily living independently.
+  Instrumental Activities of Daily Living: Miguel can manage all instrumental activities of daily living independently.
+  Cognitive Assessments: Miguel has no cognitive impairments.
+  Hobbies: Miguel enjoys playing video games and reading.
+
+Food Preferences of the Elder:
+  Allergies: None
+  Preferences: Miguel enjoys eating healthy foods, such as fruits, vegetables, and whole grains. He also enjoys occasional treats, such as ice cream and chocolate.

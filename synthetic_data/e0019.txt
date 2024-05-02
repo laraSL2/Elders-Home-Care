@@ -1,0 +1,62 @@
+Mariah Williams,72,Male,A-,Diabetes,John Harvey,Anderson-Mason,Penicillin,Normal,Basic Information of the Elder admitted to the Care Home:
+  Name: Mariah Williams
+  Age: 72
+  Gender: Male
+  Weight: 75 kg
+  Height: 1.7 m
+  BMI: 26.3
+  Blood Type: A-
+  DOB: 1951-03-12
+  Language Understanding: Conversational Proficiency
+  Marital Status: Widowed
+  Address: 123 Main Street, Springfield, CA 91321
+
+Details of the Guardian:
+  Name: N/A
+  Contact Details: N/A
+
+Medical History of the Elder:
+  Disease: Diabetes
+  Previous Consultant: John Harvey
+  Specialization of the Previous Consultant: Endocrinology
+  Previous Care Home: Anderson-Mason
+  Contact details of the Previous care home: (555) 123-4567
+  Medication Recommended by previous Consultant: Penicillin
+  Test Results Recorded: Normal
+  Drug: Metformin
+  Dosage: 500 mg
+  Frequency: Twice a day
+  Procedure: Oral administration
+  Symptoms: Increased thirst, frequent urination, fatigue
+  Past Diseases: Hypertension
+  Past Surgeries: N/A
+  Disease: Diabetes
+  Level of severity: Moderate
+  Identified date/time of the disease: 2010-01-01
+  Description of the disease: A chronic metabolic disorder characterized by elevated blood sugar levels due to the body's inability to produce or effectively use insulin.
+
+Medical Status:
+  Monitoring Plan: Blood glucose monitoring
+  Property needs to be monitored: Blood sugar levels
+  How often it needs to be monitored: Daily
+  Start date and time: 2023-08-01
+  End date and time: N/A
+  Observation: Stable blood sugar levels
+  Description for the observation: Blood sugar levels have been within normal range since admission to the care home.
+  Obs_date: 2023-08-05
+  Obs_time: 10:00 AM
+  Doctor schedules: N/A
+
+Social History of the Elder:
+  Living Situation: Lives alone in a small apartment.
+  Occupation: Retired engineer
+
+Functional Status of the Elder:
+  Activities of Daily Living: Bathing: can manage independently, Dressing: can manage independently, Eating: can manage independently, Toileting: can manage independently, Transferring: can manage independently, Continence: can manage independently
+  Instrumental Activities of Daily Living: Phone: can manage independently, Managing finances: needs assistance, Meal preparation: needs assistance, Housework: needs assistance, Transportation: needs assistance, Medication management: can manage independently
+  Cognitive Assessments: Thinking: good, Reasoning: good, Remembering: good, Imagining: good, Learning words: good, Using language: good
+  Hobbies: Reading, Cycling
+
+Food Preferences of the Elder:
+  Allergies: N/A
+  Preferences: Low-sugar diet, plenty of fruits and vegetables

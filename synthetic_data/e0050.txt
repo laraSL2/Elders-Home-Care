@@ -1,0 +1,67 @@
+William Johnson,55,Female,AB+,Arthritis,Kelly Thompson,Pearson LLC,Penicillin,Normal,Basic Information of the Elder admitted to the Care Home:
+  Name: William Johnson
+  Age: 55
+  Gender: Female
+  Weight: 70 kg
+  Height: 1.65 m
+  BMI: 25.9
+  Blood Type: AB+
+  DOB: 1968-03-12
+  Language Understanding: Conversational Proficiency
+  Marital Status: Divorced
+  Address: 123 Main Street, Anytown, CA 91234
+
+Details of the Guardian:
+  Name: Mary Johnson
+  Contact Details: (555) 123-4567
+
+Medical History of the Elder:
+  Disease: Arthritis
+  Previous Consultant: Kelly Thompson
+  Specialization of the Previous Consultant: Rheumatologist
+  Previous Care Home: Pearson LLC
+  Contact details of the Previous care home: (555) 234-5678
+  Medication Recommended by previous Consultant: Penicillin
+  Test Results Recorded: Normal
+  Drug: Penicillin
+  Dosage: 500 mg
+  Frequency: Twice a day
+  Procedure: Oral administration
+  Symptoms: Joint pain, stiffness, swelling
+  Past Diseases: None
+  Past Surgeries: None
+  Disease: Arthritis
+  Level of severity: Mild
+  Identified date/time of the disease: 2010-01-01
+  Description of the disease: William Johnson has been diagnosed with arthritis, a condition that causes inflammation of the joints. He has been experiencing joint pain, stiffness, and swelling for the past few years.
+
+Medical Status:
+  Monitoring Plan: Monitor blood pressure
+  Property needs to be monitored: Blood pressure
+  How often it needs to be monitored: Once a day
+  Start date and time: 2023-03-01
+  End date and time: 2023-03-31
+  Observation: William Johnson's blood pressure is 120/80 mmHg.
+  Description for the observation: William Johnson's blood pressure is within normal limits.
+  Date of obseravation: 2023-03-01
+  Time of observation: 10:00 AM
+  Doctor schedules: William Johnson has an appointment with Dr. Smith on 2023-03-15 at 10:00 AM at Anytown Hospital.
+  Appointment with the doctor: Dr. Smith
+  Venue of the appointment: Anytown Hospital
+  Date for the appointment: 2023-03-15
+  Time for the appointment: 10:00 AM
+  Prerequisites for the appointment: None
+
+Social History of the Elder:
+  Living Situation: William Johnson lives alone in a small apartment. He is able to care for himself independently.
+  Occupation: William Johnson is a retired teacher.
+
+Functional Status of the Elder:
+  Activities of Daily Living: William Johnson can manage all activities of daily living independently.
+  Instrumental Activities of Daily Living: William Johnson can manage all instrumental activities of daily living independently.
+  Cognitive Assessments: William Johnson has no cognitive impairments.
+  Hobbies: William Johnson enjoys reading and gardening.
+
+Food Preferences of the Elder:
+  Allergies: None
+  Preferences: William Johnson prefers to eat healthy foods, such as fruits, vegetables, and whole grains. He also enjoys occasional treats, such as chocolate and ice cream.

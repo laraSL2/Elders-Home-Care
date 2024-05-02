@@ -1,0 +1,62 @@
+Teresa Caldwell,23,Male,A+,Arthritis,Debra Meyers,Bell, Mcknight and Willis,Ibuprofen,Inconclusive,Basic Information of the Elder admitted to the Care Home:
+  Name: Teresa Caldwell
+  Age: 23
+  Gender: Male
+  Weight: 75 kg
+  Height: 1.75 m
+  BMI: 24.5
+  Blood Type: A+
+  DOB: 1999-07-12
+  Language Understanding: Conversational Proficiency
+  Marital Status: Single
+  Address: 123 Main Street, Anytown, CA 91234
+
+Details of the Guardian:
+  Name: Debra Meyers
+  Contact Details: 555-123-4567
+
+Medical History of the Elder:
+  Disease: Arthritis
+  Previous Consultant: Debra Meyers
+  Specialization of the Previous Consultant: Rheumatologist
+  Previous Care Home: Bell, Mcknight and Willis
+  Contact details of the Previous care home: 555-234-5678
+  Medication Recommended by previous Consultant: Ibuprofen
+  Test Results Recorded: Inconclusive
+  Drug: Ibuprofen
+  Dosage: 200 mg
+  Frequency: 3 times a day
+  Procedure: Take orally with food
+  Symptoms: Joint pain, swelling, and stiffness
+  Past Diseases: None
+  Past Surgeries: None
+  Disease: Arthritis
+  Level of severity: Mild
+  Identified date/time of the disease: 2023-03-08
+  Description of the disease: A chronic inflammatory condition that affects the joints
+
+Medical Status:
+  Monitoring Plan: Monitor joint pain and swelling
+  Property needs to be monitored: Pain level
+  How often it needs to be monitored: Daily
+  Start date and time: 2023-03-09
+  End date and time: 2023-04-08
+  Observation: Joint pain is mild and intermittent. Swelling is minimal.
+  Description for the observation: Patient reports pain level of 3/10. Swelling is barely noticeable.
+  Date of obseravation: 2023-03-10
+  Time of observation: 10:00 AM
+  Doctor schedules: None
+
+Social History of the Elder:
+  Living Situation: Lives alone in a small apartment.
+  Occupation: Unemployed
+
+Functional Status of the Elder:
+  Activities of Daily Living: Bathing: can manage independently, Dressing: can manage independently, Eating: can manage independently, Toileting: can manage independently, Transferring: can manage independently, Continence: can manage independently
+  Instrumental Activities of Daily Living: Phone: can manage independently, Managing finances: needs assistance, Meal preparation: needs assistance, Housework: needs assistance, Transportation: needs assistance, Medication management: can manage independently
+  Cognitive Assessments: Thinking: good, Reasoning: good, Remembering: good, Imagining: good, Learning words: good, Using language: good
+  Hobbies: Playing Bingo, Reading
+
+Food Preferences of the Elder:
+  Allergies: None
+  Preferences: Healthy foods, such as fruits, vegetables, and whole grains

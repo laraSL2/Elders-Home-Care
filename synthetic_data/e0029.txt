@@ -1,0 +1,67 @@
+Jasmine Singleton,37,Male,AB-,Obesity,Larry Guzman,Thomas Group,Ibuprofen,Normal,Basic Information of the Elder admitted to the Care Home:
+  Name: Jasmine Singleton
+  Age: 37
+  Gender: Male
+  Weight: 85 kg
+  Height: 1.75 m
+  BMI: 27.7
+  Blood Type: AB-
+  DOB: 1986-05-12
+  Language Understanding: Conversational Proficiency
+  Marital Status: Single
+  Address: 123 Main Street, Anytown, CA 91234
+
+Details of the Guardian:
+  Name: Larry Guzman
+  Contact Details: 555-123-4567
+
+Medical History of the Elder:
+  Disease: Obesity
+  Previous Consultant: Thomas Group
+  Specialization of the Previous Consultant: Internal Medicine
+  Previous Care Home: Thomas Group
+  Contact details of the Previous care home: 555-234-5678
+  Medication Recommended by previous Consultant: Ibuprofen
+  Test Results Recorded: Normal
+  Drug: Ibuprofen
+  Dosage: 200 mg
+  Frequency: 3 times a day
+  Procedure: Take orally with food
+  Symptoms: Excessive weight gain, difficulty breathing, fatigue
+  Past Diseases: None
+  Past Surgeries: None
+  Disease: Hypertension
+  Level of severity: Mild
+  Identified date/time of the disease: 2023-01-01
+  Description of the disease: High blood pressure
+
+Medical Status:
+  Monitoring Plan: Blood pressure monitoring
+  Property needs to be monitored: Blood pressure
+  How often it needs to be monitored: Daily
+  Start date and time: 2023-01-01
+  End date and time: 2023-12-31
+  Observation: Elevated blood pressure
+  Description for the observation: Blood pressure reading of 140/90 mmHg
+  Date of obseravation: 2023-01-05
+  Time of observation: 10:00 AM
+  Doctor schedules: Dr. Smith
+  Appointment with the doctor: Dr. Smith
+  Venue of the appointment: Anytown Medical Center
+  Date for the appointment: 2023-02-01
+  Time for the appointment: 10:00 AM
+  Prerequisites for the appointment: None
+
+Social History of the Elder:
+  Living Situation: Lives alone in a small apartment
+  Occupation: Unemployed
+
+Functional Status of the Elder:
+  Activities of Daily Living: Bathing: can manage independently, Dressing: can manage independently, Eating: can manage independently, Toileting: can manage independently, Transferring: can manage independently, Continence: can manage independently
+  Instrumental Activities of Daily Living: Phone: can manage independently, Managing finances: needs assistance, Meal preparation: needs assistance, Housework: needs assistance, Transportation: needs assistance, Medication management: can manage independently
+  Cognitive Assessments: Thinking: good, Reasoning: good, Remembering: good, Imagining: good, Learning words: good, Using language: good
+  Hobbies: Playing Bingo, Reading
+
+Food Preferences of the Elder:
+  Allergies: None
+  Preferences: Healthy foods, fruits, vegetables
