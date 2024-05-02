@@ -24,7 +24,6 @@ class GetDetailsFromKG:
         for key in keys_to_delete:
             if key in elder_properties:
                 del elder_properties[key]
-        print("elder properties: ", elder_properties)
         return elder_properties
 
     def social_history(self)->Dict:
@@ -38,7 +37,6 @@ class GetDetailsFromKG:
         social_history = {}
         social_history["social_history"] = social_history_properties
         social_history["previous_residence"] = previous_residence_properties
-        print("social history: ", social_history)
         return social_history
 
     def medical_history(self)->Dict:
@@ -49,7 +47,6 @@ class GetDetailsFromKG:
         medical_history_properties = {}
         medical_history_properties["condition"] = condition_properties
         medical_history_properties["previous_consultant"] = previous_consultant_properties
-        print("medical history: ", medical_history_properties)
         return medical_history_properties
 
     def functional_status(self)->Dict:
@@ -63,7 +60,6 @@ class GetDetailsFromKG:
         functional_status["ADL"] = ADL_properties
         functional_status["IADL"] = IADL_Properties
         functional_status["Cognitive"] = Cognitive_properties
-        print("functional status: ", functional_status)
         return functional_status
 
     def outings(self)->Dict:
@@ -74,7 +70,6 @@ class GetDetailsFromKG:
         outings_properties = {}
         outings_properties["hobbies"] = hobbies
         outings_properties["care_notes"] = care_properties
-        print("outings: ", outings_properties)
         return outings_properties
 
     def diseases(self)->List[Dict]:
@@ -88,7 +83,6 @@ class GetDetailsFromKG:
             disease_property = self.del_id(dict(node.items()))
             disease_property["relevent drugs"] = drugs_names
             disease_properties.append(disease_property)
-        print("diseases: ", disease_properties)
         return disease_properties
 
     def medication(self)->List[Dict]:
@@ -96,7 +90,6 @@ class GetDetailsFromKG:
         medication_properties = []
         for node in medication_nodes:
             medication_properties.append(self.del_id(dict(node.items())))
-        print("medication: ", medication_properties)
         return medication_properties
 
     def dietry_plan(self)->Dict:
@@ -120,7 +113,6 @@ class GetDetailsFromKG:
         dietry_plan["allergy_foods"] = allergy_foods_properties
         dietry_plan["recommended_foods"] = recommended
         dietry_plan["not_recommended_foods"] = not_recommended
-        print("dietry plan: ", dietry_plan)
         return dietry_plan
 
     def observation_and_monitoring(self)->Dict:
@@ -131,7 +123,6 @@ class GetDetailsFromKG:
         observation_and_monitoring = {}
         observation_and_monitoring["observation"] = observation_properties
         observation_and_monitoring["monitoring"] = monitoring_properties
-        print("observation and monitoring: ", observation_and_monitoring)
         return observation_and_monitoring
 
     def doctor_schedules(self)->List[Dict]:
@@ -145,7 +136,6 @@ class GetDetailsFromKG:
             doctor_property["needed_observations"] = observation_nodes_properties
             doctor_property["needed_monitoring_plans"] = monitoring_nodes_properties
             doctor_schedules.append(doctor_property)
-        print("doctor schedules: ", doctor_schedules)
         return doctor_schedules
 
     def care_notes(self, duration_in_weeks = 0)->List[Dict]:
@@ -156,7 +146,6 @@ class GetDetailsFromKG:
         else:
             filtered_care_nodes = care_note_nodes
         care_note_properties = [self.del_id(dict(node.items())) for node in filtered_care_nodes]
-        print("care notes: ", care_note_properties)
         return care_note_properties
 
 
