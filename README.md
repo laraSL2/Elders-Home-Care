@@ -1,4 +1,6 @@
 # Elders-Home-Care Application
+## About
+
 The Elders-Home-Care Application is designed to enhance the efficiency in the elder care facilities. By leveraging technology, this application streamlines care notes and generates personalized care plans for each individual.
 
 ## How to Run the App
@@ -13,7 +15,7 @@ The Elders-Home-Care Application is designed to enhance the efficiency in the el
    ```
 ### Step 2
 
-2. Install the requirements.txt file (If you need you can run on the venv):
+2. Create a Virtual environment & install the necessary packages by running the following command:
    ```bash
    pip install -r requirements.txt
    ```
