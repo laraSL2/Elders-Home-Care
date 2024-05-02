@@ -1,0 +1,67 @@
+Ruben Burns,35,Male,O+,Asthma,Diane Jackson,Burke, Griffin and Cooper,Lipitor,Normal,Basic Information of the Elder admitted to the Care Home:
+  Name: Ruben Burns
+  Age: 35
+  Gender: Male
+  Weight: 75 kg
+  Height: 1.75 m
+  BMI: 24.5
+  Blood Type: O+
+  DOB: 1988-03-12
+  Language Understanding: Conversational Proficiency
+  Marital Status: Single
+  Address: 123 Main Street, Springfield, CA 91321
+
+Details of the Guardian:
+  Name: Diane Jackson
+  Contact Details: 555-123-4567
+
+Medical History of the Elder:
+  Disease: Asthma
+  Previous Consultant: Burke, Griffin and Cooper
+  Specialization of the Previous Consultant: Pulmonology
+  Previous Care Home: None
+  Contact details of the Previous care home: None
+  Medication Recommended by previous Consultant: Lipitor
+  Test Results Recorded: Normal
+  Drug: Salmeterol
+  Dosage: 250 mcg
+  Frequency: Twice a day
+  Procedure: Inhaled via a metered-dose inhaler
+  Symptoms: Wheezing, shortness of breath, chest tightness
+  Past Diseases: None
+  Past Surgeries: None
+  Disease: None
+  Level of severity: None
+  Identified date/time of the disease: None
+  Description of the disease: None
+
+Medical Status:
+  Monitoring Plan: None
+  Property needs to be monitored: None
+  How often it needs to be monitored: None
+  Start date and time: None
+  End date and time: None
+  Observation: None
+  Description for the observation: None
+  Date of obseravation: None
+  Time of observation: None
+  Doctor schedules: None
+  Appointment with the doctor: None
+  Venue of the appointment: None
+  Date for the appointment: None
+  Time for the appointment: None
+  Prerequisites for the appointment: None
+
+Social History of the Elder:
+  Living Situation: Ruben lives alone in a small apartment. He is able to take care of himself and his daily needs.
+  Occupation: Ruben is a software engineer. He works from home and enjoys his job.
+
+Functional Status of the Elder:
+  Activities of Daily Living: Ruben can manage all of his activities of daily living independently.
+  Instrumental Activities of Daily Living: Ruben can manage all of his instrumental activities of daily living independently.
+  Cognitive Assessments: Ruben has no cognitive impairments.
+  Hobbies: Ruben enjoys playing video games and reading.
+
+Food Preferences of the Elder:
+  Allergies: None
+  Preferences: Ruben enjoys eating healthy foods, such as fruits, vegetables, and whole grains. He also enjoys cooking and trying new recipes.

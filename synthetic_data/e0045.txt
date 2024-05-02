@@ -1,0 +1,67 @@
+Michael Bradshaw,65,Female,AB+,Cancer,Katherine Lowe,Castaneda-Hardy,Ibuprofen,Inconclusive,Basic Information of the Elder admitted to the Care Home:
+  Name: Michael Bradshaw
+  Age: 65
+  Gender: Female
+  Weight: 65 kg
+  Height: 1.6 m
+  BMI: 25.3
+  Blood Type: AB+
+  DOB: 1958-03-12
+  Language Understanding: Conversational Proficiency
+  Marital Status: Widowed
+  Address: 123 Main Street, Anytown, CA 91234
+
+Details of the Guardian:
+  Name: Sarah Jones
+  Contact Details: (555) 123-4567
+
+Medical History of the Elder:
+  Disease: Cancer
+  Previous Consultant: Katherine Lowe
+  Specialization of the Previous Consultant: Oncology
+  Previous Care Home: Castaneda-Hardy
+  Contact details of the Previous care home: (555) 987-6543
+  Medication Recommended by previous Consultant: Ibuprofen
+  Test Results Recorded: Inconclusive
+  Drug: Ibuprofen
+  Dosage: 200 mg
+  Frequency: 3 times a day
+  Procedure: Take orally with food
+  Symptoms: Fatigue, weight loss, pain
+  Past Diseases: None
+  Past Surgeries: None
+  Disease: Cancer
+  Level of severity: Moderate
+  Identified date/time of the disease: 2023-01-01
+  Description of the disease: Michael Bradshaw was diagnosed with cancer in 2023. The cancer is in its early stages and is being treated with chemotherapy.
+
+Medical Status:
+  Monitoring Plan: Monitor blood pressure
+  Property needs to be monitored: Blood pressure
+  How often it needs to be monitored: Daily
+  Start date and time: 2023-03-01
+  End date and time: 2023-03-31
+  Observation: Michael Bradshaw's blood pressure is stable.
+  Description for the observation: Michael Bradshaw's blood pressure is 120/80 mmHg.
+  Date of obseravation: 2023-03-01
+  Time of observation: 10:00 AM
+  Doctor schedules:
+    - doctor_name: Dr. Smith
+    - hospital_name: Anytown Hospital
+    - appoinment_date: 2023-04-01
+    - appointment_time: 10:00 AM
+    - prerequisites_for_appointement: None
+
+Social History of the Elder:
+  Living Situation: Michael Bradshaw lives alone in a small apartment. He is able to care for himself with some assistance from his daughter.
+  Occupation: Michael Bradshaw was a teacher before he retired.
+
+Functional Status of the Elder:
+  Activities of Daily Living: bathing: can manage independently, dressing: can manage independently, eating: can manage independently, toileting: can manage independently, transferring: can manage independently, continence: can manage independently
+  Instrumental Activities of Daily Living: phone: can manage independently, managing finances: needs assistance, meal preparation: needs assistance, housework: needs assistance, transportation: needs assistance, medication management: can manage independently
+  Cognitive Assessments: thinking: good, reasoning: good, remembering: good, imagining: good, learning words: good, using language: good
+  Hobbies: Playing Bingo, Reading
+
+Food Preferences of the Elder:
+  Allergies: None
+  Preferences: Chicken, fish, vegetables, fruit

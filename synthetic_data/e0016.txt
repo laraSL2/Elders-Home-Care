@@ -1,0 +1,67 @@
+Linda Chavez,33,Male,A-,Cancer,Tiffany Crawford,Winters and Sons,Penicillin,Abnormal,Basic Information of the Elder admitted to the Care Home:
+  Name: Linda Chavez
+  Age: 33
+  Gender: Male
+  Weight: 75 kg
+  Height: 1.75 m
+  BMI: 24.5
+  Blood Type: A-
+  DOB: 1990-05-12
+  Language Understanding: Conversational Proficiency
+  Marital Status: Single
+  Address: 123 Main Street, Anytown, CA 91234
+
+Details of the Guardian:
+  Name: Tiffany Crawford
+  Contact Details: 555-123-4567
+
+Medical History of the Elder:
+  Disease: Cancer
+  Previous Consultant: Tiffany Crawford
+  Specialization of the Previous Consultant: Oncology
+  Previous Care Home: Winters and Sons
+  Contact details of the Previous care home: 555-234-5678
+  Medication Recommended by previous Consultant: Penicillin
+  Test Results Recorded: Abnormal
+  Drug: Penicillin
+  Dosage: 500 mg
+  Frequency: Twice a day
+  Procedure: Oral administration
+  Symptoms: Fatigue, weight loss, pain
+  Past Diseases: None
+  Past Surgeries: None
+  Disease: Cancer
+  Level of severity: Moderate
+  Identified date/time of the disease: 2023-03-01
+  Description of the disease: Linda was diagnosed with cancer in 2023. She is currently undergoing treatment and her prognosis is good.
+
+Medical Status:
+  Monitoring Plan: Monitor blood counts
+  Property needs to be monitored: White blood cell count
+  How often it needs to be monitored: Weekly
+  Start date and time: 2023-03-08
+  End date and time: 2023-04-05
+  Observation: Linda is experiencing fatigue and weight loss.
+  Description for the observation: Linda is experiencing fatigue and weight loss, which are common symptoms of cancer. She is also experiencing some pain, which is being managed with medication.
+  Date of obseravation: 2023-03-15
+  Time of observation: 10:00 AM
+  Doctor schedules: Linda has an appointment with her oncologist, Dr. Smith, on 2023-03-22 at 2:00 PM at Anytown Hospital.
+  Appointment with the doctor: Dr. Smith
+  Venue of the appointment: Anytown Hospital
+  Date for the appointment: 2023-03-22
+  Time for the appointment: 2:00 PM
+  Prerequisites for the appointment: Linda will need to bring her insurance card and a list of her current medications.
+
+Social History of the Elder:
+  Living Situation: Linda lives alone in a small apartment. She is able to care for herself, but she does have some difficulty with cooking and cleaning.
+  Occupation: Linda is a software engineer. She works from home and is able to manage her work and her medical appointments.
+
+Functional Status of the Elder:
+  Activities of Daily Living: Linda can manage most activities of daily living independently, but she does need some assistance with cooking and cleaning.
+  Instrumental Activities of Daily Living: Linda can manage most instrumental activities of daily living independently, but she does need some assistance with managing her finances.
+  Cognitive Assessments: Linda has no cognitive impairments.
+  Hobbies: Linda enjoys reading and spending time with her friends.
+
+Food Preferences of the Elder:
+  Allergies: None
+  Preferences: Linda prefers to eat healthy foods, such as fruits, vegetables, and whole grains. She also enjoys occasional treats, such as chocolate and ice cream.

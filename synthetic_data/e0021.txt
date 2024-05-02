@@ -1,0 +1,67 @@
+Michael Burns,19,Male,B-,Cancer,Janice Vargas,Wiggins Ltd,Lipitor,Inconclusive,Basic Information of the Elder admitted to the Care Home:
+  Name: Michael Burns
+  Age: 19
+  Gender: Male
+  Weight: 75 kg
+  Height: 1.75 m
+  BMI: 24.5
+  Blood Type: B-
+  DOB: 2004-03-12
+  Language Understanding: Conversational Proficiency
+  Marital Status: Single
+  Address: 123 Main Street, Springfield, CA 92123
+
+Details of the Guardian:
+  Name: Janice Vargas
+  Contact Details: (555) 123-4567
+
+Medical History of the Elder:
+  Disease: Cancer
+  Previous Consultant: Dr. Smith
+  Specialization of the Previous Consultant: Oncology
+  Previous Care Home: Wiggins Ltd
+  Contact details of the Previous care home: (555) 234-5678
+  Medication Recommended by previous Consultant: Lipitor
+  Test Results Recorded: Inconclusive
+  Drug: Lipitor
+  Dosage: 10 mg
+  Frequency: Once daily
+  Procedure: Take orally with food
+  Symptoms: Fatigue, weight loss, pain
+  Past Diseases: None
+  Past Surgeries: None
+  Disease: Cancer
+  Level of severity: Moderate
+  Identified date/time of the disease: 2023-06-12
+  Description of the disease: Michael was diagnosed with cancer in 2023. He is currently undergoing treatment and his prognosis is good.
+
+Medical Status:
+  Monitoring Plan: Monitor blood pressure
+  Property needs to be monitored: Blood pressure
+  How often it needs to be monitored: Daily
+  Start date and time: 2023-07-01
+  End date and time: 2023-08-01
+  Observation: Michael's blood pressure is stable.
+  Description for the observation: Michael's blood pressure has been stable since he started taking Lipitor.
+  Date of obseravation: 2023-07-15
+  Time of observation: 10:00 AM
+  Doctor schedules: Dr. Smith
+  Appointment with the doctor: Dr. Smith
+  Venue of the appointment: Springfield Hospital
+  Date for the appointment: 2023-08-01
+  Time for the appointment: 10:00 AM
+  Prerequisites for the appointment: None
+
+Social History of the Elder:
+  Living Situation: Michael lives with his parents.
+  Occupation: Student
+
+Functional Status of the Elder:
+  Activities of Daily Living: Bathing: can manage independently, Dressing: can manage independently, Eating: can manage independently, Toileting: can manage independently, Transferring: can manage independently, Continence: can manage independently
+  Instrumental Activities of Daily Living: Phone: can manage independently, Managing finances: needs assistance, Meal preparation: needs assistance, Housework: needs assistance, Transportation: needs assistance, Medication management: can manage independently
+  Cognitive Assessments: Thinking: good, Reasoning: good, Remembering: good, Imagining: good, Learning words: good, Using language: good
+  Hobbies: Playing Bingo, Reading
+
+Food Preferences of the Elder:
+  Allergies: None
+  Preferences: Healthy foods, fruits, vegetables

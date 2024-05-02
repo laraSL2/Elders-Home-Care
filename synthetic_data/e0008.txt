@@ -1,0 +1,67 @@
+Francis Newman,74,Female,AB+,Hypertension,Carolyn Baker MD,Hess-Lowe,Lipitor,Abnormal,Basic Information of the Elder admitted to the Care Home:
+  Name: Francis Newman
+  Age: 74
+  Gender: Female
+  Weight: 65 kg
+  Height: 1.6 m
+  BMI: 25.3
+  Blood Type: AB+
+  DOB: 1949-03-12
+  Language Understanding: Conversational Proficiency
+  Marital Status: Widowed
+  Address: 123 Main Street, Anytown, CA 91234
+
+Details of the Guardian:
+  Name: John Smith
+  Contact Details: (555) 123-4567
+
+Medical History of the Elder:
+  Disease: Hypertension
+  Previous Consultant: Carolyn Baker MD
+  Specialization of the Previous Consultant: Cardiology
+  Previous Care Home: Hess-Lowe
+  Contact details of the Previous care home: (555) 987-6543
+  Medication Recommended by previous Consultant: Lipitor
+  Test Results Recorded: Abnormal
+  Drug: Lipitor
+  Dosage: 10 mg
+  Frequency: Once daily
+  Procedure: Take orally with food
+  Symptoms: High blood pressure, dizziness, fatigue
+  Past Diseases: None
+  Past Surgeries: None
+  Disease: Hypertension
+  Level of severity: Moderate
+  Identified date/time of the disease: 2010-01-01
+  Description of the disease: Hypertension is a condition in which the blood pressure in the arteries is elevated. It is a major risk factor for heart disease, stroke, and kidney disease.
+
+Medical Status:
+  Monitoring Plan: Blood pressure monitoring
+  Property needs to be monitored: Blood pressure
+  How often it needs to be monitored: Twice daily
+  Start date and time: 2023-03-01
+  End date and time: 2023-03-31
+  Observation: Blood pressure is stable.
+  Description for the observation: Blood pressure is 120/80 mmHg.
+  Date of obseravation: 2023-03-01
+  Time of observation: 10:00 AM
+  Doctor schedules: Dr. Smith
+  Appointment with the doctor: Dr. Smith
+  Venue of the appointment: Anytown Medical Center
+  Date for the appointment: 2023-03-15
+  Time for the appointment: 10:00 AM
+  Prerequisites for the appointment: None
+
+Social History of the Elder:
+  Living Situation: Lives alone in a small apartment.
+  Occupation: Retired teacher
+
+Functional Status of the Elder:
+  Activities of Daily Living: Bathing: can manage independently, Dressing: can manage independently, Eating: can manage independently, Toileting: can manage independently, Transferring: can manage independently, Continence: can manage independently
+  Instrumental Activities of Daily Living: Phone: can manage independently, Managing finances: can manage independently, Meal preparation: can manage independently, Housework: needs assistance, Transportation: needs assistance, Medication management: can manage independently
+  Cognitive Assessments: Thinking: good, Reasoning: good, Remembering: good, Imagining: good, Learning words: good, Using language: good
+  Hobbies: Reading, Playing Bingo
+
+Food Preferences of the Elder:
+  Allergies: None
+  Preferences: Low-fat, low-sodium diet

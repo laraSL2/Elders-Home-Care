@@ -1,0 +1,38 @@
+Basic Information of the Elder admitted to the Care Home:
+  Name: Jamie Day
+  Age: 70
+  Gender: Female
+  Blood Type: AB-
+  DOB: 1953-01-01
+  Language Understanding: Conversational Proficiency
+  Marital Status: Widowed
+  Address: 123 Main Street, Anytown, CA 12345
+
+Details of the Guardian:
+  Name: Sarah Jones
+  Contact Details: (555) 123-4567
+
+Medical History of the Elder:
+  Disease: Obesity
+  Previous Consultant: Christopher Russell
+  Specialization of the Previous Consultant: Internal Medicine
+  Previous Care Home: Walters-Burns
+  Medication Recommended by previous Consultant: Paracetamol
+  Test Results Recorded: Normal
+  Drug: Metformin
+  Dosage: 500mg twice daily
+  Procedure: Take orally with meals
+
+Social History of the Elder:
+  Living Situation: Lives alone in a small apartment.
+  Occupation: Retired nurse
+
+Functional Status of the Elder:
+  Activities of Daily Living: Bathing - can manage independently, Dressing - can manage independently, Eating - can manage independently, Toileting - can manage independently, Transferring - can manage independently, Continence - can manage independently
+  Instrumental Activities of Daily Living: Phone - can manage independently, Managing finances - needs assistance, Meal preparation - needs assistance, Housework - needs assistance, Transportation - needs assistance, Medication management - can manage independently
+  Cognitive Assessments: Thinking - good, Reasoning - good, Remembering - good, Imagining - good, Learning words - good, Using language - good
+  Hobbies: Reading, Sweing
+
+Food Preferences of the Elder:
+  Allergies: None
+  Preferences: Fruits, vegetables, lean protein

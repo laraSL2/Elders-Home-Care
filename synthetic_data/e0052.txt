@@ -1,0 +1,67 @@
+Haley Li,51,Male,B-,Obesity,Nicole Wood,Jordan Inc,Lipitor,Abnormal,Basic Information of the Elder admitted to the Care Home:
+  Name: Haley Li
+  Age: 51
+  Gender: Male
+  Weight: 100 kg
+  Height: 1.75 m
+  BMI: 32.7
+  Blood Type: B-
+  DOB: 1972-03-15
+  Language Understanding: Conversational Proficiency
+  Marital Status: Married
+  Address: 123 Main Street, Anytown, CA 91234
+
+Details of the Guardian:
+  Name: Nicole Wood
+  Contact Details: 555-123-4567
+
+Medical History of the Elder:
+  Disease: Obesity
+  Previous Consultant: Dr. Smith
+  Specialization of the Previous Consultant: Internal Medicine
+  Previous Care Home: Jordan Inc
+  Contact details of the Previous care home: 555-234-5678
+  Medication Recommended by previous Consultant: Lipitor
+  Test Results Recorded: Abnormal
+  Drug: Lipitor
+  Dosage: 10 mg
+  Frequency: Once daily
+  Procedure: Take orally with food
+  Symptoms: Excessive weight gain, difficulty breathing, fatigue
+  Past Diseases: None
+  Past Surgeries: None
+  Disease: Hypertension
+  Level of severity: Mild
+  Identified date/time of the disease: 2023-01-01
+  Description of the disease: High blood pressure
+
+Medical Status:
+  Monitoring Plan: Blood pressure monitoring
+  Property needs to be monitored: Blood pressure
+  How often it needs to be monitored: Twice daily
+  Start date and time: 2023-01-01
+  End date and time: 2023-03-31
+  Observation: Patient's blood pressure is stable.
+  Description for the observation: Patient's blood pressure is 120/80 mmHg.
+  Date of obseravation: 2023-02-01
+  Time of observation: 10:00 AM
+  Doctor schedules: Dr. Jones
+  Appointment with the doctor: Dr. Jones
+  Venue of the appointment: Anytown Medical Center
+  Date for the appointment: 2023-03-15
+  Time for the appointment: 10:00 AM
+  Prerequisites for the appointment: None
+
+Social History of the Elder:
+  Living Situation: Haley Li lives with his wife in a two-bedroom apartment. He is able to manage his daily activities independently.
+  Occupation: Haley Li is a retired engineer.
+
+Functional Status of the Elder:
+  Activities of Daily Living: Bathing: can manage independently, Dressing: can manage independently, Eating: can manage independently, Toileting: can manage independently, Transferring: can manage independently, Continence: can manage independently
+  Instrumental Activities of Daily Living: Phone: can manage independently, Managing finances: can manage independently, Meal preparation: can manage independently, Housework: can manage independently, Transportation: can manage independently, Medication management: can manage independently
+  Cognitive Assessments: Thinking: good, Reasoning: good, Remembering: good, Imagining: good, Learning words: good, Using language: good
+  Hobbies: Playing Bingo, Reading
+
+Food Preferences of the Elder:
+  Allergies: None
+  Preferences: Healthy foods, such as fruits, vegetables, and whole grains

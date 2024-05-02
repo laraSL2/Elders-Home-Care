@@ -1,0 +1,67 @@
+Antonio Frederick,49,Male,B-,Asthma,Brian Chandler,Garcia Ltd,Penicillin,Abnormal,Basic Information of the Elder admitted to the Care Home:
+  Name: Antonio Frederick
+  Age: 49
+  Gender: Male
+  Weight: 85 kg
+  Height: 1.75 m
+  BMI: 27.7
+  Blood Type: B-
+  DOB: 1974-03-12
+  Language Understanding: Conversational Proficiency
+  Marital Status: Married
+  Address: 123 Main Street, Anytown, CA 91234
+
+Details of the Guardian:
+  Name: Maria Frederick
+  Contact Details: (555) 123-4567
+
+Medical History of the Elder:
+  Disease: Asthma
+  Previous Consultant: Brian Chandler
+  Specialization of the Previous Consultant: Pulmonology
+  Previous Care Home: Garcia Ltd
+  Contact details of the Previous care home: (555) 765-4321
+  Medication Recommended by previous Consultant: Penicillin
+  Test Results Recorded: Abnormal
+  Drug: Salmeterol
+  Dosage: 250 mcg
+  Frequency: Twice a day
+  Procedure: Inhaler
+  Symptoms: Wheezing, shortness of breath, chest tightness
+  Past Diseases: None
+  Past Surgeries: None
+  Disease: Asthma
+  Level of severity: Mild
+  Identified date/time of the disease: 2010-01-01
+  Description of the disease: Antonio has been diagnosed with mild asthma since childhood. He experiences occasional wheezing and shortness of breath, especially during exercise or exposure to allergens.
+
+Medical Status:
+  Monitoring Plan: Spirometry
+  Property needs to be monitored: Lung function
+  How often it needs to be monitored: Every 6 months
+  Start date and time: 2023-03-01
+  End date and time: 2024-03-01
+  Observation: Antonio's asthma is well-controlled with medication. He has not experienced any severe exacerbations in the past year.
+  Description for the observation: Antonio's asthma is well-controlled with medication. He has not experienced any severe exacerbations in the past year.
+  Date of obseravation: 2023-02-28
+  Time of observation: 10:00 AM
+  Doctor schedules: Dr. Smith
+  Appointment with the doctor: Dr. Smith
+  Venue of the appointment: Anytown Medical Center
+  Date for the appointment: 2023-04-01
+  Time for the appointment: 11:00 AM
+  Prerequisites for the appointment: None
+
+Social History of the Elder:
+  Living Situation: Antonio lives with his wife in a two-bedroom apartment. He is able to manage his daily activities independently.
+  Occupation: Antonio is a retired teacher.
+
+Functional Status of the Elder:
+  Activities of Daily Living: Bathing: can manage independently, Dressing: can manage independently, Eating: can manage independently, Toileting: can manage independently, Transferring: can manage independently, Continence: can manage independently
+  Instrumental Activities of Daily Living: Phone: can manage independently, Managing finances: can manage independently, Meal preparation: can manage independently, Housework: can manage independently, Transportation: can manage independently, Medication management: can manage independently
+  Cognitive Assessments: Thinking: good, Reasoning: good, Remembering: good, Imagining: good, Learning words: good, Using language: good
+  Hobbies: Playing Bingo, Reading
+
+Food Preferences of the Elder:
+  Allergies: None
+  Preferences: Antonio enjoys eating healthy foods, such as fruits, vegetables, and whole grains. He also enjoys occasional treats, such as ice cream and chocolate.

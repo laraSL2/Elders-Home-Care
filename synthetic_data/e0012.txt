@@ -1,0 +1,62 @@
+Teresa Gonzalez,37,Female,B-,Arthritis,Brian Watson,Sanders Ltd,Lipitor,Abnormal,Basic Information of the Elder admitted to the Care Home:
+  Name: Teresa Gonzalez
+  Age: 37
+  Gender: Female
+  Weight: 65 kg
+  Height: 1.65 m
+  BMI: 23.9
+  Blood Type: B-
+  DOB: 1986-05-12
+  Language Understanding: Conversational Proficiency
+  Marital Status: Single
+  Address: 123 Main Street, Anytown, CA 91234
+
+Details of the Guardian:
+  Name: Not Provided
+  Contact Details: Not Provided
+
+Medical History of the Elder:
+  Disease: Arthritis
+  Previous Consultant: Brian Watson
+  Specialization of the Previous Consultant: Rheumatologist
+  Previous Care Home: Sanders Ltd
+  Contact details of the Previous care home: Not Provided
+  Medication Recommended by previous Consultant: Lipitor
+  Test Results Recorded: Abnormal
+  Drug: Lipitor
+  Dosage: 10 mg
+  Frequency: Once a day
+  Procedure: Take orally with food
+  Symptoms: Joint pain, stiffness, swelling
+  Past Diseases: Not Provided
+  Past Surgeries: Not Provided
+  Disease: Arthritis
+  Level of severity: Mild
+  Identified date/time of the disease: 2023-03-08
+  Description of the disease: Teresa has been diagnosed with arthritis, a condition that causes inflammation of the joints. She experiences joint pain, stiffness, and swelling, particularly in her hands, knees, and feet.
+
+Medical Status:
+  Monitoring Plan: Monitor joint pain and stiffness
+  Property needs to be monitored: Pain level and range of motion
+  How often it needs to be monitored: Weekly
+  Start date and time: 2023-03-15
+  End date and time: Not Provided
+  Observation: Teresa reports increased joint pain and stiffness in her hands and knees.
+  Description for the observation: Teresa's pain level is 7 out of 10 on the pain scale. She has difficulty gripping objects and bending her knees.
+  Date of obseravation: 2023-03-22
+  Time of observation: 10:00 AM
+  Doctor schedules: Not Provided
+
+Social History of the Elder:
+  Living Situation: Teresa lives alone in a small apartment. She has a good support system of friends and family who help her with daily tasks.
+  Occupation: Teresa is a teacher at a local elementary school. She enjoys her job and is passionate about working with children.
+
+Functional Status of the Elder:
+  Activities of Daily Living: Teresa is able to perform most activities of daily living independently, but she needs assistance with some tasks, such as bathing and dressing.
+  Instrumental Activities of Daily Living: Teresa is able to manage most instrumental activities of daily living independently, but she needs assistance with some tasks, such as managing finances and transportation.
+  Cognitive Assessments: Teresa has good cognitive function. She is able to think clearly, reason logically, and remember information well.
+  Hobbies: Teresa enjoys reading, gardening, and spending time with her friends and family.
+
+Food Preferences of the Elder:
+  Allergies: Not Provided
+  Preferences: Teresa has no specific food preferences. She enjoys eating a variety of healthy foods, including fruits, vegetables, whole grains, and lean protein.
