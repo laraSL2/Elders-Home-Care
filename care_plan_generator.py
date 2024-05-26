@@ -185,5 +185,5 @@ def generate_plan(elderID:str, GeminiInitializer = GeminiInitializer(), GraphIni
     prompt = Prompts()
     plan_prompt = prompt.plan_prompt(elderID, elder_data, social_history, medical_history, functional_status, outings, disease_data, drug_data, dietary_plan, monitoring_plan, doctor_schedule, care_notes)
 
-    _extraction = GeminiInitializer.extract_entities_relationships(plan_prompt,model_name="gemini-1.5-pro-latest")
+    _extraction = GeminiInitializer.extract_entities_relationships(plan_prompt,model_name="gemini-1.0-pro")
     return _extraction

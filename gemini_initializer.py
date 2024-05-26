@@ -15,7 +15,7 @@ class GeminiInitializer:
 
     def run_text_model(self,
         prompt: str,
-        model_name: str = "gemini-1.5-pro-latest",
+        model_name: str = "gemini-1.0-pro",
         temperature: float = 0
         ):
         safety_settings={HarmCategory.HARM_CATEGORY_HATE_SPEECH: HarmBlockThreshold.BLOCK_NONE,
