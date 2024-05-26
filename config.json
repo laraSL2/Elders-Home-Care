@@ -1,6 +1,6 @@
 {
     "gemini-api-key": "AIzaSyAZKyrdvM6i_RqNtw6snInBGxAhQJ_YxmY",
-    "neo4j-url": "neo4j+sss://7c8ca548.databases.neo4j.io",
+    "neo4j-url": "neo4j+ssc://7c8ca548.databases.neo4j.io",
     "neo4j-user": "neo4j",
     "neo4j-password": "2a1u49XGN7rsqPquGQr_VHC60Ei0A2LBkfwVjdKEjS8"
 }
