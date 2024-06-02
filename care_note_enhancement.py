@@ -1,7 +1,7 @@
 """
-This module contains a function to enhance resident care plan notes using an AI assistant.
+This module contains a function to enhance resident care note notes using an AI assistant.
 
-The function `note_enhancer` takes input text, which is a care plan for a resident, and enhances it for grammar, spelling, and clarity.
+The function `note_enhancer` takes input text, which is a care note for a resident, and enhances it for grammar, spelling, and clarity.
 It utilizes an AI model to identify and correct grammatical errors and misspellings, suggest paraphrases to improve clarity, conciseness, or tone, and maintain the original meaning of the text.
 
 Function:
@@ -14,15 +14,16 @@ Variables:
 from gemini_initializer import GeminiInitializer
 import json
 
-template1 = '''
-You are an expert AI assistant designed to enhance resident care plans.
-You will be provided with Input Text, which is a care plan for a resident.
-This plan needs to be reviewed for grammar, spelling, and clarity.
+template1 = """
+You are an expert AI assistant designed to enhance resident care notes.
+You will be provided with Input Text, which is a care note for a resident.
+This note needs to be reviewed for grammar, spelling, and clarity.
 Your primary objective is to identify the issues with language and correct them.
-In addition, rephrase the plan to improve its readability and understanding for both residents and caregivers.
+In addition, rephrase the note to improve its readability and understanding for both residents and caregivers.
 
 You must follow the instructions given below:
     - Identify and correct grammatical errors and misspellings.
+    - Your answer must be in standard English and use medical terms accurately and appropriately.
     - Suggest paraphrases that improve clarity, conciseness, or tone.
     - Maintain the original meaning of the sentence throughout the process.
     - Generate an improved version of Input Text
@@ -37,10 +38,10 @@ You must follow the instructions given below:
         Revised Text: Following breakfast, the caregiver will assist the resident with taking their medication.
       Example 2:
         Original Text: The patient should be encouraged to participate in physical therapy exercises.
-        Revised Text: The caregiver can encourage the resident to participate in their physical therapy exercises. Time duration for the therapy session should be revised with the resident’s doctor in charge.
+        Revised Text: The caregiver can encourage the resident to participate in their physical therapy exercises. Time duration for the therapy session should be revised with the resident's doctor in charge.
       Example 3:
         Original Text: John should take his medication with meals.
-        Revised Text: The caregiver should remind John to take his medication with meals. How often and with which meals the medication should be taken has to be revised with John’s medication plan.
+        Revised Text: The caregiver should remind John to take his medication with meals. How often and with which meals the medication should be taken has to be revised with John's medication note.
 
     - If you can't enhance the Input Text, don't try to make up an answer or hallucinate. Strictly give only the paraphrased paragraph, do not give other unwanted sentences and words.
     - Evaluation criteria:
@@ -49,22 +50,22 @@ You must follow the instructions given below:
       Evaluation will also consider the consistency of appropriate naming convention.
 
     - Provide the output in JSON format with two keys:
-      - "enhanced_text": Contains the improved version of the input text.
-      - "suggestions_text": Contains suggestions for missing details, if any. If no suggestions return "No additional suggestions."
+      - "enhanced_text": Contains the improved version of the input text. Must not include any suggestions here
+      - "suggestions_text": Contains suggestions for missing details according to your understanding to improve the care note, if any. If no suggestions return "No additional suggestions."
       
     - Strictly provide the output in a JSON format only. 
     - Strictly don't give anything outside curly brackets of the json data.
 
 Input Text: {input_text}
 Answer:
-'''
+"""
 
 def note_enhancer(text, gemini=GeminiInitializer()):
     """
-    Enhances resident care plan notes by correcting grammar, spelling, and suggesting paraphrases to improve clarity and conciseness.
+    Enhances resident care note notes by correcting grammar, spelling, and suggesting paraphrases to improve clarity and conciseness.
 
     Args:
-    - text (str): Input text containing a care plan for a resident.
+    - text (str): Input text containing a care note for a resident.
     - gemini (GeminiInitializer): Instance of GeminiInitializer class.
 
     Returns:
