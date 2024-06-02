@@ -187,17 +187,13 @@ elif selected == "Care Note Enhancement":
     elif st.session_state.button and not original_care_note:
         st.warning("Please enter the care note to enhance")
     elif st.session_state.button and elder_id and original_care_note:
-        st.session_state.enhanced_note, st.session_state.suggestions_note  = note_enhancer(original_care_note, st.session_state.my_gemini)
+        st.session_state.enhanced_note = note_enhancer(original_care_note, st.session_state.my_gemini)
         st.session_state.text_copy = f"""{st.session_state.enhanced_note}"""
-        st.session_state.text_copy_suggestions = f"""{st.session_state.suggestions_note}"""
         st.session_state.button_clicked = True
         
     if "text_copy" in st.session_state and st.session_state.text_copy:
         st.subheader("Generated Care Enhancement Note")
-        editable_note = st.text_area(label="",value=st.session_state.text_copy, height=200)
-        st.subheader("Generated Suggestions")
-        st.code("\n".join(tw.wrap(st.session_state.text_copy_suggestions, width=80)), language="md")
-        #st.code("\n".join(tw.wrap(st.session_state.text_copy, width=80)), language="md")
+        st.code("\n".join(tw.wrap(st.session_state.text_copy, width=80)), language="md")
 
         col1, col2 = st.columns([4,1])
         if st.session_state.button_clicked:
@@ -205,7 +201,7 @@ elif selected == "Care Note Enhancement":
                 add_button = st.button("Add Care Note", type = "primary", use_container_width=True)
             if add_button:
                 print("Adding the care note")
-                state = add_patient(st.session_state.my_gemini, st.session_state.my_graph, elder_id, care_note_mode=True, care_note=editable_note, data="")
+                state = add_patient(st.session_state.my_gemini, st.session_state.my_graph, elder_id, care_note_mode=True, care_note=st.session_state.enhanced_note, data="")
                 if state:
                     st.success("Care Note added successfully")
                 else:
