@@ -4,7 +4,7 @@
 The Elders-Home-Care Application is designed to enhance the efficiency in the elder care facilities. By leveraging technology, this application streamlines care notes and generates personalized care plans for each individual.
 
 ## How to Run the App
-We have a deployed version of our application available at this link. [Deployed_App](https://elders-home-care-4wl9xgc9fmkg8d5phdta3b.streamlit.app/)
+We have a deployed version of our application available at this link. [Deployed_App](https://elders-home-care-5furev6mdrbiygkteb9utt.streamlit.app)
 
 If you need to run the app locally, please follow these steps. Additionally, we have pushed synthetic data samples to the [synthetic_data](https://github.com/laraSL2/Elders-Home-Care/tree/main/synthetic_data) folder. You can use this data for testing purposes. It’s important to note that all the data in this folder does not belong to real individuals.
 
