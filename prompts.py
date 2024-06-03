@@ -250,7 +250,7 @@ answer:
         plan_prompt = f"""Using the provided data parameters regarding an elder admitted to a new care facility, generate a comprehensive care plan in the specified format.
 
 For each section of the care plan, You should generate a complete explanation using the provided parameters and present the plan in a paragraph format, ensuring coherence and clarity. You must \
-utilize the provided rag suggestions approriately and include them in sections (Care Needs, Care Actions) where those suggestions are most suitable. You must not explicitly include rag suggestions as a separate section in the final care plan.
+utilize the provided rag suggestions approriately and include them in sections (Care Needs, Care Actions, Nutrition and Dietary Plan, Behaviour Monitoring Plan, etc.) where those suggestions are most suitable. You must not explicitly include rag suggestions as a separate section in the final care plan.
 
 RAG SUGGESTIONS: {rag_suggestions}
 
