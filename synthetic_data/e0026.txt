@@ -1,0 +1,62 @@
+Lauren Barton,34,Male,O+,Hypertension,Emily West,Gallagher-Horton,Paracetamol,Normal,Basic Information of the Elder admitted to the Care Home:
+  Name: Lauren Barton
+  Age: 34
+  Gender: Male
+  Weight: 75 kg
+  Height: 1.75 m
+  BMI: 24.5
+  Blood Type: O+
+  DOB: 1989-03-12
+  Language Understanding: Conversational Proficiency
+  Marital Status: Single
+  Address: 123 Main Street, Anytown, CA 91234
+
+Details of the Guardian:
+  Name: Emily West
+  Contact Details: 555-123-4567
+
+Medical History of the Elder:
+  Disease: Hypertension
+  Previous Consultant: Emily West
+  Specialization of the Previous Consultant: Cardiology
+  Previous Care Home: Gallagher-Horton
+  Contact details of the Previous care home: 555-234-5678
+  Medication Recommended by previous Consultant: Paracetamol
+  Test Results Recorded: Normal
+  Drug: Paracetamol
+  Dosage: 500 mg
+  Frequency: Every 6 hours
+  Procedure: Take orally with water
+  Symptoms: High blood pressure, headaches, dizziness
+  Past Diseases: None
+  Past Surgeries: None
+  Disease: Hypertension
+  Level of severity: Mild
+  Identified date/time of the disease: 2023-01-01
+  Description of the disease: Lauren Barton has been diagnosed with mild hypertension. This means that her blood pressure is slightly higher than normal. She is currently taking Paracetamol to manage her blood pressure.
+
+Medical Status:
+  Monitoring Plan: Blood pressure monitoring
+  Property needs to be monitored: Blood pressure
+  How often it needs to be monitored: Every day
+  Start date and time: 2023-01-01
+  End date and time: Ongoing
+  Observation: Lauren Barton's blood pressure is stable.
+  Description for the observation: Lauren Barton's blood pressure has been monitored daily and has remained within a normal range.
+  Date of obseravation: 2023-02-01
+  Time of observation: 10:00 AM
+  Doctor schedules: None
+
+Social History of the Elder:
+  Living Situation: Lauren Barton lives alone in a small apartment. She is able to care for herself independently.
+  Occupation: Lauren Barton is a software engineer.
+
+Functional Status of the Elder:
+  Activities of Daily Living: Bathing: can manage independently, Dressing: can manage independently, Eating: can manage independently, Toileting: can manage independently, Transferring: can manage independently, Continence: can manage independently
+  Instrumental Activities of Daily Living: Phone: can manage independently, Managing finances: can manage independently, Meal preparation: can manage independently, Housework: can manage independently, Transportation: can manage independently, Medication management: can manage independently
+  Cognitive Assessments: Thinking: good, Reasoning: good, Remembering: good, Imagining: good, Learning words: good, Using language: good
+  Hobbies: Playing Bingo, Reading
+
+Food Preferences of the Elder:
+  Allergies: None
+  Preferences: Lauren Barton enjoys eating healthy foods, such as fruits, vegetables, and whole grains. She also enjoys cooking and trying new recipes.

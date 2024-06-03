@@ -1,0 +1,67 @@
+Kimberly Mason,70,Female,B-,Obesity,Natalie Sullivan,Gilbert and Sons,Paracetamol,Abnormal,Basic Information of the Elder admitted to the Care Home:
+  Name: Kimberly Mason
+  Age: 70
+  Gender: Female
+  Weight: 80 kg
+  Height: 1.6 m
+  BMI: 31.25
+  Blood Type: B-
+  DOB: 1953-03-12
+  Language Understanding: Conversational Proficiency
+  Marital Status: Widowed
+  Address: 123 Main Street, Anytown, CA 91234
+
+Details of the Guardian:
+  Name: John Mason
+  Contact Details: (555) 123-4567
+
+Medical History of the Elder:
+  Disease: Obesity
+  Previous Consultant: Natalie Sullivan
+  Specialization of the Previous Consultant: Nutritionist
+  Previous Care Home: Gilbert and Sons
+  Contact details of the Previous care home: (555) 234-5678
+  Medication Recommended by previous Consultant: Paracetamol
+  Test Results Recorded: Abnormal
+  Drug: Metformin
+  Dosage: 500 mg
+  Frequency: Twice a day
+  Procedure: Oral administration
+  Symptoms: Excessive weight gain, difficulty breathing, fatigue
+  Past Diseases: Hypertension
+  Past Surgeries: None
+  Disease: Hypertension
+  Level of severity: Moderate
+  Identified date/time of the disease: 2010-01-01
+  Description of the disease: High blood pressure
+
+Medical Status:
+  Monitoring Plan: Blood pressure monitoring
+  Property needs to be monitored: Blood pressure
+  How often it needs to be monitored: Daily
+  Start date and time: 2023-03-01
+  End date and time: 2023-03-31
+  Observation: Elevated blood pressure
+  Description for the observation: Blood pressure reading of 140/90 mmHg
+  Date of obseravation: 2023-03-05
+  Time of observation: 10:00 AM
+  Doctor schedules: Dr. Smith
+  Appointment with the doctor: Dr. Smith
+  Venue of the appointment: Anytown Medical Center
+  Date for the appointment: 2023-03-15
+  Time for the appointment: 2:00 PM
+  Prerequisites for the appointment: Fasting for 12 hours
+
+Social History of the Elder:
+  Living Situation: Lives alone in a small apartment.
+  Occupation: Retired nurse
+
+Functional Status of the Elder:
+  Activities of Daily Living: Bathing: can manage independently, Dressing: can manage independently, Eating: can manage independently, Toileting: can manage independently, Transferring: can manage independently, Continence: can manage independently
+  Instrumental Activities of Daily Living: Phone: can manage independently, Managing finances: needs assistance, Meal preparation: needs assistance, Housework: needs assistance, Transportation: needs assistance, Medication management: can manage independently
+  Cognitive Assessments: Thinking: good, Reasoning: good, Remembering: good, Imagining: good, Learning words: good, Using language: good
+  Hobbies: Reading, Playing Bingo
+
+Food Preferences of the Elder:
+  Allergies: None
+  Preferences: Fruits, vegetables, lean protein

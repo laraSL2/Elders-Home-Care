@@ -1,0 +1,67 @@
+Tiffany Ramirez,81,Female,O-,Diabetes,Patrick Parker,Wallace-Hamilton,Aspirin,Inconclusive,Basic Information of the Elder admitted to the Care Home:
+  Name: Tiffany Ramirez
+  Age: 81
+  Gender: Female
+  Weight: 65 kg
+  Height: 1.6 m
+  BMI: 25.3
+  Blood Type: O-
+  DOB: 1942-03-15
+  Language Understanding: Conversational Proficiency
+  Marital Status: Widowed
+  Address: 123 Main Street, Anytown, CA 91234
+
+Details of the Guardian:
+  Name: Patrick Parker
+  Contact Details: (555) 123-4567
+
+Medical History of the Elder:
+  Disease: Diabetes
+  Previous Consultant: Dr. Smith
+  Specialization of the Previous Consultant: Endocrinology
+  Previous Care Home: Wallace-Hamilton
+  Contact details of the Previous care home: (555) 987-6543
+  Medication Recommended by previous Consultant: Aspirin
+  Test Results Recorded: Inconclusive
+  Drug: Metformin
+  Dosage: 500 mg
+  Frequency: Twice a day
+  Procedure: Oral administration
+  Symptoms: Increased thirst, frequent urination, fatigue
+  Past Diseases: Hypertension
+  Past Surgeries: None
+  Disease: Diabetes
+  Level of severity: Moderate
+  Identified date/time of the disease: 2010-01-01
+  Description of the disease: A chronic metabolic disorder characterized by elevated blood sugar levels due to the body's inability to produce or effectively use insulin.
+
+Medical Status:
+  Monitoring Plan: Blood sugar monitoring
+  Property needs to be monitored: Blood sugar levels
+  How often it needs to be monitored: Daily
+  Start date and time: 2023-03-01
+  End date and time: N/A
+  Observation: Stable blood sugar levels
+  Description for the observation: Blood sugar levels have been within normal range since admission to the care home.
+  Obs_date: 2023-03-08
+  Obs_time: 10:00 AM
+  Doctor schedules: Dr. Jones
+  Appointment with the doctor: Dr. Jones
+  Venue of the appointment: Anytown Medical Center
+  Date for the appointment: 2023-03-15
+  Time for the appointment: 2:00 PM
+  Prerequisites for the appointment: N/A
+
+Social History of the Elder:
+  Living Situation: Lives alone in a small apartment.
+  Occupation: Retired nurse
+
+Functional Status of the Elder:
+  Activities of Daily Living: Bathing: can manage independently, Dressing: can manage independently, Eating: can manage independently, Toileting: can manage independently, Transferring: can manage independently, Continence: can manage independently
+  Instrumental Activities of Daily Living: Phone: can manage independently, Managing finances: needs assistance, Meal preparation: needs assistance, Housework: needs assistance, Transportation: needs assistance, Medication management: can manage independently
+  Cognitive Assessments: Thinking: good, Reasoning: good, Remembering: good, Imagining: good, Learning words: good, Using language: good
+  Hobbies: Reading, Playing Bingo
+
+Food Preferences of the Elder:
+  Allergies: None
+  Preferences: Healthy foods, such as fruits, vegetables, and whole grains

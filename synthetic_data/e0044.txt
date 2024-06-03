@@ -1,0 +1,87 @@
+William Page,72,Female,A+,Diabetes,James Carney,Richardson-Powell,Aspirin,Normal,Basic Information of the Elder admitted to the Care Home:
+  Name: William Page
+  Age: 72
+  Gender: Female
+  Weight: 65 kg
+  Height: 1.6 m
+  BMI: 25.3
+  Blood Type: A+
+  DOB: 1951-03-12
+  Language Understanding: Conversational Proficiency
+  Marital Status: Widowed
+  Address: 123 Main Street, Anytown, CA 91234
+
+Details of the Guardian:
+  Name: Mary Page
+  Contact Details: (555) 123-4567
+
+Medical History of the Elder:
+  Disease: Diabetes
+  Previous Consultant: James Carney
+  Specialization of the Previous Consultant: Endocrinology
+  Previous Care Home: Richardson-Powell
+  Contact details of the Previous care home: (555) 234-5678
+  Medication Recommended by previous Consultant: Aspirin
+  Test Results Recorded: Normal
+  Drug: Metformin
+  Dosage: 500 mg
+  Frequency: Twice a day
+  Procedure: Oral administration
+  Symptoms: Increased thirst, frequent urination, fatigue
+  Past Diseases: Hypertension
+  Past Surgeries: None
+  Disease: Diabetes
+  Level of severity: Moderate
+  Identified date/time of the disease: 2010-01-01
+  Description of the disease: William Page has been diagnosed with type 2 diabetes. He is currently managing his condition with medication and lifestyle changes.
+
+Medical Status:
+  Monitoring Plan: Blood glucose monitoring
+  Property needs to be monitored: Blood glucose levels
+  How often it needs to be monitored: Daily
+  Start date and time: 2023-03-01
+  End date and time: N/A
+  Observation: Blood pressure monitoring
+  Description for the observation: William Page's blood pressure is stable.
+  Date of obseravation: 2023-03-02
+  Time of observation: 10:00 AM
+  Doctor schedules:
+    - doctor_name: Dr. Smith
+    - hospital_name: Anytown Hospital
+    - appoinment_date: 2023-03-15
+    - appointment_time: 9:00 AM
+    - prerequisites_for_appointement: Fasting blood sugar test
+
+Social History of the Elder:
+  Living Situation: William Page lives alone in a small apartment. He is able to care for himself with some assistance from his daughter.
+  Occupation: Retired teacher
+
+Functional Status of the Elder:
+  Activities of Daily Living:
+    - bathing: can manage independently
+    - dressing: can manage independently
+    - eating: can manage independently
+    - toileting: can manage independently
+    - transferring: can manage independently
+    - continence: can manage independently
+  Instrumental Activities of Daily Living:
+    - phone: can manage independently
+    - managing finances: needs assistance
+    - meal preparation: can manage independently
+    - housework: needs assistance
+    - transportation: needs assistance
+    - medication management: can manage independently
+  Cognitive Assessments:
+    - thinking: good
+    - reasoning: good
+    - remembering: good
+    - imagining: good
+    - learning words: good
+    - using language: good
+  Hobbies:
+    - Playing Bingo
+    - Reading
+
+Food Preferences of the Elder:
+  Allergies: None
+  Preferences: Fruits, vegetables, whole grains

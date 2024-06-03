@@ -1,0 +1,67 @@
+Rodney Maynard,81,Male,AB-,Obesity,Dr. Kyle Dickson,Nixon, Evans and Bradley,Lipitor,Normal,Basic Information of the Elder admitted to the Care Home:
+  Name: Rodney Maynard
+  Age: 81
+  Gender: Male
+  Weight: 85 kg
+  Height: 1.75 m
+  BMI: 27.7
+  Blood Type: AB-
+  DOB: 1942-03-15
+  Language Understanding: Conversational Proficiency
+  Marital Status: Widowed
+  Address: 123 Main Street, Anytown, CA 91234
+
+Details of the Guardian:
+  Name: N/A
+  Contact Details: N/A
+
+Medical History of the Elder:
+  Disease: Obesity
+  Previous Consultant: Dr. Kyle Dickson
+  Specialization of the Previous Consultant: Internal Medicine
+  Previous Care Home: Nixon, Evans and Bradley
+  Contact details of the Previous care home: (555) 123-4567
+  Medication Recommended by previous Consultant: Lipitor
+  Test Results Recorded: Normal
+  Drug: Lipitor
+  Dosage: 10 mg
+  Frequency: Once daily
+  Procedure: Take orally with food
+  Symptoms: Excessive weight gain, difficulty breathing, fatigue
+  Past Diseases: Hypertension
+  Past Surgeries: N/A
+  Disease: Hypertension
+  Level of severity: Moderate
+  Identified date/time of the disease: 2010-01-01
+  Description of the disease: High blood pressure that can damage the heart, blood vessels, and other organs
+
+Medical Status:
+  Monitoring Plan: Blood pressure monitoring
+  Property needs to be monitored: Blood pressure
+  How often it needs to be monitored: Twice daily
+  Start date and time: 2023-03-01
+  End date and time: N/A
+  Observation: N/A
+  Description for the observation: N/A
+  Date of obseravation: N/A
+  Time of observation: N/A
+  Doctor schedules: N/A
+  Appointment with the doctor: N/A
+  Venue of the appointment: N/A
+  Date for the appointment: N/A
+  Time for the appointment: N/A
+  Prerequisites for the appointment: N/A
+
+Social History of the Elder:
+  Living Situation: Lives alone in a small apartment
+  Occupation: Retired accountant
+
+Functional Status of the Elder:
+  Activities of Daily Living: Bathing: can manage independently, Dressing: can manage independently, Eating: can manage independently, Toileting: can manage independently, Transferring: can manage independently, Continence: can manage independently
+  Instrumental Activities of Daily Living: Phone: can manage independently, Managing finances: needs assistance, Meal preparation: needs assistance, Housework: needs assistance, Transportation: needs assistance, Medication management: can manage independently
+  Cognitive Assessments: Thinking: good, Reasoning: good, Remembering: good, Imagining: good, Learning words: good, Using language: good
+  Hobbies: Reading, Playing Bingo
+
+Food Preferences of the Elder:
+  Allergies: N/A
+  Preferences: Low-fat, low-sodium diet

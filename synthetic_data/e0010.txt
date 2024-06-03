@@ -1,0 +1,67 @@
+Shannon Fitzpatrick DVM,35,Female,O+,Hypertension,Chloe Thomas,Miller-Grimes,Lipitor,Inconclusive,Basic Information of the Elder admitted to the Care Home:
+  Name: Shannon Fitzpatrick DVM
+  Age: 35
+  Gender: Female
+  Weight: 65 kg
+  Height: 1.65 m
+  BMI: 23.9
+  Blood Type: O+
+  DOB: 1988-03-12
+  Language Understanding: Conversational Proficiency
+  Marital Status: Single
+  Address: 123 Main Street, Anytown, CA 91234
+
+Details of the Guardian:
+  Name: Chloe Thomas
+  Contact Details: 555-123-4567
+
+Medical History of the Elder:
+  Disease: Hypertension
+  Previous Consultant: Dr. Miller
+  Specialization of the Previous Consultant: Cardiology
+  Previous Care Home: Miller-Grimes
+  Contact details of the Previous care home: 555-234-5678
+  Medication Recommended by previous Consultant: Lipitor
+  Test Results Recorded: Inconclusive
+  Drug: Lipitor
+  Dosage: 10 mg
+  Frequency: Once daily
+  Procedure: Take orally with food
+  Symptoms: High blood pressure, headaches, dizziness
+  Past Diseases: None
+  Past Surgeries: None
+  Disease: Hypertension
+  Level of severity: Mild
+  Identified date/time of the disease: 2023-01-01
+  Description of the disease: Shannon has been diagnosed with hypertension, which is high blood pressure. She is currently taking Lipitor to manage her condition.
+
+Medical Status:
+  Monitoring Plan: Blood pressure monitoring
+  Property needs to be monitored: Blood pressure
+  How often it needs to be monitored: Twice daily
+  Start date and time: 2023-01-01
+  End date and time: Ongoing
+  Observation: Shannon's blood pressure has been stable since starting Lipitor.
+  Description for the observation: Shannon's blood pressure has been checked twice daily and has been within normal limits.
+  Obs_date: 2023-02-01
+  Obs_time: 10:00 AM
+  Doctor schedules: Dr. Smith
+  Appointment with the doctor: Dr. Smith
+  Venue of the appointment: Anytown Medical Center
+  Date for the appointment: 2023-03-01
+  Time for the appointment: 10:00 AM
+  Prerequisites for the appointment: None
+
+Social History of the Elder:
+  Living Situation: Shannon lives alone in a small apartment. She is able to care for herself independently.
+  Occupation: Veterinarian
+
+Functional Status of the Elder:
+  Activities of Daily Living: Bathing: can manage independently, Dressing: can manage independently, Eating: can manage independently, Toileting: can manage independently, Transferring: can manage independently, Continence: can manage independently
+  Instrumental Activities of Daily Living: Phone: can manage independently, Managing finances: can manage independently, Meal preparation: can manage independently, Housework: can manage independently, Transportation: can manage independently, Medication management: can manage independently
+  Cognitive Assessments: Thinking: good, Reasoning: good, Remembering: good, Imagining: good, Learning words: good, Using language: good
+  Hobbies: Playing Bingo, Reading
+
+Food Preferences of the Elder:
+  Allergies: None
+  Preferences: Healthy foods, fruits, vegetables, lean protein

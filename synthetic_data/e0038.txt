@@ -1,0 +1,67 @@
+Patty Norman,55,Female,O-,Arthritis,Brian Kennedy,Brown Inc,Aspirin,Normal,Basic Information of the Elder admitted to the Care Home:
+  Name: Patty Norman
+  Age: 55
+  Gender: Female
+  Weight: 65 kg
+  Height: 1.6 m
+  BMI: 25.3
+  Blood Type: O-
+  DOB: 1968-03-12
+  Language Understanding: Conversational Proficiency
+  Marital Status: Married
+  Address: 123 Main Street, Anytown, CA 91234
+
+Details of the Guardian:
+  Name: John Norman
+  Contact Details: (555) 123-4567
+
+Medical History of the Elder:
+  Disease: Arthritis
+  Previous Consultant: Brian Kennedy
+  Specialization of the Previous Consultant: Rheumatologist
+  Previous Care Home: Brown Inc
+  Contact details of the Previous care home: (555) 234-5678
+  Medication Recommended by previous Consultant: Aspirin
+  Test Results Recorded: Normal
+  Drug: Aspirin
+  Dosage: 325 mg
+  Frequency: Twice a day
+  Procedure: Take orally with food
+  Symptoms: Joint pain, stiffness, swelling
+  Past Diseases: None
+  Past Surgeries: None
+  Disease: Arthritis
+  Level of severity: Mild
+  Identified date/time of the disease: 2010-01-01
+  Description of the disease: Patty has been diagnosed with arthritis, a condition that causes inflammation of the joints. She experiences joint pain, stiffness, and swelling, which can make it difficult for her to perform everyday activities.
+
+Medical Status:
+  Monitoring Plan: Monitor pain levels
+  Property needs to be monitored: Pain level
+  How often it needs to be monitored: Daily
+  Start date and time: 2023-03-01
+  End date and time: 2023-03-31
+  Observation: Patty reports pain level of 3 out of 10
+  Description for the observation: Patty reports that her pain is generally well-controlled with medication. She has some stiffness in the morning, but it improves as the day goes on.
+  Obs_date: 2023-03-01
+  Obs_time: 10:00 AM
+  Doctor schedules:
+    doctor_name: Dr. Smith
+    hospital_name: Anytown Hospital
+    appoinment_date: 2023-03-15
+    appointment_time: 2:00 PM
+    prerequisites_for_appointement: None
+
+Social History of the Elder:
+  Living Situation: Patty lives with her husband in a single-family home. She is able to manage most activities of daily living independently, but she does have some difficulty with housework and yard work.
+  Occupation: Patty is a retired nurse.
+
+Functional Status of the Elder:
+  Activities of Daily Living: Bathing: can manage independently, Dressing: can manage independently, Eating: can manage independently, Toileting: can manage independently, Transferring: can manage independently, Continence: can manage independently
+  Instrumental Activities of Daily Living: Phone: can manage independently, Managing finances: can manage independently, Meal preparation: needs assistance, Housework: needs assistance, Transportation: needs assistance, Medication management: can manage independently
+  Cognitive Assessments: Thinking: good, Reasoning: good, Remembering: good, Imagining: good, Learning words: good, Using language: good
+  Hobbies: Reading, Sweing
+
+Food Preferences of the Elder:
+  Allergies: None
+  Preferences: Patty enjoys eating healthy foods, such as fruits, vegetables, and whole grains. She also enjoys occasional treats, such as chocolate and ice cream.

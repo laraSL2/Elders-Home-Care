@@ -1,0 +1,67 @@
+Amy Roberts,45,Male,B-,Cancer,Anthony Roberts,Little-Spencer,Penicillin,Abnormal,Basic Information of the Elder admitted to the Care Home:
+  Name: Amy Roberts
+  Age: 45
+  Gender: Male
+  Weight: 75 kg
+  Height: 1.75 m
+  BMI: 24.5
+  Blood Type: B-
+  DOB: 1978-03-12
+  Language Understanding: Conversational Proficiency
+  Marital Status: Single
+  Address: 123 Main Street, Anytown, CA 91234
+
+Details of the Guardian:
+  Name: Anthony Roberts
+  Contact Details: 555-123-4567
+
+Medical History of the Elder:
+  Disease: Cancer
+  Previous Consultant: Dr. Smith
+  Specialization of the Previous Consultant: Oncology
+  Previous Care Home: Little-Spencer
+  Contact details of the Previous care home: 555-234-5678
+  Medication Recommended by previous Consultant: Penicillin
+  Test Results Recorded: Abnormal
+  Drug: Penicillin
+  Dosage: 500 mg
+  Frequency: Twice a day
+  Procedure: Oral administration
+  Symptoms: Fatigue, weight loss, pain
+  Past Diseases: None
+  Past Surgeries: None
+  Disease: Cancer
+  Level of severity: Moderate
+  Identified date/time of the disease: 2023-01-01
+  Description of the disease: Amy was diagnosed with cancer in 2023. She is currently undergoing treatment and her prognosis is good.
+
+Medical Status:
+  Monitoring Plan: Monitor blood pressure
+  Property needs to be monitored: Blood pressure
+  How often it needs to be monitored: Daily
+  Start date and time: 2023-03-01
+  End date and time: 2023-03-31
+  Observation: Amy's blood pressure is stable.
+  Description for the observation: Amy's blood pressure has been stable since she started taking her medication.
+  Date of obseravation: 2023-03-15
+  Time of observation: 10:00 AM
+  Doctor schedules: Dr. Smith
+  Appointment with the doctor: Dr. Smith
+  Venue of the appointment: Anytown Hospital
+  Date for the appointment: 2023-04-01
+  Time for the appointment: 10:00 AM
+  Prerequisites for the appointment: None
+
+Social History of the Elder:
+  Living Situation: Amy lives alone in a small apartment. She is able to care for herself, but she does have some difficulty with activities of daily living, such as cooking and cleaning.
+  Occupation: Amy is a retired teacher.
+
+Functional Status of the Elder:
+  Activities of Daily Living: Bathing: can manage independently, Dressing: can manage independently, Eating: can manage independently, Toileting: can manage independently, Transferring: can manage independently, Continence: can manage independently
+  Instrumental Activities of Daily Living: Phone: can manage independently, Managing finances: needs assistance, Meal preparation: needs assistance, Housework: needs assistance, Transportation: needs assistance, Medication management: can manage independently
+  Cognitive Assessments: Thinking: good, Reasoning: good, Remembering: good, Imagining: good, Learning words: good, Using language: good
+  Hobbies: Playing Bingo, Reading
+
+Food Preferences of the Elder:
+  Allergies: None
+  Preferences: Amy enjoys eating healthy foods, such as fruits, vegetables, and whole grains. She also enjoys cooking and baking.

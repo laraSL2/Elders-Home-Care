@@ -1,0 +1,63 @@
+Brendan Moody,30,Male,AB+,Diabetes,Sylvia Johnson,Gonzalez Inc,Paracetamol,Normal,Basic Information of the Elder admitted to the Care Home:
+  Name: Brendan Moody
+  Age: 30
+  Gender: Male
+  Weight: 75 kg
+  Height: 1.75 m
+  BMI: 24.5
+  Blood Type: AB+
+  DOB: 1993-05-12
+  Language Understanding: Conversational Proficiency
+  Marital Status: Single
+  Address: 123 Main Street, Anytown, CA 91234
+
+Details of the Guardian:
+  Name: Sylvia Johnson
+  Contact Details: 555-123-4567
+
+Medical History of the Elder:
+  Disease: Diabetes
+  Previous Consultant: Dr. Smith
+  Specialization of the Previous Consultant: Endocrinology
+  Previous Care Home: Gonzalez Inc
+  Contact details of the Previous care home: 555-234-5678
+  Medication Recommended by previous Consultant: Paracetamol
+  Test Results Recorded: Normal
+  Drug: Metformin
+  Dosage: 500 mg
+  Frequency: Twice a day
+  Procedure: Take orally with meals
+  Symptoms: Increased thirst, frequent urination, fatigue
+  Past Diseases: None
+  Past Surgeries: None
+  Disease: Diabetes
+  Level of severity: Mild
+  Identified date/time of the disease: 2023-01-01
+  Description of the disease: Diabetes is a chronic metabolic disorder characterized by elevated blood sugar levels.
+
+Medical Status:
+  Monitoring Plan: Blood sugar monitoring
+  Property needs to be monitored: Blood sugar levels
+  How often it needs to be monitored: Daily
+  Start date and time: 2023-02-01
+  End date and time: N/A
+  Observation: Blood sugar level: 120 mg/dL
+  Description for the observation: Blood sugar level is within normal range.
+  Date of obseravation: 2023-02-02
+  Time of observation: 10:00 AM
+  Doctor schedules: Dr. Smith, Anytown Hospital, 2023-03-01, 10:00 AM, Bring blood sugar log
+  Prerequisites for the appointment: N/A
+
+Social History of the Elder:
+  Living Situation: Brendan lives alone in a small apartment. He is able to care for himself independently.
+  Occupation: Brendan is a software engineer.
+
+Functional Status of the Elder:
+  Activities of Daily Living: Bathing: can manage independently, Dressing: can manage independently, Eating: can manage independently, Toileting: can manage independently, Transferring: can manage independently, Continence: can manage independently
+  Instrumental Activities of Daily Living: Phone: can manage independently, Managing finances: can manage independently, Meal preparation: can manage independently, Housework: can manage independently, Transportation: can manage independently, Medication management: can manage independently
+  Cognitive Assessments: Thinking: good, Reasoning: good, Remembering: good, Imagining: good, Learning words: good, Using language: good
+  Hobbies: Playing Bingo, Reading
+
+Food Preferences of the Elder:
+  Allergies: None
+  Preferences: Fruits, vegetables, whole grains

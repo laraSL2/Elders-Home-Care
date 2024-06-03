@@ -13,26 +13,10 @@ from reportlab.lib.pagesizes import letter
 from io import BytesIO
 import base64
 
-
-from dotenv import load_dotenv
-
-load_dotenv()
-
-
-### temperory expert
-from rag_expert.generate_expert_suggestions import get_llm_and_retriever,generate_suggestions
-
-if "mv_retriever" not in st.session_state and "expert_llm" not in st.session_state:
-    st.session_state.mv_retriever,st.session_state.expert_llm = get_llm_and_retriever()
-####
-
-my_gemini = GeminiInitializer()
-my_graph = GraphInitializer()
-
-
-if "button_clicked" not in st.session_state:
-    st.session_state.button_clicked = False
-
+def get_image_as_base64(url):
+    with open(url, "rb") as image_file:
+        return base64.b64encode(image_file.read()).decode('utf-8')
+    
 def create_pdf(content):
     buffer = BytesIO()
     doc = SimpleDocTemplate(buffer, pagesize=letter, rightMargin=72, leftMargin=72,
@@ -203,17 +187,13 @@ elif selected == "Care Note Enhancement":
     elif st.session_state.button and not original_care_note:
         st.warning("Please enter the care note to enhance")
     elif st.session_state.button and elder_id and original_care_note:
-        st.session_state.enhanced_note, st.session_state.suggestions_note  = note_enhancer(original_care_note, st.session_state.my_gemini)
+        st.session_state.enhanced_note = note_enhancer(original_care_note, st.session_state.my_gemini)
         st.session_state.text_copy = f"""{st.session_state.enhanced_note}"""
-        st.session_state.text_copy_suggestions = f"""{st.session_state.suggestions_note}"""
         st.session_state.button_clicked = True
         
     if "text_copy" in st.session_state and st.session_state.text_copy:
         st.subheader("Generated Care Enhancement Note")
-        editable_note = st.text_area(label="",value=st.session_state.text_copy, height=200)
-        st.subheader("Generated Suggestions")
-        st.code("\n".join(tw.wrap(st.session_state.text_copy_suggestions, width=80)), language="md")
-        #st.code("\n".join(tw.wrap(st.session_state.text_copy, width=80)), language="md")
+        st.code("\n".join(tw.wrap(st.session_state.text_copy, width=80)), language="md")
 
         col1, col2 = st.columns([4,1])
         if st.session_state.button_clicked:
@@ -221,7 +201,7 @@ elif selected == "Care Note Enhancement":
                 add_button = st.button("Add Care Note", type = "primary", use_container_width=True)
             if add_button:
                 print("Adding the care note")
-                state = add_patient(st.session_state.my_gemini, st.session_state.my_graph, elder_id, care_note_mode=True, care_note=editable_note, data="")
+                state = add_patient(st.session_state.my_gemini, st.session_state.my_graph, elder_id, care_note_mode=True, care_note=st.session_state.enhanced_note, data="")
                 if state:
                     st.success("Care Note added successfully")
                 else:
@@ -241,14 +221,8 @@ elif selected == "Care Plan Generation":
         generation_button = st.button("Submit", type="primary")
 
     if generation_button and elder_id:
-
-        # my_gemini = GeminiInitializer()
-        # my_graph = GraphInitializer()
-        care_plan = generate_plan(elder_id, GeminiInitializer=my_gemini, GraphInitializer=my_graph,
-                                  expert_llm=st.session_state.expert_llm,
-                                  retriever = st.session_state.mv_retriever)
-        st.session_state.care_plan = care_plan  
-
+        care_plan = generate_plan(elder_id, GeminiInitializer=st.session_state.my_gemini, GraphInitializer=st.session_state.my_graph)
+        st.session_state.care_plan = care_plan 
     elif not elder_id and generation_button:
         st.warning("Please fill in the elder ID to generate the care plan.")
 

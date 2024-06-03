@@ -1,0 +1,67 @@
+Christina Hernandez,84,Female,O+,Hypertension,Cody Wright,Harris and Sons,Aspirin,Inconclusive,Basic Information of the Elder admitted to the Care Home:
+  Name: Christina Hernandez
+  Age: 84
+  Gender: Female
+  Weight: 65 kg
+  Height: 1.6 m
+  BMI: 25.3
+  Blood Type: O+
+  DOB: 1939-05-12
+  Language Understanding: Conversational Proficiency
+  Marital Status: Widowed
+  Address: 123 Main Street, Anytown, CA 91234
+
+Details of the Guardian:
+  Name: John Hernandez
+  Contact Details: (555) 123-4567
+
+Medical History of the Elder:
+  Disease: Hypertension
+  Previous Consultant: Cody Wright
+  Specialization of the Previous Consultant: Cardiology
+  Previous Care Home: Harris and Sons
+  Contact details of the Previous care home: (555) 234-5678
+  Medication Recommended by previous Consultant: Aspirin
+  Test Results Recorded: Inconclusive
+  Drug: Aspirin
+  Dosage: 81 mg
+  Frequency: Once a day
+  Procedure: Take orally with water
+  Symptoms: High blood pressure, dizziness, fatigue
+  Past Diseases: None
+  Past Surgeries: None
+  Disease: Hypertension
+  Level of severity: Moderate
+  Identified date/time of the disease: 2010-01-01
+  Description of the disease: A condition in which blood pressure in the arteries is persistently elevated
+
+Medical Status:
+  Monitoring Plan: Blood pressure monitoring
+  Property needs to be monitored: Blood pressure
+  How often it needs to be monitored: Twice a day
+  Start date and time: 2023-08-01
+  End date and time: 2023-08-31
+  Observation: Blood pressure reading of 140/90 mmHg
+  Description for the observation: Blood pressure is slightly elevated
+  Date of obseravation: 2023-08-02
+  Time of observation: 10:00 AM
+  Doctor schedules: Dr. Smith
+  Appointment with the doctor: Dr. Smith
+  Venue of the appointment: Anytown Medical Center
+  Date for the appointment: 2023-08-15
+  Time for the appointment: 2:00 PM
+  Prerequisites for the appointment: None
+
+Social History of the Elder:
+  Living Situation: Lives alone in a small apartment
+  Occupation: Retired nurse
+
+Functional Status of the Elder:
+  Activities of Daily Living: Bathing: can manage independently, Dressing: can manage independently, Eating: can manage independently, Toileting: can manage independently, Transferring: can manage independently, Continence: can manage independently
+  Instrumental Activities of Daily Living: Phone: can manage independently, Managing finances: needs assistance, Meal preparation: needs assistance, Housework: needs assistance, Transportation: needs assistance, Medication management: can manage independently
+  Cognitive Assessments: Thinking: good, Reasoning: good, Remembering: good, Imagining: good, Learning words: good, Using language: good
+  Hobbies: Reading, Playing Bingo
+
+Food Preferences of the Elder:
+  Allergies: None
+  Preferences: Low-sodium foods, fruits, vegetables

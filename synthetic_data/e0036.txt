@@ -1,0 +1,67 @@
+Patrick Parker,41,Male,AB+,Arthritis,Robin Green,Boyd PLC,Aspirin,Abnormal,Basic Information of the Elder admitted to the Care Home:
+  Name: Patrick Parker
+  Age: 41
+  Gender: Male
+  Weight: 85 kg
+  Height: 1.8 m
+  BMI: 26.15
+  Blood Type: AB+
+  DOB: 1982-03-12
+  Language Understanding: Conversational Proficiency
+  Marital Status: Single
+  Address: 123 Main Street, Anytown, CA 91234
+
+Details of the Guardian:
+  Name: Not Provided
+  Contact Details: Not Provided
+
+Medical History of the Elder:
+  Disease: Arthritis
+  Previous Consultant: Robin Green
+  Specialization of the Previous Consultant: Rheumatologist
+  Previous Care Home: Boyd PLC
+  Contact details of the Previous care home: Not Provided
+  Medication Recommended by previous Consultant: Aspirin
+  Test Results Recorded: Abnormal
+  Drug: Aspirin
+  Dosage: 325 mg
+  Frequency: Twice a day
+  Procedure: Take orally with food
+  Symptoms: Joint pain, stiffness, swelling
+  Past Diseases: Not Provided
+  Past Surgeries: Not Provided
+  Disease: Arthritis
+  Level of severity: Mild
+  Identified date/time of the disease: 2023-01-01
+  Description of the disease: A common form of arthritis that causes inflammation of the joints.
+
+Medical Status:
+  Monitoring Plan: Not Provided
+  Property needs to be monitored: Not Provided
+  How often it needs to be monitored: Not Provided
+  Start date and time: Not Provided
+  End date and time: Not Provided
+  Observation: Not Provided
+  Description for the observation: Not Provided
+  Date of obseravation: Not Provided
+  Time of observation: Not Provided
+  Doctor schedules: Not Provided
+  Appointment with the doctor: Not Provided
+  Venue of the appointment: Not Provided
+  Date for the appointment: Not Provided
+  Time for the appointment: Not Provided
+  Prerequisites for the appointment: Not Provided
+
+Social History of the Elder:
+  Living Situation: Lives alone in a small apartment.
+  Occupation: Software Engineer
+
+Functional Status of the Elder:
+  Activities of Daily Living: Bathing: can manage independently, Dressing: can manage independently, Eating: can manage independently, Toileting: can manage independently, Transferring: can manage independently, Continence: can manage independently
+  Instrumental Activities of Daily Living: Phone: can manage independently, Managing finances: can manage independently, Meal preparation: can manage independently, Housework: can manage independently, Transportation: can manage independently, Medication management: can manage independently
+  Cognitive Assessments: Thinking: good, Reasoning: good, Remembering: good, Imagining: good, Learning words: good, Using language: good
+  Hobbies: Playing Bingo, Reading
+
+Food Preferences of the Elder:
+  Allergies: Not Provided
+  Preferences: Not Provided

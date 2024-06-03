@@ -1,7 +1,5 @@
 class Prompts:
-    # Initializes the Prompts class
     def __init__(self):
-        # Prompt for extracting entities and relationships related to elder, previous consultants, and previous residence
         self.eld_cons_res_prompt = """You will be given a set of particulars of a senior resident who is being admitted to a facility for the elderly, extract entities and relationships strictly as instructed below:
 
 Three entities needed to be extracted are "Elder", "Previous_consultant", and "Previous_residence" from the elder's details.
@@ -66,7 +64,7 @@ Example Output JSON:
 {"entities":[{"label":"Elder","id":"elder1","name":"Sandani Sesanika","gender":"Female","blood_type":"O+","date_of_birth":"2000-09-27","guardian_name":"Kamesh Anuradha","guardian_contact":"0761234567","weight":67,"height":"175cm","bmi":120.3,"english_understanding":"Fluent Speaker","maritial_status":"Married","hobbies":["reading","hiking"]},{"label":"Previous_Consultant","id":"previous_consultant1","name":"Elijah Hoole","specialization":"Neurologist"},{"label":"Previous_Consultant","id":"previous_consultant2","name":"Kavindu Kariyawasam","specialization":"Dermatologist"},{"label":"Previous_Residence","id":"previous_residence2","name":"Manusath Uyana","contact":"0764851362"}],"relationships":[]}
 
 Answer:"""
-        # Prompt for extracting entities and relationships related to condition, disease, drug, and food
+
         self.con_dis_drug_food_prompt = """You will be given a set of particulars of a senior resident who is being admitted to a facility for the elderly, extract entities and relationships strictly as instructed below:
 
 You need to extract 4 entities, namely 'Condition', 'Disease', 'Drug', and 'Food' from the elder's details.
@@ -114,7 +112,7 @@ Question: Now, extract entities & relationships as mentioned above for the text 
 $ctext
 
 Answer: """
-        # Prompt for extracting entities and relationships related to monitoring plan, observation, and doctor schedule
+
         self.mon_obs_docshe_prompt = """You will be given a set of particulars of a senior resident who is being admitted to a facility for the elderly, extract entities and relationships strictly as instructed below:
 
 Three entities needed to be extracted are Monitoring_Plan, Observation, and Doctor_Schedule from the elder's details.
@@ -173,7 +171,7 @@ Retrieve the extracted entities and attributes from {$ctext} in a json format. R
 
 answer:
 """
-        # Prompt for extracting entities related to ADL, IADL, Cognitive Assessment, and Social History
+
         self.adl_iadl_cog_soc_prompt = """You will be given a set of particulars of a senior resident who is being admitted to a facility for the elderly, extract entities strictly as instructed below:
 
 Three entities needed to be extracted are "ADL" (Activities of Daily Livings), "IADL" (Instrumental Activities of Daily Livings), "Cognitive_Assessment" and "Social_History" from the elder's details.
@@ -245,7 +243,7 @@ answer:
             doctor_schedule,
             care_notes
         ):
-        # Generates a comprehensive care plan based on the provided data
+        
         plan_prompt = f"""Using the provided data parameters regarding an elder admitted to a new care facility, generate a comprehensive care plan in the specified format.
 
 For each section of the care plan, You should generate a complete explanation using the provided parameters and present the plan in a paragraph format, ensuring coherence and clarity.
@@ -264,26 +262,6 @@ Full Name:
 Age:
 Gender:
 Elder data: {elder_data}
-
-
-----------------------------------------
-
-
-Care Needs:
-List down all care needs of the respective elder. Utilize information from {functional_status}, {outings}, {disease_data}, and {monitoring_plan} to give a detailed set of needs.
-Give in point format. Take {elder_data} into consideration, when formulating sentences. 
-
-
-Care Actions:
-List down all care actions taken by care givers in taking care of the elder. Utilize information from {care_notes} into generating content for this section.
-Describe each in paragraphs. Take {elder_data} into consideration, when formulating sentences. 
-
-
-Outcome/ Goal:
-Give a brief summary of {care_notes} as an overall goal for the specific elder. Be precise.
-
-
--------------------------------
 
 
 Social History
@@ -314,6 +292,9 @@ Disease data: {disease_data}
 Medication Plan
 Explain the elder's medication regimen, including drug names, dosages, frequencies, and any additional details. Ensure clarity and accuracy in conveying this vital information.
 Drugs Data: {drug_data}
+
+
+Treatment Plan:
 
 
 Nutrition and Dietary Plan

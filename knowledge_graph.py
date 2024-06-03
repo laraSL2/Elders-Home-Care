@@ -240,23 +240,34 @@ def generate_cypher(elderID, in_json):
 """## Pipeline"""
 
 def add_patient(gemini, graph, elderid, care_note_mode=False, care_note="", data=""):
-    graph.define_nodes_uniqueness()
-    # try:
-    print("Elder ID: ", elderid)
-    print(f"    Extracting Entities & Relationships")
-    results = extractor(elderid, gemini, care_note_mode, data=data, care_note=care_note)
-    results = add_essential_nodes(elderid, results, care_note_mode)
-    results = add_relationships(results, elderid)
-    print(f"    Generating Cypher")
-    ent_cyp, rel_cyp = generate_cypher(elderid, [results])
-    print(f"    Ingesting Entities")
-    for e in ent_cyp:
-        graph.run_query(e)
-    print(f"    Ingesting Relationships")
-    for r in rel_cyp:
-        graph.run_query(r)
-    print(f"    Processing DONE")
-    return True
-    # except Exception as e:
-    #     print(f"    Processing Failed with exception {e}")
-    #     return False
+    try:
+      graph.define_nodes_uniqueness()
+      print("Elder ID: ", elderid)
+      print(f"    Extracting Entities & Relationships")
+      results = extractor(elderid, gemini, care_note_mode, data=data, care_note=care_note)
+      results = add_essential_nodes(elderid, results, care_note_mode)
+      results = add_relationships(results, elderid)
+      print(f"    Generating Cypher")
+      ent_cyp, rel_cyp = generate_cypher(elderid, [results])
+      print(f"    Ingesting Entities")
+      for e in ent_cyp:
+          graph.run_query(e)
+      print(f"    Ingesting Relationships")
+      for r in rel_cyp:
+          graph.run_query(r)
+      print(f"    Processing DONE")
+      return True
+    except Exception as e:
+        print(f"    Processing Failed with exception {e}")
+        return False
+
+def get_max_patient_id(graph):
+    query = "MATCH (e:Elder) RETURN max(toInteger(substring(e.id, 1))) AS max_id"
+    result = graph.run_query(query)
+    return result['max_id'][0]
+
+def get_next_patient_id(graph):
+    max_id = get_max_patient_id(graph)
+    if max_id is None:
+        return ""
+    return "e"+str(max_id + 1).zfill(4)
