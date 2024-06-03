@@ -12,6 +12,10 @@ from reportlab.lib.units import inch
 from reportlab.lib.pagesizes import letter
 from io import BytesIO
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 
 ### temperory expert
 from rag_expert.generate_expert_suggestions import get_llm_and_retriever,generate_suggestions

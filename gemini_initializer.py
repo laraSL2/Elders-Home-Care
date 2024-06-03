@@ -9,7 +9,7 @@ class GeminiInitializer:
         with open(config_path) as f:
             config = json.load(f)
         self.api_key = config["gemini-api-key"]
-        os.environ['GOOGLE_API_KEY'] = self.api_key
+        #os.environ['GOOGLE_API_KEY'] = self.api_key
         genai.configure(api_key = os.environ['GOOGLE_API_KEY'])
 
     def run_text_model(self,

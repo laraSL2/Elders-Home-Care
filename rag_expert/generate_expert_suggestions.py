@@ -13,12 +13,25 @@ from langchain_core.messages import HumanMessage
 
 import torch
 
-DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'
-os.environ['GOOGLE_API_KEY'] = "AIzaSyB3QX46EFHbg_qL5P2QOmxZQMR5_OSCMEI"
+from qdrant_client import QdrantClient
+from langchain.vectorstores import Qdrant
 
-def load_vdb(db_path, embedding_function, index_name):
-    vdb = Chroma(persist_directory=db_path, collection_name=index_name,
-                 embedding_function=embedding_function,collection_metadata={"hnsw:space": "cosine"})
+DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'
+
+
+
+def load_vdb(embedding_function, index_name):
+    
+    client = QdrantClient(
+        os.environ['QDRANT_URL'],
+        os.environ['QDRANT_API_KEY'],
+    )
+    
+    vdb = Qdrant(
+        client=client,
+        embeddings=embedding_function,
+        collection_name=index_name,
+    )
     print("[INFO] load vector database successfull")
     return vdb
 

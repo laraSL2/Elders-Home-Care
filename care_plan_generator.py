@@ -190,7 +190,7 @@ def generate_plan(elderID,expert_llm,expert_retriever, GeminiInitializer = Gemin
     doctor_schedule = str(kg_details.doctor_schedules())
     care_notes = str(kg_details.care_notes())
     
-    ### temperoray RAG expert
+    ### temporary RAG expert
     
     user_query = f"""
     Medical History: {medical_history}\n
@@ -210,7 +210,6 @@ def generate_plan(elderID,expert_llm,expert_retriever, GeminiInitializer = Gemin
     expert_suggestions = expert_suggestions.split("Technical Document")[-1]
    
     ###
-
 
     """## Prompting the LLM to generate the Care Plan"""
     prompt = Prompts()
