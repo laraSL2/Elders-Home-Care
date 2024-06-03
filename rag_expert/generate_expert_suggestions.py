@@ -124,7 +124,7 @@ completely answer the query. Your thought process includes that why do you sugge
 to the information in the document. However, you should not provide the treatment methods which are not related to the document for the analysed condition for the provided query and any treatment, activity \
     or food type which cause any harm to the elder even if elder likes to do them.
 2. "Technical Document":
-- Present each treatment method accurately without adding new information but explain in detail why you need to give this treatment based on the elders conditions.
+- Present each treatment method accurately without adding new information but explain in detail why you need to give this treatment (food, medicine, activity, tools, etc.) based on the elders conditions.
 - Treatment method might include the possible nutrients (meal), physical exercises, mental exercises, proper care giver tools, etc. While suggesting the treatment methods, consider the given preferences as well. However, avoid suggesting harmful treatment methods even the elder likes them.
 - Avoid mixing facts from different areas.
 3. Order of keys in the response must be "Thought", and "Technical Document".
