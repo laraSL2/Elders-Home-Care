@@ -49,7 +49,7 @@ You must follow the instructions given below:
       Metrics for evaluation will include grammar and spelling accuracy, paraphrase fluency, and preservation of meaning.
       Evaluation will also consider the consistency of appropriate naming convention.
 
-    - Provide the output in JSON format with two keys:
+    - You must provide the output in JSON format with two keys:
       - "enhanced_text": Contains the improved version of the input text. Must not include any suggestions here
       - "suggestions_text": Contains suggestions for missing details according to your understanding to improve the care note, if any. If no suggestions return "No additional suggestions."
       
@@ -75,6 +75,9 @@ def note_enhancer(text, gemini=GeminiInitializer()):
     prompt = template1.format(input_text=text)
     print(prompt)
     response = gemini.run_text_model(prompt, model_name="gemini-1.5-pro-latest", temperature=0.2)
+    print(response)
+
+    response = response.replace("```","").replace("json\n{","{")
     print(response)
     response_json = json.loads(response)
     enhanced_text = response_json.get("enhanced_text", "")

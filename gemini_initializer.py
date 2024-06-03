@@ -4,6 +4,7 @@ import google.generativeai as genai
 from langchain_google_genai import ChatGoogleGenerativeAI
 from google.generativeai.types import HarmCategory, HarmBlockThreshold
 
+
 class GeminiInitializer:
     def __init__(self, config_path="config.json"):
         with open(config_path) as f:
