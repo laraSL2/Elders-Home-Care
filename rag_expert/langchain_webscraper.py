@@ -1,6 +1,11 @@
 from langchain_community.document_transformers import Html2TextTransformer
 from langchain_community.document_loaders import AsyncHtmlLoader
 
+
+from langchain.docstore.document import Document
+
+
+
 def retrieve_documents(urls,save_dir=None,character_splitter = None):
     loader = AsyncHtmlLoader(urls)
     
@@ -11,8 +16,12 @@ def retrieve_documents(urls,save_dir=None,character_splitter = None):
 
     html2text = Html2TextTransformer()
     docs_transformed = html2text.transform_documents(docs)
+    docs_transformed = [Document(page_content=doc.page_content,metadata=doc.metadata) for doc in docs_transformed]
     print(len(docs_transformed))
+    # print(docs_transformed[0])
+    print(type(docs_transformed[0]))
     
+
     # print(docs_transformed[1])
     
     if save_dir:

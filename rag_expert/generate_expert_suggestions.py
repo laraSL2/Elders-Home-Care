@@ -16,6 +16,9 @@ import torch
 from qdrant_client import QdrantClient
 from langchain.vectorstores import Qdrant
 
+from dotenv import load_dotenv
+load_dotenv()
+
 DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'
 
 
@@ -24,7 +27,7 @@ def load_vdb(embedding_function, index_name):
     
     client = QdrantClient(
         os.environ['QDRANT_URL'],
-        os.environ['QDRANT_API_KEY'],
+        api_key=os.environ['QDRANT_API_KEY'],
     )
     
     vdb = Qdrant(
@@ -45,17 +48,16 @@ def get_llm_and_retriever():
     
     try:
         # pdf_dir_path = "elders_care_docs"
-        vdb_path = "vector_databases"
+        #vdb_path = "vector_databases"
         # Path(vdb_path).mkdir(parents=True,exist_ok=True)
-        collection_name = "elders_care_expert"
-        vdb_path = vdb_path + "/" + collection_name
+        collection_name = "vdb_elders_home_care"
+        #vdb_path = vdb_path + "/" + collection_name
         
         
         embed_model_name = "sentence-transformers/multi-qa-MiniLM-L6-cos-v1"
         embedding_model = load_embedding_model(model_name=embed_model_name)
         
         expert_vdb = load_vdb(
-            db_path= vdb_path,
             embedding_function=embedding_model,
             index_name=collection_name,
         )
@@ -71,6 +73,7 @@ def get_llm_and_retriever():
             # safety_settings=gemini_safety_settings,
         )
         
+        print(expert_vdb)
         retriever = expert_vdb.as_retriever(search_type="mmr", search_kwargs={'k': 25})
         retriever_from_llm = MultiQueryRetriever.from_llm(
             retriever=retriever, llm=expert_llm
@@ -110,12 +113,14 @@ Steps:
 
 Now it's your turn!
 <DOCUMENT>
-{context}
+{context}s
 </DOCUMENT>
 <INSTRUCTIONS>
 Your response should include a 2-step cohesive answer with following keys:
 1. "Thought" key: Explain how you would use the information in the document to partially or
-completely answer the query.
+completely answer the query. Your thought process includes that why do you suggest the treatment methods based on the preference of the elder and thoughroghly referring \
+to the information in the document. However, you should not provide the treatment methods which are not related to the document for the analysed condition for the provided query and any treatment, activity \
+    or food type which cause any harm to the elder even if elder likes to do them.
 2. "Technical Document":
 - Present each treatment method accurately without adding new information.
 - Treatment method might include the possible nutrients (meal), physical exercises, mental exercises, etc.
@@ -130,6 +135,8 @@ OUTPUT:
 def generate_suggestions(user_query,expert_llm,retriever,template=None):
     
     retrieved_documents = retrieve_documents(user_query,retriever)
+
+    print(len(retrieved_documents))
     
     user_prompt = template.format(
         query=user_query,
@@ -149,7 +156,7 @@ def main():
         
         if user_query == "exit":
             break
-    
+            
         
         response = generate_suggestions(
             user_query,
