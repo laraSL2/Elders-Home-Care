@@ -1,5 +1,5 @@
 """## Data Ingestion"""
-
+import os
 from neo4j import GraphDatabase
 import pandas as pd
 import json
@@ -8,9 +8,12 @@ class GraphInitializer:
   def __init__(self, config_path="config.json"):
     with open(config_path) as f:
       config = json.load(f)
-    self.connectionUrl = config["neo4j-url"]
-    self.username = config["neo4j-user"]
-    self.password = config["neo4j-password"]
+    # self.connectionUrl = config["neo4j-url"]
+    # self.username = config["neo4j-user"]
+    # self.password = config["neo4j-password"]
+    self.connectionUrl = os.environ["neo4j-url"]
+    self.username = os.environ["neo4j-user"]
+    self.password = os.environ["neo4j-password"]
     self.driver = GraphDatabase.driver(self.connectionUrl, auth=(self.username, self.password))
     self.driver.verify_connectivity()
     print("Initializing the graph")

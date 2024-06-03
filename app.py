@@ -13,10 +13,26 @@ from reportlab.lib.pagesizes import letter
 from io import BytesIO
 import base64
 
-def get_image_as_base64(url):
-    with open(url, "rb") as image_file:
-        return base64.b64encode(image_file.read()).decode('utf-8')
-    
+
+from dotenv import load_dotenv
+
+load_dotenv()
+
+
+### temperory expert
+from rag_expert.generate_expert_suggestions import get_llm_and_retriever,generate_suggestions
+
+if "mv_retriever" not in st.session_state and "expert_llm" not in st.session_state:
+    st.session_state.mv_retriever,st.session_state.expert_llm = get_llm_and_retriever()
+####
+
+my_gemini = GeminiInitializer()
+my_graph = GraphInitializer()
+
+
+if "button_clicked" not in st.session_state:
+    st.session_state.button_clicked = False
+
 def create_pdf(content):
     buffer = BytesIO()
     doc = SimpleDocTemplate(buffer, pagesize=letter, rightMargin=72, leftMargin=72,
@@ -225,8 +241,14 @@ elif selected == "Care Plan Generation":
         generation_button = st.button("Submit", type="primary")
 
     if generation_button and elder_id:
-        care_plan = generate_plan(elder_id, GeminiInitializer=st.session_state.my_gemini, GraphInitializer=st.session_state.my_graph)
-        st.session_state.care_plan = care_plan 
+
+        # my_gemini = GeminiInitializer()
+        # my_graph = GraphInitializer()
+        care_plan = generate_plan(elder_id, GeminiInitializer=my_gemini, GraphInitializer=my_graph,
+                                  expert_llm=st.session_state.expert_llm,
+                                  retriever = st.session_state.mv_retriever)
+        st.session_state.care_plan = care_plan  
+
     elif not elder_id and generation_button:
         st.warning("Please fill in the elder ID to generate the care plan.")
 

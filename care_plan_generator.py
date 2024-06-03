@@ -7,6 +7,8 @@ from graph_initializer import GraphInitializer
 from gemini_initializer import GeminiInitializer
 from prompts import Prompts
 
+from rag_expert.generate_expert_suggestions import get_llm_and_retriever,generate_suggestions,PROMPT_TEMPLATE ## temperoray RAG expert imports
+
 class GetDetailsFromKG:
     def __init__(self, Nodes: graph.Node, Relationships: graph.Relationship)->None:
         self.nodes = Nodes
@@ -157,7 +159,7 @@ def read_graph(elderID: str, GraphInitializer = GraphInitializer())->tuple[graph
     Relationships = df['distinctRelationships'][0]
     return Nodes, Relationships
 
-def generate_plan(elderID:str, GeminiInitializer = GeminiInitializer(), GraphInitializer = GeminiInitializer())->str:
+def generate_plan(elderID,expert_llm,expert_retriever, GeminiInitializer = GeminiInitializer(), GraphInitializer = GeminiInitializer())->str:
     elderID = elderID.lower()
     try:
         Nodes, Relationships = read_graph(elderID, GraphInitializer=GraphInitializer)
@@ -179,11 +181,37 @@ def generate_plan(elderID:str, GeminiInitializer = GeminiInitializer(), GraphIni
     monitoring_plan = str(kg_details.observation_and_monitoring())
     doctor_schedule = str(kg_details.doctor_schedules())
     care_notes = str(kg_details.care_notes())
-
+    
+    ### temporary RAG expert
+    
+    user_query = f"""
+    Medical History: {medical_history}\n
+    Disease Data: {disease_data}\n
+    Drug Data: {drug_data}\n
+    Dietary Plan: {dietary_plan}\n
+    Monitoring Plan: {monitoring_plan}\n
+    Previous Care Notes: {care_notes}"""
+    
+    expert_suggestions = generate_suggestions(
+            user_query,
+            expert_llm,
+            retriever=expert_retriever,
+            template=PROMPT_TEMPLATE
+        )
+    
+    expert_suggestions = expert_suggestions.split("Technical Document")[-1]
+   
+    ###
 
     """## Prompting the LLM to generate the Care Plan"""
     prompt = Prompts()
     plan_prompt = prompt.plan_prompt(elderID, elder_data, social_history, medical_history, functional_status, outings, disease_data, drug_data, dietary_plan, monitoring_plan, doctor_schedule, care_notes)
 
-    _extraction = GeminiInitializer.extract_entities_relationships(plan_prompt,model_name="gemini-1.0-pro")
+
+    _extraction = GeminiInitializer.extract_entities_relationships(plan_prompt,model_name="gemini-1.5-pro-latest")
+    
+    ## adding expert suggestions
+    _extraction += f"\n{expert_suggestions}"
+    
+
     return _extraction
