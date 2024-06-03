@@ -249,11 +249,12 @@ answer:
         # Generates a comprehensive care plan based on the provided data
         plan_prompt = f"""Using the provided data parameters regarding an elder admitted to a new care facility, generate a comprehensive care plan in the specified format.
 
-For each section of the care plan, You should generate a complete explanation using the provided parameters and present the plan in a paragraph format, ensuring coherence and clarity.
+For each section of the care plan, You should generate a complete explanation using the provided parameters and present the plan in a paragraph format, ensuring coherence and clarity. You must \
+utilize the provided rag suggestions approriately and include them in sections (Care Needs, Care Actions) where those suggestions are most suitable. You must not explicitly include rag suggestions as a separate section in the final care plan.
+
+RAG SUGGESTIONS: {rag_suggestions}
 
 Ensure that the generated plan adheres strictly to the provided data and format without introducing any fabricated information.
-
-Below, you'll find the care plan template along with the necessary data for each section provided in JSON format. Your task is to transform this information into paragraph format.
 
 Below, you'll find the care plan template along with the necessary data for each section provided in JSON format. Your task is to transform this information into paragraph format.
 
@@ -334,9 +335,6 @@ doctor schedule data: {doctor_schedule}
 Summarization of Previous Care Notes
 In this Section You need to summariza the information contains in the care notes provided below in JSON format. If there is important thing in a care note add the date of the care note as well for that thing.
 care_notes: {care_notes}
-
-RAG Expert Suggestions:
-{rag_suggestions}
 
 ----------------------------------------
 
