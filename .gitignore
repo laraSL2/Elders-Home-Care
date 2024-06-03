@@ -1,4 +1,6 @@
 .__pycache__
 rag_expert/__pycache__
 .env
+requirements_orig.txt
+requirements_with_versions.txt
 config.json
