@@ -243,7 +243,8 @@ answer:
             dietary_plan,
             monitoring_plan,
             doctor_schedule,
-            care_notes
+            care_notes,
+            rag_suggestions
         ):
         # Generates a comprehensive care plan based on the provided data
         plan_prompt = f"""Using the provided data parameters regarding an elder admitted to a new care facility, generate a comprehensive care plan in the specified format.
@@ -333,6 +334,11 @@ doctor schedule data: {doctor_schedule}
 Summarization of Previous Care Notes
 In this Section You need to summariza the information contains in the care notes provided below in JSON format. If there is important thing in a care note add the date of the care note as well for that thing.
 care_notes: {care_notes}
+
+RAG Expert Suggestions:
+{rag_suggestions}
+
+----------------------------------------
 
 Use this as a guide to generate a detailed care plan based on the provided data without introducing any fictional elements.
 Care Plan:

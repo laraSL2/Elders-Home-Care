@@ -7,7 +7,7 @@ from graph_initializer import GraphInitializer
 from gemini_initializer import GeminiInitializer
 from prompts import Prompts
 
-from rag_expert.generate_expert_suggestions import get_llm_and_retriever,generate_suggestions,PROMPT_TEMPLATE ## temperoray RAG expert imports
+from rag_expert.generate_expert_suggestions import generate_suggestions,PROMPT_TEMPLATE ## temperoray RAG expert imports
 
 class GetDetailsFromKG:
     def __init__(self, Nodes: graph.Node, Relationships: graph.Relationship)->None:
@@ -205,13 +205,14 @@ def generate_plan(elderID,expert_llm,expert_retriever, GeminiInitializer = Gemin
 
     """## Prompting the LLM to generate the Care Plan"""
     prompt = Prompts()
-    plan_prompt = prompt.plan_prompt(elderID, elder_data, social_history, medical_history, functional_status, outings, disease_data, drug_data, dietary_plan, monitoring_plan, doctor_schedule, care_notes)
+    plan_prompt = prompt.plan_prompt(elderID, elder_data, social_history, medical_history, functional_status, outings, disease_data, drug_data, dietary_plan, monitoring_plan, doctor_schedule, care_notes,
+                                     rag_suggestions=expert_suggestions)
 
 
     _extraction = GeminiInitializer.extract_entities_relationships(plan_prompt,model_name="gemini-1.5-pro-latest")
     
     ## adding expert suggestions
-    _extraction += f"\n{expert_suggestions}"
+    #_extraction += f"\n{expert_suggestions}"
     
 
     return _extraction

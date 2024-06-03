@@ -1,3 +1,7 @@
+from dotenv import load_dotenv
+
+load_dotenv()
+
 import streamlit as st
 from streamlit_option_menu import option_menu
 from care_note_enhancement import note_enhancer
@@ -13,14 +17,13 @@ from reportlab.lib.pagesizes import letter
 from io import BytesIO
 import base64
 
-
-from dotenv import load_dotenv
-
-load_dotenv()
+def get_image_as_base64(url):
+    with open(url, "rb") as image_file:
+        return base64.b64encode(image_file.read()).decode('utf-8')
 
 
 ### temperory expert
-from rag_expert.generate_expert_suggestions import get_llm_and_retriever,generate_suggestions
+from rag_expert.generate_expert_suggestions import get_llm_and_retriever
 
 if "mv_retriever" not in st.session_state and "expert_llm" not in st.session_state:
     st.session_state.mv_retriever,st.session_state.expert_llm = get_llm_and_retriever()
@@ -246,7 +249,7 @@ elif selected == "Care Plan Generation":
         # my_graph = GraphInitializer()
         care_plan = generate_plan(elder_id, GeminiInitializer=my_gemini, GraphInitializer=my_graph,
                                   expert_llm=st.session_state.expert_llm,
-                                  retriever = st.session_state.mv_retriever)
+                                  expert_retriever = st.session_state.mv_retriever)
         st.session_state.care_plan = care_plan  
 
     elif not elder_id and generation_button:

@@ -107,9 +107,10 @@ process to explain how you reasoned to provide the response.
 
 Steps:
 1. Read and understand the query and information in documents thoroughly.
-2. Use all information provided in the document to think about how to provide the correct medical treatments to perform by the caregiver. Here please consider the proper medical treatments which the elder might like to do using the provided query.
-3. If the information in the document are overlapping or have duplicate details, select information which are most detailed and comprehensive.
-4. Remember to provide both treatments methods what we should do and what we should not do.
+2. ONLY IF REQUIRED , use all information provided in the document to think about how to provide the correct medical treatments to perform by the caregiver. Here please consider the proper medical treatments which the elder might like to do using the provided query.
+3. If the information in the document are overlapping or have duplicate details, select information which are most detailed and comprehensive. However, if the details provided in the query for the elder seems fine means the elder seems healthy, you must not provide \
+unnecessary information or treatments as suggestions.
+4. Remember to provide both treatments methods what we should do and what we should not do. Again, do not provide any unnecessary treatments to the elder if you can consider the elder is doing fine from the provided details in the query.
 
 Now it's your turn!
 <DOCUMENT>
@@ -123,8 +124,8 @@ to the information in the document. However, you should not provide the treatmen
     or food type which cause any harm to the elder even if elder likes to do them.
 2. "Technical Document":
 - Present each treatment method accurately without adding new information.
-- Treatment method might include the possible nutrients (meal), physical exercises, mental exercises, etc.
-- Avoid mixing facts different areas.
+- Treatment method might include the possible nutrients (meal), physical exercises, mental exercises, etc. While suggesting the treatment methods, consider the given preferences as well. However, avoid suggesting harmful treatment methods even the elder likes them.
+- Avoid mixing facts from different areas.
 3. Order of keys in the response must be "Thought", and "Technical Document".
 4. Double-check compliance with all instructions.
 </INSTRUCTIONS>
