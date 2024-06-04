@@ -1,8 +1,10 @@
 from langchain_community.document_transformers import Html2TextTransformer
 from langchain_community.document_loaders import AsyncHtmlLoader
+from uuid import uuid4
 
 
 from langchain.docstore.document import Document
+from pathlib import Path
 
 
 
@@ -25,10 +27,17 @@ def retrieve_documents(urls,save_dir=None,character_splitter = None):
     # print(docs_transformed[1])
     
     if save_dir:
+
+        Path(save_dir).mkdir(parents=True,exist_ok=True) ## create the path if it does not exist
+
         for doc in docs_transformed:
             
             source_url = doc.metadata['source']
             title = doc.metadata['title'].replace(" ","_")
+
+            if title.strip() == "":
+                title = str(uuid4())
+
             page_content = doc.page_content + f"\n\nOriginal source URL: {source_url}"
             
             txt_file_save_path = save_dir + f"/{title}.txt"

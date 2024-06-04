@@ -35,19 +35,28 @@ def load_embedding_model(model_name, model_kwargs={'device': DEVICE}):
         model_kwargs=model_kwargs,
     )
 
-def load_vdb(embedding_function, index_name):
+def load_vdb(embedding_function, index_name, delete_collection=False):
     
     client = QdrantClient(
-        os.environ['QDRANT_URL'],
-        os.environ['QDRANT_API_KEY'],
+        url = os.environ['QDRANT_URL'],
+        api_key = os.environ['QDRANT_API_KEY'],
     )
+
+    ## delete current collection and start with fresh for the same index/collection name
+    if delete_collection: 
+        client.delete_collection(collection_name=index_name)
+
+    vdb_exist = client.collection_exists(collection_name=collection_name)
     
-    vdb = Qdrant(
-        client=client,
-        embeddings=embedding_function,
-        collection_name=index_name,
-    )
-    print("[INFO] load vector database successfull")
+    vdb = None
+
+    if vdb_exist:
+        vdb = Qdrant(
+            client=client,
+            embeddings=embedding_function,
+            collection_name=index_name,
+        )
+        print("[INFO] load vector database successfull")
     return vdb
 
 
@@ -108,7 +117,7 @@ def process_each_doc(doc,vdb,r_text_splitter,db_name,embedding_model):
     try:
         #print(type(doc))
         splitted_docs = r_text_splitter.split_documents([doc])
-        #print(f"splitted: {splitted_docs}")
+        print(f"splitted: {len(splitted_docs)}")
             
         ## Todo: can try to split the documents using recursive splitting method to further split the texts
         
@@ -127,7 +136,7 @@ def process_each_doc(doc,vdb,r_text_splitter,db_name,embedding_model):
     finally:
         return vdb
  
-def creating_vector_dbs(collection_name,urls=None):
+def creating_vector_dbs(collection_name,urls=None,save_dir=None):
     try:
         
         # urls = ["https://nurseslabs.com/geriatric-nursing-care-plans/","https://www.betterhealth.vic.gov.au/health/healthyliving/Nutrition-needs-when-youre-over-65","https://www.assistinghands-il-wi.com/blog/foods-good-for-arthritis/"]
@@ -141,14 +150,17 @@ def creating_vector_dbs(collection_name,urls=None):
         
         docs = None
         if urls:
-            docs = retrieve_documents(urls,save_dir=None,character_splitter = None)
+            docs = retrieve_documents(urls,save_dir=save_dir,character_splitter = None)
             time.sleep(2.0) ## just to make sure it stopped to create the pdfs -> can remove
  
         vdb = None
         try:            
             vdb = load_vdb(embedding_function=embedding_model, index_name=collection_name)
         except Exception as ex_load_vdb:
+            
             vdb = None 
+            vdb = load_vdb(embedding_function=embedding_model, index_name=collection_name)
+            print("load the vdb inside exception")
         
         doc_number = 0
         total_processing_time = 0.
@@ -178,25 +190,45 @@ def creating_vector_dbs(collection_name,urls=None):
 
     except Exception as ex:
         print(ex)
+
+def deleting_qdrant_collection(collection_name):
+    try:
+        client = QdrantClient(
+            url = os.environ['QDRANT_URL'],
+            api_key = os.environ['QDRANT_API_KEY'],
+        )
+
+        print(f"Collection {collection_name} exists: {client.collection_exists(collection_name=collection_name)}")
+        client.delete_collection(collection_name=collection_name)
+        print("Collection deleted")
+        print(f"Collection {collection_name} exists after deletion: {client.collection_exists(collection_name=collection_name)}")
+    
+    except Exception as ex:
+        print(f"Exception in deletion of the collection {collection_name}: {ex}") 
         
 if __name__=="__main__":
 
     collection_name = "vdb_elders_home_care"
+    documents_save_dir = "rag_expert/docs_from_urls"
+
     urls = list(set(["https://nurseslabs.com/geriatric-nursing-care-plans/",
             "https://www.betterhealth.vic.gov.au/health/healthyliving/Nutrition-needs-when-youre-over-65",
             "https://www.assistinghands-il-wi.com/blog/foods-good-for-arthritis/",
-            "https://www.northriverhc.com/managing-diet-plans-for-medical-conditions-elderly/",
-            "https://www.northriverhc.com/alzheimers-caregiving-when-to-step-in-and-when-to-step-back/",
-            "https://www.northriverhc.com/tips-for-eating-well-for-older-adults/",
-            "https://www.northriverhc.com/fall-prevention-and-safety/",
-            "https://www.northriverhc.com/helpful-equipment-for-professional-caregivers/",
-            "https://www.northriverhc.com/beating-caregiver-stress-with-self-care/",
-            "https://www.northriverhc.com/mastering-patience-as-caregivers/",
-            "https://www.northriverhc.com/arthritis-awareness-month-insights-and-awareness/",
-            "https://www.northriverhc.com/strategies-for-professional-caregivers-handling-pets/"
+            "https://www.sandiegohomecaregivers.com/home-care-resources/common-causes-and-supportive-responses-for-alzheimers-related-behaviors/",
+            "https://my.clevelandclinic.org/health/diseases/9170-dementia",
+            "https://www.agespace.org/health/health-elderly-illnesses/eyesight-health-tips-elderly",
+            "https://www.nhs.uk/conditions/urinary-incontinence/",
+            "https://www.nhs.uk/conditions/bowel-incontinence/",
+            "https://www.agespace.org/health/health-elderly-illnesses/utis",
+            "https://www.agespace.org/dementia/help-someone-with-dementia-to-sleep-better",
+            "https://www.nhs.uk/conditions/coronary-heart-disease/",
+            "https://www.everydayhealth.com/asthma/everyday-guide-to-living-well/"
             ]))
+    
+    # deleting_qdrant_collection(collection_name)
 
     creating_vector_dbs(
         collection_name=collection_name,
         urls=urls,
+        save_dir=documents_save_dir,
     )
