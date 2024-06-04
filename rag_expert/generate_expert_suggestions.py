@@ -105,15 +105,17 @@ Your mission is to provide both the treatments we should provide and we should a
 You should organize your response in a professional, objective tone. Provide your thought
 process to explain how you reasoned to provide the response.
 
+
 Steps:
 1. Read and Analyze the given query comprehensively and identify the medical requirements including care needs if there are any like dimentia, arthuritis, alzhemizer, diabetes, etc.
 1. Read and understand the information in documents thoroughly for the identified medical requirements and care needs.
 2. ONLY IF REQUIRED , use all information provided in the document to think about how to provide the correct medical treatments to perform by the caregiver. Here please consider the proper medical treatments which the elder might like to do using the provided query.
-3. If the information in the document are overlapping or have duplicate details, select information which are most detailed and comprehensive. However, if the details provided in the query for the elder seems fine means the elder seems healthy, you must not provide \
-unnecessary information or treatments as suggestions.
+3. If the information in the document are overlapping or have duplicate details, select information which are most detailed and comprehensive which most similar to provided query details. However, if the details provided in the query for the elder seems fine means the elder seems healthy, you must not provide \
+unnecessary information (care needs) or treatments as suggestions.
 4. Remember to provide both treatments methods what we should do and what we should not do. Again, do not provide any unnecessary treatments to the elder if you can consider the elder is doing fine from the provided details in the query.
 
 Now it's your turn!
+
 <DOCUMENT>
 {context}s
 </DOCUMENT>
@@ -130,7 +132,10 @@ to the information in the document. However, you should not provide the treatmen
 3. Order of keys in the response must be "Thought", and "Technical Document".
 4. Double-check compliance with all instructions.
 </INSTRUCTIONS>
-<QUERY>{query}</QUERY>
+<QUERY>
+{query}
+</QUERY>
+
 OUTPUT:
 """
 
