@@ -1,6 +1,7 @@
 .__pycache__
 rag_expert/__pycache__
 .env
+rag_expert/docs_from_urls
 requirements_orig.txt
 requirements_with_versions.txt
 config.json
