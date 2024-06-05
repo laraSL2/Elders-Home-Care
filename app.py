@@ -16,6 +16,8 @@ from reportlab.lib.units import inch
 from reportlab.lib.pagesizes import letter
 from io import BytesIO
 import base64
+from retrive_ids import getID
+from sqlite_db  import ElderDB
 
 def get_image_as_base64(url):
     with open(url, "rb") as image_file:
@@ -31,6 +33,9 @@ if "mv_retriever" not in st.session_state and "expert_llm" not in st.session_sta
 
 my_gemini = GeminiInitializer()
 my_graph = GraphInitializer()
+ids_container = getID()
+elderDB = ElderDB("database/elder_db.db")
+
 
 
 if "button_clicked" not in st.session_state:
@@ -179,9 +184,15 @@ elif selected == "Care Note Enhancement":
     with st.form(key='care_note_form'):
         col1, col2 = st.columns(2)
 
+        # with col1:
+        #     elder_id = st.text_input("Elder ID", value="", help="Enter the numerical ID")
         with col1:
-            elder_id = st.text_input("Elder ID", value="", help="Enter the numerical ID")
-        
+            if not ids_container.empty:
+                elder_id = st.selectbox("Elder ID", ids_container)
+            else:
+                st.warning("Database is empty")
+                elder_id = st.text_input("Elder ID", value="", help="Enter the numerical ID")
+
         with col2:
             date = st.date_input("Date")
             time = st.time_input("Time")
@@ -225,6 +236,9 @@ elif selected == "Care Note Enhancement":
             if add_button:
                 print("Adding the care note")
                 state = add_patient(st.session_state.my_gemini, st.session_state.my_graph, elder_id, care_note_mode=True, care_note=editable_note, data="")
+                
+                elderDB.insert_data(elder_id=elder_id, original_text=original_care_note, llm_output=st.session_state.text_copy, final_text=editable_note)
+                
                 if state:
                     st.success("Care Note added successfully")
                 else:
@@ -235,8 +249,14 @@ elif selected == "Care Plan Generation":
 
     col1, col2 = st.columns(2)
 
+    # with col1:
+    #     elder_id = st.text_input("Elder ID", value="", help="Enter the numerical ID")
     with col1:
-        elder_id = st.text_input("Elder ID", value="", help="Enter the numerical ID")
+            if not ids_container.empty:
+                elder_id = st.selectbox("Elder ID", ids_container)
+            else:
+                st.warning("Database is empty")
+                elder_id = st.text_input("Elder ID", value="", help="Enter the numerical ID")
 
     with col2:
         st.write("") 

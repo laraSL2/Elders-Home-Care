@@ -4,4 +4,4 @@ rag_expert/__pycache__
 rag_expert/docs_from_urls
 requirements_orig.txt
 requirements_with_versions.txt
-config.json
+config.json.env
