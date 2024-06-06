@@ -3,11 +3,13 @@ import os
 from neo4j import GraphDatabase
 import pandas as pd
 import json
+from dotenv import load_dotenv
 
 class GraphInitializer:
   def __init__(self, config_path="config.json"):
-    with open(config_path) as f:
-      config = json.load(f)
+    load_dotenv()
+    # with open(config_path) as f:
+    #   config = json.load(f)
     # self.connectionUrl = config["neo4j-url"]
     # self.username = config["neo4j-user"]
     # self.password = config["neo4j-password"]

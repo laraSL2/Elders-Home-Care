@@ -20,7 +20,7 @@ class ElderDB:
             except Exception as ex:
                 raise ex
 
-    def select_data(self, elder_id=None):
+    def read_data(self, elder_id=None):
         self.connect_db()
         try:
             if elder_id is not None:
@@ -37,11 +37,15 @@ class ElderDB:
                 self.conn.close()
                 self.conn = None
 
-    def insert_data(self, elder_id, original_text, llm_output, final_text):
+    def update_data(self, id, date_time, elder_id, original_text, llm_output, final_text):
         self.connect_db()
         try:
-            query = "INSERT INTO Enhancement (ELDER_ID, ORIGINAL_TEXT, LLM_OUTPUT, FINAL_TEXT) VALUES (?, ?, ?, ?)"
-            self.conn.execute(query, (elder_id, original_text, llm_output, final_text))
+            query = """
+            UPDATE Enhancement 
+            SET ELDER_ID = ?, CREATED_AT = ?, ORIGINAL_TEXT = ?, LLM_OUTPUT = ?, FINAL_TEXT = ? 
+            WHERE ID = ?
+            """
+            self.conn.execute(query, (elder_id, date_time, original_text, llm_output, final_text, id))
             self.conn.commit()
             return "done"
         except Exception as ex:
@@ -51,11 +55,11 @@ class ElderDB:
                 self.conn.close()
                 self.conn = None
 
-    def update_data(self, enhancement_id, original_text, llm_output, final_text):
+    def delete_data(self, id, elder_id):
         self.connect_db()
         try:
-            query = "UPDATE Enhancement SET ORIGINAL_TEXT = ?, LLM_OUTPUT = ?, FINAL_TEXT = ? WHERE ID = ?"
-            self.conn.execute(query, (original_text, llm_output, final_text, enhancement_id))
+            query = "DELETE FROM Enhancement WHERE ID = ? AND ELDER_ID = ?"
+            self.conn.execute(query, (id, elder_id))
             self.conn.commit()
             return "done"
         except Exception as ex:
@@ -65,20 +69,3 @@ class ElderDB:
                 self.conn.close()
                 self.conn = None
 
-    def delete_data(self, enhancement_id):
-        self.connect_db()
-        try:
-            query = "DELETE FROM Enhancement WHERE ID = ?"
-            self.conn.execute(query, (enhancement_id,))
-            self.conn.commit()
-            return "done"
-        except Exception as ex:
-            return str(ex)
-        finally:
-            if self.conn:
-                self.conn.close()
-                self.conn = None
-
-# Example usage
-db = ElderDB('database/elder_db.db')
-print(db.select_data('e0001'))
