@@ -159,7 +159,7 @@ def read_graph(elderID: str, GraphInitializer = GraphInitializer())->tuple[graph
     Relationships = df['distinctRelationships'][0]
     return Nodes, Relationships
 
-def generate_plan(elderID,expert_llm,expert_retriever, GeminiInitializer = GeminiInitializer(), GraphInitializer = GeminiInitializer())->str:
+def generate_plan(elderID,expert_llm,expert_retriever, GeminiInitializer = GeminiInitializer(), GraphInitializer = GraphInitializer())->str:
     elderID = elderID.lower()
     try:
         Nodes, Relationships = read_graph(elderID, GraphInitializer=GraphInitializer)
@@ -198,13 +198,13 @@ def generate_plan(elderID,expert_llm,expert_retriever, GeminiInitializer = Gemin
             retriever=expert_retriever,
             template=PROMPT_TEMPLATE
         )
-    print("\n\n\n\n==========="*20)
+    print("\n\n\n")
     print("==========="*20)
-    
+    print("expert_suggestions")
+    print("==========="*20)
     expert_suggestions = expert_suggestions.split("Technical Document")[-1]
     print(expert_suggestions)
     
-    print("==========="*20)
     print("==========="*20)
     print("\n\n\n")
    
