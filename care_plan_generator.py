@@ -198,15 +198,16 @@ def generate_plan(elderID,expert_llm,expert_retriever, GeminiInitializer = Gemin
             retriever=expert_retriever,
             template=PROMPT_TEMPLATE
         )
-    print("\n\n\n")
-    print("==========="*20)
-    print("expert_suggestions")
-    print("==========="*20)
+    print("\n\n")
+    # print("==========="*20)
+    
+    # print("==========="*20)
     expert_suggestions = expert_suggestions.split("Technical Document")[-1]
+    print("ChatBot Output:")
     print(expert_suggestions)
     
-    print("==========="*20)
-    print("\n\n\n")
+    # print("==========="*20)
+    # print("\n\n\n")
    
     ###
 

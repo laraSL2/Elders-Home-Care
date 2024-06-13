@@ -222,7 +222,15 @@ if __name__=="__main__":
             "https://www.agespace.org/health/health-elderly-illnesses/utis",
             "https://www.agespace.org/dementia/help-someone-with-dementia-to-sleep-better",
             "https://www.nhs.uk/conditions/coronary-heart-disease/",
-            "https://www.everydayhealth.com/asthma/everyday-guide-to-living-well/"
+            "https://www.everydayhealth.com/asthma/everyday-guide-to-living-well/",
+            "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6477925/",
+            "https://www.who.int/news-room/fact-sheets/detail/hypertension",
+            "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4104432/",
+            "https://www.aplaceformom.com/caregiver-resources/articles/dementia-stages",
+            "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9228435/",
+            "https://www.who.int/news-room/fact-sheets/detail/malnutrition?gad_source=1&gclid=CjwKCAjw65-zBhBkEiwAjrqRMMgaBvyV1723ue50TPa_Oh8_2C1ROHW3B-_kXEGAh-2AVql7Gdv5ARoCJ-kQAvD_BwE#",
+            "https://versusarthritis.org/about-arthritis/conditions/arthritis/",
+            "https://www.medicalnewstoday.com/articles/7621"
             ]))
     
     # deleting_qdrant_collection(collection_name)
