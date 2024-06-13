@@ -182,34 +182,34 @@ elif selected == "Note Enhancement":
     st.title("Note Enhancement")
 
     with st.form(key='care_note_form'):
-        col1, col2 = st.columns(2)
+        # col1, col2 = st.columns(2)
 
         # with col1:
         #     elder_id = st.text_input("Elder ID", value="", help="Enter the numerical ID")
-        with col1:
-            if not ids_container.empty:
+        # with col1:
+        #     if not ids_container.empty:
                 
-                elder_id = st.selectbox("Elder ID", ids_container,  key="elder_selectbox")
+        #         elder_id = st.selectbox("Elder ID", ids_container,  key="elder_selectbox")
 
-                if elder_id:
-                    elder_details = get_elder_details(elder_id=elder_id)
-                    if isinstance(elder_details, str):
-                        elder_details = json.loads(elder_details)
+        #         if elder_id:
+        #             elder_details = get_elder_details(elder_id=elder_id)
+        #             if isinstance(elder_details, str):
+        #                 elder_details = json.loads(elder_details)
 
-                    if elder_details:
-                        for key, value in elder_details[0].items():
-                            if key == 'name':
-                                st.text_input("Elder Name", value=value)
+        #             if elder_details:
+        #                 for key, value in elder_details[0].items():
+        #                     if key == 'name':
+        #                         st.text_input("Elder Name", value=value)
                 
-                else:
-                    st.warning("Database is empty")
-                    elder_id = st.text_input("Elder ID", value="", help="Enter the numerical ID")
+        #         else:
+        #             st.warning("Database is empty")
+        #             elder_id = st.text_input("Elder ID", value="", help="Enter the numerical ID")
                 
             
             
-        with col2:
-            date = st.date_input("Date")
-            time = st.time_input("Time")
+        # with col2:
+        #     date = st.date_input("Date")
+        #     time = st.time_input("Time")
 
         # Care note text area outside the columns but still inside the form
         original_care_note = st.text_area("Enter the Care Note:", height=200)
@@ -226,11 +226,16 @@ elif selected == "Note Enhancement":
         st.session_state.add_button_shown = True
 
     # Your existing button and condition checks
-    if st.session_state.button and not elder_id:
-        st.warning("Please enter the Elder ID")
+    # if st.session_state.button and not elder_id:
+    #     st.warning("Please enter the Elder ID")
     elif st.session_state.button and not original_care_note:
         st.warning("Please enter the care note to enhance")
-    elif st.session_state.button and elder_id and original_care_note:
+    # elif st.session_state.button and elder_id and original_care_note:
+    #     st.session_state.enhanced_note, st.session_state.suggestions_note  = note_enhancer(original_care_note, st.session_state.my_gemini)
+    #     st.session_state.text_copy = f"""{st.session_state.enhanced_note}"""
+    #     st.session_state.text_copy_suggestions = f"""{st.session_state.suggestions_note}"""
+    #     st.session_state.button_clicked = True
+    elif st.session_state.button and original_care_note:
         st.session_state.enhanced_note, st.session_state.suggestions_note  = note_enhancer(original_care_note, st.session_state.my_gemini)
         st.session_state.text_copy = f"""{st.session_state.enhanced_note}"""
         st.session_state.text_copy_suggestions = f"""{st.session_state.suggestions_note}"""
@@ -239,24 +244,24 @@ elif selected == "Note Enhancement":
     if "text_copy" in st.session_state and st.session_state.text_copy:
         st.subheader("Generated Care Enhancement Note")
         editable_note = st.text_area(label="",value=st.session_state.text_copy, height=200)
-        st.subheader("Generated Suggestions")
-        st.code("\n".join(tw.wrap(st.session_state.text_copy_suggestions, width=80)), language="md")
-        #st.code("\n".join(tw.wrap(st.session_state.text_copy, width=80)), language="md")
+        # st.subheader("Generated Suggestions")
+        # st.code("\n".join(tw.wrap(st.session_state.text_copy_suggestions, width=80)), language="md")
+        # #st.code("\n".join(tw.wrap(st.session_state.text_copy, width=80)), language="md")
 
-        col1, col2 = st.columns([4,1])
-        if st.session_state.button_clicked:
-            with col2:
-                add_button = st.button("Add Care Note", type = "primary", use_container_width=True)
-            if add_button:
-                print("Adding the care note")
-                state = add_patient(st.session_state.my_gemini, st.session_state.my_graph, elder_id, care_note_mode=True, care_note=editable_note, data="")
+        # col1, col2 = st.columns([4,1])
+        # if st.session_state.button_clicked:
+        #     with col2:
+        #         add_button = st.button("Add Care Note", type = "primary", use_container_width=True)
+        #     if add_button:
+        #         print("Adding the care note")
+        #         state = add_patient(st.session_state.my_gemini, st.session_state.my_graph, elder_id, care_note_mode=True, care_note=editable_note, data="")
                 
-                elderDB.insert_data(elder_id=elder_id, original_text=original_care_note, llm_output=st.session_state.text_copy, final_text=editable_note)
+        #         elderDB.insert_data(elder_id=elder_id, original_text=original_care_note, llm_output=st.session_state.text_copy, final_text=editable_note)
                 
-                if state:
-                    st.success("Care Note added successfully")
-                else:
-                    st.error("There was an error while adding the care note.")
+        #         if state:
+        #             st.success("Care Note added successfully")
+        #         else:
+        #             st.error("There was an error while adding the care note.")
         
 elif selected == "Plan Generation":
     st.title("Plan Generation")

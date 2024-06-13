@@ -44,6 +44,7 @@ def load_embedding_model(model_name, model_kwargs={'device': DEVICE}):
         model_kwargs=model_kwargs,
     )
 
+
 def get_llm_and_retriever():
     
     try:
@@ -84,7 +85,17 @@ def get_llm_and_retriever():
     except Exception as ex:
         
         print("error in loading expert vector database: ",ex)
+      
+
+def print_document_sources(documents):
+    for i, doc in enumerate(documents):
         
+        content = doc.page_content
+        source = doc.metadata.get('source', 'No source provided')
+        title = doc.metadata.get('title', 'No title provided')
+        print(f"Document {i+1} \n- Title: {title}, Source: {source}\n")
+        print(f"Content:\n {content}\n\n")
+  
 
 def retrieve_documents(user_query,retriever):
     retrieved_docs = retriever.invoke(user_query)
@@ -96,40 +107,38 @@ def retrieve_documents(user_query,retriever):
     similar_docs = bm25_retrieved_docs
     document_text = [doc.page_content for doc in similar_docs]
     
-    print(similar_docs)
+    print(f"User Query: \n{user_query}\n\n")
+    print("++++"*15)
+    # print(similar_docs)
+    print_document_sources(similar_docs)
+    print("++++"*15)
     return document_text
 
 PROMPT_TEMPLATE = """
-You are a medical expert for suggesting treatment methods based on the provided documents to identified medical requirements in the query to the caregiver.
-Your mission is to provide both the treatments we should provide and we should avoid for the identified medical requirements.
-You should organize your response in a professional, objective tone. Provide your thought
-process to explain how you reasoned to provide the response.
-
+You are a medical expert tasked with suggesting treatment methods based on the provided documents to address the medical requirements identified in the query for the caregiver.
+Your mission is to provide both the treatments we should provide and those we should avoid for the identified medical requirements.
+You should organize your response in a professional, objective tone. Provide your thought process to explain how you reasoned to provide the response.
 
 Steps:
-1. Read and Analyze the given query comprehensively and identify the medical requirements including care needs if there are any like dimentia, arthuritis, alzhemizer, diabetes, etc.
-1. Read and understand the information in documents thoroughly for the identified medical requirements and care needs.
-2. ONLY IF REQUIRED , use all information provided in the document to think about how to provide the correct medical treatments to perform by the caregiver. Here please consider the proper medical treatments which the elder might like to do using the provided query.
-3. If the information in the document are overlapping or have duplicate details, select information which are most detailed and comprehensive which most similar to provided query details. However, if the details provided in the query for the elder seems fine means the elder seems healthy, you must not provide \
-unnecessary information (care needs) or treatments as suggestions.
-4. Remember to provide both treatments methods what we should do and what we should not do. Again, do not provide any unnecessary treatments to the elder if you can consider the elder is doing fine from the provided details in the query.
+1. Read and analyze the given query comprehensively and identify the medical requirements, including care needs if there are any such as dementia, arthritis, Alzheimer’s, diabetes, etc.
+2. Read and understand the information in the documents thoroughly for the identified medical requirements and care needs.
+3. ONLY IF REQUIRED, use all information provided in the document to think about how to provide the correct medical treatments to be performed by the caregiver. Consider the proper medical treatments which the elder might prefer based on the provided query.
+4. If the information in the documents overlaps or has duplicate details, select the most detailed and comprehensive information that is most similar to the provided query details. However, if the details provided in the query indicate that the elder is healthy, you must not provide unnecessary information or treatments as suggestions.
+5. Provide both treatment methods: those that should be done and those that should be avoided. Do not suggest unnecessary treatments if the elder appears to be in good health based on the provided details in the query.
 
 Now it's your turn!
 
 <DOCUMENT>
-{context}s
+{context}
 </DOCUMENT>
 <INSTRUCTIONS>
-Your response should include a 2-step cohesive answer with following keys:
-1. "Thought" key: Explain how you would use the information in the document to partially or
-completely answer the query. Your thought process includes that why do you suggest the treatment methods based on the preference of the elder and thoughroghly referring \
-to the information in the document. However, you should not provide the treatment methods which are not related to the document for the analysed condition for the provided query and any treatment, activity \
-    or food type which cause any harm to the elder even if elder likes to do them.
+Your response should include a 2-step cohesive answer with the following keys:
+1. "Thought": Explain how you would use the information in the document to partially or completely answer the query. Your thought process should include why you suggest the treatment methods based on the preferences of the elder and thoroughly refer to the information in the document. Avoid suggesting treatment methods not related to the document for the analyzed condition in the provided query and any treatment, activity, or food type that might harm the elder, even if they prefer them.
 2. "Technical Document":
-- Present each treatment method accurately without adding new information but explain in detail why you need to give this treatment (food, medicine, activity, tools, etc.) based on the elders conditions.
-- Treatment method might include the possible nutrients (meal), physical exercises, mental exercises, proper care giver tools, etc. While suggesting the treatment methods, consider the given preferences as well. However, avoid suggesting harmful treatment methods even the elder likes them.
-- Avoid mixing facts from different areas.
-3. Order of keys in the response must be "Thought", and "Technical Document".
+   - Present each treatment method accurately without adding new information but explain in detail why you need to give this treatment (food, medicine, activity, tools, etc.) based on the elder's conditions.
+   - Treatment methods might include possible nutrients (meals), physical exercises, mental exercises, proper caregiver tools, etc. While suggesting the treatment methods, consider the given preferences as well. However, avoid suggesting harmful treatment methods, even if the elder prefers them.
+   - Avoid mixing facts from different areas.
+3. Order of keys in the response must be "Thought" and "Technical Document".
 4. Double-check compliance with all instructions.
 </INSTRUCTIONS>
 <QUERY>
@@ -139,11 +148,52 @@ to the information in the document. However, you should not provide the treatmen
 OUTPUT:
 """
 
+
+# PROMPT_TEMPLATE = """
+# You are a medical expert for suggesting treatment methods based on the provided documents to identified medical requirements in the query to the caregiver.
+# Your mission is to provide both the treatments we should provide and we should avoid for the identified medical requirements.
+# You should organize your response in a professional, objective tone. Provide your thought
+# process to explain how you reasoned to provide the response.
+
+
+# Steps:
+# 1. Read and Analyze the given query comprehensively and identify the medical requirements including care needs if there are any like dimentia, arthuritis, alzhemizer, diabetes, etc.
+# 1. Read and understand the information in documents thoroughly for the identified medical requirements and care needs.
+# 2. ONLY IF REQUIRED , use all information provided in the document to think about how to provide the correct medical treatments to perform by the caregiver. Here please consider the proper medical treatments which the elder might like to do using the provided query.
+# 3. If the information in the document are overlapping or have duplicate details, select information which are most detailed and comprehensive which most similar to provided query details. However, if the details provided in the query for the elder seems fine means the elder seems healthy, you must not provide \
+# unnecessary information (care needs) or treatments as suggestions.
+# 4. Remember to provide both treatments methods what we should do and what we should not do. Again, do not provide any unnecessary treatments to the elder if you can consider the elder is doing fine from the provided details in the query.
+
+# Now it's your turn!
+
+# <DOCUMENT>
+# {context}s
+# </DOCUMENT>
+# <INSTRUCTIONS>
+# Your response should include a 2-step cohesive answer with following keys:
+# 1. "Thought" key: Explain how you would use the information in the document to partially or
+# completely answer the query. Your thought process includes that why do you suggest the treatment methods based on the preference of the elder and thoughroghly referring \
+# to the information in the document. However, you should not provide the treatment methods which are not related to the document for the analysed condition for the provided query and any treatment, activity \
+#     or food type which cause any harm to the elder even if elder likes to do them.
+# 2. "Technical Document":
+# - Present each treatment method accurately without adding new information but explain in detail why you need to give this treatment (food, medicine, activity, tools, etc.) based on the elders conditions.
+# - Treatment method might include the possible nutrients (meal), physical exercises, mental exercises, proper care giver tools, etc. While suggesting the treatment methods, consider the given preferences as well. However, avoid suggesting harmful treatment methods even the elder likes them.
+# - Avoid mixing facts from different areas.
+# 3. Order of keys in the response must be "Thought", and "Technical Document".
+# 4. Double-check compliance with all instructions.
+# </INSTRUCTIONS>
+# <QUERY>
+# {query}
+# </QUERY>
+
+# OUTPUT:
+# """
+
 def generate_suggestions(user_query,expert_llm,retriever,template=None):
     
     retrieved_documents = retrieve_documents(user_query,retriever)
 
-    print(len(retrieved_documents))
+    # print(len(retrieved_documents))
     
     user_prompt = template.format(
         query=user_query,
