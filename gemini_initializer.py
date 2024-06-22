@@ -3,10 +3,12 @@ import json
 import google.generativeai as genai
 from langchain_google_genai import ChatGoogleGenerativeAI
 from google.generativeai.types import HarmCategory, HarmBlockThreshold
+from dotenv import load_dotenv
 
 
 class GeminiInitializer:
     def __init__(self, config_path="config.json"):
+        load_dotenv()
         with open(config_path) as f:
             config = json.load(f)
         self.api_key = config["gemini-api-key"]

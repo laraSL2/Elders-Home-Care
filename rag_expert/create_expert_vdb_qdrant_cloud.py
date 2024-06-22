@@ -3,10 +3,11 @@ import sys
 import time
 from glob import glob
 from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_community.vectorstores import Qdrant
 
-from langchain.vectorstores import Qdrant
 from pathlib import Path
-from langchain.embeddings.huggingface import HuggingFaceEmbeddings
+from langchain_community.embeddings import HuggingFaceEmbeddings
+
 import torch
 
 import time
