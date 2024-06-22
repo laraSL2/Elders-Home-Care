@@ -182,6 +182,19 @@ def generate_plan(elderID,expert_llm,expert_retriever, GeminiInitializer = Gemin
     doctor_schedule = str(kg_details.doctor_schedules())
     care_notes = str(kg_details.care_notes())
     
+    print("Elder Data: ", elder_data)
+    print("Social History: ", social_history)
+    print("Medical History: ", medical_history)
+    print("Functional Status: ", functional_status)
+    print("Outings: ", outings)
+    print("Disease Data: ", disease_data)
+    print("Drug Data: ", drug_data)
+    print("Dietary Plan: ", dietary_plan)
+    print("Monitoring Plan: ", monitoring_plan)
+    print("Doctor Schedule: ", doctor_schedule)
+    print("Care Notes: ", care_notes)
+    
+    print()
     ### temporary RAG expert
     
     user_query = f"""
@@ -199,18 +212,11 @@ def generate_plan(elderID,expert_llm,expert_retriever, GeminiInitializer = Gemin
             template=PROMPT_TEMPLATE
         )
     print("\n\n")
-    # print("==========="*20)
-    
-    # print("==========="*20)
+  
     expert_suggestions = expert_suggestions.split("Technical Document")[-1]
     print("ChatBot Output:")
     print(expert_suggestions)
     
-    # print("==========="*20)
-    # print("\n\n\n")
-   
-    ###
-
     """## Prompting the LLM to generate the Care Plan"""
     prompt = Prompts()
     plan_prompt = prompt.plan_prompt(elderID, elder_data, social_history, medical_history, functional_status, outings, disease_data, drug_data, dietary_plan, monitoring_plan, doctor_schedule, care_notes,

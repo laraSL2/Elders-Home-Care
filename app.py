@@ -17,7 +17,7 @@ from reportlab.lib.pagesizes import letter
 from io import BytesIO
 import base64
 from retrive_ids import getID, get_elder_details
-from sqlite_db  import ElderDB
+from sqlite_db  import ElderDB, CarePlanDB, CareNoteDB
 
 def get_image_as_base64(url):
     with open(url, "rb") as image_file:
@@ -35,8 +35,8 @@ my_gemini = GeminiInitializer()
 my_graph = GraphInitializer()
 ids_container = getID()
 elderDB = ElderDB("database/elder_db.db")
-
-
+carePlanDB = CarePlanDB("database/care_plane_db.db")
+careNoteDB = CareNoteDB(("database/care_note_db.db"))
 
 if "button_clicked" not in st.session_state:
     st.session_state.button_clicked = False
@@ -85,6 +85,7 @@ if "model_init" not in st.session_state:
 
 if "button_clicked" not in st.session_state:
     st.session_state.button_clicked = False
+
 
 selected = option_menu(
     menu_title=None,
@@ -243,10 +244,12 @@ elif selected == "Note Enhancement":
         
     if "text_copy" in st.session_state and st.session_state.text_copy:
         st.subheader("Generated Care Enhancement Note")
+        careNoteDB.insert_data(original_note = original_care_note,care_note=st.session_state.text_copy)
         editable_note = st.text_area(label="",value=st.session_state.text_copy, height=200)
-        # st.subheader("Generated Suggestions")
-        # st.code("\n".join(tw.wrap(st.session_state.text_copy_suggestions, width=80)), language="md")
-        # #st.code("\n".join(tw.wrap(st.session_state.text_copy, width=80)), language="md")
+        
+        st.subheader("Generated Suggestions")
+        st.code("\n".join(tw.wrap(st.session_state.text_copy_suggestions, width=80)), language="md")
+        #st.code("\n".join(tw.wrap(st.session_state.text_copy, width=80)), language="md")
 
         # col1, col2 = st.columns([4,1])
         # if st.session_state.button_clicked:
@@ -286,6 +289,7 @@ elif selected == "Plan Generation":
                                   expert_llm=st.session_state.expert_llm,
                                   expert_retriever = st.session_state.mv_retriever)
         st.session_state.care_plan = care_plan  
+        carePlanDB.insert_data(elder_id=elder_id, care_plan=care_plan)
 
     elif not elder_id and generation_button:
         st.warning("Please fill in the elder ID to generate the care plan.")
@@ -308,7 +312,7 @@ elif selected == "Plan Generation":
             
 elif selected == "Display":
     
-    selected_item = st.sidebar.selectbox("Choose an option", ["Elder Details", "SQL DB"])
+    selected_item = st.sidebar.selectbox("Choose an option", ["Elder Details","Care Note DB","Care Plan DB"])
 
     if selected_item=="Elder Details":
         col1, col2 = st.columns(2)
@@ -339,18 +343,119 @@ elif selected == "Display":
             else:
                 st.warning("Elder not found in the database")
 
-    elif selected_item == "SQL DB":
-        st.subheader("SQL Operations")
+    # elif selected_item == "SQL DB":
+    #     st.subheader("SQL Operations")
 
-        operation = st.selectbox("Select Operation", ["Update", "Read", "Delete"])
+    #     operation = st.selectbox("Select Operation", ["Update", "Read", "Delete"])
 
-        if not ids_container.empty:
-            elder_id = st.selectbox("Elder ID", ids_container)
+    #     if not ids_container.empty:
+    #         elder_id = st.selectbox("Elder ID", ids_container)
+    #     else:
+    #         st.warning("Database is empty")
+    #         elder_id = st.text_input("Elder ID", value="", help="Enter the numerical ID")
+
+    #     if operation == "Update":
+
+    #         if 'display_data_button' not in st.session_state:
+    #             st.session_state.display_data_button = False
+    #         if 'submit_update' not in st.session_state:
+    #             st.session_state.submit_update = False
+
+    #         st.subheader("Update selected")
+    #         key = st.text_input("Elder Key", value="", help="Check Read Operation to get the key")
+
+    #         if key:
+    #             try:
+    #                 display_data_button = st.button("Display Data", on_click=lambda: st.session_state.update(display_data_button=True))
+
+    #                 if st.session_state.display_data_button:
+    #                     read_data = elderDB.read_data(elder_id=elder_id)
+    #                     for record in read_data:
+    #                         if str(record[0]) == str(key):
+    #                             date_time= st.text_input("Date && Time", value=record[2], help="Enter the date and time", key="date_time")
+    #                             user_input_text = st.text_input("User Input Text", value=record[3], help="Enter the user input text", key="user_input_text")
+    #                             llm_generated_text = st.text_input("LLM Generated text", value=record[4], help="Enter the LLM generated text", key="llm_generated_text")
+    #                             final_text = st.text_input("Final text", value=record[5], help="Enter the final text", key="final_text")
+
+    #                             submit_update = st.button("Update Record", on_click=lambda: st.session_state.update(submit_update=True))
+
+    #                             if st.session_state.submit_update:
+    #                                 status = elderDB.update_data(id=record[0], date_time=date_time, elder_id=elder_id, original_text=user_input_text, llm_output=llm_generated_text, final_text=final_text)
+    #                                 if status == "done":
+    #                                     st.success(f"Record {elder_id} updated successfully")
+    #                                     st.session_state.submit_update = False  
+    #                                 else:
+    #                                     st.warning("Try again")
+    #                                     st.session_state.submit_update = False 
+    #             except ValueError as e:
+    #                 st.error(e)
+
+    #     elif operation == "Read":
+    #         st.subheader("Read selected")
+    #         read_button = st.button("Read Record")
+    #         if read_button:
+    #             read_data = elderDB.read_data(elder_id=elder_id)
+    #             st.success(f"Displaying record for ID {elder_id}")
+    #             for record in read_data:
+    #                 formatted_datetime = datetime.strptime(record[2], "%Y-%m-%d %H:%M:%S").strftime("%B %d, %Y %I:%M %p")
+    #                 st.markdown(
+    #                     f"""
+    #                     <div style="border:1px solid #e6e6e6; border-radius:10px; padding:15px; margin-bottom:10px;">
+    #                         <p><strong>Elder Key:</strong> {record[0]}</p>
+    #                         <p><strong>Elder ID:</strong> {record[1]}</p>
+    #                         <p><strong>Date time:</strong> {formatted_datetime}</p>
+    #                         <p><strong>User Input Text:</strong> {record[3]}</p>
+    #                         <p><strong>LLM Generated text:</strong> {record[4]}</p>
+    #                         <p><strong>Final text:</strong> {record[5]}</p>
+    #                     </div>
+    #                     """,
+    #                     unsafe_allow_html=True
+    #                 )
+
+    #     elif operation == "Delete":
+    #         st.subheader("Delete selected")
+    #         key = st.text_input("Elder Key", value="", help="Check Read Operation to get the key")
+
+    #         delete_button = st.button("Delete Record")
+    #         if delete_button:
+    #             read_data = elderDB.delete_data(id=key, elder_id=elder_id)
+    #             st.success(f"Record {key} deleted successfully")
+                
+    elif selected_item == "Care Note DB":
+        st.subheader("Care Note DB")
+
+        id = st.text_input("ID", value='all')
+        if id == "all":
+            id = None
         else:
-            st.warning("Database is empty")
-            elder_id = st.text_input("Elder ID", value="", help="Enter the numerical ID")
+            id = int(id)
+        operation = st.selectbox("Select Operation", ["Read", "Update", "Delete"])
 
-        if operation == "Update":
+        if operation == "Read":
+            st.subheader("Read selected")
+            read_button = st.button("Read Record")
+            if read_button:
+                read_data = careNoteDB.read_data(id)
+                if read_data:
+                    st.success("Displaying record")
+                    for record in read_data:
+                        formatted_datetime = datetime.strptime(record[1], "%Y-%m-%d %H:%M:%S").strftime("%B %d, %Y %I:%M %p")
+                        st.markdown(
+                            f"""
+                            <div style="border:1px solid #e6e6e6; border-radius:10px; padding:15px; margin-bottom:10px;">
+                                <p><strong>ID:</strong> {record[0]}</p>
+                                <p><strong>Date time:</strong> {formatted_datetime}</p>
+                                <p><strong>Care Note:</strong> {record[2]}</p>
+                                <p><strong>Care Note:</strong> {record[3]}</p>
+                            </div>
+                            """,
+                            unsafe_allow_html=True
+                        )
+                else:
+                    st.error("No records found.")
+
+        
+        elif operation == "Update":
 
             if 'display_data_button' not in st.session_state:
                 st.session_state.display_data_button = False
@@ -358,61 +463,117 @@ elif selected == "Display":
                 st.session_state.submit_update = False
 
             st.subheader("Update selected")
-            key = st.text_input("Elder Key", value="", help="Check Read Operation to get the key")
+            # key = st.text_input("ID", value="", help="Check Read Operation to get the key")
+            display_data_button = st.button("Display Data", on_click=lambda: st.session_state.update(display_data_button=True))
+            if id and st.session_state.display_data_button:
+                try:
+                    if id is not None:
+                        read_data = careNoteDB.read_data(id=id)
+                        if read_data:
+                            for record in read_data:
+                                if str(record[0]) == str(id):
+                                    user_care_note = st.text_area("LLM Generated Note:", value=record[2], help="Enter the care note", key="user_care_note", height=400)
+                                    original_care_note = st.text_area("User Input Note:", value=record[2], help="Enter the care note", key="original_care_note", height=400)
+                                    submit_update = st.button("Update Record", on_click=lambda: st.session_state.update(submit_update=True))
+
+                                    if st.session_state.submit_update:
+                                        status = careNoteDB.update_data(id=record[0],care_note=user_care_note,original_note=original_care_note)
+                                        if status == "done":
+                                            st.success(f"Record is updated successfully")
+                                            st.session_state.submit_update = False  
+                                        else:
+                                            st.warning("Try again")
+                                            st.session_state.submit_update = False 
+                        else:
+                            st.error("No records found.")
+                except ValueError as e:
+                    st.error(e)
+
+        
+        elif operation == "Delete":
+            st.subheader("Delete selected")
+            delete_button = st.button("Delete Record")
+            if delete_button:
+                read_data = careNoteDB.delete_data(id=id)
+                st.success(f"Record {id} deleted successfully")
+
+    elif selected_item == "Care Plan DB":
+        st.subheader("SQL Operations")
+
+        operation = st.selectbox("Select Operation", ["Read", "Update", "Delete"])
+
+        if not ids_container.empty:
+            elder_id = st.selectbox("Elder ID", ids_container)
+        else:
+            st.warning("Database is empty")
+            elder_id = st.text_input("Elder ID", value="", help="Enter the numerical ID")
+
+        if operation == "Read":
+            st.subheader("Read selected")
+            read_button = st.button("Read Record")
+            if read_button:
+                read_data = carePlanDB.read_data(elder_id=elder_id)
+                if read_data:
+                    st.success(f"Displaying record for ID {elder_id}")
+                    for record in read_data:
+                        formatted_datetime = datetime.strptime(record[2], "%Y-%m-%d %H:%M:%S").strftime("%B %d, %Y %I:%M %p")
+                        st.markdown(
+                            f"""
+                            <div style="border:1px solid #e6e6e6; border-radius:10px; padding:15px; margin-bottom:10px;">
+                                <p><strong>ID:</strong> {record[0]}</p>
+                                <p><strong>Elder ID:</strong> {record[1]}</p>
+                                <p><strong>Date time:</strong> {formatted_datetime}</p>
+                                <p><strong>Care Plan:</strong> {record[3]}</p>
+                            </div>
+                            """,
+                            unsafe_allow_html=True
+                        )
+                else:
+                    st.error("No records found.")
+            
+                    
+        elif operation == "Update":
+
+            if 'display_data_button' not in st.session_state:
+                st.session_state.display_data_button = False
+            if 'submit_update' not in st.session_state:
+                st.session_state.submit_update = False
+
+            st.subheader("Update selected")
+            key = st.text_input("ID", value="", help="Check Read Operation to get the key")
 
             if key:
                 try:
                     display_data_button = st.button("Display Data", on_click=lambda: st.session_state.update(display_data_button=True))
 
                     if st.session_state.display_data_button:
-                        read_data = elderDB.read_data(elder_id=elder_id)
-                        for record in read_data:
-                            if str(record[0]) == str(key):
-                                date_time= st.text_input("Date && Time", value=record[2], help="Enter the date and time", key="date_time")
-                                user_input_text = st.text_input("User Input Text", value=record[3], help="Enter the user input text", key="user_input_text")
-                                llm_generated_text = st.text_input("LLM Generated text", value=record[4], help="Enter the LLM generated text", key="llm_generated_text")
-                                final_text = st.text_input("Final text", value=record[5], help="Enter the final text", key="final_text")
+                        read_data = carePlanDB.read_data(elder_id=elder_id)
+                        if read_data:
+                            for record in read_data:
+                                if str(record[0]) == str(key):
+                                    user_care_plan = st.text_area("Care plan", value=record[3], help="Enter the care plan", key="user_care_plan", height=1200)
+                                    submit_update = st.button("Update Record", on_click=lambda: st.session_state.update(submit_update=True))
 
-                                submit_update = st.button("Update Record", on_click=lambda: st.session_state.update(submit_update=True))
-
-                                if st.session_state.submit_update:
-                                    status = elderDB.update_data(id=record[0], date_time=date_time, elder_id=elder_id, original_text=user_input_text, llm_output=llm_generated_text, final_text=final_text)
-                                    if status == "done":
-                                        st.success(f"Record {elder_id} updated successfully")
-                                        st.session_state.submit_update = False  
-                                    else:
-                                        st.warning("Try again")
-                                        st.session_state.submit_update = False 
+                                    if st.session_state.submit_update:
+                                        status = carePlanDB.update_data(id=record[0], elder_id=elder_id, care_plan=user_care_plan)
+                                        if status == "done":
+                                            st.success(f"Record {elder_id} updated successfully")
+                                            st.session_state.submit_update = False  
+                                        else:
+                                            st.warning("Try again")
+                                            st.session_state.submit_update = False 
+                        else:
+                            st.error("No records found.")
                 except ValueError as e:
                     st.error(e)
 
-        elif operation == "Read":
-            st.subheader("Read selected")
-            read_button = st.button("Read Record")
-            if read_button:
-                read_data = elderDB.read_data(elder_id=elder_id)
-                st.success(f"Displaying record for ID {elder_id}")
-                for record in read_data:
-                    formatted_datetime = datetime.strptime(record[2], "%Y-%m-%d %H:%M:%S").strftime("%B %d, %Y %I:%M %p")
-                    st.markdown(
-                        f"""
-                        <div style="border:1px solid #e6e6e6; border-radius:10px; padding:15px; margin-bottom:10px;">
-                            <p><strong>Elder Key:</strong> {record[0]}</p>
-                            <p><strong>Elder ID:</strong> {record[1]}</p>
-                            <p><strong>Date time:</strong> {formatted_datetime}</p>
-                            <p><strong>User Input Text:</strong> {record[3]}</p>
-                            <p><strong>LLM Generated text:</strong> {record[4]}</p>
-                            <p><strong>Final text:</strong> {record[5]}</p>
-                        </div>
-                        """,
-                        unsafe_allow_html=True
-                    )
+        
 
         elif operation == "Delete":
             st.subheader("Delete selected")
-            key = st.text_input("Elder Key", value="", help="Check Read Operation to get the key")
+            key = st.text_input("ID", value="", help="Check Read Operation to get the key")
 
             delete_button = st.button("Delete Record")
             if delete_button:
-                read_data = elderDB.delete_data(id=key, elder_id=elder_id)
+                read_data = carePlanDB.delete_data(id=key, elder_id=elder_id)
                 st.success(f"Record {key} deleted successfully")

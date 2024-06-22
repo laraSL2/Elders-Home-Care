@@ -32,9 +32,11 @@ def get_elder_details(elder_id):
     
     cypher_query = "MATCH (e: Elder) WHERE e.id = $elder_id RETURN e AS details"
     parameters = {"elder_id": elder_id}
-    
+    # cypher_query = """MATCH (elder:Elder {id: 'e0001'})-[r*]-(related)
+    # RETURN elder, collect(related) AS relatedNodes, collect(r) AS details"""
     # Run the query and convert the result to JSON format
     results = run_query(cypher_query, parameters)
+    print(results)
     json_result = []
     for record in results:
         node_properties = dict(record['details'].items())

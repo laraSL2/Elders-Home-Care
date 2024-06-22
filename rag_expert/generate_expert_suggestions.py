@@ -1,7 +1,7 @@
 
 import os
-from langchain.vectorstores import Chroma
-from langchain.embeddings.huggingface import HuggingFaceEmbeddings
+from langchain_community.vectorstores import Chroma
+from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_google_genai import ChatGoogleGenerativeAI,GoogleGenerativeAI
 from langchain.retrievers.multi_query import MultiQueryRetriever
 from langchain_community.retrievers import BM25Retriever
@@ -14,7 +14,7 @@ from langchain_core.messages import HumanMessage
 import torch
 
 from qdrant_client import QdrantClient
-from langchain.vectorstores import Qdrant
+from langchain_community.vectorstores import Qdrant
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -44,7 +44,16 @@ def load_embedding_model(model_name, model_kwargs={'device': DEVICE}):
         model_kwargs=model_kwargs,
     )
 
+RETRIEVER_PROMPT_TEMPLATE = PromptTemplate(
+    input_variables=["question"],
+    template="""You are an AI language model assistant specializing in healthcare. Your task is to identify disease-related information, dietary plans, and treatment options from the given user question. You need to generate three different versions of the given user question to retrieve relevant documents from a vector database. By generating multiple perspectives on the user question, your goal is to help the user overcome some of the limitations of distance-based similarity search. Provide these alternative questions separated by newlines.
 
+    Original question: {question}
+    
+    1. Alternative question focusing on disease-related information:
+    2. Alternative question focusing on dietary plans:
+    3. Alternative question focusing on treatment options:"""
+    )
 def get_llm_and_retriever():
     
     try:
@@ -77,54 +86,52 @@ def get_llm_and_retriever():
         print(expert_vdb)
         retriever = expert_vdb.as_retriever(search_type="mmr", search_kwargs={'k': 25})
         retriever_from_llm = MultiQueryRetriever.from_llm(
-            retriever=retriever, llm=expert_llm
+            retriever=retriever, llm=expert_llm,prompt= RETRIEVER_PROMPT_TEMPLATE
         )
         
-        return retriever_from_llm,expert_llm
+        return retriever_from_llm, expert_llm
 
     except Exception as ex:
         
         print("error in loading expert vector database: ",ex)
       
 
-def print_document_sources(documents):
-    for i, doc in enumerate(documents):
-        
+def concat_documents(documents):
+    result = []
+    for doc in documents:
         content = doc.page_content
         source = doc.metadata.get('source', 'No source provided')
         title = doc.metadata.get('title', 'No title provided')
-        print(f"Document {i+1} \n- Title: {title}, Source: {source}\n")
-        print(f"Content:\n {content}\n\n")
+        result.append(f"Document Title: {title}, Source: {source}\nContent:\n{content}\n")
+    
+    return "\n".join(result)
+
   
 
-def retrieve_documents(user_query,retriever):
+def retrieve_documents(user_query,retriever, k):
     retrieved_docs = retriever.invoke(user_query)
-        # retrieved_docs = vdb.similarity_search_with_score(user_query, k=3,)
+    # retrieved_docs = vdb.similarity_search_with_score(user_query, k=3,)
         
     bm25_retriever = BM25Retriever.from_documents(retrieved_docs)
-    bm25_retriever.k =  10 # Retrieve top 2 results
+    bm25_retriever.k =  k 
     bm25_retrieved_docs = bm25_retriever.invoke(user_query)
     similar_docs = bm25_retrieved_docs
     document_text = [doc.page_content for doc in similar_docs]
+    document_text = concat_documents(similar_docs)
     
-    print(f"User Query: \n{user_query}\n\n")
-    print("++++"*15)
-    # print(similar_docs)
-    print_document_sources(similar_docs)
-    print("++++"*15)
     return document_text
 
 PROMPT_TEMPLATE = """
-You are a medical expert tasked with suggesting treatment methods based on the provided documents to address the medical requirements identified in the query for the caregiver.
-Your mission is to provide both the treatments we should provide and those we should avoid for the identified medical requirements.
+You are a medical expert for suggesting treatment methods based on the provided documents to identified medical requirements in the query to the caregiver.
+Your mission is to provide both the treatments we should provide and we should avoid for the identified medical requirements.
 You should organize your response in a professional, objective tone. Provide your thought process to explain how you reasoned to provide the response.
 
 Steps:
-1. Read and analyze the given query comprehensively and identify the medical requirements, including care needs if there are any such as dementia, arthritis, Alzheimer’s, diabetes, etc.
-2. Read and understand the information in the documents thoroughly for the identified medical requirements and care needs.
-3. ONLY IF REQUIRED, use all information provided in the document to think about how to provide the correct medical treatments to be performed by the caregiver. Consider the proper medical treatments which the elder might prefer based on the provided query.
-4. If the information in the documents overlaps or has duplicate details, select the most detailed and comprehensive information that is most similar to the provided query details. However, if the details provided in the query indicate that the elder is healthy, you must not provide unnecessary information or treatments as suggestions.
-5. Provide both treatment methods: those that should be done and those that should be avoided. Do not suggest unnecessary treatments if the elder appears to be in good health based on the provided details in the query.
+1. Read and analyze the given query comprehensively and identify the medical requirements, including care needs if there are any, like dementia, arthritis, Alzheimer's, diabetes, etc.
+2. Read and understand the information in documents thoroughly for the identified medical requirements and care needs.
+3. ONLY IF REQUIRED, use all information provided in the document to think about how to provide the correct medical treatments to be performed by the caregiver. Here please consider the proper medical treatments which the elder might like to do using the provided query.
+4. If the information in the document overlaps or has duplicate details, select the most detailed and comprehensive information that is most similar to the provided query details. However, if the details provided in the query for the elder seem fine, meaning the elder seems healthy, you must not provide unnecessary information (care needs) or treatments as suggestions.
+5. Remember to provide both treatment methods: what we should do and what we should not do. Again, do not provide any unnecessary treatments to the elder if you consider the elder is doing fine from the provided details in the query.
 
 Now it's your turn!
 
@@ -133,11 +140,11 @@ Now it's your turn!
 </DOCUMENT>
 <INSTRUCTIONS>
 Your response should include a 2-step cohesive answer with the following keys:
-1. "Thought": Explain how you would use the information in the document to partially or completely answer the query. Your thought process should include why you suggest the treatment methods based on the preferences of the elder and thoroughly refer to the information in the document. Avoid suggesting treatment methods not related to the document for the analyzed condition in the provided query and any treatment, activity, or food type that might harm the elder, even if they prefer them.
+1. "Thought" key: Explain how you would use the information in the document to partially or completely answer the query. Your thought process includes why you suggest the treatment methods based on the preference of the elder and thoroughly referring to the information in the document. However, you should not provide treatment methods that are not related to the document for the analyzed condition for the provided query and any treatment, activity, or food type which could cause any harm to the elder even if the elder likes to do them.
 2. "Technical Document":
-   - Present each treatment method accurately without adding new information but explain in detail why you need to give this treatment (food, medicine, activity, tools, etc.) based on the elder's conditions.
-   - Treatment methods might include possible nutrients (meals), physical exercises, mental exercises, proper caregiver tools, etc. While suggesting the treatment methods, consider the given preferences as well. However, avoid suggesting harmful treatment methods, even if the elder prefers them.
-   - Avoid mixing facts from different areas.
+    - Present each treatment method accurately without adding new information but explain in detail why you need to give this treatment (food, medicine, activity, tools, etc.) based on the elder's conditions.
+    - Treatment methods might include possible nutrients (meal), physical exercises, mental exercises, proper caregiver tools, etc. While suggesting the treatment methods, consider the given preferences as well. However, avoid suggesting harmful treatment methods even if the elder likes them.
+    - Avoid mixing facts from different areas.
 3. Order of keys in the response must be "Thought" and "Technical Document".
 4. Double-check compliance with all instructions.
 </INSTRUCTIONS>
@@ -147,6 +154,7 @@ Your response should include a 2-step cohesive answer with the following keys:
 
 OUTPUT:
 """
+
 
 
 # PROMPT_TEMPLATE = """
@@ -189,12 +197,50 @@ OUTPUT:
 # OUTPUT:
 # """
 
-def generate_suggestions(user_query,expert_llm,retriever,template=None):
-    
-    retrieved_documents = retrieve_documents(user_query,retriever)
+def expand_query(expert_llm, query):
+    prompt_template = """
+        You are an AI assistant. Your task is to enhance the user query to improve the vector database search.
 
-    # print(len(retrieved_documents))
+        <INSTRUCTIONS>
+        Follow these steps:
+        1. Identify disease, dietary plan, and treatment-related topics only from the user query.
+        2. Divide the topics into multiple meaningful sub-contents.
+        3. Enhance each sub-content to improve clarity and precision.
+        4. Ensure each sub-content is a concise and clear paragraph.
+        5. Do not add any unwanted information.
+        6. Rephrase or restructure each sub-content for better searchability without altering the original meaning.
+        </INSTRUCTIONS>
+
+        <QUERY>
+        {query}
+        </QUERY>
+
+        Output should be a string and differentiate using "*".
+        Example:
+        sub-content 1 * sub-content 2 * ...
+
+        OUTPUT:
+        """
+
+
+    user_query = prompt_template.format(query=query)
+    response = expert_llm.invoke(user_query)
+    return response
     
+
+def generate_suggestions(user_query,expert_llm,retriever,template=None):
+    # try:
+    #     res_list = [content for content in expand_query(expert_llm, user_query).split("*") if content]
+    #     print(f"Expand query: {res_list}")
+    #     retrieved_documents = "\n".join(sum((retrieve_documents(data, retriever, 3) for data in res_list), []))
+        
+    # except:
+    retrieved_documents = retrieve_documents(user_query,retriever,10)
+    print("-------"*15)
+    print(f"User Query: \n {user_query}")
+    print("-------"*15)
+    print(f"Documents: \n{retrieved_documents}")
+    print("-------"*15)
     user_prompt = template.format(
         query=user_query,
         context=retrieved_documents
