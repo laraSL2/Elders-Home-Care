@@ -31,6 +31,14 @@ if "mv_retriever" not in st.session_state and "expert_llm" not in st.session_sta
     st.session_state.mv_retriever,st.session_state.expert_llm = get_llm_and_retriever()
 ####
 
+### care plan refining llm
+from fb_refining_care_plan import get_llm_refining,generate_refined_care_plan
+
+if "refining_llm" not in st.session_state:
+    st.session_state.refining_llm = get_llm_refining()
+
+###
+
 my_gemini = GeminiInitializer()
 my_graph = GraphInitializer()
 ids_container = getID()
