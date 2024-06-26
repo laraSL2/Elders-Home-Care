@@ -302,21 +302,53 @@ elif selected == "Plan Generation":
     elif not elder_id and generation_button:
         st.warning("Please fill in the elder ID to generate the care plan.")
 
-    if 'care_plan' in st.session_state and st.session_state.care_plan:
+###### oroginal code - gobi
+    # if 'care_plan' in st.session_state and st.session_state.care_plan:
         
-        st.markdown(st.session_state.care_plan)
+    #     st.markdown(st.session_state.care_plan)
 
-        result_pdf = create_pdf("\n".join(tw.wrap(st.session_state.care_plan, width=80)))
+    #     result_pdf = create_pdf("\n".join(tw.wrap(st.session_state.care_plan, width=80)))
 
-        # Download button
+    #     # Download button
+    #     col1, col2 = st.columns([2,1])
+
+    #     with col2:
+    #         st.download_button(label="Download Care Plan as a PDF",
+    #                         data=result_pdf,
+    #                         file_name=f"care_plan_{elder_id}.pdf",
+    #                         mime='application/pdf',
+    #                         type="primary")
+            
+    # ### adding feedback text area
+    # feedback_care_plan = st.text_area("Enter the Feedback:", height=200)
+###################################
+
+#### updated by lara
+    if 'care_plan' in st.session_state and st.session_state.care_plan:
         col1, col2 = st.columns([2,1])
 
-        with col2:
-            st.download_button(label="Download Care Plan as a PDF",
-                            data=result_pdf,
-                            file_name=f"care_plan_{elder_id}.pdf",
-                            mime='application/pdf',
-                            type="primary")
+    with col1:
+        st.markdown(st.session_state.care_plan)
+
+    with col2:
+        if st.button("Update Care Plan"):
+            feedback_care_plan = st.text_area("Enter the Feedback:", height=200)
+            updated_care_plan = generate_refined_care_plan(
+                expert_feedback=feedback_care_plan,
+                care_plan=st.session_state.care_plan,
+                refining_llm=st.session_state.refining_llm,
+            )
+            st.session_state.care_plan = updated_care_plan
+            st.markdown(updated_care_plan)
+            
+        result_pdf = create_pdf("\n".join(tw.wrap(st.session_state.care_plan, width=80)))
+        st.download_button(label="Download Care Plan as a PDF",
+                              data=result_pdf,
+                              file_name=f"care_plan_{elder_id}.pdf",
+                              mime='application/pdf',
+                              type="primary")
+
+########################################
             
 elif selected == "Display":
     
