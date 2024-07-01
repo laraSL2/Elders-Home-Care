@@ -18,6 +18,7 @@ from io import BytesIO
 import base64
 from retrive_ids import getID, get_elder_details
 from sqlite_db  import ElderDB, CarePlanDB, CareNoteDB
+from fb_refining_care_plan import care_plane_flow, generate_refined_care_plan
 
 def get_image_as_base64(url):
     with open(url, "rb") as image_file:
@@ -30,14 +31,6 @@ from rag_expert.generate_expert_suggestions import get_llm_and_retriever
 if "mv_retriever" not in st.session_state and "expert_llm" not in st.session_state:
     st.session_state.mv_retriever,st.session_state.expert_llm = get_llm_and_retriever()
 ####
-
-### care plan refining llm
-from fb_refining_care_plan import get_llm_refining,generate_refined_care_plan
-
-if "refining_llm" not in st.session_state:
-    st.session_state.refining_llm = get_llm_refining()
-
-###
 
 my_gemini = GeminiInitializer()
 my_graph = GraphInitializer()
@@ -191,35 +184,6 @@ elif selected == "Note Enhancement":
     st.title("Note Enhancement")
 
     with st.form(key='care_note_form'):
-        # col1, col2 = st.columns(2)
-
-        # with col1:
-        #     elder_id = st.text_input("Elder ID", value="", help="Enter the numerical ID")
-        # with col1:
-        #     if not ids_container.empty:
-                
-        #         elder_id = st.selectbox("Elder ID", ids_container,  key="elder_selectbox")
-
-        #         if elder_id:
-        #             elder_details = get_elder_details(elder_id=elder_id)
-        #             if isinstance(elder_details, str):
-        #                 elder_details = json.loads(elder_details)
-
-        #             if elder_details:
-        #                 for key, value in elder_details[0].items():
-        #                     if key == 'name':
-        #                         st.text_input("Elder Name", value=value)
-                
-        #         else:
-        #             st.warning("Database is empty")
-        #             elder_id = st.text_input("Elder ID", value="", help="Enter the numerical ID")
-                
-            
-            
-        # with col2:
-        #     date = st.date_input("Date")
-        #     time = st.time_input("Time")
-
         # Care note text area outside the columns but still inside the form
         original_care_note = st.text_area("Enter the Care Note:", height=200)
 
@@ -234,16 +198,9 @@ elif selected == "Note Enhancement":
     if 'add_button_shown' not in st.session_state:
         st.session_state.add_button_shown = True
 
-    # Your existing button and condition checks
-    # if st.session_state.button and not elder_id:
-    #     st.warning("Please enter the Elder ID")
     elif st.session_state.button and not original_care_note:
         st.warning("Please enter the care note to enhance")
-    # elif st.session_state.button and elder_id and original_care_note:
-    #     st.session_state.enhanced_note, st.session_state.suggestions_note  = note_enhancer(original_care_note, st.session_state.my_gemini)
-    #     st.session_state.text_copy = f"""{st.session_state.enhanced_note}"""
-    #     st.session_state.text_copy_suggestions = f"""{st.session_state.suggestions_note}"""
-    #     st.session_state.button_clicked = True
+   
     elif st.session_state.button and original_care_note:
         st.session_state.enhanced_note, st.session_state.suggestions_note  = note_enhancer(original_care_note, st.session_state.my_gemini)
         st.session_state.text_copy = f"""{st.session_state.enhanced_note}"""
@@ -257,99 +214,56 @@ elif selected == "Note Enhancement":
         
         st.subheader("Generated Suggestions")
         st.code("\n".join(tw.wrap(st.session_state.text_copy_suggestions, width=80)), language="md")
-        #st.code("\n".join(tw.wrap(st.session_state.text_copy, width=80)), language="md")
-
-        # col1, col2 = st.columns([4,1])
-        # if st.session_state.button_clicked:
-        #     with col2:
-        #         add_button = st.button("Add Care Note", type = "primary", use_container_width=True)
-        #     if add_button:
-        #         print("Adding the care note")
-        #         state = add_patient(st.session_state.my_gemini, st.session_state.my_graph, elder_id, care_note_mode=True, care_note=editable_note, data="")
-                
-        #         elderDB.insert_data(elder_id=elder_id, original_text=original_care_note, llm_output=st.session_state.text_copy, final_text=editable_note)
-                
-        #         if state:
-        #             st.success("Care Note added successfully")
-        #         else:
-        #             st.error("There was an error while adding the care note.")
-        
+       
 elif selected == "Plan Generation":
     st.title("Plan Generation")
 
-    col1, col2 = st.columns(2)
+    if 'show_input_fields' not in st.session_state:
+        st.session_state.show_input_fields = True
 
-    with col1:
-            if not ids_container.empty:
-                elder_id = st.selectbox("Elder ID", ids_container)
-            else:
-                st.warning("Database is empty")
-                elder_id = st.text_input("Elder ID", value="", help="Enter the numerical ID")
+    if st.session_state.show_input_fields:
+        with st.form(key='care_note_form'):
+            original_details = st.text_area("Enter the Details:", height=200)
+            original_instruct = st.text_area("Enter the Instructions:", height=100)
 
-    with col2:
-        st.write("") 
-        st.write("")  
-        generation_button = st.button("Submit", type="primary")
-
-    if generation_button and elder_id:
-
-        care_plan = generate_plan(elder_id, GeminiInitializer=my_gemini, GraphInitializer=my_graph,
-                                  expert_llm=st.session_state.expert_llm,
-                                  expert_retriever = st.session_state.mv_retriever)
-        st.session_state.care_plan = care_plan  
-        carePlanDB.insert_data(elder_id=elder_id, care_plan=care_plan)
-
-    elif not elder_id and generation_button:
-        st.warning("Please fill in the elder ID to generate the care plan.")
-
-###### oroginal code - gobi
-    # if 'care_plan' in st.session_state and st.session_state.care_plan:
-        
-    #     st.markdown(st.session_state.care_plan)
-
-    #     result_pdf = create_pdf("\n".join(tw.wrap(st.session_state.care_plan, width=80)))
-
-    #     # Download button
-    #     col1, col2 = st.columns([2,1])
-
-    #     with col2:
-    #         st.download_button(label="Download Care Plan as a PDF",
-    #                         data=result_pdf,
-    #                         file_name=f"care_plan_{elder_id}.pdf",
-    #                         mime='application/pdf',
-    #                         type="primary")
+            col1, col2 = st.columns([4, 1])
+            with col1:
+                uploaded_file = st.file_uploader("Care Template", type=['txt'], accept_multiple_files=False)
             
-    # ### adding feedback text area
-    # feedback_care_plan = st.text_area("Enter the Feedback:", height=200)
-###################################
+            uploaded_data = ""
+            if uploaded_file:
+                uploaded_data = str(uploaded_file.read(), 'utf-8')
 
-#### updated by lara
-    if 'care_plan' in st.session_state and st.session_state.care_plan:
-        col1, col2 = st.columns([2,1])
-
-    with col1:
-        st.markdown(st.session_state.care_plan)
-
-    with col2:
-        if st.button("Update Care Plan"):
-            feedback_care_plan = st.text_area("Enter the Feedback:", height=200)
-            updated_care_plan = generate_refined_care_plan(
-                expert_feedback=feedback_care_plan,
-                care_plan=st.session_state.care_plan,
-                refining_llm=st.session_state.refining_llm,
-            )
-            st.session_state.care_plan = updated_care_plan
-            st.markdown(updated_care_plan)
+            with col2:
+                moderate_button = st.form_submit_button("Moderate", type="primary", use_container_width=True)
             
-        result_pdf = create_pdf("\n".join(tw.wrap(st.session_state.care_plan, width=80)))
-        st.download_button(label="Download Care Plan as a PDF",
-                              data=result_pdf,
-                              file_name=f"care_plan_{elder_id}.pdf",
-                              mime='application/pdf',
-                              type="primary")
+            if moderate_button:
+                if not original_details:
+                    st.warning("Please enter the user details")
+                elif not uploaded_data:
+                    st.warning("Please enter the care template")
+                else:
+                    refine_input = care_plane_flow(original_details, expert_retriever=st.session_state.mv_retriever, output_template=uploaded_data)
+                    st.session_state.show_input_fields = False
+                    st.session_state.original_details = refine_input
+                    # st.session_state.original_instruct = original_instruct
+                    st.session_state.uploaded_data = uploaded_data
+                    st.experimental_rerun()
 
-########################################
+    else:
+        repeat = True
+        while repeat:
+            care_plan = st.text_area(label="Care Plan", value=st.session_state.original_details, height=600)
+            changes = st.text_area("Enter the Changes:", height=150)
+
+            if st.button("Try Again"):
+                new_care_plan = generate_refined_care_plan(changes, care_plan)
+                st.session_state.original_details = new_care_plan
+                st.session_state.show_input_fields = True
             
+
+            
+    
 elif selected == "Display":
     
     selected_item = st.sidebar.selectbox("Choose an option", ["Elder Details","Care Note DB","Care Plan DB"])
@@ -382,84 +296,6 @@ elif selected == "Display":
                     st.markdown(f"**{key.replace('_', ' ').title()}**: {value}")
             else:
                 st.warning("Elder not found in the database")
-
-    # elif selected_item == "SQL DB":
-    #     st.subheader("SQL Operations")
-
-    #     operation = st.selectbox("Select Operation", ["Update", "Read", "Delete"])
-
-    #     if not ids_container.empty:
-    #         elder_id = st.selectbox("Elder ID", ids_container)
-    #     else:
-    #         st.warning("Database is empty")
-    #         elder_id = st.text_input("Elder ID", value="", help="Enter the numerical ID")
-
-    #     if operation == "Update":
-
-    #         if 'display_data_button' not in st.session_state:
-    #             st.session_state.display_data_button = False
-    #         if 'submit_update' not in st.session_state:
-    #             st.session_state.submit_update = False
-
-    #         st.subheader("Update selected")
-    #         key = st.text_input("Elder Key", value="", help="Check Read Operation to get the key")
-
-    #         if key:
-    #             try:
-    #                 display_data_button = st.button("Display Data", on_click=lambda: st.session_state.update(display_data_button=True))
-
-    #                 if st.session_state.display_data_button:
-    #                     read_data = elderDB.read_data(elder_id=elder_id)
-    #                     for record in read_data:
-    #                         if str(record[0]) == str(key):
-    #                             date_time= st.text_input("Date && Time", value=record[2], help="Enter the date and time", key="date_time")
-    #                             user_input_text = st.text_input("User Input Text", value=record[3], help="Enter the user input text", key="user_input_text")
-    #                             llm_generated_text = st.text_input("LLM Generated text", value=record[4], help="Enter the LLM generated text", key="llm_generated_text")
-    #                             final_text = st.text_input("Final text", value=record[5], help="Enter the final text", key="final_text")
-
-    #                             submit_update = st.button("Update Record", on_click=lambda: st.session_state.update(submit_update=True))
-
-    #                             if st.session_state.submit_update:
-    #                                 status = elderDB.update_data(id=record[0], date_time=date_time, elder_id=elder_id, original_text=user_input_text, llm_output=llm_generated_text, final_text=final_text)
-    #                                 if status == "done":
-    #                                     st.success(f"Record {elder_id} updated successfully")
-    #                                     st.session_state.submit_update = False  
-    #                                 else:
-    #                                     st.warning("Try again")
-    #                                     st.session_state.submit_update = False 
-    #             except ValueError as e:
-    #                 st.error(e)
-
-    #     elif operation == "Read":
-    #         st.subheader("Read selected")
-    #         read_button = st.button("Read Record")
-    #         if read_button:
-    #             read_data = elderDB.read_data(elder_id=elder_id)
-    #             st.success(f"Displaying record for ID {elder_id}")
-    #             for record in read_data:
-    #                 formatted_datetime = datetime.strptime(record[2], "%Y-%m-%d %H:%M:%S").strftime("%B %d, %Y %I:%M %p")
-    #                 st.markdown(
-    #                     f"""
-    #                     <div style="border:1px solid #e6e6e6; border-radius:10px; padding:15px; margin-bottom:10px;">
-    #                         <p><strong>Elder Key:</strong> {record[0]}</p>
-    #                         <p><strong>Elder ID:</strong> {record[1]}</p>
-    #                         <p><strong>Date time:</strong> {formatted_datetime}</p>
-    #                         <p><strong>User Input Text:</strong> {record[3]}</p>
-    #                         <p><strong>LLM Generated text:</strong> {record[4]}</p>
-    #                         <p><strong>Final text:</strong> {record[5]}</p>
-    #                     </div>
-    #                     """,
-    #                     unsafe_allow_html=True
-    #                 )
-
-    #     elif operation == "Delete":
-    #         st.subheader("Delete selected")
-    #         key = st.text_input("Elder Key", value="", help="Check Read Operation to get the key")
-
-    #         delete_button = st.button("Delete Record")
-    #         if delete_button:
-    #             read_data = elderDB.delete_data(id=key, elder_id=elder_id)
-    #             st.success(f"Record {key} deleted successfully")
                 
     elif selected_item == "Care Note DB":
         st.subheader("Care Note DB")
