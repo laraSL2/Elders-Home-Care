@@ -13,9 +13,11 @@ class GraphInitializer:
     # self.connectionUrl = config["neo4j-url"]
     # self.username = config["neo4j-user"]
     # self.password = config["neo4j-password"]
-    self.connectionUrl = os.environ["neo4j-url"]
-    self.username = os.environ["neo4j-user"]
-    self.password = os.environ["neo4j-password"]
+
+
+    self.connectionUrl = os.getenv("NEO4J_URI")
+    self.username = os.getenv("NEO4J_USERNAME")
+    self.password = os.getenv("NEO4J_PASSWORD")
     self.driver = GraphDatabase.driver(self.connectionUrl, auth=(self.username, self.password))
     self.driver.verify_connectivity()
     print("Initializing the graph")

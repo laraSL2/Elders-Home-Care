@@ -10,7 +10,7 @@ from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.lib.units import inch
 from reportlab.lib.pagesizes import letter
 import textwrap as tw
-
+from fb_refining_care_plan import care_plane_flow, generate_refined_care_plan
 from care_note_enhancement import note_enhancer
 from care_plan_generator import generate_plan
 from knowledge_graph import add_patient, get_next_patient_id
@@ -85,18 +85,47 @@ def note_enhancement():
     careNoteDB.insert_data(original_note=original_care_note, care_note=enhanced_note)
     return jsonify({"enhanced_note": enhanced_note, "suggestions_note": suggestions_note})
 
+# @app.route('/plan_generation', methods=['POST'])
+# def plan_generation():
+#     data = request.json
+#     elder_id = data.get('elder_id')
+#     print(elder_id)
+#     if not elder_id:
+#         return jsonify({"error": "Elder ID is required"}), 400
+
+#     care_plan = generate_plan(elder_id, GeminiInitializer=my_gemini, GraphInitializer=my_graph,
+#                               expert_llm=expert_llm, expert_retriever=mv_retriever)
+#     carePlanDB.insert_data(elder_id=elder_id, care_plan=care_plan)
+#     return jsonify({"care_plan": care_plan})
+
 @app.route('/plan_generation', methods=['POST'])
 def plan_generation():
     data = request.json
-    elder_id = data.get('elder_id')
-    print(elder_id)
-    if not elder_id:
-        return jsonify({"error": "Elder ID is required"}), 400
+    user_info = data.get('user_info')
+    care_template = data.get('care_template')
+    if not user_info:
+        return jsonify({"error": "Please enter elder details"}), 400
+    if not care_template:
+        return jsonify({"error": "Please upload Care Teplate"}), 400
+    care_plan = care_plane_flow(user_input_information=user_info,expert_retriever=mv_retriever,output_template=care_template)
 
-    care_plan = generate_plan(elder_id, GeminiInitializer=my_gemini, GraphInitializer=my_graph,
-                              expert_llm=expert_llm, expert_retriever=mv_retriever)
-    carePlanDB.insert_data(elder_id=elder_id, care_plan=care_plan)
     return jsonify({"care_plan": care_plan})
+
+@app.route('/feedback_plan_generation', methods=['POST'])
+def feedback_plan_generation():
+    data = request.json
+    care_plan = data.get('care_plan')
+    feedback = data.get('feedback')
+    if not care_plan:
+        return jsonify({"error": "Please enter care plan"}), 400
+    if not feedback:
+        return jsonify({"care_plan": care_plan})
+    
+    care_plan = generate_refined_care_plan(feedback,care_plan)
+
+    return jsonify({"care_plan": care_plan})
+
+
 
 @app.route('/generate_pdf', methods=['POST'])
 def generate_pdf_endpoint():
@@ -191,4 +220,4 @@ def delete_plan_db():
 
 
 if __name__ == '__main__':
-    app.run(debug=True,port=8001)
+    app.run(debug=True,port=8001,host='0.0.0.0')
