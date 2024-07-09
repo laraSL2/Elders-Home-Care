@@ -20,6 +20,7 @@ from retrive_ids import getID, get_elder_details
 from sqlite_db import ElderDB, CarePlanDB, CareNoteDB
 from rag_expert.generate_expert_suggestions import get_llm_and_retriever
 from flask_cors import CORS 
+from care_plan_generator_v1 import standardize_care_plan
 # load_dotenv()
 
 app = Flask(__name__)
@@ -101,15 +102,28 @@ def note_enhancement():
 @app.route('/plan_generation', methods=['POST'])
 def plan_generation():
     data = request.json
-    user_info = data.get('user_info')
-    care_template = data.get('care_template')
-    if not user_info:
-        return jsonify({"error": "Please enter elder details"}), 400
-    if not care_template:
-        return jsonify({"error": "Please upload Care Teplate"}), 400
-    care_plan = care_plane_flow(user_input_information=user_info,expert_retriever=mv_retriever,output_template=care_template)
+    sub_plan = data.get('sub_plan')
+    profile = data.get('profile',"")
+    if not sub_plan:
+        return jsonify({"error": "Please enter the sub plan"}), 400
 
+    care_plan = standardize_care_plan(sub_plan)
     return jsonify({"care_plan": care_plan})
+
+# @app.route('/plan_generation', methods=['POST'])
+# def plan_generation():
+#     data = request.json
+#     user_info = data.get('user_info')
+#     care_template = data.get('care_template')
+#     user_instruction = data.get('user_instruction', "")
+#     if not user_info:
+#         return jsonify({"error": "Please enter elder details"}), 400
+#     if not care_template:
+#         return jsonify({"error": "Please upload Care Teplate"}), 400
+#     care_plan = care_plane_flow(user_input_information=user_info,expert_retriever=mv_retriever,output_template=care_template, user_instruction=user_instruction)
+
+#     return jsonify({"care_plan": care_plan})
+
 
 @app.route('/feedback_plan_generation', methods=['POST'])
 def feedback_plan_generation():
@@ -215,6 +229,19 @@ def delete_plan_db():
     print(id)
     data = carePlanDB.delete_data(id, elder_id=elder_id)
     return jsonify({"care_plan_db_delete_data": data})
+
+from care_story import care_story_summarizer
+@app.route('/care_story', methods=['POST'])
+def care_story():
+    data = request.json
+    care_story = data.get("care_story")
+    
+    if not care_story:
+        return jsonify({"error": "Please enter care story"}), 400
+
+    response = care_story_summarizer(care_story=care_story)
+    return jsonify({"care_story_response": response})
+
 
 
 

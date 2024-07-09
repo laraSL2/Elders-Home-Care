@@ -1,8 +1,33 @@
+# version: '3.8'
+
+# services:
+#   app:
+#     image: ubuntu:22.04
+#     environment:
+#       - DEBIAN_FRONTEND=noninteractive
+#       - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+#       - QDRANT_URL=${QDRANT_URL}
+#       - QDRANT_API_KEY=${QDRANT_API_KEY}
+#       - NEO4J_URI=${NEO4J_URI}
+#       - NEO4J_USERNAME=${NEO4J_USERNAME}
+#       - NEO4J_PASSWORD=${NEO4J_PASSWORD}
+#     working_dir: /App
+#     build:
+#       context: .
+#     ports:
+#       - "8001:8001"
+#     volumes:
+#       - .:/App
+#     command: >
+#       /bin/bash -c "python -u api.py || tail -f /dev/null"
+
 version: '3.8'
 
 services:
   app:
-    image: ubuntu:22.04
+    build:
+      context: .
+    image: elder-api-app:1.0  
     environment:
       - DEBIAN_FRONTEND=noninteractive
       - GOOGLE_API_KEY=${GOOGLE_API_KEY}
@@ -11,13 +36,10 @@ services:
       - NEO4J_URI=${NEO4J_URI}
       - NEO4J_USERNAME=${NEO4J_USERNAME}
       - NEO4J_PASSWORD=${NEO4J_PASSWORD}
-    working_dir: /App
-    build:
-      context: .
+    working_dir: /app
     ports:
       - "8001:8001"
     volumes:
-      - .:/App
-    command: >
-      /bin/bash -c "python -u api.py || tail -f /dev/null"
-
+      - .:/app
+    command: python -u api.py
+    restart: on-failure
