@@ -90,7 +90,7 @@ if "button_clicked" not in st.session_state:
 
 selected = option_menu(
     menu_title=None,
-    options=["Home", "Add New Elder", "Note Enhancement", "Plan Generation", "Display"],
+    options=["Home", "Add New Elder", "Note Enhancement", "Initial Care Plan","Plan Generation", "Display"],
     icons=["house", "clipboard-heart-fill", "card-list", "calendar-heart-fill", "person", "database"],
     menu_icon="cast",
     default_index=0,
@@ -184,6 +184,38 @@ elif selected == "Note Enhancement":
     st.title("Note Enhancement")
 
     with st.form(key='care_note_form'):
+        ####################################################################################
+        col1, col2 = st.columns(2)
+
+        with col1:
+            elder_id = st.text_input("Elder ID", value="", help="Enter the numerical ID")
+        with col1:
+            if not ids_container.empty:
+                
+                elder_id = st.selectbox("Elder ID", ids_container,  key="elder_selectbox")
+
+                if elder_id:
+                    elder_details = get_elder_details(elder_id=elder_id)
+                    if isinstance(elder_details, str):
+                        elder_details = json.loads(elder_details)
+
+                    if elder_details:
+                        for key, value in elder_details[0].items():
+                            if key == 'name':
+                                st.text_input("Elder Name", value=value)
+                
+                else:
+                    st.warning("Database is empty")
+                    elder_id = st.text_input("Elder ID", value="", help="Enter the numerical ID")
+                
+            
+            
+        with col2:
+            date = st.date_input("Date")
+            time = st.time_input("Time")
+        
+        
+        #############################################################################
         # Care note text area outside the columns but still inside the form
         original_care_note = st.text_area("Enter the Care Note:", height=200)
 
@@ -214,6 +246,71 @@ elif selected == "Note Enhancement":
         
         st.subheader("Generated Suggestions")
         st.code("\n".join(tw.wrap(st.session_state.text_copy_suggestions, width=80)), language="md")
+        
+    ############################################################
+        col1, col2 = st.columns([4,1])
+        if st.session_state.button_clicked:
+            with col2:
+                add_button = st.button("Add Care Note", type = "primary", use_container_width=True)
+            if add_button:
+                print("Adding the care note")
+                state = add_patient(st.session_state.my_gemini, st.session_state.my_graph, elder_id, care_note_mode=True, care_note=editable_note, data="")
+                
+                elderDB.insert_data(elder_id=elder_id, original_text=original_care_note, llm_output=st.session_state.text_copy, final_text=editable_note)
+                
+                if state:
+                    st.success("Care Note added successfully")
+                else:
+                    st.error("There was an error while adding the care note.")
+    
+    ###########################################################
+
+### adding new page here
+elif selected == "Initial Care Plan":
+    st.title("Initial Care Plan Generation")
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+            if not ids_container.empty:
+                elder_id = st.selectbox("Elder ID", ids_container)
+            else:
+                st.warning("Database is empty")
+                elder_id = st.text_input("Elder ID", value="", help="Enter the numerical ID")
+
+    with col2:
+        st.write("") 
+        st.write("")  
+        generation_button = st.button("Submit", type="primary")
+
+    if generation_button and elder_id:
+
+        care_plan = generate_plan(elder_id, GeminiInitializer=my_gemini, GraphInitializer=my_graph,
+                                  expert_llm=st.session_state.expert_llm,
+                                  expert_retriever = st.session_state.mv_retriever)
+        st.session_state.care_plan = care_plan  
+        carePlanDB.insert_data(elder_id=elder_id, care_plan=care_plan)
+
+    elif not elder_id and generation_button:
+        st.warning("Please fill in the elder ID to generate the care plan.")
+
+    if 'care_plan' in st.session_state and st.session_state.care_plan:
+        
+        st.markdown(st.session_state.care_plan)
+
+        result_pdf = create_pdf("\n".join(tw.wrap(st.session_state.care_plan, width=80)))
+
+        # Download button
+        col1, col2 = st.columns([2,1])
+
+        with col2:
+            st.download_button(label="Download Care Plan as a PDF",
+                            data=result_pdf,
+                            file_name=f"care_plan_{elder_id}.pdf",
+                            mime='application/pdf',
+                            type="primary")
+    
+#################################   
        
 elif selected == "Plan Generation":
     st.title("Plan Generation")
