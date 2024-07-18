@@ -19,7 +19,7 @@ import base64
 from retrive_ids import getID, get_elder_details
 from sqlite_db  import ElderDB, CarePlanDB, CareNoteDB
 from fb_refining_care_plan import care_plane_flow, generate_refined_care_plan
-from care_plan_generator_v1 import standardize_care_plan
+from care_plan_add_review import standardize_care_plan
 
 
 def get_image_as_base64(url):

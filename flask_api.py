@@ -87,6 +87,18 @@ def note_enhancement():
     # careNoteDB.insert_data(original_note=original_care_note, care_note=enhanced_note)
     return jsonify({"enhanced_note": enhanced_note, "suggestions_note": suggestions_note})
 
+# @app.route('/plan_generation', methods=['POST'])
+# def plan_generation():
+#     data = request.json
+#     elder_id = data.get('elder_id')
+#     print(elder_id)
+#     if not elder_id:
+#         return jsonify({"error": "Elder ID is required"}), 400
+
+#     care_plan = generate_plan(elder_id, GeminiInitializer=my_gemini, GraphInitializer=my_graph,
+#                               expert_llm=expert_llm, expert_retriever=mv_retriever)
+#     carePlanDB.insert_data(elder_id=elder_id, care_plan=care_plan)
+#     return jsonify({"care_plan": care_plan})
 
 @app.route('/plan_generation', methods=['POST'])
 def plan_generation():
@@ -99,7 +111,32 @@ def plan_generation():
 
     care_plan = pipeline(care_plan, combine_instructions)
     return jsonify({"care_plan": care_plan})
-    
+
+# @app.route('/plan_generation', methods=['POST'])
+# def plan_generation():
+#     data = request.json
+#     sub_plan = data.get('sub_plan')
+#     profile = data.get('profile',"")
+#     if not sub_plan:
+#         return jsonify({"error": "Please enter the sub plan"}), 400
+
+#     care_plan = standardize_care_plan(sub_plan)
+#     return jsonify({"care_plan": care_plan})
+
+# @app.route('/plan_generation', methods=['POST'])
+# def plan_generation():
+#     data = request.json
+#     user_info = data.get('user_info')
+#     care_template = data.get('care_template')
+#     user_instruction = data.get('user_instruction', "")
+#     if not user_info:
+#         return jsonify({"error": "Please enter elder details"}), 400
+#     if not care_template:
+#         return jsonify({"error": "Please upload Care Teplate"}), 400
+#     care_plan = care_plane_flow(user_input_information=user_info,expert_retriever=mv_retriever,output_template=care_template, user_instruction=user_instruction)
+
+#     return jsonify({"care_plan": care_plan})
+
 
 @app.route('/feedback_plan_generation', methods=['POST'])
 def feedback_plan_generation():
@@ -115,6 +152,96 @@ def feedback_plan_generation():
 
     return jsonify({"care_plan": care_plan})
 
+
+
+# @app.route('/generate_pdf', methods=['POST'])
+# def generate_pdf_endpoint():
+#     data = request.json
+#     content = data.get('content')
+#     if not content:
+#         return jsonify({"error": "Content is required"}), 400
+
+#     pdf_buffer = create_pdf(content)
+#     pdf_base64 = base64.b64encode(pdf_buffer.read()).decode('utf-8')
+#     return jsonify({"pdf": pdf_base64})
+
+# @app.route('/elder_details', methods=['GET'])
+# def elder_details():
+#     elder_id = request.args.get('elder_id')
+#     if not elder_id:
+#         return jsonify({"error": "Elder ID is required"}), 400
+
+#     elder_details = get_elder_details(elder_id=elder_id)
+#     if isinstance(elder_details, str):
+#         elder_details = json.loads(elder_details)
+#     return jsonify({"elder_details": elder_details})
+
+# @app.route('/read_note_db', methods=['POST'])
+# def read_care_note_db():
+#     data = request.json
+#     id = data.get("ID", None)
+#     print(id)
+#     data = careNoteDB.read_data(id)
+#     return jsonify({"care_note_db_read_data": data})
+
+# @app.route('/update_note_db', methods=['POST'])
+# def update_care_note_db():
+#     data = request.json
+#     id = data.get("ID")
+#     llm_care_note = data.get("llm_care_note")
+#     original_care_note = data.get("original_care_note")
+#     print(id)
+#     if not id or not llm_care_note or original_care_note:
+#         return jsonify({"error": "Please check your arguments"}), 400
+
+#     status = careNoteDB.update_data(id=id,care_note=llm_care_note,original_note=original_care_note)
+#     return jsonify({"care_note_db_update_data": status})
+
+
+@app.route('/delete_note_db', methods=['POST'])
+def delete_care_note_db():
+    data = request.json
+    id = data.get("ID", None)
+    if not id:
+        return jsonify({"error": "ID is required"}), 400
+
+    print(id)
+    data = careNoteDB.delete_data(id)
+    return jsonify({"care_note_db_delete_data": data})
+
+@app.route('/read_plan_db', methods=['POST'])
+def read_care_plan_db():
+    data = request.json
+    id = data.get("ID", None)
+    print(id)
+    data = carePlanDB.read_data(id)
+    return jsonify({"care_plan_db_read_data": data})
+
+@app.route('/update_plan_db', methods=['POST'])
+def update_care_plan_db():
+    data = request.json
+    id = data.get("ID")
+    elder_id = data.get("Elder ID")
+    care_plan = data.get("Care Plan")
+    print(id)
+    if not id or not elder_id or care_plan:
+        return jsonify({"error": "Please check your arguments"}), 400
+
+    status = carePlanDB.update_data(id=id, elder_id=elder_id, care_plan=care_plan)
+    return jsonify({"care_plan_db_update_data": status})
+
+
+@app.route('/delete_plan_db', methods=['POST'])
+def delete_plan_db():
+    data = request.json
+    id = data.get("ID")
+    elder_id = data.get("Elder ID")
+    if not id:
+        return jsonify({"error": "ID is required"}), 400
+
+    print(id)
+    data = carePlanDB.delete_data(id, elder_id=elder_id)
+    return jsonify({"care_plan_db_delete_data": data})
 
 from care_story import care_story_summarizer
 @app.route('/care_story', methods=['POST'])
