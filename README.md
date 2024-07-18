@@ -27,8 +27,8 @@ If you need to run the app locally, please follow these steps. Additionally, we 
 
 ### Step 4
 
-4. Run the Streamlit application.
+4. Run the Flask API .
    ```bash
-   streamlit run app.py
+   python run.py
    ```
    
