@@ -7,28 +7,9 @@ from app.utils.file_handler import read_file_contents, get_upload_folder
 from app.utils.care_plan_utils import format_care_plan
 from app.utils.care_plan_prompts import CARE_PLAN_TEMPLATE, FB_REFINING_TEMPLATE
 from flask import current_app
-
+from app.utils.care_plan_utils import clean_empty_sections, extract_json
 import json
 
-def extract_json(text: str) -> Optional[str]:
-    """Attempt to extract JSON from the given text."""
-    try:
-        # First, try to parse the entire text as JSON
-        json.loads(text)
-        return text
-    except json.JSONDecodeError as e:
-        print("error 1:", e)
-        # If that fails, try to find a JSON object within the text
-        json_match = re.search(r'(\{.*\})', text, re.DOTALL)
-        if json_match:
-            try:
-                # Validate that the extracted text is valid JSON
-                json.loads(json_match.group(1))
-                return json_match.group(1)
-            except json.JSONDecodeError as e:
-                print("error 2:", e)
-                return None
-    return None
 
 
 def generate_care_plan(payload: Dict) -> Optional[Dict]:
@@ -45,7 +26,7 @@ def generate_care_plan(payload: Dict) -> Optional[Dict]:
         
         prompt = CARE_PLAN_TEMPLATE.format(subplans=formatted_subplans, combine_instructions=combine_instructions, current_date=formatted_date)
         print(prompt)
-        response = gemini.run_text_model(prompt, model_name="gemini-1.5-pro-latest", temperature=0)
+        response = gemini.run_text_model(prompt, model_name="gemini-1.5-flash", temperature=0)
         print("-"*150)
         print(response)
         print("-"*150)
@@ -56,6 +37,7 @@ def generate_care_plan(payload: Dict) -> Optional[Dict]:
         
         try:
             parsed_json = json.loads(json_str)
+            parsed_json = clean_empty_sections(parsed_json)
         except json.JSONDecodeError as json_error:
             current_app.logger.error(f"JSON parsing error: {str(json_error)}")
             current_app.logger.error(f"Problematic JSON string: {json_str}")
@@ -104,7 +86,7 @@ def refine_care_plan(expert_feedback: str, user_input_information: Dict) -> Dict
             expert_feedback=expert_feedback
         )
         print(refining_prompt)
-        refined_response = gemini.run_text_model(refining_prompt, model_name="gemini-1.5-pro-latest", temperature=0)
+        refined_response = gemini.run_text_model(refining_prompt, model_name="gemini-1.5-flash", temperature=0)
 
         refined_json = json.loads(refined_response)
         return refined_json

@@ -28,7 +28,17 @@ def split_care_plan_sections(input_text: str) -> Dict:
         }
 
         # Split Reviews into separate review entries
-        reviews_list = [review.strip() for review in Reviews.split('\n') if review.strip()]
+        reviews_list = []
+        for review in Reviews.split('\n'):
+            review = review.strip()
+            if review:
+                # Check if the review starts with a date
+                if review[:2].isdigit():
+                    reviews_list.append(review)
+                else:
+                    # If it doesn't start with a date, it's probably a continuation of the previous review
+                    if reviews_list:
+                        reviews_list[-1] += " " + review
 
         # Data validation
         for section, content in sections.items():

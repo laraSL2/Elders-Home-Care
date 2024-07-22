@@ -9,7 +9,7 @@ def enhance_note(original_care_note: str) -> Tuple[Optional[str], Optional[str]]
         gemini = current_app.gemini
         prompt = CARE_NOTE_TEMPLATE.format(input_text=original_care_note)
         
-        response = gemini.run_text_model(prompt, model_name="gemini-1.5-pro-latest", temperature=0.2)
+        response = gemini.run_text_model(prompt, model_name="gemini-1.5-flash", temperature=0.2)
         
         response = response.replace("```", "").replace("json\n{", "{")
         response_json = json.loads(response)

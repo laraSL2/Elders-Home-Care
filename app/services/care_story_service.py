@@ -27,5 +27,5 @@ CARE_STORY_SUMMARIZATION_PROMPT = PromptTemplate(
 def summarize_care_story(care_story: str) -> str:
     gemini = current_app.gemini
     care_story_prompt = CARE_STORY_SUMMARIZATION_PROMPT.format(care_story=care_story)
-    summary = gemini.extract_entities_relationships(prompt=care_story_prompt, model_name="gemini-1.5-pro-latest")
+    summary = gemini.extract_entities_relationships(prompt=care_story_prompt, model_name="gemini-1.5-flash")
     return summary
