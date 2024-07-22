@@ -8,10 +8,28 @@ from app.utils.care_plan_utils import format_care_plan
 from app.utils.care_plan_prompts import CARE_PLAN_TEMPLATE, FB_REFINING_TEMPLATE
 from flask import current_app
 
+import json
+
 def extract_json(text: str) -> Optional[str]:
     """Attempt to extract JSON from the given text."""
-    json_match = re.search(r'(\{.*\})', text, re.DOTALL)
-    return json_match.group(1) if json_match else None
+    try:
+        # First, try to parse the entire text as JSON
+        json.loads(text)
+        return text
+    except json.JSONDecodeError as e:
+        print("error 1:", e)
+        # If that fails, try to find a JSON object within the text
+        json_match = re.search(r'(\{.*\})', text, re.DOTALL)
+        if json_match:
+            try:
+                # Validate that the extracted text is valid JSON
+                json.loads(json_match.group(1))
+                return json_match.group(1)
+            except json.JSONDecodeError as e:
+                print("error 2:", e)
+                return None
+    return None
+
 
 def generate_care_plan(payload: Dict) -> Optional[Dict]:
     try:
@@ -28,13 +46,23 @@ def generate_care_plan(payload: Dict) -> Optional[Dict]:
         prompt = CARE_PLAN_TEMPLATE.format(subplans=formatted_subplans, combine_instructions=combine_instructions, current_date=formatted_date)
         print(prompt)
         response = gemini.run_text_model(prompt, model_name="gemini-1.5-pro-latest", temperature=0)
-        
+        print("-"*150)
+        print(response)
+        print("-"*150)
         json_str = extract_json(response)
         if json_str is None:
-            raise ValueError("No JSON found in the response")
+            current_app.logger.error(f"Failed to extract JSON from response: {response}")
+            raise ValueError("No valid JSON found in the response")
         
-        parsed_json = json.loads(json_str)
+        try:
+            parsed_json = json.loads(json_str)
+        except json.JSONDecodeError as json_error:
+            current_app.logger.error(f"JSON parsing error: {str(json_error)}")
+            current_app.logger.error(f"Problematic JSON string: {json_str}")
+            raise json_error
+        
         parsed_json["elder_details"] = elder_details
+        
         return parsed_json
     except Exception as e:
         current_app.logger.error(f"Error in generate_care_plan: {str(e)}")
@@ -43,6 +71,7 @@ def generate_care_plan(payload: Dict) -> Optional[Dict]:
 def process_care_plans(subplans: List[str], combine_instructions: str, max_retries: int = 2) -> Optional[Dict]:
     for attempt in range(max_retries):
         try:
+            print("Attempt: ",attempt)
             result = generate_care_plan({"subplans": subplans, "combine_instructions": combine_instructions})
             return result
         except Exception as e:
