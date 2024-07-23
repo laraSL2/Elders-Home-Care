@@ -1,0 +1,60 @@
+{
+    "Profile": {
+        "Personal_Information": {
+            "Full_Name": "",
+            "Date_of_Birth": "",
+            "Gender": "",
+            "Contact_Information": {
+                "Phone_Number": "",
+                "Emergency_Contact": {
+                    "Name": "",
+                    "Relationship": "",
+                    "Phone_Number": ""
+                }
+            },
+            "Address": {
+                "Street": "",
+                "City": "",
+                "State": "",
+                "Zip_Code": ""
+            }
+        },
+        "Medical_Information": {
+            "Medical_Conditions": [],
+            "Allergies": [],
+            "Medications": [
+                {
+                    "Name": "",
+                    "Dosage": "",
+                    "Frequency": "",
+                    "Notes": ""
+                }
+            ],
+            "Medical_Risks": [],
+            "Dietary_Restrictions": [],
+            "Mobility": {
+                "Walking_Aids": "",
+                "Assistance_Required": "",
+                "Notes": ""
+            },
+            "Cognitive_Abilities": {
+                "Memory": "",
+                "Communication": "",
+                "Decision_Making": "",
+                "Notes": ""
+            }
+        },
+        "Social_Background": {
+            "Living_Arrangements": "",
+            "Support_System": {
+                "Family": "",
+                "Friends": "",
+                "Community_Groups": ""
+            },
+            "Interests_and_Hobbies": [],
+            "Cultural_or_Religious_Considerations": ""
+        },
+        "Special_Notes_or_Conditions": ""
+    },
+    "Resident_ID": ""
+}

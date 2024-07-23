@@ -1,1 +1,1 @@
-Don't combine any subplan. maintain everithing as seperate subplans.
+Don't combine any subplan. maintain everything as separate subplans.

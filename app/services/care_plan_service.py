@@ -22,11 +22,18 @@ def generate_care_plan(payload: Dict) -> Optional[Dict]:
         
         formatted_subplans = format_care_plan(payload)
         combine_instructions_file_path = get_upload_folder()
-        combine_instructions = read_file_contents(combine_instructions_file_path)
+        try:
+            combine_instructions = read_file_contents(combine_instructions_file_path)
+            if not combine_instructions:
+                combine_instructions = "Don't combine any subplan. maintain everything as separate subplans."
+                current_app.logger.warning("Combine instructions file was empty. Using default instructions.")
+        except Exception as ex:
+            combine_instructions = "Don't combine any subplan. maintain everything as separate subplans."
+            current_app.logger.warning(f"Failed to read combine instructions file: {str(ex)}. Using default instructions.")
         
         prompt = CARE_PLAN_TEMPLATE.format(subplans=formatted_subplans, combine_instructions=combine_instructions, current_date=formatted_date)
         print(prompt)
-        response = gemini.run_text_model(prompt, model_name="gemini-1.5-flash", temperature=0)
+        response = gemini.run_text_model(prompt, model_name="gemini-1.5-pro-latest", temperature=0)
         print("-"*150)
         print(response)
         print("-"*150)
@@ -89,7 +96,7 @@ def refine_care_plan(expert_feedback: str, user_input_information: Dict) -> Dict
             expert_feedback=expert_feedback
         )
         
-        refined_response = gemini.run_text_model(refining_prompt, model_name="gemini-1.5-flash", temperature=0)
+        refined_response = gemini.run_text_model(refining_prompt, model_name="gemini-1.5-pro-latest", temperature=0)
         print(refined_response)
         refined_json = extract_json(refined_response)
         refined_json = clean_refined_empty_sections(refined_json)

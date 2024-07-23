@@ -14,6 +14,7 @@ class Config:
     DEBUG = False
     TESTING = False
     UPLOAD_FOLDER = os.environ.get('UPLOAD_FOLDER', '/app/uploads')
+    ELDERS_DATA_DIR = os.environ.get('ELDERS_DATA_DIR', '/app/elders_data')
 
 class DevelopmentConfig(Config):
     DEBUG = True

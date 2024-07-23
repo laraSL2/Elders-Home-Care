@@ -1,0 +1,51 @@
+{
+    "Profile": {
+        "PersonalInformation": {
+            "Name": "Mrs. Maureen Nellie Beedle",
+            "DateOfBirth": "14/06/1936",
+            "RoomNumber": "Whitewater Room 06 LFH854"
+        },
+        "MedicalInformation": {
+            "Risks": [
+                "DNACPR (Do Not Attempt Cardiopulmonary Resuscitation)",
+                "Respect form in place",
+                "Schizophrenia",
+                "Dementia",
+                "Risk of falls due to fast walking with a stooped posture",
+                "Behaviors and disrupted sleeping at night",
+                "Medical allergies: Adverse reaction to Donepezil Hydrochloride (bradycardia)"
+            ],
+            "MedicalHistory": [
+                "Paranoid Schizophrenia",
+                "Mixed Dementia",
+                "Osteoporosis",
+                "Tardive Dyskinesia",
+                "Thoracic Kyphosis",
+                "Seasonal flu vaccine and Covid booster received on 22.09.2023"
+            ],
+            "CurrentPhysicalStats": {
+                "Weight": 45.3,
+                "Height": 1.49,
+                "BMI": 20.4
+            }
+        },
+        "SocialInformation": {
+            "Background": [
+                "Born in Wales and had a happy childhood",
+                "Completed school but did not attend college/university",
+                "Worked at Sainsbury's",
+                "Widowed in 2006",
+                "Lived in a bungalow with her son Jonathan, who was her main carer"
+            ]
+        },
+        "SpecialNotes": {
+            "MedicalAllergies": "Adverse reaction to Donepezil Hydrochloride (bradycardia)",
+            "DOLSConditions": [
+                "Up to four staff required while conducting personal care",
+                "Safe holding measures during personal care"
+            ]
+        }
+    },
+    "Resident_ID": "e0002",
+    "Resident_Name": "Mrs. Maureen Nellie Beedle"
+}

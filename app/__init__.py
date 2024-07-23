@@ -14,12 +14,13 @@ def create_app():
     app.gemini = GeminiInitializer()
 
     # Register blueprints
-    from app.routes import care_note_bp, care_plan_bp, care_story_bp, care_plan_spilt_bp, file_upload_bp
+    from app.routes import care_note_bp, care_plan_bp, care_story_bp, care_plan_spilt_bp, file_upload_bp, add_elder_bp
     app.register_blueprint(care_note_bp)
     app.register_blueprint(care_plan_bp)
     app.register_blueprint(care_story_bp)
     app.register_blueprint(care_plan_spilt_bp)
     app.register_blueprint(file_upload_bp)
+    app.register_blueprint(add_elder_bp)
 
 
     return app

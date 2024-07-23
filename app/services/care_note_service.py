@@ -2,15 +2,15 @@ from flask import current_app
 import json
 from app.utils.care_note_prompts import CARE_NOTE_TEMPLATE
 from typing import Tuple, Optional
-
+from app.utils.care_plan_utils import extract_json
 
 def enhance_note(original_care_note: str) -> Tuple[Optional[str], Optional[str]]:
     try:
         gemini = current_app.gemini
         prompt = CARE_NOTE_TEMPLATE.format(input_text=original_care_note)
         
-        response = gemini.run_text_model(prompt, model_name="gemini-1.5-flash", temperature=0.2)
-        
+        response = gemini.run_text_model(prompt, model_name="gemini-1.5-pro-latest", temperature=0.2)
+        print(response)
         response = response.replace("```", "").replace("json\n{", "{")
         response_json = json.loads(response)
         

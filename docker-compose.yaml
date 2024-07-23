@@ -17,7 +17,8 @@ services:
       - FLASK_ENV=${FLASK_ENV}
       - FLASK_RUN_HOST=${FLASK_RUN_HOST}
       - FLASK_CONFIG=${FLASK_CONFIG}
-      - UPLOAD_FOLDER=/app/uploads
+      - UPLOAD_FOLDER=${UPLOAD_FOLDER}
+      - ELDERS_DATA_DIR=${ELDERS_DATA_DIR}
     ports:
       - "8001:8001"
     volumes:

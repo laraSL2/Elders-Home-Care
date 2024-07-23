@@ -86,7 +86,8 @@ def extract_json(text: str) -> Optional[Dict]:
     """Attempt to extract and parse JSON from the given text."""
     try:
         # First, try to parse the entire text as JSON
-        return json.loads(text)
+        response = text.replace("```", "").replace("json\n{", "{")
+        return json.loads(response)
     except json.JSONDecodeError:
         # If that fails, try to find a JSON object within the text
         json_match = re.search(r'(\{.*\})', text, re.DOTALL)
