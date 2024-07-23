@@ -7,7 +7,7 @@ from app.utils.file_handler import read_file_contents, get_upload_folder
 from app.utils.care_plan_utils import format_care_plan
 from app.utils.care_plan_prompts import CARE_PLAN_TEMPLATE, FB_REFINING_TEMPLATE
 from flask import current_app
-from app.utils.care_plan_utils import clean_empty_sections, extract_json
+from app.utils.care_plan_utils import clean_empty_sections, extract_json, clean_refined_empty_sections
 import json
 
 
@@ -30,22 +30,25 @@ def generate_care_plan(payload: Dict) -> Optional[Dict]:
         print("-"*150)
         print(response)
         print("-"*150)
-        json_str = extract_json(response)
-        if json_str is None:
-            current_app.logger.error(f"Failed to extract JSON from response: {response}")
-            raise ValueError("No valid JSON found in the response")
         
         try:
-            parsed_json = json.loads(json_str)
-            parsed_json = clean_empty_sections(parsed_json)
+            parsed_json = extract_json(response)
+            if parsed_json is None:
+                current_app.logger.error(f"Failed to extract JSON from response: {response}")
+                raise ValueError("No valid JSON found in the response")
+
+            cleaned_json = clean_empty_sections(parsed_json)
         except json.JSONDecodeError as json_error:
             current_app.logger.error(f"JSON parsing error: {str(json_error)}")
-            current_app.logger.error(f"Problematic JSON string: {json_str}")
+            current_app.logger.error(f"Problematic JSON string: {response}")
             raise json_error
+        except Exception as e:
+            current_app.logger.error(f"Unexpected error: {str(e)}")
+            raise e
         
-        parsed_json["elder_details"] = elder_details
+        cleaned_json["elder_details"] = elder_details
         
-        return parsed_json
+        return cleaned_json
     except Exception as e:
         current_app.logger.error(f"Error in generate_care_plan: {str(e)}")
         return None
@@ -85,22 +88,36 @@ def refine_care_plan(expert_feedback: str, user_input_information: Dict) -> Dict
             input_data=json.dumps(user_input_information, indent=2),
             expert_feedback=expert_feedback
         )
-        print(refining_prompt)
+        
         refined_response = gemini.run_text_model(refining_prompt, model_name="gemini-1.5-flash", temperature=0)
+        print(refined_response)
+        refined_json = extract_json(refined_response)
+        refined_json = clean_refined_empty_sections(refined_json)
+        if refined_json is None:
+            current_app.logger.error(f"Failed to extract JSON from response: {refined_response}")
+            raise ValueError("No valid JSON found in the response")
 
-        refined_json = json.loads(refined_response)
         return refined_json
-    except json.JSONDecodeError:
-        current_app.logger.error("Failed to parse the refined care plan as JSON.")
+
+    except json.JSONDecodeError as json_error:
+        current_app.logger.error(f"JSON parsing error: {str(json_error)}")
+        current_app.logger.error(f"Problematic JSON string: {refined_response}")
         return {
             "SubplanTitle": "Error",
             "EnhancedCarePlan": {},
             "Reasoning": "Failed to parse the refined care plan as JSON."
         }
-    except Exception as e:
-        current_app.logger.error(f"Unexpected error in refine_care_plan: {str(e)}")
+    except ValueError as value_error:
+        current_app.logger.error(f"Value error: {str(value_error)}")
         return {
             "SubplanTitle": "Error",
             "EnhancedCarePlan": {},
-            "Reasoning": f"An unexpected error occurred: {str(e)}"
+            "Reasoning": str(value_error)
+        }
+    except Exception as e:
+        current_app.logger.error(f"Unexpected error: {str(e)}")
+        return {
+            "SubplanTitle": "Error",
+            "EnhancedCarePlan": {},
+            "Reasoning": "An unexpected error occurred."
         }

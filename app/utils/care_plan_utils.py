@@ -46,7 +46,7 @@ def format_care_plan(payload):
 
 
 def clean_empty_sections(data: Dict) -> Dict:
-    """Clean specific sections that were empty in the original or are empty lists."""
+    print("""Clean specific sections that were empty in the original or are empty lists.""")
     
     for subplan in data.get('FinalOutputGeneration', {}).get('Subplans', []):
         enhanced_care_plan = subplan.get('EnhancedCarePlan', {})
@@ -81,25 +81,44 @@ def clean_empty_sections(data: Dict) -> Dict:
 
     return data
 
-def extract_json(text: str) -> Optional[str]:
-    """Attempt to extract JSON from the given text."""
+
+def extract_json(text: str) -> Optional[Dict]:
+    """Attempt to extract and parse JSON from the given text."""
     try:
         # First, try to parse the entire text as JSON
-        json.loads(text)
-        return text
-    except json.JSONDecodeError as e:
-        print("error 1:", e)
+        return json.loads(text)
+    except json.JSONDecodeError:
         # If that fails, try to find a JSON object within the text
         json_match = re.search(r'(\{.*\})', text, re.DOTALL)
         if json_match:
             try:
                 # Validate that the extracted text is valid JSON
-                json.loads(json_match.group(1))
-                return json_match.group(1)
-            except json.JSONDecodeError as e:
-                print("error 2:", e)
+                return json.loads(json_match.group(1))
+            except json.JSONDecodeError:
                 return None
     return None
+
+def clean_refined_empty_sections(data: Dict) -> Dict:
+    print("Clean specific sections that were empty in the original or are empty lists.")
+    
+    if 'RefinedCarePlan' in data:
+        refined_care_plan = data['RefinedCarePlan']
+
+        sections_to_clean = [
+            'AssessedCurrentSituations',
+            'CareNeeds',
+            'DescriptionOfCareActions',
+            'OutcomesAndGoals'
+        ]
+
+        for section in sections_to_clean:
+            if section in refined_care_plan:
+                if not refined_care_plan[section] or refined_care_plan[section] == ["This section was empty in the original and remains empty."]:
+                    refined_care_plan[section] = []
+                elif isinstance(refined_care_plan[section], str):
+                    refined_care_plan[section] = [refined_care_plan[section]]
+
+    return data
 
 
 
