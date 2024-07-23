@@ -238,7 +238,7 @@ def generate_cypher(elderID, in_json):
 
 
 """## Pipeline"""
-
+import time
 def add_patient(gemini, graph, elderid, care_note_mode=False, care_note="", data=""):
     try:
       graph.define_nodes_uniqueness()
@@ -250,12 +250,24 @@ def add_patient(gemini, graph, elderid, care_note_mode=False, care_note="", data
       print(f"    Generating Cypher")
       ent_cyp, rel_cyp = generate_cypher(elderid, [results])
       print(f"    Ingesting Entities")
+      
+      start_insertion_time = time.time()
+
       for e in ent_cyp:
           graph.run_query(e)
       print(f"    Ingesting Relationships")
       for r in rel_cyp:
           graph.run_query(r)
       print(f"    Processing DONE")
+      
+      # Record the end time for insertion
+      end_insertion_time = time.time()
+      
+      # Calculate the total data insertion time
+      insertion_time = end_insertion_time - start_insertion_time
+      
+      print(f"Data insertion time: {insertion_time} seconds")
+
       return True
     except Exception as e:
         print(f"    Processing Failed with exception {e}")
