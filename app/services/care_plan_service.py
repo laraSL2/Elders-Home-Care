@@ -20,7 +20,12 @@ def generate_care_plan(payload: Dict) -> Optional[Dict]:
         
         elder_details = payload.get('elder_details', "")
         
-        formatted_subplans = format_care_plan(payload)
+        # formatted_subplans = format_care_plan(payload)
+        # try:  
+        #     data = json.loads(payload)
+        # except:
+        #     data = payload
+        formatted_subplans = payload['care_plan']
         combine_instructions_file_path = get_upload_folder()
         try:
             combine_instructions = read_file_contents(combine_instructions_file_path)
