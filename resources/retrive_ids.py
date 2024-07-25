@@ -5,7 +5,7 @@ from neo4j import GraphDatabase
 import os
 import json
 from dotenv import load_dotenv
-
+import time
 load_dotenv()
 
 uri = os.getenv("NEO4J_URI")
@@ -31,11 +31,24 @@ def run_query(query, parameters=None):
 def get_elder_details(elder_id):
     
     cypher_query = "MATCH (e: Elder) WHERE e.id = $elder_id RETURN e AS details"
+    # cypher_query = """
+    # MATCH (e:Elder {id: 'e0002'})-[r]->(n)
+    # RETURN e, r, n
+    # """
     parameters = {"elder_id": elder_id}
     # cypher_query = """MATCH (elder:Elder {id: 'e0001'})-[r*]-(related)
     # RETURN elder, collect(related) AS relatedNodes, collect(r) AS details"""
     # Run the query and convert the result to JSON format
+    start_query_time = time.time()
+
     results = run_query(cypher_query, parameters)
+    
+    end_query_time = time.time()
+    # Calculate the total query execution time
+    query_time = end_query_time - start_query_time
+
+    print(f"Query execution time: {query_time} seconds")
+
     print(results)
     json_result = []
     for record in results:
