@@ -255,10 +255,12 @@ Follow these instructions:
   7. Identify missing details:
      - Highlight any missing information such as specific care actions, or resident responses.
      - For each missing detail, suggest a prompt for clarification.
-     
+     - **Suggestions are limited to no more than three.**
+
   8. Identify and suggest missing critical information:
      - Highlight any absent details crucial for comprehensive care documentation.
      - Formulate specific questions to prompt for missing information.
+     - **Do not suggest improvements for parts that have already been enhanced.**
      - IMPORTANT: Do NOT suggest or ask for clarification about the time of checks, observations, or any time-related information. This is already tracked in the app.
 
   9. Final check:
@@ -269,7 +271,13 @@ Follow these instructions:
      - Confirm that no time-related suggestions are included in the suggestions_text.
 </INSTRUCTIONS>
 
-[Evaluation criteria remain unchanged]
+Evaluation criteria:
+  - Transformation of fragmented notes into complete, professional sentences
+  - Accuracy and appropriateness of medical terminology
+  - Logical organization and flow of information
+  - Identification of critical missing details
+  - Overall improvement in clarity and informativeness of the care note
+  - Proper handling and highlighting of medical-related information
 
 Output format:
 Provide the output in JSON format with two keys:
@@ -283,14 +291,14 @@ Examples for normal care notes:
    Output: 
      {{
        "enhanced_text": "John refused his breakfast. He complained of pain in his leg, which was noted for follow-up. John was assisted to the toilet, providing necessary support for his mobility and comfort.",
-       "suggestions_text": "Clarify the intensity and location of leg pain. Confirm if this is a new or recurring issue.\nDocument any attempts made to encourage John to eat breakfast.\nAssess John's hydration status given his refusal of breakfast.\nConsider offering an alternative breakfast option or nutritional supplement.\nMonitor and document John's mobility level and any difficulties during toilet assistance."
+       "suggestions_text": "Clarify the intensity and location of leg pain. Confirm if this is a new or recurring issue.\nDocument any attempts made to encourage John to eat breakfast.\nAssess John's hydration status given his refusal of breakfast."
      }}
 
 2. Input: "Mary agitated today. yelling at staff. eventually settled. didnt eat lunch."
    Output:
      {{
        "enhanced_text": "Mary displayed signs of agitation, expressing her distress by yelling at staff members. Caregivers implemented various calming techniques to address her agitation. These efforts were eventually successful, and Mary settled down. However, she declined to eat lunch.",
-       "suggestions_text": "Document the specific behaviors that indicated Mary's agitation.\nRecord the calming techniques used and their effectiveness.\nNote the duration of the agitation episode.\nClarify if any alternative food or drink was offered when she refused lunch.\nConsider consulting with the care team about Mary's ongoing agitation and appetite issues.\nPlan to monitor Mary's fluid intake given her refusal to eat lunch."
+       "suggestions_text": "Document the specific behaviors that indicated Mary's agitation.\nRecord the calming techniques used and their effectiveness.\nClarify if any alternative food or drink was offered when she refused lunch."
      }}
 
 Examples for medications, treatments, or medical procedures:
@@ -299,14 +307,14 @@ Examples for medications, treatments, or medical procedures:
    Output: 
      {{
        "enhanced_text": "Mrs. Johnson was administered 2 tablets of acetaminophen 500mg (total dose 1000mg) for a reported headache.",
-       "suggestions_text": "Ensure the medication administration is properly logged in the MAR (Medication Administration Record).\nVerify the dosage and expiration date before administration.\nDocument the effectiveness of the acetaminophen in relieving the headache.\nRecord any other symptoms associated with the headache.\nNote if this is a recurring issue for Mrs. Johnson.\nEnsure Mrs. Johnson remains well-hydrated, offering a full glass of water with the medication.\nMonitor for any potential side effects or allergic reactions."
+       "suggestions_text": "Ensure the medication administration is properly logged in the MAR (Medication Administration Record).\nDocument the effectiveness of the acetaminophen in relieving the headache.\nNote if this is a recurring issue for Mrs. Johnson."
      }}
 
 2. Input: "Resident X received scheduled insulin injection before dinner. Blood sugar was 180."
    Output:
      {{
        "enhanced_text": "Resident X received their scheduled insulin injection prior to dinner. Their blood sugar level was measured at 180 mg/dL before the injection was administered.",
-       "suggestions_text": "Specify the type and dosage of insulin administered.\nVerify the insulin dosage against the physician's orders before administration.\nEnsure proper rotation of injection sites and document the site used.\nMonitor resident for signs of hypoglycemia after the injection.\nPlan for a follow-up blood sugar check after dinner and record the result.\nConfirm that the resident washes hands before blood sugar check to ensure accurate reading.\nEnsure proper documentation in the diabetic management chart."
+       "suggestions_text": "Specify the type and dosage of insulin administered.\nEnsure proper rotation of injection sites and document the site used.\nMonitor resident for signs of hypoglycemia after the injection."
      }}
 
 Strictly provide the output in JSON format only. Do not include anything outside the JSON object.
@@ -316,8 +324,8 @@ Answer:
 ```json
  {{
    "enhanced_note": // Your enhanced note,
-   "suggestions_text": // Your suggestions (differ based on normal or medical note, NO time-related suggestions)
+   "suggestions_text": // Your suggestions (differ based on normal or medical note, NO time-related suggestions, and no more than three suggestions)
  }}
-```
+
 """
 
