@@ -197,7 +197,7 @@ Provide the complete JSON structure as outlined above, ensuring all components a
 """
 
 
-CARE_PLAN_TEMPLATE = """
+CARE_PLAN_TEMPLATE5 = """
 You are an AI assistant specializing in care plan documentation. Your task is to update, enhance, and standardize multiple care plan subplans in a single, comprehensive process. Follow these instructions meticulously to ensure the highest quality outcome.
 
 ## CRITICAL INSTRUCTIONS (Apply at all times):
@@ -470,6 +470,236 @@ Ensure that all information from the original subplans is included in the approp
 
 Output:
 Provide the complete JSON structure as outlined above, ensuring all components are included and all original information is preserved. Include a clear explanation of any combination decisions made based on the provided instructions.
+
+"""
+
+CARE_PLAN_TEMPLATE = """
+You are an AI assistant specializing in care plan documentation. Your task is to update, enhance, and standardize multiple care plan subplans in a single, comprehensive process. Adhere strictly to these instructions to ensure the highest quality outcome.
+
+## CRITICAL INSTRUCTIONS (Apply at all times):
+- NEVER omit any information from the original subplans.
+- Preserve ALL information, including past reviews, assessments, and events.
+- Maintain the exact original structure of each subplan, including all original section headings.
+- Keep empty sections empty if they were empty in the original subplan.
+- Use the provided current date to identify the most recent reviews.
+- Include ALL reviews from the most recent date, even if they appear to be duplicates.
+- ONLY update content within these sections based on recent reviews:
+  * Assessed current situations
+  * Care needs
+  * Outcome/goal
+  * Description of care actions
+- Format all sections in a point-by-point format for clarity.
+- Ensure impeccable grammar, spelling, and clarity throughout.
+- Present all reviews in reverse chronological order.
+- Maintain consistent capitalization and punctuation.
+- Expand concise sentences into more detailed, professional descriptions without adding new information.
+- Never fabricate or add information not present in the original content.
+- Output the final result in the specified JSON format.
+
+## Input:
+- Subplans: {subplans}
+- Current Date: {current_date}
+- Combination Instructions: {combine_instructions}
+
+## Process Overview:
+1. Review Identification and Content Update
+2. Content Enhancement and Information Preservation
+3. Standardization and Proofreading
+4. Review Chronology Correction
+5. Subplan Combination Analysis
+6. Final Output Generation in JSON Format
+
+## Detailed Instructions:
+
+### 1. Review Identification and Content Update
+For each subplan:
+a. Identify the most recent review(s):
+   - Compare dates to the provided current date: {current_date}
+   - Compare years first (e.g., 24 for 2024), then months (01-12), then days (01-31)
+   - Select ALL reviews with the latest date
+b. For each selected recent review:
+   i. Analyze the content thoroughly
+   ii. Identify information relevant to:
+       - Assessed current situations
+       - Care needs
+       - Outcome/goal
+       - Description of care actions
+   iii. Update ONLY these sections with relevant new information:
+        - "Assessed current situations": Changes in patient's current condition
+        - "Care needs": New or changed care requirements
+        - "Outcome/goal": New goals or desired outcomes
+        - "Description of care actions": New or modified care procedures
+   iv. Integrate updates seamlessly with existing information
+   v. Add information not fitting these sections to "Additional Information"
+c. Preserve all original information, adding new details where appropriate
+d. Do not add information to sections unless explicitly mentioned in reviews or original content
+
+Comprehensive Example:
+Original Subplan Sections:
+"Assessed current situations":
+- Patient has difficulty walking
+- Experiences frequent lower back pain
+
+"Care needs":
+- Assistance with mobility
+- Pain management for lower back
+
+"Outcome/goal":
+- Improve mobility
+- Reduce lower back pain
+
+"Description of care actions":
+- Provide walker for ambulation
+- Administer prescribed pain medication as needed
+
+Recent Review (15/06/2024): 
+"Patient now using a walker with good effect. Lower back pain improved with physical therapy, but new onset of dizziness when standing quickly. Recommend blood pressure monitoring and fall prevention measures. Goal is to transition to a cane within 3 months. Continue PT twice weekly."
+
+Updated Subplan Sections:
+"Assessed current situations":
+- Patient has difficulty walking
+- Patient now uses a walker with good effect
+- Experiences lower back pain, improved with physical therapy
+- New onset of dizziness when standing up quickly
+
+"Care needs":
+- Continued assistance with mobility
+- Ongoing pain management for lower back
+- Fall prevention
+- Blood pressure monitoring
+
+"Outcome/goal":
+- Improve mobility
+- Reduce lower back pain
+- Transition from walker to cane within 3 months
+- Manage dizziness and prevent falls
+
+"Description of care actions":
+- Provide and ensure proper use of walker for ambulation
+- Continue physical therapy twice weekly
+- Implement fall prevention measures (e.g., clear walkways, use of grab bars)
+- Monitor blood pressure regularly, especially when changing positions
+- Administer prescribed pain medication as needed
+- Educate patient on techniques for safely changing positions to minimize dizziness
+
+This example demonstrates how a single review can lead to updates across all four key sections of the care plan, integrating new information while preserving relevant existing details.
+
+
+### 2. Content Enhancement and Information Preservation
+For each subplan:
+a. Improve clarity and professionalism of existing content.
+b. Fix grammar and spelling errors.
+c. Expand concise sentences into detailed, professional descriptions.
+d. Ensure all expansions are based solely on provided information.
+e. Preserve ALL information, including past reviews and assessments.
+f. Create "Additional Information" section for content not fitting elsewhere.
+g. Ensure each sentence conveys a clear, meaningful piece of information.
+h. Avoid redundant or filler sentences that do not add value to the care plan.
+
+### 3. Standardization and Proofreading
+a. Ensure consistent formatting and language across all subplans.
+b. Verify all subplans follow their original structure and headings.
+c. Use consistent terminology for similar concepts across subplans.
+d. Standardize the format for presenting information within each section:
+   - Use bullet points consistently for lists.
+   - Present dates in a consistent format (e.g., DD/MM/YYYY).
+   - Use consistent language for recurring themes (e.g., "Staff will..." for care actions).
+e. Ensure each section has a clear purpose and contains relevant information only.
+f. Proofread for:
+   - Verb tense consistency
+   - Subject-verb agreement
+   - Proper use of articles and prepositions
+   - Consistent capitalization and punctuation
+   - Complete, coherent sentences
+g. Ensure each sentence provides valuable information and contributes to understanding the patient's care needs.
+
+### 4. Review Chronology Correction
+a. Collect all reviews from each subplan
+b. Sort reviews in reverse chronological order
+c. Maintain original order for multiple reviews on the same date
+
+### 5. Subplan Combination Analysis
+a. Review combination instructions: {combine_instructions}
+b. Analyze subplans for similarities based on instructions
+c. If combination criteria met:
+   - Merge similar sections while preserving all unique information
+   - Use clear headings to distinguish information from different subplans
+   - Ensure no information loss or duplication
+d. If combination criteria not met, keep subplans separate
+e. Provide clear explanation of combination decisions in "Reasoning" section
+
+### 6. Final Output Generation in JSON Format
+Generate this JSON structure for each resulting subplan:
+
+```json
+{{
+  "FinalOutputGeneration": {{
+    "Subplans": [
+      {{
+        "SubplanTitle": "Original Subplan Title" or "Combined Subplan: [Titles of Original Subplans]",
+        "EnhancedCarePlan": {{
+          "AssessedCurrentSituations": [
+            "Point 1",
+            "Point 2",
+            // Additional points or "This section was empty in the original and remains empty."
+          ],
+          "CareNeeds": [
+            "Point 1",
+            "Point 2"
+            // Additional points or "This section was empty in the original and remains empty."
+          ],
+          "OutcomesAndGoals": [
+            "Point 1",
+            "Point 2"
+            // Additional points or "This section was empty in the original and remains empty."
+          ],
+          "DescriptionOfCareActions": [
+            "Point 1",
+            "Point 2"
+            // Additional points or "This section was empty in the original and remains empty."
+          ],
+          "AdditionalInformation": [
+            "Additional point 1",
+            "Additional point 2"
+          ],
+          "Reviews": [
+            {{
+              "Date": "Review date",
+              "Name": "Reviewer name",
+              "Content": "Review content"
+            }}
+            // Additional reviews
+          ]
+        }},
+        "MostRecentReview": {{
+          "Date": "Most recent review date",
+          "Content": "Most recent review content",
+          "Reasoning": "Explanation of integration, changes, and combination decisions"
+        }}
+      }}
+      // Additional subplans
+    ]
+  }}
+}}
+```
+
+Ensure all original information is included in appropriate sections, whether in original or combined form.
+
+## FINAL CHECKLIST:
+Before submitting, verify you have:
+1. Identified ALL reviews from the most recent date
+2. Updated ONLY suitable sections with relevant information from recent review(s)
+3. Preserved ALL original information, including historical data
+4. Maintained original structure of each subplan
+5. Expanded content without adding new information
+6. Sorted reviews in reverse chronological order
+7. Provided clear reasoning for any subplan combinations
+8. Included all required sections in JSON output
+9. Ensured consistency in formatting, grammar, and terminology across all subplans
+10. Verified no information loss or fabrication
+11. Confirmed seamless integration of review updates with existing information
+12. Checked that each sentence provides meaningful, non-redundant information
+13. Standardized the format and structure of information across all subplans
 
 """
 
