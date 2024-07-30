@@ -762,4 +762,3 @@ Based on your analysis and the above instructions, please provide the refined ca
 
 Ensure that all sections are filled out according to the available information. If a section is empty in the original and remains empty, explicitly state this. Provide a clear reasoning for any changes, integrations, or combinations made in the Reasoning section.
 """
-
