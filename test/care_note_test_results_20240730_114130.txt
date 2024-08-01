@@ -1,0 +1,620 @@
+Test 1/50:
+Original: Resident performed ADLs, needed minimal assist with dressing. Appetite good, ate 75% of meal.
+Status Code: 200
+aggression: False
+enhanced_text: Resident completed Activities of Daily Living (ADLs) with minimal assistance required for dressing. Demonstrated good appetite, consuming 75% of provided meal.
+reasoning: This note describes routine care activities including ADLs and meal consumption without any mention of medication or signs of aggression.
+scenario: normal_care
+suggestions_text: Specify the particular dressing tasks requiring assistance. Document the specific meal items consumed and any food preferences noted. Assess and note any changes in ADL performance compared to previous observations.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 2/50:
+Original: LISINOPRIL 10mg tablets. Quantity given: 1.00. Directions: Take ONE tablet daily.
+Status Code: 200
+aggression: False
+enhanced_text: Administered 1.00 tablet of LISINOPRIL 10mg as directed. Instructions indicate taking one tablet daily.
+reasoning: This note specifically focuses on medication administration details for LISINOPRIL, including dosage, quantity, and directions.
+scenario: medication_related
+suggestions_text: Document the resident's blood pressure before and after LISINOPRIL administration. Record the time of administration to track adherence to the daily schedule. Observe and note any potential side effects, such as dizziness, cough, or swelling.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 3/50:
+Original: During dinner, resident became agitated and yelled at staff, using profanity. Refused to eat meal.
+Status Code: 200
+aggression: True
+questions:
+  q1:
+    options:
+      - Yelling without profanity
+      - Yelling with profanity
+      - Threats
+      - Personal insults
+      - Other
+    text: What type of verbal aggression did the resident display?
+  q2:
+    range:
+      max: 10
+      min: 1
+    text: On a scale of 1-10, how would you rate the intensity of the verbal aggression?
+  q3:
+    options:
+      - Dissatisfaction with meal
+      - Confusion or disorientation
+      - Unmet needs
+      - Interaction with others
+      - Unknown
+    text: What appeared to be the context or trigger for the verbal aggression?
+  q4:
+    options:
+      - Active listening
+      - Calm reassurance
+      - Offering alternative meal options
+      - Redirecting attention
+      - Other
+    text: How did staff initially respond to the verbal aggression?
+  q5:
+    options:
+      - No physical actions
+      - Aggressive gestures
+      - Throwing objects
+      - Attempted physical contact
+      - Other
+    text: Did the verbal aggression escalate to any physical actions?
+reasoning: The note describes verbal aggression (yelling and using profanity) directed at staff, indicating an aggressive behavior incident.
+scenario: aggression_detected
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 4/50:
+Original: Resident slept well through the night. No issues reported.
+Status Code: 200
+aggression: False
+enhanced_text: The resident slept soundly throughout the night, and no issues were reported.
+reasoning: This note provides a brief overview of the resident's night without mentioning any medication or aggressive behavior.
+scenario: normal_care
+suggestions_text: Document the resident's sleep position and any changes observed. Note any toileting needs or assistance required during the night. Record the resident's mood and alertness level upon waking.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 5/50:
+Original: Administered insulin 10 units subcutaneously before breakfast as per order.
+Status Code: 200
+aggression: False
+enhanced_text: Administered 10 units of insulin subcutaneously before breakfast as prescribed.
+reasoning: This note specifically describes the administration of insulin, including dosage and route, indicating a medication-related event.
+scenario: medication_related
+suggestions_text: Document the resident's blood glucose level before and after insulin administration. Note any resident observations or reported symptoms related to hypoglycemia or hyperglycemia. Record the specific type of insulin administered.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 6/50:
+Original: Resident participated in group exercise. Showed improved mobility.
+Status Code: 200
+aggression: False
+enhanced_text: Resident actively participated in the group exercise session and demonstrated improved mobility.
+reasoning: This note describes the resident's participation in a group activity and notes their improved mobility without mentioning any medication or aggressive behavior.
+scenario: normal_care
+suggestions_text: Specify the type of group exercise the resident participated in and describe the specific exercises performed. Quantify the extent of mobility improvement observed, noting any specific measurements or observations.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 7/50:
+Original: Changed wound dressing on left leg. Area looks clean, no signs of infection.
+Status Code: 200
+aggression: False
+enhanced_text: Wound dressing on the left leg was changed. The area appears clean with no signs of infection.
+reasoning: This note describes a routine wound care procedure with no mention of medication or aggressive behavior.
+scenario: normal_care
+suggestions_text: Document the type and size of the wound dressing applied. Describe the characteristics of the wound, including size, color, and any discharge present. Note the resident's pain level during the dressing change and any interventions provided.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 8/50:
+Original: Resident confused this morning, unable to recognize family members during visit.
+Status Code: 200
+aggression: False
+enhanced_text: Resident exhibited confusion this morning, demonstrating an inability to recognize family members during their visit.
+reasoning: This note describes the resident's mental state and an observation about their behavior without any mention of medication or aggressive actions.
+scenario: normal_care
+suggestions_text: Document the specific family members the resident was unable to recognize. Detail the resident's interaction with family members during the visit. Assess and record the resident's cognitive status using a standardized assessment tool.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 9/50:
+Original: Fall incident: Resident found on floor in bathroom. No visible injuries. Protocol followed.
+Status Code: 200
+aggression: False
+enhanced_text: The resident was found on the floor in the bathroom. No visible injuries were observed.  Fall protocol was followed.
+reasoning: This note describes a fall incident and the subsequent actions taken, without mentioning medication or any signs of aggression.
+scenario: normal_care
+suggestions_text: Document the time the resident was found and a detailed account of the resident's statement about the incident, if possible. Describe the specific actions taken as part of the fall protocol. Conduct a thorough assessment for potential unseen injuries.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 10/50:
+Original: Resident resistant to morning care, pushed caregiver away. Required two staff to assist.
+Status Code: 200
+aggression: True
+questions:
+  q1:
+    options:
+      - Shoving with hand(s)
+      - Hitting with hand(s)
+      - Kicking
+      - Other
+    text: What specific action constituted the resident pushing the caregiver away?
+  q2:
+    range:
+      max: 10
+      min: 1
+    text: On a scale of 1-10, how would you rate the intensity of the resident's resistance and pushing?
+  q3:
+    options:
+      - Bathing
+      - Dressing
+      - Toileting
+      - Medication Administration
+      - Other
+    text: What specific aspect of morning care seemed to trigger the resident's aggressive behavior?
+  q4:
+    options:
+      - Verbal calming
+      - Redirection
+      - Offering choices
+      - Brief time-out
+      - Other
+    text: What de-escalation techniques were attempted before requiring two staff to assist?
+  q5:
+    options:
+      - No injuries
+      - Injury to resident
+      - Injury to staff
+      - Other
+    text: Were there any injuries to the resident or staff as a result of the resident's push?
+reasoning: The note describes physical aggression ('pushed caregiver away') and resistance, indicating an aggressive incident.
+scenario: aggression_detected
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 11/50:
+Original: Blood pressure reading: 130/80 mmHg. Within normal range for resident.
+Status Code: 200
+aggression: False
+enhanced_text: Blood pressure measured at 130/80 mmHg, within the resident's normal range.
+reasoning: This note provides a blood pressure reading and indicates it is within the resident's normal range, suggesting routine monitoring without medication administration or aggression.
+scenario: normal_care
+suggestions_text: Document the time of the blood pressure measurement. Note the resident's position during measurement (sitting, standing, lying down). Record any symptoms the resident reported before or after the measurement, such as dizziness or headache.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 12/50:
+Original: Resident enjoyed music therapy session, appeared more relaxed afterwards.
+Status Code: 200
+aggression: False
+enhanced_text: The resident participated in a music therapy session and appeared more relaxed afterward.
+reasoning: This note describes the resident's positive response to a music therapy session, which falls under routine care activities. There is no mention of medication or any indication of aggression.
+scenario: normal_care
+suggestions_text: Document the resident's specific responses to the music therapy, such as facial expressions, verbalizations, or physical movements. Note any observed changes in mood or behavior following the session.  Consider incorporating the resident's musical preferences into future therapy sessions or daily activities.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 13/50:
+Original: Administered PRN pain medication for back pain. Resident reported relief after 30 minutes.
+Status Code: 500
+Error: Failed to enhance care note
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 14/50:
+Original: Resident refused to take evening medications. Reason unclear.
+Status Code: 200
+aggression: False
+enhanced_text: Resident refused their evening medications. The reason for refusal was not documented.
+reasoning: This note centers around the resident's refusal of medication, making it medication-related. While refusal itself isn't aggression, further investigation is needed.
+scenario: medication_related
+suggestions_text: Document the specific medications refused by the resident. Attempt to ascertain and document the reason for medication refusal. Explore potential interventions, such as offering alternative forms of medication or providing education about the medication's importance.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 15/50:
+Original: Noticed small bruise on resident's right arm. Origin unknown, will monitor.
+Status Code: 200
+aggression: False
+enhanced_text: A small bruise of unknown origin was observed on the resident's right arm. The area will be monitored for changes or further developments.
+reasoning: This note describes a physical observation (bruise) without any mention of medication or aggressive behavior.
+scenario: normal_care
+suggestions_text: Ask the resident if they recall any incident that may have caused the bruise. Document the size, color, and exact location of the bruise. Report the observation to the appropriate medical professional for further assessment.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 16/50:
+Original: Resident very talkative during lunch, shared stories about childhood.
+Status Code: 200
+aggression: False
+enhanced_text: Resident exhibited a sociable demeanor during lunch, engaging in conversation and sharing childhood stories.
+reasoning: This note describes a routine social interaction during mealtime and does not mention any medication or aggressive behavior.
+scenario: normal_care
+suggestions_text: Document the resident's overall mood and affect during the interaction. Note any specific topics or themes discussed by the resident. Observe and record any changes in the resident's communication patterns or social engagement.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 17/50:
+Original: Assisted resident with video call to family. Mood improved noticeably after call.
+Status Code: 200
+aggression: False
+enhanced_text: Resident participated in a video call with family, resulting in a noticeable improvement in mood.
+reasoning: This note describes a positive social interaction (video call with family) and its positive impact on the resident's mood, without any mention of medication or aggression.
+scenario: normal_care
+suggestions_text: Document the frequency and duration of family video calls and their impact on the resident's well-being. Consider implementing regular video calls as a potential mood-boosting intervention. Explore and note any specific topics discussed during the call that may have contributed to the positive mood change.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 18/50:
+Original: Resident complained of feeling cold. Provided extra blanket and adjusted room temperature.
+Status Code: 200
+aggression: False
+enhanced_text: Resident expressed feeling cold. Responded by providing an extra blanket and adjusting the room temperature for increased comfort.
+reasoning: This note describes a resident's comfort-related concern and the care provider's response, without any indication of medication administration or aggressive behavior.
+scenario: normal_care
+suggestions_text: Document the resident's subjective temperature sensation (e.g., "feels cold to touch"). Note the specific temperature setting adjusted to. Periodically reassess the resident's comfort level and adjust interventions as needed.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 19/50:
+Original: Encouraged fluid intake throughout day. Resident drank approximately 1000ml.
+Status Code: 200
+aggression: False
+enhanced_text: Caregivers encouraged fluid intake throughout the day, and the resident consumed approximately 1000ml of fluids.
+reasoning: This note describes encouraging fluid intake and the resident's response, which falls under routine care documentation and doesn't involve medication or aggression.
+scenario: normal_care
+suggestions_text: Document the types of fluids offered and preferred by the resident. Note any factors affecting fluid intake, such as swallowing difficulties or decreased thirst sensation. Record the resident's output to establish a comprehensive fluid balance assessment.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 20/50:
+Original: Resident became tearful when discussing deceased spouse. Provided emotional support.
+Status Code: 200
+aggression: False
+enhanced_text: Resident exhibited tearfulness during a conversation about their deceased spouse. Emotional support was provided.
+reasoning: This note describes the resident's emotional response and the care provided, without any indication of medication administration or aggressive behavior.
+scenario: normal_care
+suggestions_text: Document the resident's verbal and nonverbal responses during the conversation. Note any specific topics or memories that seemed to elicit stronger emotional reactions. Consider implementing grief support interventions or resources if deemed appropriate for the resident's needs.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 21/50:
+Original: Administered nebulizer treatment as prescribed. Resident's breathing improved.
+Status Code: 500
+Error: Failed to enhance care note
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 22/50:
+Original: Resident agitated during personal care, yelled at staff. Calmed down after 15 minutes.
+Status Code: 200
+aggression: True
+questions:
+  q1:
+    options:
+      - Bathing
+      - Dressing
+      - Toileting
+      - Grooming
+      - Other
+    text: What specific personal care task was being provided when the resident became agitated?
+  q2:
+    range:
+      max: 10
+      min: 1
+    text: On a scale of 1-10, how would you rate the intensity of the resident's yelling?
+  q3:
+    options:
+      - Yes
+      - No
+      - Unable to determine
+    text: Did the resident verbalize any specific reasons for their agitation during personal care?
+  q4:
+    options:
+      - Verbal reassurance
+      - Redirecting attention
+      - Providing space
+      - Other
+    text: What de-escalation techniques were used by staff to help the resident calm down?
+  q5:
+    options:
+      - Yes
+      - No
+      - Unable to determine
+    text: Did the resident require any additional support or interventions after calming down?
+reasoning: The note describes verbal aggression (yelling) directed at staff, indicating an aggressive behavior incident.
+scenario: aggression_detected
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 23/50:
+Original: Noticed resident limping slightly. Will inform physiotherapist for assessment.
+Status Code: 200
+aggression: False
+enhanced_text: Resident observed with a slight limp. Physiotherapist to be informed for further assessment.
+reasoning: This note describes a change in the resident's mobility with a planned follow-up action, indicating a routine care observation.
+scenario: normal_care
+suggestions_text: Document the specific location and any observable characteristics of the limp (e.g., favoring one leg, pain expressions). Describe the resident's gait and balance during ambulation. Note any potential causes for the limp reported by the resident.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 24/50:
+Original: Resident enjoyed gardening activity, potted three plants with minimal assistance.
+Status Code: 200
+aggression: False
+enhanced_text: Resident actively participated in the gardening activity and successfully potted three plants with minimal assistance.
+reasoning: This note describes a routine recreational activity (gardening) and the resident's level of participation without any mention of medication or aggressive behavior.
+scenario: normal_care
+suggestions_text: Document the resident's specific level of engagement and enjoyment during the activity. Note any adaptive tools or techniques used to facilitate participation. Observe and record any impact of the activity on the resident's mood and socialization.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 25/50:
+Original: WARFARIN 5mg tablet given as per INR result. Next INR check scheduled for Friday.
+Status Code: 200
+aggression: False
+enhanced_text: Administered one 5mg tablet of WARFARIN as prescribed based on the resident's INR result. Next INR check is scheduled for Friday.
+reasoning: This note specifically mentions medication administration (Warfarin), dosage, and the reason for administration (INR result), classifying it as a medication-related care note.
+scenario: medication_related
+suggestions_text: Document the actual INR result that prompted the Warfarin administration. Record the time of Warfarin administration and the site of administration. Monitor and document any potential side effects of Warfarin, such as unusual bleeding or bruising.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 26/50:
+Original: Resident slept fitfully, got up multiple times during night. Will monitor for pattern.
+Status Code: 200
+aggression: False
+enhanced_text: Resident experienced disrupted sleep, waking multiple times throughout the night. Continued monitoring will be implemented to identify potential patterns or contributing factors.
+reasoning: This note describes the resident's sleep pattern without mentioning any medication or aggressive behavior.
+scenario: normal_care
+suggestions_text: Document the approximate times the resident woke up during the night. Note any potential reasons for awakenings, such as discomfort, needing to use the restroom, or environmental factors. Assess and document the resident's daytime alertness and fatigue levels.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 27/50:
+Original: Morning blood sugar reading: 7.2 mmol/L. Within target range.
+Status Code: 500
+Error: Failed to enhance care note
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 28/50:
+Original: Resident refused breakfast, complaining of nausea. Administered prescribed anti-emetic.
+Status Code: 200
+aggression: False
+enhanced_text: Resident refused breakfast, reporting nausea. Prescribed anti-emetic administered.
+reasoning: This note mentions the administration of a prescribed anti-emetic in response to the resident's reported nausea, making it a medication-related care note.
+scenario: medication_related
+suggestions_text: Document the specific anti-emetic administered, including dosage and administration route. Record the resident's response to the medication, noting any reduction in nausea or other effects. If nausea persists, consider further assessment to determine potential underlying causes.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 29/50:
+Original: Observed resident talking to self, appeared distressed. Redirected with calm conversation.
+Status Code: 200
+aggression: False
+enhanced_text: Resident observed talking to self and appeared distressed. Caregiver successfully redirected the resident using calm conversation.
+reasoning: This note describes a resident exhibiting unusual behavior (talking to self, appearing distressed) and the caregiver's response, without any mention of medication or aggressive actions.
+scenario: normal_care
+suggestions_text: Document the content of the resident's self-talk, if discernible, to gain insight into potential anxieties or concerns. Assess and record the resident's level of distress (e.g., mild, moderate, severe) to track changes over time. Explore potential triggers for the observed behavior and document any identified patterns.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 30/50:
+Original: Resident had a visitor today. Mood noticeably improved after visit.
+Status Code: 200
+aggression: False
+enhanced_text: Resident received a visitor today, which resulted in a noticeable improvement in mood.
+reasoning: This note describes a positive social interaction and its effect on the resident's mood without any mention of medication or aggressive behavior.
+scenario: normal_care
+suggestions_text: Document the duration of the visit and the resident's interactions with the visitor. Note any specific topics discussed or activities engaged in during the visit. Assess and record if the positive mood changes persist beyond the visit.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 31/50:
+Original: Changed catheter bag. Urine clear, output within normal range.
+Status Code: 200
+aggression: False
+enhanced_text: Catheter bag changed. Urine observed to be clear with output within the normal range.
+reasoning: This note describes a routine catheter care procedure and the resident's urine output without any mention of medication or signs of aggression.
+scenario: normal_care
+suggestions_text: Document the volume of urine output in milliliters. Note any odor or unusual characteristics of the urine. Record the resident's tolerance of the procedure.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 32/50:
+Original: Resident attended art therapy. Created a painting of childhood home.
+Status Code: 200
+aggression: False
+enhanced_text: Resident participated in art therapy and created a painting of their childhood home.
+reasoning: This note describes the resident's participation in a therapeutic activity, indicating a routine care note without medication administration or signs of aggression.
+scenario: normal_care
+suggestions_text: Document the resident's emotional state and engagement during the art therapy session. Note any specific details or memories the resident shared about their painting. Assess and document any potential therapeutic benefits observed, such as improved mood or reduced anxiety.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 33/50:
+Original: Administered eye drops for glaucoma as prescribed. No issues noted.
+Status Code: 200
+aggression: False
+enhanced_text: Administered prescribed glaucoma eye drops with no issues reported.
+reasoning: This note specifically mentions medication administration ('eye drops for glaucoma') and classifies it as a medication-related care note.
+scenario: medication_related
+suggestions_text: Document the name and dosage of the specific glaucoma eye drops administered. Record the resident's response to the eye drop administration, noting any discomfort or unusual observations. Include the time of administration for accurate medication tracking.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 34/50:
+Original: Resident reported chest pain. EKG performed, doctor notified as per protocol.
+Status Code: 200
+aggression: False
+enhanced_text: Resident reported experiencing chest pain. An electrocardiogram (EKG) was performed, and the physician was notified according to established protocol.
+reasoning: This note describes a medical event (chest pain) and subsequent actions taken, without any mention of medication or signs of aggression.
+scenario: normal_care
+suggestions_text: Document the resident's description of the chest pain, including location, intensity, duration, and any associated symptoms. Note the resident's vital signs at the time of chest pain and following the EKG. Record the physician's assessment and recommendations after being notified.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 35/50:
+Original: Encouraged resident to use walker, but refused. Will continue to encourage for safety.
+Status Code: 200
+aggression: False
+enhanced_text: Caregiver encouraged resident to utilize walker for ambulation, but the resident refused. Continued encouragement for improved safety will be implemented.
+reasoning: This note describes a routine care interaction focused on encouraging the resident to use a walker for safety, without any mention of medication or aggressive behavior.
+scenario: normal_care
+suggestions_text: Document the specific reasons provided by the resident for refusing the walker. Assess and record the resident's gait, balance, and risk of falls when ambulating independently. Consider exploring alternative assistive devices or strategies to promote safe mobility if walker refusal persists.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 36/50:
+Original: Resident enjoyed outdoor walk in garden. Oxygen saturation remained stable.
+Status Code: 500
+Error: Failed to enhance care note
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 37/50:
+Original: Administered oral antibiotics for UTI as prescribed. Reminded resident about fluid intake.
+Status Code: 200
+aggression: False
+enhanced_text: Administered prescribed oral antibiotics for urinary tract infection (UTI). Resident reminded about the importance of increased fluid intake.
+reasoning: This note focuses on medication administration (antibiotics for a UTI) and a related care action (reminding about fluid intake), making it a medication-related care note.
+scenario: medication_related
+suggestions_text: Document the specific antibiotic administered, including dosage and frequency. Monitor and record urine output and characteristics to assess UTI improvement. Observe and document any potential side effects from the antibiotics.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 38/50:
+Original: Resident became aggressive during shower, attempted to hit caregiver. Used de-escalation techniques.
+Status Code: 200
+aggression: True
+questions:
+  q1:
+    options:
+      - Swinging fist
+      - Kicking
+      - Throwing object
+      - Other
+    text: What specific action did the resident take to attempt to hit the caregiver?
+  q2:
+    range:
+      max: 10
+      min: 1
+    text: On a scale of 1-10, how would you rate the intensity of the aggression?
+  q3:
+    options:
+      - Water temperature
+      - Feeling of being rushed
+      - Dislike of showering
+      - Other
+      - Unknown
+    text: What, if anything, seemed to trigger the resident's aggressive behavior?
+  q4:
+    options:
+      - Verbal calming
+      - Redirecting attention
+      - Giving space
+      - Other
+    text: What de-escalation techniques were used?
+  q5:
+    options:
+      - No injuries
+      - Caregiver injured
+      - Resident injured
+      - Other
+    text: Were there any injuries to the resident or caregiver?
+reasoning: The note describes physical aggression (attempting to hit the caregiver) during a shower, indicating an aggressive incident.
+scenario: aggression_detected
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 39/50:
+Original: Facilitated resident's attendance at facility's birthday celebration. Resident participated actively.
+Status Code: 200
+aggression: False
+enhanced_text: Resident participated actively in the facility's birthday celebration.
+reasoning: This note describes a social activity (birthday celebration) and the resident's participation without any mention of medication or aggressive behavior.
+scenario: normal_care
+suggestions_text: Document the resident's specific activities during the celebration and any signs of enjoyment or engagement observed. Note any social interactions with other residents or staff. Assess and record if the resident's mood or affect changed during or after the event.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 40/50:
+Original: Resident complained of loneliness. Spent extra time engaging in conversation about family photos.
+Status Code: 200
+aggression: False
+enhanced_text: Resident expressed feelings of loneliness. Caregiver responded by engaging the resident in an extended conversation about family photographs.
+reasoning: This note describes a social interaction and emotional state of the resident without any mention of medication or signs of aggression.
+scenario: normal_care
+suggestions_text: Explore and document potential causes of the resident's loneliness. Consider involving family or volunteers for social interaction. Document the resident's emotional responses to the conversation and any expressed wishes regarding family connections.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 41/50:
+Original: Performed range of motion exercises with resident. Noted increased flexibility in left arm.
+Status Code: 200
+aggression: False
+enhanced_text: Range of motion exercises were performed with the resident.  Increased flexibility was noted in the resident's left arm.
+reasoning: This note describes a routine care activity (range of motion exercises) and the resident's response, with no mention of medication or aggression.
+scenario: normal_care
+suggestions_text: Document the specific range of motion exercises performed for each body part. Quantify the increased flexibility observed in the left arm (e.g., degrees of motion achieved). Compare and note any changes in flexibility to previous sessions.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 42/50:
+Original: Resident had episode of shortness of breath. Oxygen applied, doctor notified.
+Status Code: 200
+aggression: False
+enhanced_text: The resident experienced an episode of shortness of breath. Oxygen therapy was administered, and the physician was notified.
+reasoning: This note describes a medical event (shortness of breath) and the care provided, without any mention of medication or signs of aggression.
+scenario: normal_care
+suggestions_text: Document the method and flow rate of oxygen administration. Specify the resident's response to oxygen therapy, including any changes in respiratory rate or effort. Note the time of physician notification and any subsequent orders received.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 43/50:
+Original: Assisted resident with choosing outfit for day. Resident expressed satisfaction with independence.
+Status Code: 200
+aggression: False
+enhanced_text: Provided assistance to the resident in selecting an outfit for the day. Resident verbalized satisfaction with the opportunity for independence in decision-making.
+reasoning: This note describes a routine care activity (assisting with dressing) and the resident's positive response, without any mention of medication or aggression.
+scenario: normal_care
+suggestions_text: Document the specific type of assistance provided during outfit selection. Note any preferences expressed by the resident regarding clothing choices. Observe and record the resident's overall mood and affect during the interaction.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 44/50:
+Original: Resident refused dinner, stating no appetite. Offered alternative snacks.
+Status Code: 200
+aggression: False
+enhanced_text: Resident declined dinner, verbalizing a lack of appetite. Alternative snack options were offered.
+reasoning: This note describes a routine care interaction where the resident refused a meal and was offered alternatives, without any indication of medication administration or aggressive behavior.
+scenario: normal_care
+suggestions_text: Document the specific alternative snacks offered to the resident. Record the resident's response to the offered snacks, including whether any were accepted or refused. Note any potential factors contributing to the resident's lack of appetite, such as changes in taste, fatigue, or emotional state.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 45/50:
+Original: Administered prescribed antidepressant. Will monitor for side effects and mood changes.
+Status Code: 200
+aggression: False
+enhanced_text: Prescribed antidepressant administered. Ongoing monitoring for potential side effects and mood changes will be conducted.
+reasoning: This note focuses on the administration of an antidepressant and the subsequent monitoring for side effects, indicating a medication-related care note.
+scenario: medication_related
+suggestions_text: Document the specific name, dosage, and administration route of the antidepressant. Note the resident's baseline mood and any specific mood changes observed following medication administration. Record the presence and severity of any side effects experienced by the resident.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 46/50:
+Original: Resident had a nosebleed. Applied first aid, bleeding stopped after 10 minutes.
+Status Code: 200
+aggression: False
+enhanced_text: Resident experienced a nosebleed. First aid was administered, and bleeding ceased after 10 minutes.
+reasoning: This note describes a medical incident (nosebleed) and the first aid provided, without any mention of medication or signs of aggression.
+scenario: normal_care
+suggestions_text: Document the estimated blood loss (e.g., scant, moderate, heavy). Note the resident's position and any measures taken to control bleeding (e.g., head tilted forward, pressure applied). Record vital signs following the incident.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 47/50:
+Original: Observed resident reading book independently. Cognitive function appears stable.
+Status Code: 200
+aggression: False
+enhanced_text: Resident observed engaging in independent reading. Cognitive function appears stable.
+reasoning: This note describes a resident's activity and cognitive state without mentioning medication or any signs of aggression.
+scenario: normal_care
+suggestions_text: Document the title and type of book the resident was reading. Note any observed changes in cognitive function compared to previous interactions. Engage the resident in conversation about their reading material to further assess cognitive engagement and communication skills.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 48/50:
+Original: Resident expressed anxiety about upcoming medical appointment. Provided reassurance and information.
+Status Code: 200
+aggression: False
+enhanced_text: Resident expressed anxiety regarding an upcoming medical appointment. Reassurance was provided, and relevant information was shared.
+reasoning: This note describes the resident's emotional state (anxiety) and the caregiver's response (reassurance and information), which falls under routine care documentation and doesn't involve medication or aggression.
+scenario: normal_care
+suggestions_text: Document the specific concerns voiced by the resident about the appointment. Note the type of information provided to the resident and their response. If the resident's anxiety significantly impacts their well-being, consider involving a social worker or counselor.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 49/50:
+Original: Administered insulin sliding scale as per blood sugar reading of 11.2 mmol/L.
+Status Code: 200
+aggression: False
+enhanced_text: Administered insulin via sliding scale protocol based on a blood glucose reading of 11.2 mmol/L.
+reasoning: This note specifically mentions medication administration ('insulin sliding scale') based on a blood sugar reading, indicating a medication-related care note.
+scenario: medication_related
+suggestions_text: Document the dosage of insulin administered according to the sliding scale protocol. Record the time of the blood glucose reading and insulin administration. Monitor and document the resident's blood glucose levels following insulin administration as per facility protocol.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 50/50:
+Original: Resident displayed sundowning behavior in evening. Used calming techniques as per care plan.
+Status Code: 200
+aggression: False
+enhanced_text: Resident exhibited signs of sundowning during the evening hours. Caregivers implemented calming techniques as outlined in the established care plan.
+reasoning: This note describes the resident's behavior and the care provided in response to that behavior, without any mention of medication or aggressive actions.
+scenario: normal_care
+suggestions_text: Document the specific calming techniques used and the resident's response to each. Note the duration and severity of the sundowning behavior. Assess and document any potential triggers for the sundowning episode.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Total time taken: 748.28 seconds

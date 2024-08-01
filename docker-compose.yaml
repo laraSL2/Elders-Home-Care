@@ -19,6 +19,7 @@ services:
       - FLASK_CONFIG=${FLASK_CONFIG}
       - UPLOAD_FOLDER=${UPLOAD_FOLDER}
       - ELDERS_DATA_DIR=${ELDERS_DATA_DIR}
+      - DATABASE_PATH=${DATABASE_PATH}
     ports:
       - "8001:8001"
     volumes:

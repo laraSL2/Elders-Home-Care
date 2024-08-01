@@ -15,6 +15,7 @@ class Config:
     TESTING = False
     UPLOAD_FOLDER = os.environ.get('UPLOAD_FOLDER', '/app/uploads')
     ELDERS_DATA_DIR = os.environ.get('ELDERS_DATA_DIR', '/app/elders_data')
+    DATABASE_PATH = os.getenv('DATABASE_PATH', "/app/database/residents.db")
 
 class DevelopmentConfig(Config):
     DEBUG = True

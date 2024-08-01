@@ -1,0 +1,159 @@
+Test 1/50:
+Original: Observed resident attempting to exit facility. Redirected with conversation about family photos, resident became more settled.
+Status Code: 200
+aggression: False
+behavioral_concern: True
+questions:
+  q1:
+    options:
+      - Expressed desire to go home
+      - Seemed confused about location
+      - Mentioned a specific person or place
+      - No verbalization, appeared agitated
+      - Other
+    text: Did the resident verbalize any reasons for attempting to leave the facility?
+  q2:
+    range:
+      max: 5
+      min: 1
+    text: On a scale of 1-5, how determined did the resident seem to exit the facility?
+  q3:
+    options:
+      - Recent change in routine
+      - Visit from family or friends
+      - Time of day coinciding with past routines
+      - No identifiable trigger
+      - Other
+    text: Were there any noticeable triggers or events preceding the attempt to exit?
+  q4:
+    options:
+      - Offering a preferred activity
+      - Providing reassurance and orientation
+      - Escorting to a common area
+      - Contacting family members
+      - Other
+    text: Beyond conversation about family photos, what other redirection techniques were used?
+  q5:
+    options:
+      - Immediately
+      - Within 5 minutes
+      - Within 15 minutes
+      - More than 15 minutes
+      - Unable to settle
+    text: How long did it take for the resident to become settled after being redirected?
+reasoning: The resident's attempt to exit the facility suggests potential disorientation or anxiety, classifying this as a behavioral concern. While redirected successfully, further assessment is needed.
+scenario: behavioral_concern
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 2/50:
+Original: Observed resident hoarding food items in room. Gently explained concerns and worked with resident to sort through items.
+Status Code: 200
+aggression: False
+behavioral_concern: True
+questions:
+  q1:
+    options:
+      - Perishable goods
+      - Non-perishable goods
+      - A mix of both
+      - Items not typically considered food
+      - Other
+    text: What types of food items were being hoarded?
+  q2:
+    range:
+      max: 5
+      min: 1
+    text: On a scale of 1-5, how would you rate the amount of food being hoarded?
+  q3:
+    options:
+      - Fear of running out
+      - Confusion or disorientation
+      - Enjoyment of collecting
+      - No explanation given
+      - Other
+    text: Did the resident offer any explanation for hoarding the food?
+  q4:
+    options:
+      - Cooperative and understanding
+      - Initially resistant but then cooperative
+      - Distressed or agitated
+      - Unresponsive
+      - Other
+    text: How did the resident respond to the caregiver's intervention?
+  q5:
+    options:
+      - Yes, referral made
+      - Yes, referral being considered
+      - Not at this time
+      - Not applicable
+      - Other
+    text: Was a referral to a healthcare professional (e.g., social worker, psychologist) considered?
+reasoning: The note describes a potential behavioral concern (hoarding) but doesn't indicate aggression. It highlights an unusual behavior and the caregiver's response.
+scenario: behavioral_concern
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 3/50:
+Original: Resident refused SENNA 8.6mg tablets, citing stomach discomfort. Offered prune juice as alternative.
+Status Code: 200
+aggression: False
+behavioral_concern: False
+enhanced_text: Resident refused the prescribed SENNA 8.6mg tablets, verbalizing experiencing stomach discomfort.  Prune juice was offered as an alternative bowel management option.
+reasoning: This note pertains to medication refusal (SENNA) and the subsequent offer of an alternative (prune juice), making it a medication-related care note.
+scenario: medication_related
+suggestions_text: 1. Document the resident's reported stomach discomfort in detail, including onset, duration, and characteristics. 2. If the resident's refusal of SENNA is frequent, consider discussing alternative bowel management options with the physician. 3. Monitor and document the effectiveness of the offered prune juice in alleviating constipation.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 4/50:
+Original: Resident attempted to push housekeeping staff down stairs. Immediately implemented fall prevention protocol and removed cleaning cart from area.
+Status Code: 200
+aggression: True
+behavioral_concern: False
+questions:
+  q1:
+    options:
+      - Pushing
+      - Hitting
+      - Grabbing
+      - Throwing objects
+      - Other
+    text: What specific aggressive actions did the resident take?
+  q2:
+    range:
+      max: 10
+      min: 1
+    text: On a scale of 1-10, how would you rate the intensity of the aggressive behavior?
+  q3:
+    options:
+      - Presence in personal space
+      - Specific cleaning task
+      - Confusion or disorientation
+      - Misinterpreted interaction
+      - Unknown
+    text: What appeared to trigger the resident's aggressive behavior towards the housekeeping staff?
+  q4:
+    options:
+      - Verbal de-escalation
+      - Physical redirection
+      - Calling for assistance
+      - Administering PRN medication
+      - Other
+    text: Besides implementing fall prevention protocol and removing the cleaning cart, what other immediate actions did the staff take to manage the situation?
+  q5:
+    options:
+      - No injuries or damage
+      - Minor injury to resident
+      - Minor injury to staff
+      - Damage to property
+      - Other
+    text: Were there any injuries to the resident, housekeeping staff, or damage resulting from the incident?
+reasoning: The note describes physical aggression (attempting to push staff down the stairs), indicating an aggressive incident.
+scenario: aggression_detected
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 5/50:
+Original: Resident violently resisted vital sign check, knocked over medical cart, and scattered supplies. Suspended routine checks and consulted with physician for alternative monitoring.
+Status Code: 500
+Error: Failed to enhance care note
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 6/50:

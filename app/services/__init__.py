@@ -1,5 +1,5 @@
 from .care_plan_service import generate_care_plan, refine_care_plan
-from .care_note_service import enhance_note
+from .care_note_service import enhance_note, enhance_aggression_note
 from .care_story_service import summarize_care_story
 from .care_plan_split_service import split_care_plan
 from .add_elder_service import add_elder_data
@@ -12,5 +12,6 @@ __all__ = [
     'summarize_care_story',
     'add_elder_data',
     'write_instruction',
-    'read_instructions'
+    'read_instructions',
+    'enhance_aggression_note'
 ]
