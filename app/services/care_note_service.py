@@ -1,18 +1,21 @@
 from flask import current_app
 import json
-from app.utils.care_note_prompts import CARE_NOTE_TEMPLATE, SECOND_LLM_CALL_TEMPLATE
+from app.utils.care_note_prompts import CARE_NOTE_TEMPLATE, SECOND_LLM_CALL_TEMPLATE_2
 from typing import Dict, Optional
-from app.utils.care_plan_utils import extract_json
-from app.utils.care_note_utils import format_questions_answers_dict
+# from app.utils.care_plan_utils import extract_json
+from app.utils.care_note_utils import format_questions_answers_dict, mask_text, extract_json
 from app.models.resident_behavior import ResidentBehavior
 from datetime import datetime
 import traceback
 import sqlite3
 
-def enhance_note(original_care_note: str) -> Optional[Dict]:
+
+def enhance_note(original_care_note: str, instructions: str) -> Optional[Dict]:
     try:
         gemini = current_app.gemini
-        prompt = CARE_NOTE_TEMPLATE.format(input_text=original_care_note)
+        mask_care_note = mask_text(original_care_note)
+
+        prompt = CARE_NOTE_TEMPLATE.format(input_text=mask_care_note, instructions=instructions)
         response = gemini.run_text_model(prompt, model_name="gemini-1.5-pro-latest", temperature=0.2)
         current_app.logger.info(f"Raw response from Gemini: {response}")  # Log the raw response
 
@@ -53,6 +56,7 @@ def enhance_aggression_note(resident_id: str, original_care_note: str, first_llm
                 prev_behavior_intensity = prev_data['behavior_intensity']
             else:
                 prev_behavior_date = prev_behavior_summary = prev_behavior_intensity = None
+                
         except (sqlite3.Error, PermissionError, OSError) as e:
             current_app.logger.error(f"Error when retrieving previous behavior: {str(e)}")
             prev_behavior_date = prev_behavior_summary = prev_behavior_intensity = None
@@ -62,9 +66,12 @@ def enhance_aggression_note(resident_id: str, original_care_note: str, first_llm
         current_app.logger.info("Formatting first_llm_questions_answers")
         formatted_qa = format_questions_answers_dict(first_llm_questions_answers)
 
+        mask_care_note = mask_text(original_care_note)
+
+
         current_app.logger.info("Preparing prompt for LLM")
-        prompt = SECOND_LLM_CALL_TEMPLATE.format(
-            original_care_note=original_care_note,
+        prompt = SECOND_LLM_CALL_TEMPLATE_2.format(
+            original_care_note=mask_care_note,
             first_llm_questions_answers=formatted_qa,
             previous_behavior_date=prev_behavior_date,
             previous_behavior_summary=prev_behavior_summary,
@@ -76,13 +83,19 @@ def enhance_aggression_note(resident_id: str, original_care_note: str, first_llm
         response = gemini.run_text_model(prompt, model_name="gemini-1.5-pro-latest", temperature=0.2)
         current_app.logger.info(f"Raw LLM response: {response}")
 
+        # Attempt to parse the JSON response
         response_json = extract_json(response)
+        if response_json is None:
+            current_app.logger.error("Failed to extract JSON from LLM response")
+            current_app.logger.error(f"LLM response: {response}")
+            return None
+
         current_app.logger.info(f"Extracted JSON: {response_json}")
 
-        enhanced_text = response_json['enhanced_text']
-        suggestions_text = response_json['suggestions_text']
-        behavior_summary = response_json['summary']['behavior_summary']
-        behavior_intensity = response_json['summary']['behavior_intensity']
+        enhanced_text = response_json.get('enhanced_text', None)
+        suggestions_text = response_json.get('suggestions_text', None)
+        behavior_summary = response_json['summary'].get('behavior_summary', None)
+        behavior_intensity = response_json['summary'].get('behavior_intensity', None)
 
         current_app.logger.info("Updating database")
         try:
@@ -98,9 +111,9 @@ def enhance_aggression_note(resident_id: str, original_care_note: str, first_llm
             "enhanced_text": enhanced_text,
             "suggestions_text": suggestions_text,
             "behavior_summary": behavior_summary,
-            "behavior_intensity": behavior_intensity
         }
     except Exception as e:
         current_app.logger.error(f"Error in enhance_aggression_note: {str(e)}")
         current_app.logger.error(traceback.format_exc())
         return None
+

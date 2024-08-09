@@ -8,10 +8,11 @@ care_note_bp = Blueprint('care_note', __name__)
 def note_enhancement():
     try:
         care_note = request.json.get('care_note')
+        instructions = request.json.get('instructions', "")
         if not care_note:
             return jsonify({"error": "No care note provided"}), 400
         
-        enhanced_note = enhance_note(care_note)
+        enhanced_note = enhance_note(care_note,instructions)
         
         if enhanced_note is None:
             return jsonify({"error": "Failed to enhance care note"}), 500

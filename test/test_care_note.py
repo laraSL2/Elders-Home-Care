@@ -213,14 +213,14 @@ def main():
     
     # Create a filename with the current timestamp
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    filename = f"test/care_note_test_results_2.txt"
+    filename = f"test/care_note_test_results_3.txt"
     
     with open(filename, 'w') as file:
         for i, care_note in enumerate(complex_care_notes, 1):
             print(f"Test {i}/50:")
             file.write(f"Test {i}/50:\n")
             test_care_note_enhancement(care_note, file)
-            time.sleep(10)
+            time.sleep(50)
     
     end_time = time.time()
     

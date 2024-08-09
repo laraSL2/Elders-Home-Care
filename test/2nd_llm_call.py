@@ -2,6 +2,7 @@ import requests
 import json
 import random
 from datetime import datetime, timedelta
+import time
 
 API_URL = "http://localhost:8001/api/care_note/aggression_note_enhancement"
 API_URL = "http://127.0.0.1:8001/agg_note_enhancement"
@@ -54,6 +55,7 @@ def test_api(elder_id, care_notes):
             results.append(response.json())
             print(f"Success for elder {elder_id}")
             print(f"Response: {json.dumps(response.json(), indent=2)}")
+            time.sleep(30)
         except requests.exceptions.RequestException as e:
             print(f"Error for elder {elder_id}: {e}")
             if hasattr(e, 'response') and e.response is not None:
@@ -66,20 +68,31 @@ def test_api(elder_id, care_notes):
                     print("Could not parse error response as JSON")
         
         print("\n" + "=" * 50 + "\n")
+        time.sleep(30)
     
     return results
 
-def write_results_to_file(elder_id, results):
+def write_results_to_file(elder_id, results, care_notes):
     with open(f"test/elder_{elder_id}_results.txt", "w") as f:
         f.write(f"Results for Elder {elder_id}\n")
         f.write("=" * 50 + "\n\n")
+        j = 0
         for i, result in enumerate(results, 1):
             f.write(f"Care Note {i}:\n")
             f.write("-" * 20 + "\n")
+            f.write(f"Original Text:\n{care_notes[j]}\n\n")
             f.write(f"Enhanced Text:\n{result['enhanced_text']}\n\n")
             f.write(f"Suggestions:\n{result['suggestions_text']}\n\n")
             f.write(f"Behavior Summary:\n{result['behavior_summary']}\n\n")
-            f.write(f"Behavior Intensity:\n{result['behavior_intensity']}\n\n")
+            j+=1
+            # f.write(f"Trend Analysis:\n{result['trend_analysis']}\n\n")
+            # f.write("NLP Analysis:\n")
+            # f.write(f"Cognitive Issues: {', '.join(result['nlp_analysis']['cognitive_issues'])}\n")
+            # f.write(f"Cognitive Severity: {result['nlp_analysis']['cognitive_severity']}\n")
+            # f.write(f"Aggressiveness Issues: {', '.join(result['nlp_analysis']['aggressiveness_issues'])}\n")
+            # f.write(f"Aggressiveness Severity: {result['nlp_analysis']['aggressiveness_severity']}\n")
+            # f.write(f"Sentiment: {result['nlp_analysis']['sentiment']}\n")
+            # f.write(f"Explanation: {result['nlp_analysis']['explanation']}\n\n")
             f.write("=" * 50 + "\n\n")
 
 import time
@@ -89,7 +102,7 @@ def main():
         num_notes = random.randint(5, 10)
         care_notes = [generate_care_note() for _ in range(num_notes)]
         results = test_api(elder, care_notes)
-        write_results_to_file(elder, results)
+        write_results_to_file(elder, results, care_notes)
         print(f"Completed testing for Elder {elder}")
         time.sleep(12)
 
