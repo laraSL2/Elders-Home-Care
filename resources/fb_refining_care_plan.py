@@ -5,7 +5,7 @@ from langchain.prompts import PromptTemplate
 from langchain.schema.output_parser import StrOutputParser
 from langchain_core.messages import HumanMessage
 from rag_expert.generate_expert_suggestions import generate_suggestions,PROMPT_TEMPLATE 
-
+import gemini_initializer
 import torch
 from dotenv import load_dotenv
 load_dotenv()
@@ -65,14 +65,14 @@ FB_REFINING_TEMPLATE = PromptTemplate(
 def generate_refined_care_plan(expert_feedback,care_plan):
    
     try:
-        llm = get_llm_refining()
         final_refining_prompt = FB_REFINING_TEMPLATE.format(
             expert_feedback=expert_feedback,
             generated_care_plan=care_plan
         )
-        response = llm.invoke(final_refining_prompt)
-        print(response)
-        return response
+        gemini = gemini_initializer.GeminiInitializer() 
+        fb_care_plan = gemini.extract_entities_relationships(prompt=final_refining_prompt, model_name="gemini-1.5-pro-latest")
+        print(fb_care_plan)
+        return fb_care_plan
     
     except Exception as ex:
         print(f"could not refine the care plan: {ex}")
@@ -118,7 +118,8 @@ def refine_input_infomation(user_input_information, llm):
         final_refining_prompt = REFINING_USER_INPUT.format(
             user_input_information=user_input_information,
         )
-        response = llm.invoke(final_refining_prompt)
+        
+        response = llm.extract_entities_relationships(prompt=final_refining_prompt, model_name="gemini-1.5-pro-latest")
         print(response)
         return response
     
@@ -159,10 +160,17 @@ FINAL_CARE_PLAN =PromptTemplate(
             13. Do not explicitly include expert suggestions as a separate section in the final care plan.
             14. Ensure that the generated plan adheres strictly to the provided data and format without introducing any fabricated information.
         </INSTRUCTIONS>
+        
+        "Please follow these user instructions during the plan generation if provided by the user:
+        <USER_INSTRUCTIONS>
+            {user_instruction}
+        </USER_INSTRUCTIONS>"
 
         <OUTPUT_TEMPLATE>
         {output_template}
         </OUTPUT_TEMPLATE>
+        
+        
 
         Now, generate a care plan using the following steps:
         <INSTRUCTIONS>
@@ -187,8 +195,8 @@ FINAL_CARE_PLAN =PromptTemplate(
         
 def final_care_plan(plan_input_information, llm):
     try:
-        response = llm.invoke(plan_input_information)
-
+        response = llm.extract_entities_relationships(prompt=plan_input_information, model_name="gemini-1.5-pro-latest")
+        print(response)
         return response
     except Exception as ex:
         print(f"please try again\n {ex}")
@@ -196,10 +204,11 @@ def final_care_plan(plan_input_information, llm):
         
      
         
-def care_plane_flow(user_input_information, expert_retriever, output_template):
+def care_plane_flow(user_input_information, expert_retriever, output_template,user_instruction):
     try:
-        llm = get_llm_refining()
-        refine_response = refine_input_infomation(user_input_information, llm)
+        gemini = gemini_initializer.GeminiInitializer() 
+        
+        refine_response = refine_input_infomation(user_input_information, gemini)
 
         info = refine_response.split("PERSONAL INFO")[1].split("MEDICAL HISTORY")
         PERSONAL_INFO = info[0]
@@ -208,7 +217,7 @@ def care_plane_flow(user_input_information, expert_retriever, output_template):
 
         expert_suggestions = generate_suggestions(
                 MEDICAL_HISTORY,
-                llm,
+                get_llm_refining(),
                 retriever=expert_retriever,
                 template=PROMPT_TEMPLATE
             )
@@ -218,10 +227,11 @@ def care_plane_flow(user_input_information, expert_retriever, output_template):
                 personal_info=PERSONAL_INFO,
                 medical_history=MEDICAL_HISTORY,
                 expert_suggestions=expert_suggestions,
-                output_template= output_template
+                output_template= output_template,
+                user_instruction = user_instruction
 
             )
-        care_plan = final_care_plan(final_care_prompt, llm)
+        care_plan = final_care_plan(final_care_prompt, gemini)
         print(care_plan)
         return care_plan
     except Exception as ex:

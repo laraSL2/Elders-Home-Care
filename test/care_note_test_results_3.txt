@@ -1,0 +1,2163 @@
+Test 1/50:
+Original: Observed resident attempting to exit facility. Redirected with conversation about family photos, resident became more settled.
+Status Code: 200
+questions: True
+questions_data:
+  q1:
+    options:
+      - Looking for someone
+      - Expressing a desire to go home
+      - Stating a specific destination
+      - No clear verbalization
+      - Other
+    text: Was there any verbalization from the resident about their reason for attempting to exit the facility?
+  q2:
+    range:
+      max: 5
+      min: 1
+    text: On a scale of 1-5, how determined did the resident seem to exit the facility?
+  q3:
+    options:
+      - Yes
+      - No
+      - Not observed
+    text: Did the resident display any signs of confusion or disorientation during the attempt to exit?
+  q4:
+    options:
+      - Yes
+      - No
+      - Not known
+    text: Has the resident exhibited similar behaviour previously?
+reasoning: This care note indicates a potential behavioural concern as the resident attempted to exit the facility, which could be a sign of confusion, disorientation, or a desire to leave against medical advice. While redirection was successful, further investigation is needed to understand the root cause of this behaviour.
+scenario: behavioural_concern
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 2/50:
+Original: Resident displayed obsessive behavior, repeatedly folding and unfolding clothes. Redirected to sorting activity with laundry staff.
+Status Code: 200
+questions: True
+questions_data:
+  q1:
+    options:
+      - Less than 5 minutes
+      - 5-15 minutes
+      - 15-30 minutes
+      - Over 30 minutes
+      - Unknown
+    text: How long did the resident engage in the repetitive folding and unfolding of clothes before being redirected?
+  q2:
+    range:
+      max: 5
+      min: 1
+    text: On a scale of 1-5, how would you rate the resident's distress or anxiety during this behaviour?
+  q3:
+    options:
+      - Yes, related to anxiety or worry
+      - Yes, but unrelated to the action
+      - No verbal expression
+      - Unable to communicate verbally
+    text: Did the resident verbally express any feelings or thoughts related to the repetitive action?
+  q4:
+    options:
+      - Calmed down and engaged willingly
+      - Initially resistant but then participated
+      - Remained agitated but compliant
+      - Refused to participate
+    text: How did the resident respond to being redirected to the sorting activity?
+reasoning: This care note describes a behaviour (repeatedly folding and unfolding clothes) that, while not aggressive, indicates potential anxiety or distress. The resident was successfully redirected, but further understanding of the behaviour could be beneficial.
+scenario: behavioural_concern
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 3/50:
+Original: While on community outing, resident became combative on bus, attempting to open emergency exit. Terminated outing and returned to facility with additional staff support.
+Status Code: 200
+questions: True
+questions_data:
+  q1:
+    options:
+      - Verbal aggression
+      - Physical aggression towards others
+      - Damaging property
+      - Other
+    text: What specific behaviours were observed when the resident became combative?
+  q2:
+    range:
+      max: 10
+      min: 1
+    text: On a scale of 1-10, how would you rate the intensity of the resident's combative behaviour?
+  q3:
+    options:
+      - Change in environment
+      - Interaction with others
+      - Discomfort or pain
+      - Sensory overload
+      - No identifiable trigger
+      - Other
+    text: Were there any identifiable triggers or events that preceded the resident's combative behaviour on the bus?
+  q4:
+    options:
+      - Verbal redirection
+      - Offering preferred activities
+      - Providing a quiet space
+      - Sensory calming tools
+      - None attempted
+      - Other
+    text: What specific de-escalation techniques were attempted before terminating the outing?
+reasoning: This note is classified as an aggression scenario due to the resident's combative behaviour and attempt to open the emergency exit, posing a potential safety risk. The note requires enhancement to clarify the details and context of the situation.
+scenario: aggression_detected
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 4/50:
+Original: Assisted with nail care. Resident chose red polish for fingernails.
+Status Code: 200
+enhanced_text: Assisted the resident with nail care. The resident selected red polish for their fingernails.
+questions: False
+reasoning: This note describes a routine care activity (nail care) and the resident's preference, without any indication of medication, behavioural concerns, or aggression.  The suggestions aim to enhance the documentation of care and resident preferences.
+scenario: normal_care
+suggestions:
+  - Document the condition of the resident's nails before and after care.
+  - Note any specific requests or preferences regarding nail care products or techniques.
+  - Consider creating a log of the resident's preferred nail polish colours for future reference.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 5/50:
+Original: METFORMIN 500mg tablets. Quantity given: 2.00. Directions: Take TWO tablets twice daily with meals.
+Status Code: 200
+enhanced_text: Administered 2 tablets of METFORMIN, each containing 500mg, as prescribed. Directions indicate two tablets to be taken twice daily with meals.
+questions: False
+reasoning: This note specifically mentions medication administration (Metformin) with dosage and directions, classifying it as a medication-related care note.
+scenario: medication_related
+suggestions:
+  - Monitor and document the resident's blood sugar levels regularly, as directed by the care plan.
+  - Observe for any potential side effects, particularly gastrointestinal issues, and report them promptly.
+  - Educate the resident on the importance of taking Metformin with meals to minimise stomach upset.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 6/50:
+Original: Resident attended music therapy session. Actively participated by singing along to familiar songs.
+Status Code: 200
+enhanced_text: The resident attended the scheduled music therapy session and actively participated by singing along to familiar songs.
+questions: False
+reasoning: This note describes the resident's positive engagement in a therapeutic activity, indicating a routine care note without any signs of medication administration, behavioural concerns, or aggression. The suggestions aim to enhance the documentation of the resident's response to therapy.
+scenario: normal_care
+suggestions:
+  - Document the resident's overall mood and affect observed during the music therapy session.
+  - Note any specific songs or musical elements that elicited a positive response from the resident.
+  - Consider documenting the duration of the resident's engagement in the activity.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 7/50:
+Original: Resident became violent when asked to change soiled clothing, punching caregiver in face. Suspended care and implemented two-person care plan.
+Status Code: 200
+questions: True
+questions_data:
+  q1:
+    range:
+      max: 10
+      min: 1
+    text: On a scale of 1-10, how would you rate the intensity of the resident's aggression?
+  q2:
+    options:
+      - Refusal
+      - Profanity
+      - Threats
+      - Incoherent yelling
+      - Other
+    text: What specific words did the resident use before and during the aggressive outburst?
+  q3:
+    options:
+      - Confusion
+      - Pain
+      - Discomfort
+      - Environmental factors
+      - No noticeable change
+      - Other
+    text: Were there any observable triggers or changes in the resident's demeanour prior to the aggression?
+  q4:
+    options:
+      - First recorded incident
+      - Occasional aggression
+      - Frequent aggression
+      - Specific triggers documented
+      - Other
+    text: What is the resident's history of aggression, and are there any existing interventions outlined in the care plan?
+reasoning: This note is classified as an aggression scenario due to the resident's physically aggressive act of punching the caregiver. While the note provides a concise overview, additional information is needed to ensure comprehensive documentation and appropriate care planning.
+scenario: aggression_detected
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 8/50:
+Original: During personal care, resident became tearful and uncooperative. Took breaks as needed and used distraction techniques.
+Status Code: 200
+questions: True
+questions_data:
+  q1:
+    options:
+      - Bathing
+      - Dressing
+      - Toileting
+      - Grooming
+      - Other
+    text: What specific personal care tasks was the resident resisting?
+  q2:
+    range:
+      max: 5
+      min: 1
+    text: On a scale of 1-5, how would you rate the resident's level of distress (tearfulness, verbal resistance, etc.)?
+  q3:
+    options:
+      - Conversation
+      - Music
+      - Family photos
+      - Sensory objects
+      - Other
+    text: What specific distraction techniques were used?
+  q4:
+    options:
+      - 1-2
+      - 3-4
+      - 5 or more
+      - Not recorded
+    text: How many breaks were needed during the personal care session?
+  q5:
+    options:
+      - Physical discomfort
+      - Emotional upset
+      - Feeling rushed
+      - Not wanting assistance
+      - Other
+    text: Did the resident verbalise any reasons for their tearfulness or uncooperativeness?
+reasoning: This care note is classified as a behavioural concern due to the resident becoming tearful and uncooperative, indicating emotional distress and potential resistance to care. While some information is provided, there are gaps in understanding the full context and effectiveness of interventions, warranting a few targeted questions.
+scenario: behavioural_concern
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 9/50:
+Original: Resident cornered and physically threatened a visibly frightened caregiver. Other staff intervened to ensure caregiver's safety and calm resident.
+Status Code: 200
+questions: True
+questions_data:
+  q1:
+    range:
+      max: 10
+      min: 1
+    text: On a scale of 1-10, with 1 being minimal and 10 being the most extreme, how would you rate the intensity of the resident's aggression?
+  q2:
+    options:
+      - Raised fist
+      - Invasive physical contact
+      - Use of an object as a weapon
+      - Specific threatening gesture
+      - Other
+    text: What specific actions did the resident take to physically threaten the caregiver?
+  q3:
+    options:
+      - Caregiver's action
+      - Environmental factor
+      - Change in routine
+      - Refusal of request
+      - Other
+    text: What were the immediate triggers or events leading up to the resident's aggressive behaviour?
+  q4:
+    options:
+      - Verbal calming techniques
+      - Physical redirection
+      - Removal of triggers
+      - Distraction techniques
+      - Other
+    text: What specific de-escalation techniques were used by the intervening staff to calm the resident?
+  q5:
+    options:
+      - No injuries reported
+      - Minor injury reported
+      - Significant injury requiring medical attention
+      - Emotional distress requiring support
+      - Other
+    text: Was the caregiver who was threatened injured in any way, and did they require any medical attention or support following the incident?
+reasoning: This note describes a serious incident where the resident exhibited physically aggressive behaviour towards a caregiver, causing visible fear. The resident's actions of cornering and threatening indicate a direct and imminent risk to the caregiver's safety.
+scenario: aggression_detected
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 10/50:
+Original: Engaged resident in cognitive stimulation activities. Completed a crossword puzzle with minimal assistance.
+Status Code: 200
+enhanced_text: Engaged the resident in cognitive stimulation activities. The resident successfully completed a crossword puzzle with minimal assistance.
+questions: False
+reasoning: This note describes a routine care activity focused on cognitive stimulation, without any mention of medication, behavioural concerns, or aggression. The suggestions aim to enhance the documentation of the resident's cognitive engagement and potential for improvement.
+scenario: normal_care
+suggestions:
+  - Document the specific type and theme of the crossword puzzle to track the complexity level and resident's preferences.
+  - Note the resident's level of engagement, mood, and any verbal or non-verbal cues during the activity.
+  - Consider gradually increasing the difficulty of cognitive activities to challenge the resident and promote cognitive function.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 11/50:
+Original: In dining area, resident stabbed another resident's hand with fork. Immediately separated individuals and provided first aid.
+Status Code: 200
+questions: True
+questions_data:
+  q1:
+    range:
+      max: 10
+      min: 1
+    text: On a scale of 1-10, how would you rate the intensity of the aggressive behaviour, considering the force used and the resulting injury?
+  q2:
+    options:
+      - Agitation
+      - Verbal threats
+      - Facial expressions of anger
+      - Changes in posture or movement
+      - No noticeable changes
+      - Other
+    text: Were there any observable warning signs or changes in demeanour from the resident who acted aggressively before the incident?
+  q3:
+    options:
+      - Verbal disagreement
+      - Physical proximity or contact
+      - Competition over food or resources
+      - Seemingly unprovoked
+      - Unknown
+      - Other
+    text: What was the nature of the interaction between the two residents immediately preceding the aggressive act?
+  q4:
+    options:
+      - Superficial puncture wound
+      - Bleeding requiring significant pressure
+      - Possible tendon or nerve involvement
+      - Requiring transport to hospital
+      - Other
+    text: What is the extent of the injury sustained by the resident who was stabbed with the fork?
+  q5:
+    options:
+      - Yes, the aggressor has a history of aggression.
+      - Yes, the victim has a history of being targeted.
+      - Yes, both residents have a history of conflict.
+      - No known history of aggression or conflict.
+      - Unknown
+    text: Have either of these residents exhibited any history of aggressive behaviour or interpersonal conflicts in the past?
+reasoning: This note describes a critical incident involving physical aggression where one resident injured another. While it outlines immediate actions taken, further details are crucial for understanding the context, potential triggers, and future prevention strategies.
+scenario: aggression_detected
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 12/50:
+Original: Resident yelled profanities at staff and other residents during dinner. Removed from dining area to prevent escalation.
+Status Code: 200
+questions: True
+questions_data:
+  q1:
+    range:
+      max: 10
+      min: 1
+    text: On a scale of 1-10, how would you rate the intensity and duration of the resident's yelling?
+  q2:
+    options:
+      - Food-related issues
+      - Interactions with other residents
+      - Environmental factors
+      - Staff interaction
+      - No identifiable trigger
+      - Other
+    text: Were there any specific triggers or events leading up to the resident's outburst during dinner?
+  q3:
+    options:
+      - Calmed down
+      - Remained agitated
+      - Became further enraged
+      - Other
+    text: How did the resident respond to being removed from the dining area?
+  q4:
+    options:
+      - Verbal de-escalation techniques
+      - Distraction or redirection
+      - Offering a quiet space
+      - Other
+    text: What strategies were used to de-escalate the situation after the resident was removed from the dining area?
+reasoning: This care note is classified as an aggression scenario due to the resident's use of verbal aggression (yelling profanities) towards both staff and other residents. While the note provides a brief overview, additional information is required to understand the context, potential triggers, and the resident's behaviour after being removed from the dining area.
+scenario: aggression_detected
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 13/50:
+Original: Resident became upset when favorite chair was occupied. Offered alternative seating and distracted with preferred activity.
+Status Code: 200
+enhanced_text: The resident became visibly upset when their favourite chair was found to be occupied. Staff responded by offering alternative seating options and successfully distracted the resident with a preferred activity, leading to a positive resolution of the situation.
+questions: False
+reasoning: This care note describes a behavioural concern as the resident displayed signs of being upset, but it does not escalate to physical or severe verbal aggression. The note provides sufficient context and details about the resident's response and the successful intervention applied.
+scenario: behavioural_concern
+suggestions:
+  - Consider implementing a system to reserve the resident's favourite chair or clearly communicate its availability to prevent future occurrences.
+  - Document the resident's preferred activities and seating preferences in the care plan to facilitate proactive interventions.
+  - Observe and note any patterns or triggers related to the resident's emotional responses to environmental changes or disruptions in routine.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 14/50:
+Original: Observed resident collecting and hiding facility items in room. Worked with resident to create a personal 'treasure box' of safe items to collect.
+Status Code: 200
+enhanced_text: The resident was observed collecting and hiding facility items in their room, indicating potential hoarding behaviour.  A proactive approach was taken to address this behaviour. Staff collaborated with the resident to create a personal 'treasure box', allowing them to collect safe and permitted items. This intervention aims to provide the resident with a sense of control and security while mitigating potential risks associated with hoarding.
+questions: False
+reasoning: This care note describes a potential behavioural concern as the resident exhibits hoarding behaviour, which, while addressed positively, requires monitoring and understanding. The note provides a good starting point with details about the observed behaviour and the intervention taken. Enhancing the note and providing suggestions can help improve future care and documentation.
+scenario: behavioural_concern
+suggestions:
+  - Continue to monitor the resident's room for any signs of hoarding behaviour, even with the 'treasure box' in place.
+  - Document the types of items the resident is drawn to for the 'treasure box' to better understand their preferences and potential triggers.
+  - Consider involving a mental health professional for further assessment and guidance on managing hoarding behaviour if it persists or escalates.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 15/50:
+Original: Observed resident attempting to disrobe in common areas. Gently redirected to private space and assisted with comfortable clothing.
+Status Code: 200
+enhanced_text: The resident was observed attempting to disrobe in common areas. Staff intervened by gently redirecting the resident to a private space. Assistance was provided to ensure the resident was dressed in comfortable clothing.
+questions: False
+reasoning: This care note describes a potentially concerning behaviour (disrobing in public) that could indicate underlying issues like confusion or discomfort. While not aggressive, it requires appropriate intervention and documentation.
+scenario: behavioural_concern
+suggestions:
+  - Assess the resident for potential causes of this behaviour, such as disorientation, discomfort with clothing, or temperature sensitivity.
+  - Document the specific common areas where the behaviour occurred and any environmental factors that may have contributed.
+  - Consider implementing strategies to prevent future occurrences, such as providing easily manageable clothing or ensuring the resident's comfort needs are met.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 16/50:
+Original: During transport to appointment, resident became anxious and attempted to unbuckle seatbelt. Used calming conversation and stress ball to reduce anxiety.
+Status Code: 200
+enhanced_text: While being transported to an appointment, the resident exhibited signs of anxiety and attempted to unbuckle their seatbelt.  Calming verbal interventions were employed, and the resident was provided with a stress ball to help alleviate their anxiety. These interventions were successful in de-escalating the situation, and the resident was safely transported to their appointment.
+questions: False
+reasoning: This care note is classified as a behavioural concern due to the resident's anxiety and attempt to unbuckle their seatbelt, which could have posed a safety risk. The note provides a good overview of the situation and the interventions used, allowing for direct enhancement without the need for additional questions.
+scenario: behavioural_concern
+suggestions:
+  - Identify potential triggers for anxiety related to transport or the appointment itself to allow for proactive intervention in the future.
+  - Document the resident's preferred calming techniques and ensure these are readily available during transport.
+  - Consider implementing a pre-appointment routine to help reduce anxiety, such as discussing the appointment in advance or allowing extra time for preparation.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 17/50:
+Original: During meal time, resident insisted on eating with hands despite capability to use utensils. Offered finger foods as part of meal to maintain dignity.
+Status Code: 200
+enhanced_text: During mealtime, the resident insisted on eating with their hands, despite possessing the ability to use utensils. To accommodate this preference and maintain the resident's dignity, finger foods were offered as part of the meal.
+questions: False
+reasoning: This care note describes a resident's insistence on eating with their hands, which, while not aggressive, could indicate potential cognitive or behavioural concerns. The note provides context and the caregiver's positive approach to maintaining the resident's dignity. The suggestions aim to understand the behaviour better and ensure appropriate care planning.
+scenario: behavioural_concern
+suggestions:
+  - Assess the resident's cognition and hand-eye coordination to determine if there are underlying reasons for the preference to eat with hands.
+  - Observe and document if this behaviour is consistent across different meals and types of food or specific to certain situations.
+  - If the behaviour persists, consider a multidisciplinary approach involving occupational therapy or other relevant professionals to address potential underlying issues and develop appropriate interventions.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 18/50:
+Original: During medication round, resident slapped medication tray from nurse's hands and shoved nurse against wall. Suspended med pass and called for assistance.
+Status Code: 200
+questions: True
+questions_data:
+  q1:
+    range:
+      max: 10
+      min: 1
+    text: On a scale of 1-10, how would you rate the intensity of the resident's aggressive behaviour?
+  q2:
+    options:
+      - Refusal of medication
+      - Verbal agitation
+      - Changes in demeanour
+      - Environmental factors
+      - No apparent trigger
+      - Other
+    text: Were there any warning signs or triggers for the resident's aggression before the incident?
+  q3:
+    options:
+      - Yes
+      - No
+      - Unknown
+    text: Did the resident sustain any injuries as a result of the incident?
+  q4:
+    options:
+      - Verbal de-escalation
+      - Physical restraint
+      - Chemical restraint
+      - Distraction techniques
+      - Other
+    text: What specific de-escalation techniques were used when assistance arrived?
+  q5:
+    options:
+      - Medication was administered successfully later
+      - Medication administration was postponed
+      - Alternative medication delivery methods were used
+      - Other
+    text: Was the resident able to receive their medication later? If so, how was it administered?
+reasoning: This care note is classified as an aggression scenario due to the resident's physical actions of slapping and shoving, which demonstrate clear physical aggression towards the nurse. While some information is provided, there are gaps in understanding the full context, escalation factors, and the severity of the incident.
+scenario: aggression_detected
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 19/50:
+Original: Resident exhibited signs of sundowning, becoming restless and anxious as evening approached. Implemented calming routine with soft music and dimmed lights.
+Status Code: 200
+enhanced_text: As evening approached, the resident began exhibiting signs of sundowning, becoming increasingly restless and anxious. In response, staff implemented a calming routine, which included playing soft music and dimming the lights in the resident's environment.
+questions: False
+reasoning: This care note describes increased restlessness and anxiety in the evening, aligning with symptoms of sundowning, a common behavioural concern in older adults. The note provides sufficient context and details about the interventions used.
+scenario: behavioural_concern
+suggestions:
+  - Document the specific time sundowning symptoms were first observed and their duration.
+  - Note the resident's response to the calming routine, including any changes in behaviour or demeanour.
+  - Consider incorporating other elements into the calming routine, such as offering a light snack, engaging in quiet conversation, or providing a familiar activity.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 20/50:
+Original: Resident spat at caregiver during oral care and attempted to bite hand. Care suspended, will consult with dental hygienist for alternative approaches.
+Status Code: 200
+enhanced_text: During oral care, the resident exhibited aggressive behaviour by spitting at the caregiver and attempting to bite their hand. Due to the resident's actions, care was immediately suspended to ensure the safety of both the caregiver and the resident. A consultation with a dental hygienist will be scheduled to discuss and implement alternative approaches to oral care for this resident.
+questions: False
+reasoning: This note describes aggressive behaviours from the resident, including spitting and attempting to bite, which require immediate attention and indicate potential safety concerns for both the resident and caregiver.
+scenario: aggression_detected
+suggestions:
+  - Review the resident's care plan for any pre-existing triggers or behaviours related to oral care and update accordingly.
+  - Document the specific details of the incident, including the time of day, any potential triggers, and the resident's response to the caregiver's actions.
+  - Consider implementing a multidisciplinary approach involving a physician, behavioural therapist, or other relevant healthcare professionals to address the underlying causes of the resident's aggressive behaviour during oral care.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 21/50:
+Original: LISINOPRIL 10mg tablets. Quantity given: 1.00. Directions: Take ONE tablet daily in the morning.
+Status Code: 200
+enhanced_text: Administered 1 tablet of LISINOPRIL 10mg, as prescribed. Directions indicate one tablet to be taken daily in the morning.
+questions: False
+reasoning: This note specifically mentions medication administration (Lisinopril) with dosage, quantity, and directions, classifying it as a medication-related care note.
+scenario: medication_related
+suggestions:
+  - Monitor and document the resident's blood pressure before and after administration.
+  - Ensure consistent timing of daily administration in the morning for optimal effectiveness.
+  - Observe and record any potential side effects, particularly dizziness or cough.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 22/50:
+Original: Resident participated in gardening activity. Potted three plants with guidance.
+Status Code: 200
+enhanced_text: The resident actively participated in the gardening activity, successfully potting three plants with guidance from staff.
+questions: False
+reasoning: This note describes a routine care activity (gardening) without any mention of medication, behavioural concerns, or signs of aggression. Providing suggestions to enhance the documentation of resident participation in activities.
+scenario: normal_care
+suggestions:
+  - Document the resident's level of engagement and enjoyment during the activity.
+  - Note any specific plants potted or gardening tasks performed.
+  - Observe and record any social interaction or communication with other residents or staff during the activity.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 23/50:
+Original: METOPROLOL 25mg tablets. Quantity given: 1.00. Directions: Take ONE tablet twice daily. Pulse rate: 68 bpm.
+Status Code: 200
+enhanced_text: Administered 1 tablet of METOPROLOL [PII-Person] as prescribed. Directions indicate one tablet to be taken twice daily. The resident's pulse rate was recorded at 68 beats per minute prior to administration.
+questions: False
+reasoning: This note focuses on the administration of METOPROLOL, including dosage, frequency, and monitoring of pulse rate, making it a medication-related care note.
+scenario: medication_related
+suggestions:
+  - Document the time of METOPROLOL administration for accurate tracking.
+  - Monitor and document blood pressure before and after each METOPROLOL dose.
+  - Assess for any potential side effects of METOPROLOL, such as dizziness or fatigue, and report them promptly.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 24/50:
+Original: Resident became anxious and combative during transfer from bed to chair. Paused process, explained steps, and proceeded slowly with resident's cooperation.
+Status Code: 200
+questions: True
+questions_data:
+  q1:
+    options:
+      - Verbal resistance
+      - Pushing away assistance
+      - Tensing up
+      - Attempting to get out of bed without help
+      - Other
+    text: What specific combative behaviours did the resident exhibit during the transfer?
+  q2:
+    range:
+      max: 5
+      min: 1
+    text: On a scale of 1-5, how would you rate the intensity of the resident's anxiety and combativeness?
+  q3:
+    options:
+      - Increased heart rate
+      - Rapid breathing
+      - Facial expressions of fear or distress
+      - Verbal expressions of worry or fear
+      - Other
+    text: What were the resident's verbal and non-verbal cues that indicated anxiety?
+reasoning: This care note is classified as a behavioural concern due to the resident's anxiety and combative behaviour during the transfer. While the note provides a good overview of the situation and resolution, additional information about the specific combative actions and the resident's verbal and non-verbal cues would enhance the documentation.
+scenario: behavioural_concern
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 25/50:
+Original: Assisted with teeth brushing. Resident able to hold brush but needed help with toothpaste application.
+Status Code: 200
+enhanced_text: Assisted the resident with teeth brushing. The resident demonstrated the ability to hold the toothbrush independently but required assistance with toothpaste application.
+questions: False
+reasoning: This note describes a routine care activity (teeth brushing) with no mention of medication, behavioural concerns, or aggression. The suggestions aim to enhance the detail and usefulness of the documentation.
+scenario: normal_care
+suggestions:
+  - Specify the type of toothbrush used (e.g., manual, electric) and whether any adaptive equipment was required.
+  - Document the resident's oral hygiene practices, such as frequency of brushing and use of mouthwash, to establish a baseline.
+  - Observe and note any difficulties the resident may have with rinsing or spitting, as this could indicate a need for further assessment or modified techniques.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 26/50:
+Original: Administered PRN ACETAMINOPHEN 500mg for complaints of back pain. Pain level reduced from 7/10 to 3/10 after 1 hour.
+Status Code: 200
+enhanced_text: Administered a PRN dose of acetaminophen 500mg for the resident's complaints of back pain.  The resident's reported pain level reduced from 7/10 to 3/10 after one hour of receiving the medication.
+questions: False
+reasoning: This note describes the administration of PRN acetaminophen for back pain and the subsequent pain level reduction, making it a medication-related care note.
+scenario: medication_related
+suggestions:
+  - Document the route of administration for the acetaminophen (e.g., oral, rectal).
+  - Continue to monitor the resident's pain level and provide additional pain relief measures as needed, in consultation with healthcare providers.
+  - Assess and document the resident's mobility and any limitations due to back pain.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 27/50:
+Original: Resident used bedside commode independently. Proper hand hygiene performed afterwards.
+Status Code: 200
+enhanced_text: The resident independently used the bedside commode. They subsequently demonstrated proper hand hygiene technique.
+questions: False
+reasoning: This note describes a routine care activity (use of bedside commode) and positive hygiene practice without any mention of medication, behavioural concerns, or signs of aggression.
+scenario: normal_care
+suggestions:
+  - Document the frequency and consistency of the resident's bowel movements.
+  - Note any assistance required with toileting or mobility to the commode.
+  - Continue to encourage and reinforce independent toileting and hygiene practices.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 28/50:
+Original: Administered LORAZEPAM 0.5mg as needed for anxiety before medical appointment. Resident appeared calmer after 30 minutes.
+Status Code: 200
+enhanced_text: Administered 0.5mg of LORAZEPAM as needed for anxiety prior to the resident's medical appointment. The resident's anxiety level was observed to decrease 30 minutes after administration.
+questions: False
+reasoning: This note focuses on the administration of LORAZEPAM, a medication used for anxiety, making it a medication-related care note. The suggestions aim to improve documentation and monitoring related to medication administration and its effects.
+scenario: medication_related
+suggestions:
+  - Document the specific signs and symptoms of anxiety exhibited by the resident before medication administration.
+  - Record the time of LORAZEPAM administration for accurate tracking of medication usage.
+  - Continue to monitor and document the resident's anxiety levels at regular intervals after medication administration, noting any recurrence or changes in symptoms.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 29/50:
+Original: Resident had violent outburst during family visit, throwing objects and making threats. Escorted family to safe area and implemented crisis plan.
+Status Code: 200
+questions: True
+questions_data:
+  q1:
+    options:
+      - Household items
+      - Personal belongings
+      - Furniture
+      - Food or drink
+      - Other
+    text: What specific objects did the resident throw during the outburst?
+  q2:
+    range:
+      max: 10
+      min: 1
+    text: On a scale of 1-10, how would you rate the intensity of the resident's aggression?
+  q3:
+    options:
+      - Physical harm to family
+      - Physical harm to staff
+      - Damage to property
+      - Self-harm
+      - Other
+    text: What were the specific threats made by the resident, and who were they directed towards?
+  q4:
+    options:
+      - Specific topic of conversation
+      - Family dynamics
+      - Environmental factors
+      - Change in resident's routine
+      - No identifiable trigger
+      - Other
+    text: Were there any observable triggers or preceding events that may have contributed to the resident's outburst?
+  q5:
+    options:
+      - Verbal de-escalation
+      - Physical distancing
+      - Redirection
+      - Medication administration
+      - Other
+    text: How long did the outburst last, and what strategies were most effective in de-escalating the situation?
+reasoning: This note describes a serious incident involving physical aggression (throwing objects) and verbal aggression (making threats), clearly indicating an aggression scenario requiring further assessment.
+scenario: aggression_detected
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 30/50:
+Original: During night check, found resident awake and anxious about upcoming doctor's appointment. Provided reassurance and reviewed appointment details.
+Status Code: 200
+enhanced_text: During a routine night check, the resident was found awake and noticeably anxious regarding an upcoming doctor's appointment.  Reassurance was provided, and the appointment details were reviewed with the resident to alleviate concerns.  The resident's anxiety seemed to lessen after the intervention.
+questions: False
+reasoning: This note describes resident anxiety and restlessness, which are considered behavioural concerns. Although the level of distress is not explicitly stated, the resident's wakefulness during a night check suggests a significant level of concern. The note provides a good basis for understanding the situation and the interventions taken, so direct enhancement is appropriate.
+scenario: behavioural_concern
+suggestions:
+  - Document the resident's anxiety level (e.g., mild, moderate, severe) to provide a clearer understanding of their emotional state.
+  - Note the specific concerns the resident expressed about the doctor's appointment to identify potential areas for intervention or support.
+  - Consider implementing relaxation techniques or offering a comforting activity if the resident's anxiety persists or if it is a recurring issue.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 31/50:
+Original: Resident participated in art therapy. Created a watercolor painting of a sunset.
+Status Code: 200
+enhanced_text: The resident actively participated in art therapy, demonstrating creativity and engagement by creating a watercolour painting of a sunset.
+questions: False
+reasoning: This note describes the resident's participation in a therapeutic activity, indicating a positive engagement and no signs of behavioural concerns, aggression, or medication administration.
+scenario: normal_care
+suggestions:
+  - Document the resident's emotional state and any verbal expressions related to the art therapy session.
+  - Note any observed impact of art therapy on the resident's mood, behaviour, or engagement.
+  - Consider incorporating the resident's artwork or creative interests into their personalized care plan.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 32/50:
+Original: Resident became agitated when room temperature was adjusted. Compromised by providing extra blanket instead.
+Status Code: 200
+enhanced_text: The resident exhibited signs of agitation when the room temperature was adjusted. To address this, staff provided an extra blanket instead of further altering the room temperature. This intervention successfully compromised the situation, and the resident's agitation subsided.
+questions: False
+reasoning: This care note highlights a change in the resident's behaviour due to an environmental adjustment. While it doesn't involve aggression, the resident's agitation signifies a potential behavioural concern. The note provides sufficient context and resolution, allowing for direct enhancement.
+scenario: behavioural_concern
+suggestions:
+  - Document the resident's preferred room temperature range for future reference.
+  - Consider providing alternative options for temperature regulation, such as a personal fan or additional clothing layers.
+  - Observe and note any recurring patterns of agitation related to environmental changes or other potential triggers.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 33/50:
+Original: Resident became combative during shower, kicking and scratching caregivers. Shower terminated for safety, will attempt later with different approach.
+Status Code: 200
+questions: True
+questions_data:
+  q1:
+    range:
+      max: 10
+      min: 1
+    text: On a scale of 1-10, how would you rate the intensity of the resident's combative behaviour?
+  q2:
+    options:
+      - Refusal to cooperate
+      - Discomfort with water temperature/pressure
+      - Fear or anxiety related to showering
+      - Pain or discomfort during the shower
+      - Other
+    text: Were there any specific triggers or events leading up to the resident becoming combative during the shower?
+  q3:
+    options:
+      - Offering a bed bath instead
+      - Adjusting the timing of the shower
+      - Providing additional reassurance and support
+      - Involving familiar staff members
+      - Other
+    text: What specific alternative approaches are being considered for the resident's shower later?
+reasoning: This care note is classified as an aggression scenario due to the resident's physical actions of kicking and scratching caregivers. While the note provides a brief overview, additional information is needed to understand the context, triggers, and potential strategies for future care.
+scenario: aggression_detected
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 34/50:
+Original: In common area, resident threw chair across room, nearly hitting another resident. Quickly evacuated area and implemented de-escalation techniques.
+Status Code: 200
+questions: True
+questions_data:
+  q1:
+    range:
+      max: 10
+      min: 1
+    text: On a scale of 1-10, how would you rate the intensity of the resident's aggression when throwing the chair?
+  q2:
+    options:
+      - Verbal altercation
+      - Change in demeanour
+      - Environmental factors
+      - Refusal of care
+      - No apparent trigger
+      - Other
+    text: Were there any observable triggers or warning signs before the resident threw the chair?
+  q3:
+    options:
+      - Verbal calming
+      - Redirection
+      - Offering a quiet space
+      - Physical restraint (if applicable and documented appropriately)
+      - Other
+    text: What specific de-escalation techniques were implemented following the incident?
+  q4:
+    options:
+      - Calmed down immediately
+      - Gradual de-escalation
+      - Remained agitated
+      - Became further agitated
+      - Other
+    text: How did the resident respond to the implemented de-escalation techniques?
+  q5:
+    options:
+      - Yes, care plan is up-to-date
+      - Yes, care plan needs review
+      - No, this behaviour was not previously documented
+      - Other
+    text: Was the resident's behaviour addressed in their care plan, and does the care plan need to be reviewed and updated based on this incident?
+reasoning: This care note is classified as an aggression scenario due to the resident's physically aggressive act of throwing a chair, which posed a direct threat to the safety of another resident. While the note captures the immediate response, further details are crucial for understanding the context, triggers, and effectiveness of the de-escalation techniques.
+scenario: aggression_detected
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 35/50:
+Original: Encouraged fluids throughout shift. Resident consumed approximately 1000ml of water.
+Status Code: 200
+enhanced_text: The resident's fluid intake was encouraged throughout the shift.  They consumed an estimated 1000ml of water.
+questions: False
+reasoning: This note describes routine care activities related to fluid intake without any mention of medication, behavioural concerns, or signs of aggression.
+scenario: normal_care
+suggestions:
+  - Document the specific types of fluids offered and consumed in addition to water.
+  - Note any factors influencing fluid intake, such as the resident's thirst level or preferences.
+  - Record the frequency and volume of each fluid intake for a more detailed assessment.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 36/50:
+Original: Resident showed signs of depression, refusing to leave room for activities. Encouraged brief visits from preferred staff members.
+Status Code: 200
+questions: True
+questions_data:
+  q1:
+    options:
+      - Sadness or tearfulness
+      - Loss of interest in previously enjoyed activities
+      - Changes in appetite or sleep patterns
+      - Social withdrawal
+      - Feelings of worthlessness or guilt
+      - Other
+    text: What specific signs of depression were observed in the resident?
+  q2:
+    range:
+      max: 5
+      min: 1
+    text: On a scale of 1-5, how would you rate the severity of the resident's withdrawal and refusal to leave their room?
+  q3:
+    options:
+      - Specific concerns or anxieties
+      - Physical discomfort or pain
+      - Lack of interest or motivation
+      - Preference for solitude
+      - Other
+    text: Did the resident verbalise any reasons for not wanting to leave their room or participate in activities?
+  q4:
+    options:
+      - Showed positive engagement
+      - Remained withdrawn and unresponsive
+      - Showed a mix of engagement and withdrawal
+      - Other
+    text: How did the resident respond to the brief visits from preferred staff members?
+reasoning: This care note highlights potential behavioural concerns due to the resident's withdrawal from activities and potential depression. While it mentions implemented strategies, further details are needed for a comprehensive understanding and effective care planning.
+scenario: behavioural_concern
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 37/50:
+Original: Resident attempted to push housekeeping staff down stairs. Immediately implemented fall prevention protocol and removed cleaning cart from area.
+Status Code: 200
+questions: True
+questions_data:
+  q1:
+    range:
+      max: 10
+      min: 1
+    text: On a scale of 1-10, how intense was the resident's attempt to push the staff member?
+  q2:
+    options:
+      - Yes, specific verbal threats
+      - Yes, non-specific verbal agitation
+      - Yes, changes in body language or demeanor
+      - No observable warning signs
+      - Other
+    text: Were there any verbalizations or warning signs from the resident before the physical aggression?
+  q3:
+    options:
+      - One-to-one supervision
+      - Use of assistive devices for mobility
+      - Environmental modifications
+      - Review and adjustment of medication
+      - Other
+    text: What specific fall prevention protocols were implemented in response to the incident?
+  q4:
+    options:
+      - Yes, documented history of similar incidents
+      - Yes, but not towards staff
+      - First recorded incident
+      - Unknown
+    text: Had the resident displayed any previous aggression towards staff or others?
+  q5:
+    options:
+      - Remained agitated and attempted to approach again
+      - Calmed down quickly
+      - Appeared confused or disoriented
+      - Became withdrawn and non-communicative
+      - Other
+    text: What was the resident's immediate reaction after the staff member moved away and the cleaning cart was removed?
+reasoning: This note describes a serious incident where the resident exhibited physical aggression towards housekeeping staff, indicating a high-risk situation requiring immediate intervention and further assessment.
+scenario: aggression_detected
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 38/50:
+Original: SIMVASTATIN 20mg tablets. Quantity given: 1.00. Directions: Take ONE tablet at bedtime. Reminded resident about grapefruit juice interaction.
+Status Code: 200
+enhanced_text: Administered 1 tablet of SIMVASTATIN 20mg as prescribed. Directions indicate one tablet to be taken at bedtime. The resident was reminded about the potential interaction between Simvastatin and grapefruit juice.
+questions: False
+reasoning: This note specifically mentions medication administration (Simvastatin) with dosage, directions, and additional counselling provided to the resident, classifying it as a medication-related care note.
+scenario: medication_related
+suggestions:
+  - Document the resident's understanding of the grapefruit juice interaction and any questions they may have.
+  - Monitor and document the resident's cholesterol levels to assess the effectiveness of the medication.
+  - Observe and record any potential side effects, particularly muscle aches or pain, and report them to the healthcare provider.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 39/50:
+Original: FUROSEMIDE 40mg tablets. Quantity given: 1.00. Directions: Take ONE tablet in the morning. Encouraged fluid intake.
+Status Code: 200
+enhanced_text: Administered 1 tablet of FUROSEMIDE 40mg as prescribed. Directions indicate one tablet to be taken each morning. The resident was encouraged to increase fluid intake.
+questions: False
+reasoning: This note specifically mentions medication administration (Furosemide) with dosage and directions, classifying it as a medication-related care note.
+scenario: medication_related
+suggestions:
+  - Monitor and document the resident's urine output and body weight following administration.
+  - Assess and record the resident's blood pressure before and after medication administration.
+  - Observe for potential side effects, particularly dizziness, weakness, or muscle cramps, and report any concerns promptly.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 40/50:
+Original: Resident expressed suspicion about medication, insisting it was poison. Involved resident in pill identification process with pharmacist to alleviate concerns.
+Status Code: 200
+enhanced_text: The resident expressed suspicion regarding their prescribed medication, verbalising a belief that it was poison. To address these concerns and alleviate their anxiety, the resident was actively involved in a pill identification process with the pharmacist. This intervention proved successful in mitigating the resident's immediate concerns.
+questions: False
+reasoning: This care note describes a behavioural concern where the resident exhibits suspicion and distrust towards medication. Although the situation was managed effectively, it highlights a potential underlying issue that requires monitoring and proactive care planning.
+scenario: behavioural_concern
+suggestions:
+  - Document the specific medication the resident was suspicious of and the reasons provided for their belief.
+  - Continue to monitor the resident for any recurring signs of medication distrust or anxiety related to medication administration.
+  - Collaborate with the resident, their family (if appropriate), and the healthcare team to develop strategies for addressing potential future concerns about medication.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 41/50:
+Original: Resident reluctant to participate in morning hygiene routine. Used picture cards to explain process, resident then cooperated.
+Status Code: 200
+enhanced_text: The resident exhibited reluctance to participate in their morning hygiene routine. To facilitate cooperation, picture cards were utilised to explain the process. Following this visual aid, the resident cooperated with the hygiene routine.
+questions: False
+reasoning: This care note indicates potential behavioural concerns as the resident displayed initial resistance to care, which could suggest anxiety, communication difficulties, or other underlying issues. While the situation was resolved positively, it's essential to document and monitor such instances for potential patterns or escalation.
+scenario: behavioural_concern
+suggestions:
+  - Identify potential reasons for the resident's initial reluctance towards the hygiene routine. This could involve assessing for pain, discomfort, communication barriers, or previous negative experiences.
+  - Continue using picture cards or other visual aids during the morning hygiene routine to support the resident's understanding and cooperation.
+  - Monitor the resident's response to the hygiene routine in the coming days and document any further instances of reluctance or if alternative strategies are required.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 42/50:
+Original: Resident used walker for ambulation to dining room. Gait steady, no falls.
+Status Code: 200
+enhanced_text: The resident ambulated to the dining room using a walker. Gait appeared steady, and no falls were observed.
+questions: False
+reasoning: This note describes a routine care activity (ambulation to the dining room) and the resident's mobility status without any mention of medication, behavioural concerns, or signs of aggression.
+scenario: normal_care
+suggestions:
+  - Document the distance the resident ambulated with the walker.
+  - Note any assistance required for turns or maneuvering in tight spaces.
+  - Assess and record the resident's level of independence in ambulation (e.g., independent, supervision, contact guard assistance).
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 43/50:
+Original: Resident refused to use walker, insisting on walking independently despite fall risk. Negotiated compromise of using walker in hallways only.
+Status Code: 200
+questions: True
+questions_data:
+  q1:
+    options:
+      - Feels walker is unnecessary
+      - Embarrassment or stigma
+      - Pain or discomfort
+      - Fear of dependence
+      - Other
+    text: What reason did the resident give for refusing to use the walker?
+  q2:
+    range:
+      max: 5
+      min: 1
+    text: On a scale of 1-5, how resistant was the resident to using the walker?
+  q3:
+    options:
+      - Very confident
+      - Somewhat unsteady
+      - Required assistance for balance
+      - High risk of falling
+      - Unable to observe
+    text: How confident did the resident appear when walking independently?
+  q4:
+    options:
+      - Yes, this is a new behaviour
+      - No, this is a recurring issue
+      - Unsure
+    text: Was the resident's refusal to use the walker a new behaviour?
+reasoning: This note describes a resident refusing a mobility aid and potential non-compliance with safety measures, indicating a behavioural concern. While a compromise was reached, it's important to understand the reasoning and assess for ongoing risks.
+scenario: behavioural_concern
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 44/50:
+Original: Resident participated in group exercise class. Showed improved balance during standing exercises.
+Status Code: 200
+enhanced_text: The resident actively participated in the scheduled group exercise class. Notably, they demonstrated improved balance during the standing exercises, indicating potential progress in their physical abilities.
+questions: False
+reasoning: This note describes the resident's participation in a group activity and highlights a positive change in their physical function (balance). It does not mention medication, behavioural concerns, or aggression.
+scenario: normal_care
+suggestions:
+  - Continue to encourage and facilitate the resident's participation in group exercise classes to further promote mobility and social interaction.
+  - Document the specific exercises included in the class and the resident's level of engagement with each activity.
+  - Regularly assess and document the resident's balance and overall functional mobility to track progress and adjust care plans as needed.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 45/50:
+Original: Encouraged resident to make choices about daily outfit. Selected blue shirt and gray pants.
+Status Code: 200
+enhanced_text: The resident was encouraged to participate in decision-making regarding their daily attire. They successfully selected a blue shirt and gray pants.
+questions: False
+reasoning: This note describes a routine interaction focused on supporting the resident's autonomy and independence in choosing their clothing, without any indication of medication administration, behavioural concerns, or aggression.  The suggestions aim to enhance the documentation of the resident's decision-making process and preferences.
+scenario: normal_care
+suggestions:
+  - Document the range or types of clothing options presented to the resident.
+  - Note any observed preferences for specific colours, styles, or fabrics.
+  - Consider incorporating assistive devices or adaptive clothing if needed to promote independence in dressing.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 46/50:
+Original: Resident resisted tooth brushing, clenching jaw shut. Used modeling technique and flavored toothpaste to encourage cooperation.
+Status Code: 200
+enhanced_text: The resident displayed resistance to tooth brushing by clenching their jaw shut. To encourage cooperation, a modelling technique was employed, and flavoured toothpaste was offered. 
+questions: False
+reasoning: This care note describes non-aggressive resistance to care, which is classified as a behavioural concern. The resident displayed resistance but not physical aggression. The note provides sufficient context and details about the intervention techniques used.
+scenario: behavioural_concern
+suggestions:
+  - Document the specific type of flavoured toothpaste used and the resident's response to it.
+  - Consider exploring alternative oral care methods, such as mouthwash or oral swabs, if jaw clenching persists.
+  - Assess for potential underlying causes of the resistance, such as dental pain or sensory sensitivities.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 47/50:
+Original: Resident refused SENNA 8.6mg tablets, citing stomach discomfort. Offered prune juice as alternative.
+Status Code: 200
+enhanced_text: The resident refused the administration of SENNA 8.6mg tablets, stating that they were experiencing stomach discomfort. As an alternative, prune juice was offered to address potential constipation.
+questions: False
+reasoning: This note describes a medication (SENNA) and its dosage, the resident's refusal, and the offered alternative, making it a medication-related care note.
+scenario: medication_related
+suggestions:
+  - Document the resident's bowel movements and any ongoing discomfort to monitor the effectiveness of the alternative approach.
+  - Consult with the resident's physician or a pharmacist regarding alternative bowel management options if discomfort persists or worsens.
+  - Assess the resident's understanding of SENNA's purpose and potential side effects to address any concerns and encourage future adherence.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 48/50:
+Original: While in garden area, resident uprooted plants and threw soil at staff. Redirected other residents indoors and used calm approach to de-escalate.
+Status Code: 200
+questions: True
+questions_data:
+  q1:
+    range:
+      max: 10
+      min: 1
+    text: On a scale of 1-10, how would you rate the intensity of the resident's aggressive behaviour?
+  q2:
+    options:
+      - Yes
+      - No
+      - Unable to determine
+    text: Did the resident verbalise any specific reasons for their actions or make any threats?
+  q3:
+    options:
+      - Environmental factors
+      - Social interaction
+      - Change in routine
+      - No apparent trigger
+      - Other
+    text: Were there any noticeable triggers or changes in the resident's demeanour before the incident?
+  q4:
+    options:
+      - Less than 5 minutes
+      - 5-10 minutes
+      - 10-15 minutes
+      - More than 15 minutes
+    text: How long did the aggressive behaviour last?
+reasoning: This care note is classified as an aggression scenario due to the resident's physical actions of uprooting plants and throwing soil at staff, which can be interpreted as aggressive and potentially harmful behaviour.
+scenario: aggression_detected
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 49/50:
+Original: Resident refused to take medications, expressing distrust. Took time to explain each medication and its purpose, resident then complied.
+Status Code: 200
+enhanced_text: The resident initially refused to take their prescribed medications, expressing distrust in the medication regimen. To address this, a detailed explanation of each medication, including its purpose and intended benefits, was provided to the resident. Following this comprehensive explanation, the resident agreed to take their medications as prescribed.
+questions: False
+reasoning: This note describes a behavioural concern where the resident initially refused medication due to distrust. While the situation was resolved through communication, it highlights a potential underlying concern that requires monitoring and proactive management.
+scenario: behavioural_concern
+suggestions:
+  - Investigate the root cause of the resident's distrust in medications. This could involve exploring past experiences, concerns about side effects, or communication barriers.
+  - Document the resident's specific concerns and the information provided to address them. This promotes transparency and consistency in care.
+  - Consider involving family members or trusted individuals in medication discussions to build trust and encourage adherence.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 50/50:
+Original: Changed wound dressing on left shin. Area appears to be healing well, no signs of infection.
+Status Code: 200
+enhanced_text: The wound dressing on the resident's left shin was changed. The wound area appears to be healing well, with no visual signs of infection observed.
+questions: False
+reasoning: This note describes a routine wound care procedure and the wound's healing progress without any mention of medication, behavioural concerns, or signs of aggression.
+scenario: normal_care
+suggestions:
+  - Document the size and appearance of the wound in detail, including colour, odour, and any discharge.
+  - Note the type of dressing applied and any solutions used during the procedure.
+  - Record the resident's pain level during the dressing change and any interventions provided for pain management.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 51/50:
+Original: Observed resident scratching skin excessively. Applied moisturizer and provided stress ball as alternative sensory stimulation.
+Status Code: 200
+questions: True
+questions_data:
+  q1:
+    options:
+      - Arms
+      - Legs
+      - Torso
+      - Head/Face
+      - Multiple areas
+      - Other
+    text: What areas of the body were affected by the excessive scratching?
+  q2:
+    options:
+      - Redness
+      - Rashes
+      - Broken skin/bleeding
+      - Scabs
+      - None observed
+      - Other
+    text: Were there any visible signs of skin irritation or injury due to scratching?
+  q3:
+    range:
+      max: 5
+      min: 1
+    text: On a scale of 1-5, how intense or frequent was the scratching behaviour?
+  q4:
+    options:
+      - Complained of itching
+      - Seemed anxious/agitated
+      - Appeared unaware of scratching
+      - Verbalized other discomfort
+      - No explanation offered
+      - Other
+    text: Did the resident offer any explanation for the scratching or seem distressed?
+reasoning: This care note indicates potential behavioural concern due to the resident's excessive scratching, which could be a sign of anxiety, discomfort, or other underlying issues. The note describes the care provider's actions to address the scratching but lacks details about the severity, location, and potential triggers, prompting further questions.
+scenario: behavioural_concern
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 52/50:
+Original: Encouraged use of hearing aids. Resident more engaged in conversations when wearing them.
+Status Code: 200
+enhanced_text: The resident was encouraged to use their hearing aids. A positive impact was observed, with the resident demonstrating increased engagement in conversations while wearing the hearing aids.
+questions: False
+reasoning: This note describes a positive intervention (encouraging hearing aid use) and its impact on the resident's social engagement, without involving medication, behavioural concerns, or aggression.
+scenario: normal_care
+suggestions:
+  - Continue to encourage and facilitate hearing aid use, particularly during social interactions and activities.
+  - Regularly assess the resident's hearing aid fit and battery functionality to ensure optimal performance.
+  - Observe and document any specific communication challenges or improvements while the resident is using their hearing aids.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 53/50:
+Original: Resident entered another resident's room and became physically aggressive when asked to leave. Required staff intervention to safely remove.
+Status Code: 200
+questions: True
+questions_data:
+  q1:
+    options:
+      - Pushing
+      - Hitting
+      - Kicking
+      - Biting
+      - Scratching
+      - Other
+    text: What specific aggressive actions did the resident take towards the other resident?
+  q2:
+    range:
+      max: 10
+      min: 1
+    text: On a scale of 1-10, how would you rate the intensity of the resident's aggression?
+  q3:
+    options:
+      - Yes
+      - No
+      - Unknown
+    text: Did the resident verbalise any threats or express anger verbally?
+  q4:
+    options:
+      - Immediate aggression
+      - Verbal resistance followed by aggression
+      - Became agitated then aggressive
+      - Other
+    text: What was the resident's response to being asked to leave the other resident's room?
+  q5:
+    options:
+      - Verbal de-escalation
+      - Physical guidance
+      - Distraction techniques
+      - Separation of residents
+      - Other
+    text: What specific interventions did staff use to safely remove the resident?
+reasoning: This care note is classified as an aggression scenario due to the resident's physical aggression towards another resident, requiring staff intervention for safety. While some information is provided, there are gaps in understanding the full context, triggers, and specific details of the incident and its resolution.
+scenario: aggression_detected
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 54/50:
+Original: Administered ALBUTEROL 2.5mg via nebulizer for shortness of breath. O2 saturation improved from 92% to 97%.
+Status Code: 200
+enhanced_text: Administered 2.5mg of ALBUTEROL via nebulizer for reported shortness of breath. Following administration, the resident's oxygen saturation showed improvement, increasing from 92% to 97%.
+questions: False
+reasoning: This note focuses on the administration of ALBUTEROL and its effect on the resident's oxygen saturation levels, making it a medication-related care note.
+scenario: medication_related
+suggestions:
+  - Document the resident's respiratory rate, rhythm, and effort before and after ALBUTEROL administration.
+  - Note any audible wheezing or coughing, and whether these symptoms improved after treatment.
+  - Record the duration of shortness of breath and any potential triggers identified.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 55/50:
+Original: Engaged resident in reminiscence therapy using old photographs. Shared stories about childhood.
+Status Code: 200
+enhanced_text: Engaged the resident in a session of reminiscence therapy using old photographs as visual prompts. The resident actively participated, sharing detailed stories and memories from their childhood.
+questions: False
+reasoning: This note describes a routine therapeutic activity (reminiscence therapy) and the resident's positive engagement, without any indication of medication, behavioural concerns, or aggression.
+scenario: normal_care
+suggestions:
+  - Document the specific themes or topics discussed during the reminiscence therapy session to track the resident's areas of interest and engagement.
+  - Observe and note the resident's emotional responses and nonverbal cues during the session to gain further insights into their well-being.
+  - Consider incorporating familiar objects, music, or scents from the resident's past into future reminiscence therapy sessions to enhance engagement and evoke positive memories.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 56/50:
+Original: In an agitated state, resident attempted to push over large bookcase in common area, endangering nearby residents. Staff quickly intervened to prevent injury and property damage.
+Status Code: 200
+questions: True
+questions_data:
+  q1:
+    range:
+      max: 10
+      min: 1
+    text: On a scale of 1-10, how would you rate the intensity of the resident's agitation and physical force used during the incident?
+  q2:
+    options:
+      - Environmental factors (e.g., noise, crowding)
+      - Social interactions
+      - Changes in routine
+      - Specific unmet needs
+      - No identifiable trigger
+      - Other
+    text: Were there any observable triggers or preceding events that may have contributed to the resident's agitated state and aggressive behaviour?
+  q3:
+    options:
+      - Verbal redirection
+      - Physical guidance
+      - Distraction techniques
+      - Removal from the common area
+      - Other
+    text: What specific de-escalation techniques did staff employ to prevent injury and property damage?
+  q4:
+    options:
+      - Calmed down
+      - Remained agitated
+      - Became verbally aggressive
+      - Became withdrawn
+      - Other
+    text: How did the resident respond to staff intervention immediately following the incident?
+  q5:
+    options:
+      - Yes, documented history of similar incidents
+      - Yes, known risk factors (e.g., cognitive impairment, history of trauma)
+      - No documented history or known risk factors
+      - Information not available
+    text: Does the resident have a documented history of similar aggressive behaviours or any known risk factors for aggression?
+reasoning: This note is classified as an aggression scenario due to the resident's physically aggressive act of attempting to push over a bookcase, which posed a direct threat to the safety of other residents in the common area. While the note provides a concise overview of the incident and its resolution, further details are crucial for understanding the context, potential triggers, and the resident's state following the incident.
+scenario: aggression_detected
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 57/50:
+Original: During group activity, resident became verbally disruptive, speaking loudly and off-topic. Offered one-on-one activity in quieter space.
+Status Code: 200
+questions: True
+questions_data:
+  q1:
+    options:
+      - Personal matters
+      - Delusions/Hallucinations
+      - Repetitive phrases
+      - Unrelated to activity
+      - Other
+    text: What specific topics was the resident discussing when speaking off-topic?
+  q2:
+    range:
+      max: 5
+      min: 1
+    text: On a scale of 1-5, how would you rate the intensity of the resident's disruptive behaviour?
+  q3:
+    options:
+      - Unfazed
+      - Distressed/Anxious
+      - Joined in
+      - Left the activity
+      - Other
+    text: How did other residents react to the disruptive behaviour?
+  q4:
+    options:
+      - Became calmer
+      - Remained the same
+      - Became more agitated
+      - Refused the offer
+      - Other
+    text: Did the resident's behaviour escalate after being offered a one-on-one activity?
+reasoning: This care note is classified as a behavioural concern due to the resident's disruptive behaviour during a group activity. While the note provides some context, additional information is required to understand the situation fully and provide relevant suggestions.
+scenario: behavioural_concern
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 58/50:
+Original: LATANOPROST 50mcg/ml eye drops. Administered ONE drop in each eye at bedtime.
+Status Code: 200
+enhanced_text: Administered one drop of LATANOPROST 50mcg/ml eye drops to each eye at bedtime, as prescribed.
+questions: False
+reasoning: This note specifically describes the administration of LATANOPROST eye drops, including the dosage and time of administration, making it a medication-related care note.
+scenario: medication_related
+suggestions:
+  - Document the resident's response to the eye drops, including any reported side effects such as eye irritation, redness, or changes in vision.
+  - Ensure proper hand hygiene and technique when administering eye drops to prevent contamination.
+  - Monitor the resident's intraocular pressure regularly, as LATANOPROST is typically prescribed for glaucoma management.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 59/50:
+Original: During meal time, resident threw hot coffee at another resident. Promptly addressed burns and separated individuals.
+Status Code: 200
+questions: True
+questions_data:
+  q1:
+    range:
+      max: 10
+      min: 1
+    text: On a scale of 1-10, how would you rate the intensity of the resident's aggression, considering the act of throwing hot coffee?
+  q2:
+    options:
+      - Verbal altercation
+      - Refusal of food
+      - Environmental triggers
+      - No noticeable changes
+      - Other
+    text: What were the specific circumstances leading up to the resident throwing the coffee? Were there any verbal exchanges or noticeable changes in the resident's demeanour beforehand?
+  q3:
+    options:
+      - Minor (requiring basic first aid)
+      - Moderate (requiring further medical attention)
+      - Severe (requiring hospitalization)
+      - Unknown
+    text: What is the extent and severity of the burns sustained by the other resident?
+  q4:
+    options:
+      - Verbal de-escalation
+      - Physical restraint (if necessary and appropriate)
+      - Relocation to a calming environment
+      - Other
+    text: How did the staff respond to the situation after separating the residents? Were any de-escalation techniques used for the aggressor?
+  q5:
+    options:
+      - Yes, history of aggression
+      - Yes, mealtime-specific triggers
+      - No documented history
+      - Unknown
+    text: Does the resident have a history of aggressive behaviour, particularly during meal times? Are there any documented triggers or interventions in their care plan?
+reasoning: This note describes a serious incident where the resident exhibited physical aggression by throwing hot coffee at another resident, resulting in the need to address burns. This action clearly constitutes aggression and requires further investigation and documentation.
+scenario: aggression_detected
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 60/50:
+Original: Assisted with repositioning in bed every 2 hours. No skin breakdown observed.
+Status Code: 200
+enhanced_text: Assisted the resident with repositioning in bed at 2-hourly intervals. No signs of skin breakdown were observed during the repositioning process.
+questions: False
+reasoning: This note describes routine care activities (repositioning) and a positive observation (no skin breakdown) without any indication of medication, behavioural concerns, or aggression. The suggestions aim to enhance the note's informativeness regarding pressure ulcer prevention and documentation.
+scenario: normal_care
+suggestions:
+  - Document the specific position the resident was placed in after each repositioning.
+  - Note any areas of redness or pressure observed, even if minimal, to track potential skin integrity issues.
+  - Record the use of pressure-relieving devices or supports, if applicable, to provide a comprehensive account of pressure ulcer prevention measures.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 61/50:
+Original: During physical therapy session, resident kicked therapist and attempted to push over equipment. Session terminated, will reassess approach.
+Status Code: 200
+questions: True
+questions_data:
+  q1:
+    range:
+      max: 10
+      min: 1
+    text: On a scale of 1-10, how intense was the resident's aggression during the outburst?
+  q2:
+    options:
+      - A particular exercise
+      - Physical touch
+      - Verbal instruction
+      - No clear trigger
+      - Other
+    text: What specific actions or words immediately preceded the resident's aggressive behaviour?
+  q3:
+    options:
+      - Expressed pain
+      - Frustration with the exercise
+      - Disorientation
+      - No verbal explanation
+      - Other
+    text: Did the resident verbalise any reason for their actions during or after the incident?
+  q4:
+    options:
+      - Used specific de-escalation techniques
+      - Maintained a safe distance
+      - Documented the incident immediately
+      - Informed medical staff
+      - Other
+    text: How did the therapist respond to the resident's aggression, beyond terminating the session?
+reasoning: This note describes physical aggression towards the therapist and equipment, indicating a potentially dangerous situation requiring further assessment.
+scenario: aggression_detected
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 62/50:
+Original: Resident had aggressive outburst in TV room, breaking television and threatening others with broken pieces. Evacuated area and called for emergency assistance.
+Status Code: 200
+questions: True
+questions_data:
+  q1:
+    range:
+      max: 10
+      min: 1
+    text: On a scale of 1-10, how would you rate the intensity of the resident's aggression during the outburst?
+  q2:
+    options:
+      - Pacing
+      - Increased agitation
+      - Verbal outbursts
+      - Changes in demeanor
+      - No noticeable changes
+      - Other
+    text: What specific behaviours or actions were observed leading up to the resident breaking the television?
+  q3:
+    options:
+      - Specific television program
+      - Interactions with other residents
+      - Environmental factors
+      - Staff interaction
+      - No identifiable trigger
+      - Other
+    text: Were there any identifiable triggers or events that may have precipitated the resident's aggressive outburst?
+  q4:
+    options:
+      - None
+      - 1-3
+      - 4-6
+      - 7-9
+      - 10 or more
+    text: How many other residents were present in the TV room during the incident?
+  q5:
+    options:
+      - Verbal redirection
+      - Offering alternative activities
+      - Providing a quiet space
+      - No de-escalation attempted
+      - Other
+    text: What specific de-escalation techniques were attempted before the need for evacuation?
+reasoning: This care note is classified as an aggression scenario due to the resident's destructive behaviour (breaking the television) and explicit threats towards others, indicating a high risk of harm. While the note captures the immediate actions taken, further details are crucial for understanding the incident and preventing future occurrences.
+scenario: aggression_detected
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 63/50:
+Original: Observed resident pacing in hallway, appearing confused. Gently redirected back to room and oriented to time and place.
+Status Code: 200
+enhanced_text: The resident was observed pacing in the hallway, exhibiting signs of confusion. Staff intervened by gently redirecting the resident back to their room. Upon returning to their room, the resident was oriented to time and place.
+questions: False
+reasoning: This care note describes potential disorientation and agitation (pacing), which are classified as behavioural concerns. The note provides a good overview of the situation and the caregiver's response, allowing for direct enhancement without additional questions.
+scenario: behavioural_concern
+suggestions:
+  - Document the time and duration of the pacing behaviour for future reference and pattern identification.
+  - Assess and record the resident's level of confusion using a standardized tool, such as the Confusion Assessment Method (CAM).
+  - Consider implementing environmental modifications, such as clear signage or familiar objects, to aid in orientation and reduce confusion.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 64/50:
+Original: Observed resident repetitively opening and closing drawers, appearing distressed. Provided purposeful activity of sorting colored items to redirect behavior.
+Status Code: 200
+questions: True
+questions_data:
+  q1:
+    options:
+      - Facial expressions of anxiety or sadness
+      - Verbalizations of distress
+      - Tearfulness
+      - Increased agitation
+      - Other
+    text: What specific emotions or behaviours suggested the resident was distressed?
+  q2:
+    range:
+      max: 5
+      min: 1
+    text: On a scale of 1-5, how would you rate the intensity of the resident's distress and repetitive behaviour?
+  q3:
+    options:
+      - Less than 5 minutes
+      - 5-10 minutes
+      - 10-20 minutes
+      - More than 20 minutes
+      - Unknown
+    text: How long did the resident engage in the repetitive drawer opening and closing before the intervention?
+  q4:
+    options:
+      - Engaged calmly and for how long?
+      - Showed initial interest but quickly disengaged
+      - Refused to participate
+      - Became more agitated
+      - Other
+    text: How did the resident respond to the purposeful activity of sorting coloured items?
+reasoning: This care note describes a resident exhibiting repetitive behaviour and appearing distressed, which are indicative of potential behavioural concerns. The note provides a good starting point but lacks details about the resident's specific emotional state and the effectiveness of the intervention.
+scenario: behavioural_concern
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 65/50:
+Original: Resident complained of difficulty swallowing POTASSIUM CHLORIDE tablet. Switched to liquid form as per doctor's order.
+Status Code: 200
+enhanced_text: The resident reported difficulty swallowing their prescribed POTASSIUM CHLORIDE tablet. Following a doctor's order, the medication was switched to liquid form to facilitate easier administration.
+questions: False
+reasoning: This note describes a change in medication administration due to the resident experiencing difficulty swallowing a tablet. It involves a medication (POTASSIUM CHLORIDE), the reason for the change, and the healthcare professional's involvement, making it a medication-related care note.
+scenario: medication_related
+suggestions:
+  - Document the specific dosage and frequency of the liquid POTASSIUM CHLORIDE as per the doctor's order.
+  - Monitor the resident for any persistent swallowing difficulties or other side effects after administering the medication in liquid form.
+  - Assess the resident's understanding of the medication change and provide clear instructions on how to take the liquid form correctly.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 66/50:
+Original: Performed range of motion exercises. Noted increased flexibility in right shoulder.
+Status Code: 200
+enhanced_text: A series of range of motion exercises were performed with the resident.  An increase in flexibility was observed in the right shoulder.
+questions: False
+reasoning: This note describes a routine physical therapy session focusing on range of motion exercises and does not mention medication, behavioural concerns, or aggression. The suggestions aim to enhance the documentation of the resident's progress and the effectiveness of the interventions.
+scenario: normal_care
+suggestions:
+  - Specify the particular range of motion exercises performed during the session.
+  - Quantify the improvement in right shoulder flexibility, if possible, using objective measurements (e.g., degrees of motion).
+  - Document the resident's tolerance and response to the exercises, noting any discomfort or limitations.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 67/50:
+Original: Resident expressed paranoid thoughts about staff 'stealing' belongings. Validated feelings and conducted room search together to alleviate concerns.
+Status Code: 200
+enhanced_text: The resident expressed paranoid thoughts, verbalising a belief that staff members were 'stealing' their belongings. Staff responded by validating the resident's feelings and offering reassurance. To further alleviate the resident's concerns, staff conducted a thorough room search together with the resident. This collaborative approach successfully addressed the resident's immediate anxieties related to their belongings.
+questions: False
+reasoning: This care note describes a behavioural concern as the resident exhibited paranoid thoughts, which can be distressing and disruptive. The note provides sufficient context and details about the intervention and its effectiveness, allowing for direct enhancement without further questions.
+scenario: behavioural_concern
+suggestions:
+  - Continue to monitor the resident for any recurrence of paranoid thoughts or behaviours.
+  - Document and report any specific items the resident is concerned about, as well as any patterns or triggers for these thoughts.
+  - Consider involving mental health professionals for further assessment and support if the paranoid ideation persists or escalates.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 68/50:
+Original: Observed resident exhibiting inappropriate sexual behavior towards staff. Redirected with firm but respectful boundary setting.
+Status Code: 500
+Error: Failed to enhance care note
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 69/50:
+Original: In a confused state, resident struck out at multiple staff members, causing minor injuries. Implemented team approach for safe management.
+Status Code: 200
+questions: True
+questions_data:
+  q1:
+    options:
+      - Hitting with hand(s)
+      - Kicking
+      - Scratching
+      - Biting
+      - Other
+    text: What specific actions were involved in the resident striking out (e.g., hitting, kicking, scratching)?
+  q2:
+    range:
+      max: 10
+      min: 1
+    text: On a scale of 1-10, how would you rate the intensity of the resident's aggression?
+  q3:
+    options:
+      - Scratches
+      - Bruises
+      - Bites
+      - Sprains
+      - Other
+    text: What were the specific minor injuries sustained by staff members?
+  q4:
+    options:
+      - Verbal de-escalation
+      - Physical restraint (with physician order)
+      - Distraction techniques
+      - Removal of triggers
+      - Other
+    text: What specific interventions were included in the team approach for safe management?
+  q5:
+    options:
+      - Care activity (specify)
+      - Environmental factors
+      - Change in routine
+      - Pain or discomfort
+      - No identifiable trigger
+      - Other
+    text: Were there any identifiable triggers or events leading up to the resident's aggressive behaviour?
+reasoning: This note describes a resident striking out at staff and causing injuries, which clearly constitutes physical aggression. However, further details are needed to understand the context, severity, and triggers for this behaviour.
+scenario: aggression_detected
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 70/50:
+Original: Resident had severe reaction to bathing, screaming and striking out at multiple caregivers. Suspended bathing and consulted with behavioral specialist for new care plan.
+Status Code: 200
+enhanced_text: The resident exhibited a severe negative reaction during a bathing attempt, characterized by screaming and striking out at multiple caregivers. Due to the intensity of the resident's reaction, bathing was immediately suspended. A consultation with a behavioural specialist has been initiated to develop a new, individualized care plan that addresses the resident's specific needs and sensitivities related to bathing.
+questions: False
+reasoning: This note describes a severe reaction involving both verbal (screaming) and physical aggression (striking out) towards multiple caregivers. The severity of the reaction and the involvement of a behavioural specialist indicate a significant concern.
+scenario: aggression_detected
+suggestions:
+  - Document the specific triggers during the bathing attempt (e.g., water temperature, specific caregiving actions) that may have elicited the aggressive reaction.
+  - Carefully observe and document the resident's behaviour during any other personal care tasks to identify potential sensitivities or triggers beyond bathing.
+  - Implement a consistent approach to bathing and personal care, following the recommendations of the behavioural specialist and ensuring all caregivers are trained on the new care plan.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 71/50:
+Original: During physical confrontation with another resident, individual picked up and threw a chair. Staff intervened to separate residents and secure area.
+Status Code: 200
+questions: True
+questions_data:
+  q1:
+    range:
+      max: 10
+      min: 1
+    text: On a scale of 1-10, how would you rate the intensity of the resident's aggression during this incident?
+  q2:
+    options:
+      - Disagreement over belongings
+      - Competition for resources
+      - Invasion of personal space
+      - Verbal altercation escalated
+      - Unknown
+      - Other
+    text: What were the specific events or interactions that led up to the physical confrontation between the residents?
+  q3:
+    options:
+      - Verbal redirection
+      - Physical barriers
+      - Removal of one resident
+      - Restraint used (specify type)
+      - Other
+    text: What specific de-escalation techniques were used by staff to separate the residents and secure the area?
+  q4:
+    options:
+      - No injuries
+      - Minor injuries (specify)
+      - Major injuries (specify)
+      - Unknown
+    text: Were there any injuries to the resident, the other resident involved, or staff members as a result of the incident?
+  q5:
+    options:
+      - No prior history
+      - Previous verbal aggression
+      - Previous physical aggression (similar/different)
+      - History of property damage
+      - Unknown
+    text: Does the resident have a history of similar aggressive behaviours, and if so, what interventions have been effective in the past?
+reasoning: This note describes a serious incident involving physical aggression where the resident threw a chair during a confrontation, posing a significant risk to others. While the note provides a basic outline, further details are crucial for understanding the incident's context, triggers, and effective interventions.
+scenario: aggression_detected
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 72/50:
+Original: AMLODIPINE 5mg tablets. Quantity given: 1.00. Directions: Take ONE tablet daily. BP before administration: 150/90 mmHg.
+Status Code: 200
+enhanced_text: Administered 1 tablet of AMLODIPINE 5mg as prescribed. Directions indicate one tablet to be taken daily. The resident's blood pressure before administration was recorded as 150/90 mmHg.
+questions: False
+reasoning: This note specifically mentions medication administration (AMLODIPINE) with dosage, directions, and blood pressure recording, classifying it as a medication-related care note.
+scenario: medication_related
+suggestions:
+  - Monitor and document the resident's blood pressure after administration to assess the medication's effectiveness.
+  - Ensure consistent timing of daily administration for optimal blood pressure control.
+  - Observe and record any potential side effects, such as dizziness, swelling in the legs or ankles, or flushing.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 73/50:
+Original: GABAPENTIN 300mg capsules. Quantity given: 1.00. Directions: Take ONE capsule three times daily. Resident reported reduced nerve pain.
+Status Code: 200
+enhanced_text: Administered 1 capsule of GABAPENTIN 300mg as prescribed. Directions indicate one capsule to be taken three times daily. The resident reported a reduction in nerve pain following administration.
+questions: False
+reasoning: This note focuses on the administration of GABAPENTIN, including dosage and frequency, and the resident's response to the medication, making it a medication-related care note.
+scenario: medication_related
+suggestions:
+  - Document the severity of the resident's nerve pain before and after medication administration using a pain scale (e.g., 0-10) for better pain management.
+  - Monitor for potential side effects of GABAPENTIN, such as dizziness or drowsiness, and document any observed effects.
+  - If nerve pain persists or worsens, consider consulting the prescribing physician for potential dosage adjustments or alternative pain management strategies.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 74/50:
+Original: Administered insulin 10 units subcutaneously before breakfast as per sliding scale. Blood sugar was 180 mg/dL.
+Status Code: 200
+enhanced_text: Administered 10 units of insulin subcutaneously before breakfast as per the sliding scale protocol. Blood glucose level prior to administration was 180 mg/dL.
+questions: False
+reasoning: This note focuses on the administration of insulin, a medication, based on the resident's blood sugar level, making it a medication-related care note.
+scenario: medication_related
+suggestions:
+  - Document the type of insulin administered for complete record-keeping.
+  - Note the time of administration in relation to the meal for better tracking of insulin action.
+  - Monitor and document the resident's blood glucose levels after administration as per the sliding scale protocol.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 75/50:
+Original: LEVOTHYROXINE 50mcg tablets. Quantity given: 1.00. Directions: Take ONE tablet daily on an empty stomach.
+Status Code: 200
+enhanced_text: Administered 1 tablet of LEVOTHYROXINE 50mcg as prescribed. Directions indicate one tablet to be taken daily on an empty stomach.
+questions: False
+reasoning: This note specifically mentions medication administration (LEVOTHYROXINE) with dosage and directions, classifying it as a medication-related care note.
+scenario: medication_related
+suggestions:
+  - Monitor and document the resident's response to the medication, including any changes in energy levels, weight, or mood.
+  - Ensure the medication is taken at least 30 minutes before breakfast to optimise absorption.
+  - Observe and record any potential side effects, such as rapid heartbeat, tremors, or difficulty sleeping.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 76/50:
+Original: DONEPEZIL 10mg tablets. Quantity given: 1.00. Directions: Take ONE tablet at bedtime. Resident reported vivid dreams.
+Status Code: 200
+enhanced_text: Administered 1 tablet of DONEPEZIL 10mg as prescribed. Directions indicate one tablet to be taken at bedtime. The resident reported experiencing vivid dreams.
+questions: False
+reasoning: This note combines medication administration details (DONEPEZIL 10mg, quantity, and directions) with a reported side effect (vivid dreams), making it a medication-related care note.
+scenario: medication_related
+suggestions:
+  - Assess the frequency and severity of the reported vivid dreams.
+  - Document and report the resident's experience to the prescribing physician.
+  - Consider potential interventions in consultation with the physician if the side effect is bothersome or impacting sleep quality.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 77/50:
+Original: Resident became extremely agitated during personal care, biting caregiver's arm. Care suspended, wound treated, and behavior management plan reviewed.
+Status Code: 200
+enhanced_text: The resident became extremely agitated during personal care and exhibited physical aggression by biting the caregiver's arm. Care was immediately suspended to ensure the safety of the caregiver. The caregiver's wound was then treated appropriately. Following the incident, the resident's behaviour management plan was reviewed to determine necessary adjustments and prevent future occurrences.
+questions: True
+questions_data:
+  q1:
+    options:
+      - Bathing
+      - Dressing
+      - Toileting
+      - Grooming
+      - Other
+    text: What specific personal care task was being performed immediately prior to the resident biting the caregiver?
+  q2:
+    range:
+      max: 10
+      min: 1
+    text: On a scale of 1-10, how would you rate the severity of the bite, considering factors like skin breakage, bleeding, and the need for medical intervention?
+  q3:
+    options:
+      - Refusal of care
+      - Facial expressions of pain
+      - Changes in environment
+      - No identifiable triggers
+      - Other
+    text: Were there any observable precursors or triggers to the resident's agitation, such as changes in demeanour, verbalizations, or environmental factors?
+  q4:
+    options:
+      - Verbal reassurance
+      - Redirection
+      - Offering choices
+      - Temporary cessation of care
+      - Other
+    text: What specific de-escalation techniques were attempted before the biting incident occurred?
+  q5:
+    options:
+      - Environmental adjustments
+      - Communication strategies
+      - Pain management assessment
+      - Alternative care approaches
+      - Other
+    text: What modifications or additions to the resident's behaviour management plan were considered or implemented following the review?
+reasoning: This note describes a serious incident where the resident exhibited physical aggression by biting the caregiver. The resident's behaviour— biting—is clearly aggressive and requires further assessment and management strategies.
+scenario: aggression_detected
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 78/50:
+Original: During family visit, resident became emotionally overwhelmed and asked visitors to leave. Provided support and gradually reintroduced visitors in shorter sessions.
+Status Code: 200
+enhanced_text: During a family visit, the resident became emotionally overwhelmed and requested that the visitors leave. Staff provided emotional support to the resident. Following this, a gradual reintroduction of visitors was facilitated, utilising shorter visit durations to minimise potential for further distress.  
+questions: False
+reasoning: This care note describes a situation where the resident experienced emotional distress and exhibited avoidance behaviour, indicating a potential behavioural concern. The note provides sufficient context and details about the intervention strategies used, allowing for direct enhancement without the need for additional questions.
+scenario: behavioural_concern
+suggestions:
+  - Assess and document the resident's emotional state before, during, and after future family visits to identify potential triggers and evaluate coping mechanisms.
+  - Collaborate with the resident and family to develop a personalised visitation plan that includes agreed-upon boundaries, time limits, and strategies for managing emotional well-being.
+  - Consider providing the resident with tools or techniques for managing emotional overwhelm, such as relaxation exercises, communication strategies, or access to quiet spaces.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 79/50:
+Original: Resident became agitated during evening care, refusing to change clothes. Calmed after 20 minutes of reassurance and offering choices.
+Status Code: 200
+questions: True
+questions_data:
+  q1:
+    options:
+      - Verbal outbursts
+      - Pacing or restlessness
+      - Resistant movements
+      - Facial expressions of distress
+      - Other
+    text: What specific behaviours indicated the resident's agitation?
+  q2:
+    range:
+      max: 5
+      min: 1
+    text: On a scale of 1-5, how would you rate the intensity of the resident's agitation?
+  q3:
+    options:
+      - Choice of clothing
+      - Alternative activities
+      - Time to calm down
+      - Sensory comfort items
+      - Other
+    text: What specific choices were offered to the resident during the de-escalation process?
+reasoning: This care note is classified as a behavioural concern due to the resident's agitation and refusal of care, which are indicative of potential distress. The note provides a good basis for understanding the situation but lacks specifics about the resident's behaviour and the strategies used.
+scenario: behavioural_concern
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 80/50:
+Original: CLOPIDOGREL 75mg tablets. Quantity given: 1.00. Directions: Take ONE tablet daily. Monitored for any unusual bruising.
+Status Code: 200
+enhanced_text: Administered 1 tablet of CLOPIDOGREL 75mg as prescribed. Directions indicate one tablet to be taken daily. The resident was monitored for any unusual bruising, a potential side effect of the medication.
+questions: False
+reasoning: This note focuses on the administration of CLOPIDOGREL, including dosage and instructions, and mentions monitoring for a side effect (bruising), making it a medication-related care note.
+scenario: medication_related
+suggestions:
+  - Document the location and extent of any observed bruising, even if minimal.
+  - Educate the resident about the importance of reporting any signs of bleeding or bruising.
+  - Ensure regular blood work monitoring is scheduled as per the physician's orders to assess for any potential adverse effects related to CLOPIDOGREL.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 81/50:
+Original: Resident brandished cane as weapon, swinging at staff who approached. Used verbal de-escalation from a safe distance.
+Status Code: 200
+questions: True
+questions_data:
+  q1:
+    range:
+      max: 10
+      min: 1
+    text: On a scale of 1-10, how would you rate the intensity of the resident's aggression during this incident?
+  q2:
+    options:
+      - Reassurance
+      - Distraction
+      - Validation of feelings
+      - Setting clear boundaries
+      - Other
+    text: What specific verbal de-escalation techniques were used?
+  q3:
+    options:
+      - Refusal of care
+      - Environmental factors
+      - Change in routine
+      - Pain or discomfort
+      - No identifiable trigger
+      - Other
+    text: Were there any identifiable triggers or events that preceded the resident brandishing the cane?
+  q4:
+    options:
+      - Less than 1 minute
+      - 1-5 minutes
+      - 5-10 minutes
+      - More than 10 minutes
+      - Not recorded
+    text: How long did the aggressive behaviour last?
+  q5:
+    options:
+      - Yes, physical intervention was necessary
+      - Yes, restraints were used
+      - No, verbal de-escalation was sufficient
+      - Not documented
+    text: Did the resident require any physical interventions or restraints to manage the aggression?
+reasoning: This note is classified as an aggression scenario due to the resident's use of a cane as a weapon and actively swinging it at approaching staff. This behaviour clearly indicates physical aggression and a potential risk to staff safety.
+scenario: aggression_detected
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 82/50:
+Original: During group activity, resident suddenly overturned table and began throwing objects at others. Evacuated other residents and contained situation.
+Status Code: 200
+questions: True
+questions_data:
+  q1:
+    range:
+      max: 10
+      min: 1
+    text: On a scale of 1-10, how would you rate the intensity of the resident's aggression during this incident?
+  q2:
+    options:
+      - Lightweight objects (e.g., pillows, soft toys)
+      - Household items (e.g., books, utensils)
+      - Heavy or sharp objects (e.g., furniture, glass items)
+      - Other
+    text: What specific objects were thrown by the resident, and were any of them potentially dangerous?
+  q3:
+    options:
+      - Change in demeanour or mood
+      - Disagreement or frustration during the activity
+      - Environmental factors (e.g., noise, crowding)
+      - No noticeable triggers
+      - Other
+    text: Were there any observable triggers or warning signs before the resident's aggressive outburst?
+  q4:
+    options:
+      - Less than 5 minutes
+      - 5-10 minutes
+      - 10-15 minutes
+      - More than 15 minutes
+      - Not recorded
+    text: How long did it take for staff to fully contain the situation and ensure the safety of all residents?
+  q5:
+    options:
+      - Yes, medical attention required
+      - Yes, minor injuries observed
+      - No injuries reported
+      - Not assessed
+    text: Did the resident require any medical attention or exhibit any injuries following the incident?
+reasoning: This care note is classified as an aggression scenario due to the resident's physically aggressive actions of overturning a table and throwing objects at others. These actions pose a direct threat to the safety of the resident and those around them.
+scenario: aggression_detected
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 83/50:
+Original: Resident refused to take shower, expressing fear of water. Used bed bath method with resident's cooperation.
+Status Code: 200
+enhanced_text: The resident refused to take a shower, expressing fear of water.  A bed bath was administered with the resident's cooperation.
+questions: False
+reasoning: This care note describes a behavioural concern where the resident exhibited fear and refusal of a routine activity. The situation was managed effectively with an alternative approach, and the note provides sufficient context.
+scenario: behavioural_concern
+suggestions:
+  - Explore the reasons behind the resident's fear of water. It could stem from a past negative experience, a change in cognitive abilities, or a medical condition.
+  - Consider introducing gradual exposure to water in a controlled and supportive environment to help alleviate the resident's fear.
+  - Document the resident's preferred bathing methods and any specific fears or concerns related to hygiene routines in the care plan.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 84/50:
+Original: During medication administration, resident knocked medication cup out of nurse's hand and threatened to 'punch' if approached again.
+Status Code: 200
+questions: True
+questions_data:
+  q1:
+    range:
+      max: 10
+      min: 1
+    text: On a scale of 1-10, how would you rate the intensity of the resident's aggressive behaviour?
+  q2:
+    options:
+    text: What specific medication was the resident being administered when the incident occurred?
+  q3:
+    options:
+      - Confusion
+      - Pain
+      - Refusal of medication
+      - Environmental factors
+      - No apparent trigger
+      - Other
+    text: Were there any noticeable triggers or changes in the resident's demeanour before the aggression?
+  q4:
+    options:
+    text: What steps were taken to ensure the safety of the nurse and other staff members present?
+  q5:
+    options:
+      - Medication administration was abandoned
+      - Alternative medication delivery methods were used
+      - De-escalation techniques were employed
+      - Other
+    text: How was the situation ultimately resolved after the resident threatened to punch?
+reasoning: This care note is classified as an aggression scenario due to the resident's physical action of knocking the medication cup and the verbal threat of violence towards the nurse. Both of these actions indicate a serious level of aggression.
+scenario: aggression_detected
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 85/50:
+Original: While ambulating in hallway, resident suddenly pushed another resident unprovoked. Immediately separated individuals and assessed for injuries.
+Status Code: 200
+questions: True
+questions_data:
+  q1:
+    range:
+      max: 10
+      min: 1
+    text: On a scale of 1-10, how forceful was the push?
+  q2:
+    options:
+      - Yes - what did they say?
+      - No
+      - Unsure
+    text: Did the resident verbalise anything before, during, or after pushing the other resident?
+  q3:
+    options:
+      - Yes
+      - No
+      - Unsure - further investigation needed
+    text: Were there any witnesses to the incident who could provide additional context?
+  q4:
+    options:
+      - None
+      - Minor (e.g., bruising, scratches)
+      - Moderate (e.g., sprains, lacerations)
+      - Severe (e.g., fractures, head injury)
+      - Unknown - further assessment required
+    text: What were the specific injuries sustained by both residents involved?
+  q5:
+    options:
+      - Yes
+      - No
+      - Unknown - review care plan and history
+    text: Does this resident have any history of aggressive behaviours or a documented diagnosis related to aggression?
+reasoning: This care note is classified as an aggression scenario due to the resident's unprovoked physical act of pushing another resident, which necessitates further investigation and documentation.
+scenario: aggression_detected
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 86/50:
+Original: WARFARIN 5mg tablet given. INR result: 2.5. Next check scheduled for Friday.
+Status Code: 200
+enhanced_text: Administered 1 tablet of WARFARIN 5mg as prescribed. The resident's current INR result is 2.5. The next INR check is scheduled for Friday.
+questions: False
+reasoning: This note focuses on medication administration (WARFARIN), dosage, and a related lab result (INR) with a follow-up plan, making it a medication-related care note.
+scenario: medication_related
+suggestions:
+  - Document the time and route of WARFARIN administration for completeness.
+  - Record any resident education provided regarding WARFARIN therapy, such as dietary restrictions or potential drug interactions.
+  - Consider implementing a system to ensure timely notification and follow-up action based on INR results.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 87/50:
+Original: During night shift, resident exited room and began banging on other residents' doors, becoming physically aggressive when redirected. Implemented night security protocol.
+Status Code: 200
+questions: True
+questions_data:
+  q1:
+    options:
+      - Pushing
+      - Hitting
+      - Kicking
+      - Throwing objects
+      - Other
+    text: What specific actions were involved in the resident's physical aggression?
+  q2:
+    range:
+      max: 10
+      min: 1
+    text: On a scale of 1-10, how would you rate the intensity of the resident's aggression?
+  q3:
+    options:
+      - Confusion
+      - Disorientation
+      - Pain
+      - Environmental factors
+      - No apparent trigger
+      - Other
+    text: Were there any apparent triggers or contributing factors to the resident's behaviour?
+  q4:
+    options:
+      - Verbal de-escalation
+      - Physical restraint (with physician order)
+      - Relocation to a safe space
+      - Contacting medical professional
+      - Other
+    text: What specific actions were taken as part of the 'night security protocol'?
+  q5:
+    options:
+      - Less than 5 minutes
+      - 5-15 minutes
+      - 15-30 minutes
+      - Over 30 minutes
+      - Not recorded
+    text: How long did the aggressive behaviour last?
+reasoning: This note describes aggressive behaviour exhibited by the resident, including banging on doors and becoming physically aggressive when redirected. The mention of implementing a 'night security protocol' further suggests a situation involving aggression.
+scenario: aggression_detected
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 88/50:
+Original: Resident refused evening dose of QUETIAPINE 25mg. Reason given: 'Don't want to feel groggy.'
+Status Code: 200
+enhanced_text: Resident refused the evening dose of QUETIAPINE 25mg. They stated, 'Don't want to feel groggy,' as the reason for declining the medication.
+questions: False
+reasoning: This note focuses on the resident's refusal of a specific medication (QUETIAPINE) and their stated reason, making it a medication-related care note.
+scenario: medication_related
+suggestions:
+  - Document the resident's refusal and reason in the medication administration record.
+  - Explore alternative medication options or timings with the prescribing physician to address the resident's concerns about feeling groggy.
+  - Educate the resident about the benefits and potential side effects of QUETIAPINE, addressing their specific concerns in a clear and understanding manner.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 89/50:
+Original: Resident enjoyed virtual reality session, exploring a beach scene. Appeared more relaxed afterwards.
+Status Code: 500
+Error: Failed to enhance care note
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 90/50:
+Original: During night check, found resident attempting to strangle roommate. Immediately separated residents and called for medical evaluation.
+Status Code: 500
+Error: Failed to enhance care note
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 91/50:
+Original: During meal time, resident became frustrated and pushed plate away. Offered alternative food choices and encouraged independence in feeding.
+Status Code: 500
+Error: Failed to enhance care note
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 92/50:
+Original: Resident assisted with shower, minimal help needed. Skin intact, no concerns noted.
+Status Code: 500
+Error: Failed to enhance care note
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 93/50:
+Original: Assisted with applying moisturizer to dry skin areas. Resident reported feeling more comfortable.
+Status Code: 500
+Error: Failed to enhance care note
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 94/50:
+Original: Assisted with hair combing and styling. Resident expressed satisfaction with appearance.
+Status Code: 500
+Error: Failed to enhance care note
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 95/50:
+Original: Resident violently resisted vital sign check, knocked over medical cart, and scattered supplies. Suspended routine checks and consulted with physician for alternative monitoring.
+Status Code: 500
+Error: Failed to enhance care note
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 96/50:
+Original: During morning care, resident became physically aggressive, attempting to hit caregiver. Required two staff to safely complete care.
+Status Code: 500
+Error: Failed to enhance care note
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 97/50:
+Original: In an agitated state, resident barricaded self in room and threatened harm to anyone entering. Implemented crisis protocol and contacted physician.
+Status Code: 500
+Error: Failed to enhance care note
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 98/50:
+Original: Resident exhibited loud vocalizations during quiet hours, disturbing others. Investigated for pain or discomfort, then used music therapy to soothe.
+Status Code: 500
+Error: Failed to enhance care note
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 99/50:
+Original: RISPERIDONE 0.5mg tablets. Quantity given: 1.00. Directions: Take ONE tablet twice daily. Monitored for extrapyramidal symptoms.
+Status Code: 500
+Error: Failed to enhance care note
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 100/50:
+Original: Observed resident hoarding food items in room. Gently explained concerns and worked with resident to sort through items.
+Status Code: 500
+Error: Failed to enhance care note
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Total time taken: 5790.76 seconds

@@ -1,0 +1,60 @@
+Test 1/50:
+Original: FUROSEMIDE 40mg tablets. Quantity given: 1.00. Directions: Take ONE tablet in the morning. Encouraged fluid intake.
+Status Code: 200
+aggression: False
+behavioral_concern: False
+enhanced_text: Administered 1 tablet of FUROSEMIDE 40mg as prescribed. Directions indicate one tablet to be taken each morning. Resident encouraged to maintain adequate fluid intake.
+reasoning: This note focuses on the administration of FUROSEMIDE, including dosage and instructions, making it a medication-related care note.
+scenario: medication_related
+suggestions_text: Document the resident's weight daily due to the medication's diuretic effect.
+Monitor and record urine output and frequency.
+Observe for potential side effects such as dizziness, weakness, or muscle cramps, and report any concerns to the healthcare provider.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test 2/50:
+Original: Resident displayed obsessive behavior, repeatedly folding and unfolding clothes. Redirected to sorting activity with laundry staff.
+Status Code: 200
+aggression: False
+behavioral_concern: True
+questions:
+  q1:
+    options:
+      - Less than 5 minutes
+      - 5-15 minutes
+      - 15-30 minutes
+      - More than 30 minutes
+      - Unable to determine
+    text: How long did the resident engage in the repetitive clothes folding?
+  q2:
+    range:
+      max: 5
+      min: 1
+    text: On a scale of 1-5, how would you rate the intensity of the resident's obsessive behavior?
+  q3:
+    options:
+      - Change in routine
+      - Social interaction
+      - Mealtime
+      - Medication administration
+      - None observed
+    text: Did any specific events or interactions precede the onset of the behavior?
+  q4:
+    options:
+      - Cooperative
+      - Initially resistant but then compliant
+      - Required verbal prompting to engage
+      - Refused to participate
+      - Other
+    text: How did the resident respond to redirection to the sorting activity?
+  q5:
+    options:
+      - Yes, consistently effective
+      - Sometimes effective
+      - First time attempting this intervention
+      - Not applicable
+      - Other
+    text: Was engaging in activities with laundry staff a previously successful intervention for this resident?
+reasoning: The note describes repetitive behavior and the need for redirection, indicating potential behavioral concern, although it's not classified as aggression.
+scenario: behavioral_concern
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
