@@ -1,23 +1,30 @@
 version: '3.8'
 
 services:
-  app:
-    image: ubuntu:22.04
+  flask_app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: elder-care-flask-app:1.0
     environment:
-      - DEBIAN_FRONTEND=noninteractive
       - GOOGLE_API_KEY=${GOOGLE_API_KEY}
       - QDRANT_URL=${QDRANT_URL}
       - QDRANT_API_KEY=${QDRANT_API_KEY}
       - NEO4J_URI=${NEO4J_URI}
       - NEO4J_USERNAME=${NEO4J_USERNAME}
       - NEO4J_PASSWORD=${NEO4J_PASSWORD}
-    working_dir: /App
-    build:
-      context: .
+      - FLASK_APP=${FLASK_APP}
+      - FLASK_ENV=${FLASK_ENV}
+      - FLASK_RUN_HOST=${FLASK_RUN_HOST}
+      - FLASK_CONFIG=${FLASK_CONFIG}
+      - UPLOAD_FOLDER=${UPLOAD_FOLDER}
+      - ELDERS_DATA_DIR=${ELDERS_DATA_DIR}
+      - DATABASE_PATH=${DATABASE_PATH}
     ports:
       - "8001:8001"
     volumes:
-      - .:/App
-    command: >
-      /bin/bash -c "python -u api.py || tail -f /dev/null"
-
+      - .:/app
+      - ./uploads:/app/uploads
+    command: python -u run.py
+    restart: unless-stopped
+    user: "${UID}:${GID}"
