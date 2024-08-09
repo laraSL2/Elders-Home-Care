@@ -16,7 +16,8 @@ langchain-qdrant
 rank_bm25
 streamlit
 streamlit-option-menu
-
+presidio-analyzer
+presidio-anonymizer
 
 
 
